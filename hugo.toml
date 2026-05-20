@@ -15,8 +15,8 @@ buildExpired = false
 [params]
   env = "production"
   title = "P&F AI Blog"
-  description = "Dagelijks kwalitatief nieuws over AI, Claude Code, automatisering en AI in business — voor ondernemers die voorop willen lopen."
-  keywords = ["AI", "Claude Code", "automatisering", "ChatGPT", "business AI", "Panis & Fonteyne"]
+  description = "Dagelijks technisch AI-overzicht — Claude Code, OpenAI, Gemini, Hermes, open source. Voor Pepijn & Duncan van P&F Consulting."
+  keywords = ["AI", "Claude Code", "OpenAI", "Gemini", "Hermes", "open source AI", "agentic workflows", "MCP"]
   author = "P&F Consulting"
   DateFormat = "2 January 2006"
   defaultTheme = "auto"
@@ -39,11 +39,7 @@ buildExpired = false
 
   [params.homeInfoParams]
     Title = "P&F AI Blog"
-    Content = "Elke dag een diepgaand artikel over de nieuwste ontwikkelingen in AI — voor ondernemers, consultants en iedereen die de trein niet wil missen. Door Panis & Fonteyne Consulting."
-
-  [[params.socialIcons]]
-    name = "email"
-    url = "mailto:pepijn.fonteyne@gmail.com"
+    Content = "Dagelijks technisch AI-overzicht voor Pepijn & Duncan van P&F Consulting. Claude Code, OpenAI, Gemini, Hermes, open source — wat er bewoog, hoe het werkt, hoe je het toepast."
 
 [taxonomies]
   category = "categories"
@@ -57,10 +53,15 @@ buildExpired = false
     url = "/posts/"
     weight = 10
   [[menu.main]]
+    identifier = "archief"
+    name = "Archief"
+    url = "/archief/"
+    weight = 20
+  [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
-    weight = 20
+    weight = 30
 
 [markup]
   [markup.goldmark]

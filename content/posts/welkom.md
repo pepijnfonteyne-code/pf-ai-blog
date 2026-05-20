@@ -1,40 +1,31 @@
 ---
-title: "Welkom op de P&F AI Blog"
+title: "Wat is de P&F AI Blog?"
 date: 2026-05-20
 draft: false
-tags: ["AI", "P&F Consulting", "introductie"]
-description: "Waarom we deze blog starten, wat je hier kunt verwachten, en hoe AI jou als ondernemer kan helpen om sneller en beter te werken."
+tags: ["P&F Consulting", "introductie"]
+description: "Wat je hier vindt: een dagelijks technisch AI-overzicht voor Pepijn en Duncan van P&F Consulting."
 ---
 
-## Waarom deze blog?
+Elke dag verschijnt er een overzichtsartikel van wat er bewoog in de AI-wereld. Niet één tool, niet één aankondiging — het brede beeld.
 
-AI ontwikkelt zich sneller dan ooit. Elke week verschijnen er nieuwe modellen, tools en technieken die de manier waarop we werken fundamenteel veranderen. Als ondernemer of consultant is het bijna onmogelijk om dat allemaal bij te houden — en toch is het cruciaal.
+## Wat je hier vindt
 
-Bij Panis & Fonteyne Consulting leven we in dit domein. Wij automatiseren processen voor kleine zelfstandigen en KMO's, en we merken dagelijks hoe snel AI-tools evolueren. Wat vorige maand nog complex en duur was, is vandaag eenvoudig en betaalbaar.
+Per dag een artikel met blokken per ecosysteem, als er nieuws is:
 
-Daarom starten we deze blog.
+- **Claude Code** — nieuwe features, workflow technieken, Remote Routines, MCP
+- **OpenAI / Codex** — model updates, API wijzigingen, agentic features
+- **Gemini** — wat Google AI uitbrengt en hoe het zich verhoudt
+- **Hermes** — open-source modellen, fine-tunes, community releases
+- **Open Source** — trending GitHub repos, nieuwe frameworks, tools die de moeite waard zijn
 
-## Wat je hier kunt verwachten
+## Voor wie
 
-Elke dag een diepgaand artikel over:
+Dit is een interne blog van [Panis & Fonteyne Consulting](https://panisfonteyne.be). Geschreven voor Pepijn en Duncan — twee mensen die dagelijks bouwen met Claude Code, Remote Routines, MCP en agentic workflows. AI-level 3-4, op weg naar 4.
 
-- **Nieuwe AI-modellen en updates** — wat er veranderd is en wat dat in de praktijk betekent
-- **Claude Code en agentic AI** — hoe je AI écht laat werken voor jou, niet andersom
-- **Automatisering in business** — concrete toepassingen van Make, Zapier, n8n en AI-agents voor KMO's
-- **Praktische tips en technieken** — hoe je betere output krijgt, hoe je AI stuurt, hoe je processen optimaliseert
+Geen introductie tot AI. Geen KMO-tips. Technisch, direct, toepasbaar.
 
-Geen oppervlakkige samenvattingen. Geen AI-gegenereerde fluff. Artikelen die je iets bijbrengen.
+## Hoe het werkt
 
-## Wie schrijft hier?
+Een geautomatiseerd systeem doorzoekt vier keer per dag het AI-nieuws via primaire bronnen: Anthropic blog, GitHub, Simon Willison, Hacker News, arXiv, HuggingFace. Elke ochtend om 8:00 schrijft een schrijfagent op basis van die research het dagelijkse artikel.
 
-De artikelen worden geschreven door een AI-agent die dagelijks het AI-nieuws doorzoekt, de meest relevante ontwikkelingen selecteert, en er een toegankelijk artikel over schrijft. Die agent werkt voor Pepijn Fonteyne, co-founder van Panis & Fonteyne Consulting.
-
-We zijn zelf ook een voorbeeld van wat we propageren: AI die nuttig werk doet, zodat mensen zich kunnen focussen op wat echt telt.
-
-## Welkom aan boord
-
-Als je op de hoogte wil blijven, bookmark deze pagina of abonneer je op de RSS-feed. Morgen staat het eerste artikel klaar.
-
----
-
-*P&F Consulting helpt kleine zelfstandigen en KMO's automatiseren met AI. Vragen? Stuur een mail naar pepijn.fonteyne@gmail.com.*
+Het hele systeem draait zonder handmatige interventie.
