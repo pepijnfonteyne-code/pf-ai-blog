@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-20",
-  "gegenereerd_op": "12:05 UTC",
-  "run_nummer": 4,
+  "gegenereerd_op": "18:09 UTC",
+  "run_nummer": 5,
   "bevindingen": [
     {
       "id": "claude-for-small-business-2026-05-13",
@@ -399,6 +399,66 @@
       "technical_depth": "LLM CLI tool (pip install llm) is een multi-provider command-line interface voor model evaluatie. De /v1/responses integratie maakt reasoning-chain observatie mogelijk tijdens tool calls — een developer-tool pattern voor debuggen van agent pipelines. Kleur-coded reasoning tokens in terminal output geven direct inzicht in hoe het model redeneren en tool-use interleaved.",
       "toepassing": "LLM CLI is een krachtige sidekick naast Claude Code voor snelle multi-provider prompt evaluaties vanuit terminal — test dezelfde prompts op Claude, GPT-5.5 en Gemini 3.5 Flash zonder code te schrijven. De PyCon talk biedt een gecureerde high-level view op de frontier shifts van de laatste 6 maanden, nuttig als input voor P&F AI Blog content planning.",
       "relevantie_score": 7
+    },
+    {
+      "id": "hermes-agent-foundation-release-v0140",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Hermes Agent v0.14.0 Foundation Release: 140K GitHub-stars, self-improving via GEPA (ICLR 2026 Oral)",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent",
+        "https://github.com/NousResearch/hermes-agent/blob/main/RELEASE_v0.14.0.md",
+        "https://github.com/NousResearch/hermes-agent-self-evolution"
+      ],
+      "bron_namen": [
+        "GitHub – NousResearch/hermes-agent",
+        "Hermes Agent Release Notes v0.14.0",
+        "GitHub – hermes-agent-self-evolution (DSPy + GEPA)"
+      ],
+      "datum_artikel": "2026-05-16",
+      "samenvatting": "NousResearch lanceert Hermes Agent v0.14.0 ('Foundation Release') met 808 commits, 633 merged PRs en 1393 gewijzigde bestanden — het meest-gebruikte open-source AI-agent op OpenRouter met 140K GitHub-stars in minder dan drie maanden. Het systeem verbetert zichzelf via GEPA (evolutionaire optimalisatie die faalredenen analyseert uit execution traces), gepresenteerd als ICLR 2026 Oral paper. Nieuw in v0.14.0: OpenAI-compatible lokale proxy en X-search als first-class tool.",
+      "technical_depth": "GEPA (Generative Evolutionary Prompt Adaptation): leest execution traces om te begrijpen WAAROM iets mislukt (niet alleen DAT het mislukt), en stelt gerichte verbeteringen voor aan skills, prompts en code via DSPy. Architectuur: multi-platform agent met ThreadPoolExecutor (max 8 parallelle workers), context-compressie met session-lineage, SQLite-persistentie voor memory/skills/history over restarts. Autonomous Curator background-proces beoordeelt, prunt en consolideert de skill-library autonoom. OpenAI-compatible proxy maakt elke OAuth-auth Hermes-provider bereikbaar als standaard API-endpoint.",
+      "toepassing": "Hermes Agent is direct inzetbaar als vendor-onafhankelijk alternatief voor claude agents in scenarios waarbij provider-diversificatie gewenst is. De GEPA-aanpak voor self-improvement biedt een concrete blauwdruk voor eigen agent-optimalisatieloops: Pepijn en Duncan kunnen execution traces van Orion-runs analyseren en skills automatisch laten verbeteren. De OpenAI-compatible proxy maakt hybride Claude+Hermes multi-model pipelines triviaal te implementeren.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "qwen36-27b-dense-swebench-77pct",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Qwen3.6-27B: dense 27B model overtreft 397B MoE op SWE-bench (77,2%) — Apache 2.0",
+      "bron_urls": [
+        "https://qwen.ai/blog?id=qwen3.6-27b",
+        "https://huggingface.co/Qwen/Qwen3.6-27B",
+        "https://www.marktechpost.com/2026/04/22/alibaba-qwen-team-releases-qwen3-6-27b-a-dense-open-weight-model-outperforming-397b-moe-on-agentic-coding-benchmarks/"
+      ],
+      "bron_namen": [
+        "Qwen Blog (officieel)",
+        "Hugging Face – Qwen/Qwen3.6-27B",
+        "MarkTechPost"
+      ],
+      "datum_artikel": "2026-04-22",
+      "samenvatting": "Alibaba Qwen team releaseert Qwen3.6-27B onder Apache 2.0: een dense 27B-parameter model dat zijn voorganger Qwen3.5-397B-A17B (sparse MoE, 17B actief) verslaat op alle coding-benchmarks. SWE-bench Verified: 77,2% vs 76,2%, SWE-bench Pro: 53,5% vs 50,9%. Dit is een ander model dan de eerder getrackte Qwen3.6-35B-A3B MoE — de 27B dense versie is efficiënter voor deployment op één GPU.",
+      "technical_depth": "Hybrid Gated DeltaNet + Gated Attention: 3 van 4 sublayers gebruiken lineaire attention (O(n) complexiteit), slechts 1 op 4 is standaard quadratic attention. Multi-Token Prediction (MTP) ingebakken voor speculative decoding bij serving. Native 262K context, uitbreidbaar tot ~1M via YaRN. Nieuw: 'Thinking Preservation' — bewaart redeneertraces over conversatiegeschiedenis zodat de KV-cache efficiënter hergebruikt wordt in multi-turn agents zonder redundante token-generatie.",
+      "toepassing": "Past op één A100-80GB GPU (of 2× 40GB) en overtreft MoE-modellen met 10× meer parameters. Geschikt als lokale coding-agent backbone in MCP-stacks zonder cloud-afhankelijkheid. Thinking Preservation is direct toepasbaar in multi-turn Orion-sessies om token-verbruik te reduceren. Apache 2.0 maakt commercieel gebruik en fine-tuning onbeperkt mogelijk.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-6months-llms-5min-20260519",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: 'The last six months in LLMs in five minutes' — meta-analyse 19 mei 2026",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/19/5-minute-llms/",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/",
+        "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog – 5-minute LLMs (19 mei)",
+        "Simon Willison – Live blog Code w/ Claude 2026 (6 mei)",
+        "Simon Willison – Vibe coding and agentic engineering (6 mei)"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Simon Willison publiceert op 19 mei 2026 een beknopte meta-analyse van zes maanden LLM-ontwikkelingen, aangevuld met inzichten van het Code w/ Claude 2026-event (6 mei). Kernbevindingen: teams die het meeste uit Claude halen focussen op automated evals, eenvoudige scaffolding en imaginatief gebruik. Anthropic API-volume is 17× gestegen year-on-year. De grens tussen 'vibe coding' en agentic engineering vervaagt, wat nieuwe risico's introduceert voor autonome agents.",
+      "technical_depth": "Willison signaleert de convergentie van vibe coding en agentic engineering: tools als Claude Code bewegen naar volledige autonomie terwijl de onderliggende kwaliteitswaarborgen (evals, observability) achterblijven. Op Code w/ Claude 2026 werd benadrukt dat Opus 4.7 'a real taste for visual design' heeft, context windows 'oneindig aanvoelen' in combinatie met hoogwaardige memory, en dat Anthropic rate limits voor Pro/Max/Enterprise heeft verdubbeld. SpaceX/Colossus-partnerschap voor GPU-capaciteit.",
+      "toepassing": "De focus op 'automated evals + simpele scaffolding' is direct actionable voor Pepijn en Duncan: concrete evals inrichten per Orion-workflow in plaats van volledig op handmatige review te leunen. De 17×-volumegroei maakt prompt caching en batching steeds kritischer als cost-control. Willison's waarschuwing over vibe coding vs. agentic engineering is relevant voor Orion-sessies met hoge autonomie — investeer in observability-tools voor agent-traces.",
+      "relevantie_score": 8
     }
   ]
 }
