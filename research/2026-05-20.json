@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-20",
-  "gegenereerd_op": "08:00 UTC",
-  "run_nummer": 1,
+  "gegenereerd_op": "11:45 UTC",
+  "run_nummer": 2,
   "bevindingen": [
     {
       "id": "claude-for-small-business-2026-05-13",
@@ -68,6 +68,114 @@
       "samenvatting": "Een nieuwe 'Claude Code for Beginners Tutorial [Full Course]' werd vorige week gepubliceerd op YouTube en richt zich op het integreren van Claude Code in de dagelijkse development-workflow voor niet-technische gebruikers. De video verscheen naast een golf van vergelijkbare tutorials in mei 2026, wat wijst op sterke vraag naar toegankelijke AI-coding content. Nate Herk's AI Automation Society (305.600+ gratis leden) groeit parallel als community rond n8n en no-code AI.",
       "business_impact": "Ondernemers zonder programmeerervaring kunnen via gratis video's en communities zoals die van Nate Herk stap voor stap leren hoe ze Claude Code en n8n inzetten om processen te automatiseren en kosten te besparen.",
       "relevantie_score": 7
+    },
+    {
+      "id": "claude-managed-agents-dreaming-multiagent-orchestration",
+      "categorie": "Anthropic/Claude",
+      "titel": "Claude Managed Agents: 'Dreaming' Memory-uitbreiding en Multiagent Orchestratie (Code with Claude 2026)",
+      "bron_urls": [
+        "https://9to5mac.com/2026/05/07/anthropic-updates-claude-managed-agents-with-three-new-features/",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/"
+      ],
+      "bron_namen": [
+        "9to5Mac",
+        "Simon Willison - Code w/ Claude 2026 Live Blog"
+      ],
+      "datum_artikel": "2026-05-07",
+      "samenvatting": "Aangekondigd op 6-7 mei 2026 op het 'Code with Claude'-congres: 'Dreaming' is een research preview waarbij Claude's Managed Agents na sessies automatisch terugkijken op vorige sessies om patronen te identificeren en zichzelf te verbeteren—een primitieve vorm van experiential memory. Multiagent Orchestratie laat een lead agent taken opsplitsen en delegeren aan specialist-agents met eigen model, prompt en tools die parallel werken op een gedeeld filesystem.",
+      "technical_depth": "Architecturaal maakt 'Dreaming' een lus mogelijk van uitvoering → reflectie → aanpassing die bij traditionele AI-systemen handmatig werd geprogrammeerd. De multiagent orchestratie gebruikt een gedeeld filesystem als coördinatiemechanisme—specialists lezen/schrijven bestanden als communicatiekanaal, wat een losjes gekoppeld parallellisme mogelijk maakt zonder directe agent-to-agent messaging. Dit is het fundament voor level-4 autonomie.",
+      "toepassing": "Activeer Dreaming voor lange Orion-projecten zodat agents leren van eerdere sessie-fouten. Gebruik multiagent orchestratie voor codebases waarbij frontend, backend en tests parallel kunnen worden aangepakt door gespecialiseerde agents op een gedeeld git-worktree.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "anthropic-mcp-tunnels-self-hosted-sandboxes",
+      "categorie": "Anthropic/Claude",
+      "titel": "Anthropic lanceert MCP Tunnels en Self-Hosted Sandboxes voor Claude Managed Agents",
+      "bron_urls": [
+        "https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/",
+        "https://9to5mac.com/2026/05/19/anthropic-enhances-claude-managed-agents-with-two-new-privacy-and-security-features/"
+      ],
+      "bron_namen": [
+        "The New Stack",
+        "9to5Mac"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Aangekondigd op het 'Code with Claude'-congres in Londen (19 mei 2026): MCP Tunnels (research preview) laten Managed Agents en de Messages API verbinding maken met private MCP-servers zonder inbound firewallregels—een lichtgewicht gateway maakt een uitgaande versleutelde verbinding naar Anthropic-infrastructuur. Self-Hosted Sandboxes (public beta) laten tool-uitvoering plaatsvinden op klant-gecontroleerde infrastructuur (Cloudflare, Daytona, Modal, Vercel) terwijl Anthropic orchestratie en recovery beheert.",
+      "technical_depth": "MCP Tunnels implementeren een split-plane architectuur: Anthropic beheert de control plane (orchestratie, context, recovery), de klant beheert de data plane (uitvoering). Interne databases, private APIs en ticketingsystemen worden MCP-tools zonder ze publiek te exposeren. Self-hosted sandboxes lossen het enterprise-dilemma op waarbij organisaties agents willen gebruiken maar executie-omgevingen hun security perimeter niet mogen verlaten.",
+      "toepassing": "Kritisch voor enterprise Claude-deployments: verbind agents met interne systemen via MCP Tunnel zonder VPN-aanpassingen of publieke exposure. Self-hosted sandboxes op Modal of Cloudflare Workers voor geïsoleerde code-uitvoering met eigen securitypolicy. Opent de weg naar productie-grade agentic systemen op private data.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "agent-skills-addy-osmani-v060",
+      "categorie": "Open Source AI & Developer Tools",
+      "titel": "agent-skills v0.6.0: 23 Production-Grade Engineering Skills voor AI Coding Agents (Addy Osmani / Google)",
+      "bron_urls": [
+        "https://github.com/addyosmani/agent-skills",
+        "https://addyosmani.com/blog/agent-skills/"
+      ],
+      "bron_namen": [
+        "GitHub - addyosmani/agent-skills",
+        "AddyOsmani.com"
+      ],
+      "datum_artikel": "2026-04-28",
+      "samenvatting": "Addy Osmani (Google) heeft v0.6.0 uitgebracht van agent-skills, een collectie van 23 gestructureerde Markdown-workflows voor AI coding agents (Claude Code, GitHub Copilot), gebaseerd op Google's Software Engineering practices. De skills dekken de volledige development lifecycle (spec → plan → build → verify → review → ship) en waren #1 trending op GitHub de week van 13 mei 2026. Zeven slash-commands activeren automatisch de juiste skill.",
+      "technical_depth": "Skills zijn plain Markdown—compatibel met elk systeem dat systeemprompts of instructiebestanden accepteert. De architecturale kern: in plaats van generieke instructies krijgt de agent een gestructureerde workflow die kwaliteitscontroles afdwingt. Bevat patterns zoals 'spec-driven-development', 'doubt-driven-development' (agent stelt actief clarifying questions) en 'source-driven-development' (werkt vanuit broncode, niet aannames). Oplossing voor het fundamentele probleem dat agents de kortste weg kiezen.",
+      "toepassing": "Installeer via de Claude Code marketplace. Gebruik /spec voor spec-first development, /review voor gestructureerde code reviews met security-checks, /ship voor geautomatiseerde CI/CD-workflows. Integreer als kwaliteitslaag in Claude Code CLAUDE.md voor alle projecten—verhoogt consistentie en vermindert review-iteraties.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "unreasonable-effectiveness-html-claude-code",
+      "categorie": "AI Builders & Technische Community",
+      "titel": "The Unreasonable Effectiveness of HTML: Simon Willison over HTML als standaard Claude Code outputformaat",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/",
+        "https://news.ycombinator.com/item?id=48071940"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog",
+        "Hacker News"
+      ],
+      "datum_artikel": "2026-05-08",
+      "samenvatting": "Thariq Shihipar (Claude Code team, Anthropic) bepleit HTML als standaard outputformaat boven Markdown. Simon Willison heeft dit omarmd: HTML laat Claude interactieve artifacts genereren—kleurgecodeerde diffs, tabs voor flows, inline SVG-diagrammen, severity-annotaties—direct renderbaar in browser zonder conversie. Het Hacker News-thread toont brede adoptie en concrete use-cases van de community.",
+      "technical_depth": "Markdown was token-efficiënter bij GPT-4's kleine context windows, maar dat voordeel is verdwenen met moderne 1M-context modellen. HTML als output-instructie ontgrendelt Claudes volledige structurele en presentatiecapaciteiten. Technisch: HTML is ook beter voor downstream parsing (structurele DOM vs. ambigue Markdown syntax), interactiviteit zonder JavaScript-build-tools, en embedded data visualisaties in SVG.",
+      "toepassing": "Voeg toe aan Claude Code CLAUDE.md systeemprompts: 'Genereer rapporten en analyses als HTML artifacts.' Gebruik specifiek voor code reviews (`'HTML artifact met diff, inline margin notes, severity-kleurcodering'`), architectuurdiagrammen (inline SVG) en projectstatussen. Hogere informatiedichtheid en directe browser-rendering zonder extra tooling.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "openapi-agent-ready-mcp-detection",
+      "categorie": "AI Research & Architectuur",
+      "titel": "Making OpenAPI Documentation Agent-Ready: Detecting REST Smells with a Multi-Agent LLM System (arXiv 2605.14312)",
+      "bron_urls": [
+        "https://arxiv.org/abs/2605.14312",
+        "https://arxiv.org/html/2605.14312"
+      ],
+      "bron_namen": [
+        "arXiv",
+        "arXiv HTML"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Paper dat een cruciaal MCP-adoptieprobeem adresseert: bestaande REST APIs bevatten 'documentation smells' (inconsistente endpoints, ontbrekende schema's, ambigue beschrijvingen) die automatische omzetting naar MCP-tools blokkeren of unreliable maken. De auteurs bouwen een multi-agent LLM-systeem dat OpenAPI specs analyseert, REST smells detecteert, en concrete verbeteringsadviezen genereert—een 'agent-readiness audit' voor REST APIs.",
+      "technical_depth": "Architectuur: gespecialiseerde agents (schema-inspector, semantics-checker, dependency-resolver) werken parallel op dezelfde OpenAPI YAML/JSON. Het systeem gebruikt LLM-reasoning om subtiele inconsistenties te detecteren die regex-tools missen (bijv. beschrijvingen die de semantiek niet dekken, foutieve response-schema's). Sluit direct aan bij MCP's bottleneck: documentatiekwaliteit bepaalt betrouwbaarheid van tool-calls door agents.",
+      "toepassing": "Gebruik als pre-flight check voor elke REST API die je als MCP-tool wilt exposeren. Run het systeem op interne API specs voor Orion of andere agents—identificeert welke endpoints te ambigu zijn voor reliable tool-calling. Essentieel bij het bouwen van een eigen MCP-server op bestaande legacy APIs.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "architecture-matters-multi-agent-security",
+      "categorie": "AI Research & Architectuur",
+      "titel": "Architecture Matters for Multi-Agent Security: Empirische studie van 13 MAS-configuraties (arXiv 2604.23459)",
+      "bron_urls": [
+        "https://arxiv.org/abs/2604.23459",
+        "https://arxiv.org/html/2604.23459v1"
+      ],
+      "bron_namen": [
+        "arXiv",
+        "arXiv HTML"
+      ],
+      "datum_artikel": "2026-04-25",
+      "samenvatting": "Empirische studie van 13 architectuurconfiguraties over 3 agentic omgevingen (browser, desktop, code) die aantoont dat multi-agent architecturen kwetsbaarder zijn dan standalone agents in de meerderheid van configuraties. De onderzoekers kwantificeren hoe drie ontwerpkeuzes—agent roles, communicatietopologie, en memory—het aanvalsoppervlak bepalen, ook als individuele agents robuust zijn.",
+      "technical_depth": "Centrale bevinding: architecturale beslissingen creëren aanvalsoppervlakten onafhankelijk van de robuustheid van individuele agents. Communicatietopologie (fully-connected vs. hiërarchisch vs. lineair) bepaalt de propagatiesnelheid van prompt-injection attacks—fully-connected architecturen zijn kwetsbaarder door transitieve aanvalspaden. Memory-sharing vergroot het aanvalsoppervlak significant. Hiërarchische topologieën (orchestrator + specialisten) beperken lateral movement het meest effectief.",
+      "toepassing": "Directe implicaties voor Orion-architectuur: gebruik hiërarchische topologie (orchestrator + specialist-agents) i.p.v. fully-connected voor prompt-injection-resistentie. Isoleer memory per agent-rol. Ontwerp expliciete 'security boundaries' tussen orchestratielaag en uitvoerende agents. Het paper biedt kwantitatieve benchmarks om architectuurkeuzes te onderbouwen.",
+      "relevantie_score": 8
     }
   ]
 }
