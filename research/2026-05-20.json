@@ -1,0 +1,73 @@
+{
+  "datum": "2026-05-20",
+  "gegenereerd_op": "08:00 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-for-small-business-2026-05-13",
+      "categorie": "Anthropic/Claude",
+      "titel": "Anthropic lanceert Claude for Small Business met 15 kant-en-klare agentic workflows",
+      "bron_url": "https://techcrunch.com/2026/05/13/anthropic-courts-a-new-kind-of-customer-small-business-owners/",
+      "bron_naam": "TechCrunch",
+      "datum_artikel": "2026-05-13",
+      "samenvatting": "Anthropic introduceerde op 13 mei 2026 'Claude for Small Business', een pakket van 15 kant-en-klare agentic workflows en 15 herbruikbare skills voor taken zoals salarisplanning, factuuromschrijving en lead triage. De suite integreert met QuickBooks, HubSpot, Canva, PayPal en Docusign via Claude Cowork. Anthropic plant een tournee langs 10 steden met gratis AI-workshops voor 100 lokale ondernemers per stad.",
+      "business_impact": "KMO-ondernemers kunnen directe AI-automatisering activeren voor hun financiën, marketing en klantenbeheer zonder technische kennis — volledig geïntegreerd in tools die ze al gebruiken zoals QuickBooks en HubSpot.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-week20-agent-view-2026-05-15",
+      "categorie": "Anthropic/Claude",
+      "titel": "Claude Code Week 20: Agent View en /goal-commando maken parallel multi-session beheer mogelijk",
+      "bron_url": "https://code.claude.com/docs/en/whats-new",
+      "bron_naam": "Claude Code Docs (officieel)",
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "In week 20 (11–15 mei 2026) lanceerde Claude Code de 'Agent View': één overzichtsscherm voor alle actieve Claude Code-sessies, inclusief wat loopt, geblokkeerd is en voltooid is. Het /goal-commando laat Claude autonoom doorwerken tot een einddoel bereikt is zonder verdere interventie. Fast mode draait nu standaard op Opus 4.7, en de Rewind-functie comprimeert eerder context via 'Summarize up to here'.",
+      "business_impact": "Developers en technische ondernemers kunnen meerdere AI-codeertaken parallel beheren vanuit één scherm — dit verhoogt de productiviteit aanzienlijk bij teams die Claude Code inzetten voor softwareontwikkeling.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "gpt-55-instant-chatgpt-default-2026-05-05",
+      "categorie": "OpenAI & Codex",
+      "titel": "GPT-5.5 Instant wordt nieuw standaardmodel in ChatGPT met meer dan 50% minder hallucinaties",
+      "bron_url": "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",
+      "bron_naam": "TechCrunch",
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI rolde op 5 mei 2026 GPT-5.5 Instant uit als het nieuwe standaardmodel voor alle ChatGPT-gebruikers. Het model reduceert gehallucineerde claims met meer dan 50% in risicovolle scenario's en verbetert personalisatie op basis van eerdere chats, geüploade bestanden en gekoppelde services zoals Gmail. GPT-5.5 en GPT-5.5 Pro zijn beschikbaar via de API vanaf 24 april 2026.",
+      "business_impact": "Ondernemers die ChatGPT dagelijks gebruiken voor klantenservice, offertes of contentcreatie krijgen betrouwbaardere antwoorden — minder nakijken, minder fouten, meer tijdsbesparing.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-codex-mobile-windows-sandbox-2026-05",
+      "categorie": "OpenAI & Codex",
+      "titel": "OpenAI voegt Codex toe aan ChatGPT mobiele app en lanceert beveiligde Windows-sandbox",
+      "bron_url": "https://openai.com/index/introducing-the-codex-app/",
+      "bron_naam": "OpenAI",
+      "datum_artikel": "2026-05-08",
+      "samenvatting": "OpenAI voegde Codex toe aan de ChatGPT mobiele app in preview: gebruikers kunnen nu taken reviewen, commands goedkeuren en actieve codeersessies sturen via smartphone. Tegelijkertijd lanceerde OpenAI een Codex-sandbox voor Windows met firewallbeveiliging, HIPAA-ondersteuning en remote SSH voor enterprise teams. Dell Technologies partner om Codex ook on-premises te draaien.",
+      "business_impact": "Technische KMO-teams kunnen AI-gestuurde codeertaken goedkeuren en monitoren onderweg via mobiel, wat vertraging bij software-ontwikkelprojecten vermindert en enterprise compliance mogelijk maakt.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "pwc-claude-enterprise-anthropic-gates-2026-05-14",
+      "categorie": "AI in business",
+      "titel": "PwC zet Claude in voor enterprise transformatie; Anthropic sluit $200M-partnerschap met Gates Foundation",
+      "bron_url": "https://www.anthropic.com/news/gates-foundation-partnership",
+      "bron_naam": "Anthropic News",
+      "datum_artikel": "2026-05-14",
+      "samenvatting": "PwC kondigde op 14 mei 2026 aan Claude in te zetten om technologie te bouwen, deals te analyseren en enterprise-functies te herinrichten voor klanten. Op dezelfde datum sloot Anthropic een partnerschap van $200 miljoen met de Gates Foundation voor inzet van Claude in gezondheidszorg, onderwijs en economische mobiliteit over vier jaar. Anthropic rapporteerde ook 80-voudige omzetgroei in Q1 2026 (CNBC, 6 mei).",
+      "business_impact": "Wanneer Big4-bedrijven als PwC en mondiale fondsen Claude omarmen, betekent dit dat ook KMO's via hun accountants, adviseurs en software-leveranciers snel met Claude-gestuurde tools in contact zullen komen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "claude-code-beginners-tutorial-youtube-2026-05",
+      "categorie": "AI creators",
+      "titel": "Nieuwe full-course Claude Code tutorial voor beginners op YouTube bereikt brede niet-technische doelgroep",
+      "bron_url": "https://www.youtube.com/watch?v=gh2_PhgZGsM",
+      "bron_naam": "YouTube",
+      "datum_artikel": "2026-05-13",
+      "samenvatting": "Een nieuwe 'Claude Code for Beginners Tutorial [Full Course]' werd vorige week gepubliceerd op YouTube en richt zich op het integreren van Claude Code in de dagelijkse development-workflow voor niet-technische gebruikers. De video verscheen naast een golf van vergelijkbare tutorials in mei 2026, wat wijst op sterke vraag naar toegankelijke AI-coding content. Nate Herk's AI Automation Society (305.600+ gratis leden) groeit parallel als community rond n8n en no-code AI.",
+      "business_impact": "Ondernemers zonder programmeerervaring kunnen via gratis video's en communities zoals die van Nate Herk stap voor stap leren hoe ze Claude Code en n8n inzetten om processen te automatiseren en kosten te besparen.",
+      "relevantie_score": 7
+    }
+  ]
+}
