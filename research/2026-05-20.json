@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-20",
-  "gegenereerd_op": "11:54 UTC",
-  "run_nummer": 3,
+  "gegenereerd_op": "12:05 UTC",
+  "run_nummer": 4,
   "bevindingen": [
     {
       "id": "claude-for-small-business-2026-05-13",
@@ -318,6 +318,86 @@
       "samenvatting": "Simon Willison startte een levend gidsdocument 'Agentic Engineering Patterns' met praktische coding-patronen voor het werken met coding agents zoals Claude Code en OpenAI Codex. De gids beschrijft hoe agents werken (LLM + tools in een loop), onconventionele productiviteitstips (bijv. agents 's avonds laten doorwerken), en hoe test-first development agents beknopter en betrouwbaarder maakt.",
       "technical_depth": "Architecturele definitie: agents = LLM + toolset in een loop die autonoom tools aanroept en resultaten terugkoppelt. Patroon: agents de laatste 30 minuten van de werkdag starten om 's nachts voortgang te boeken. Test-first development reduceert agent-hallucinations door duidelijke succescriteria te geven.",
       "toepassing": "Directe workflow-inspiratie voor Pepijn en Duncan: de 'einddag agent kickoff' tactiek past goed bij zware agentic Claude Code-sessies. De patronen rond test-first en tool-loop-architectuur helpen bij het ontwerpen van robuustere agentic workflows in Claude Code en Orion.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "google-io-2026-gemini-omni-35-flash-agentic",
+      "ecosysteem": "Gemini",
+      "titel": "Google I/O 2026 (19 mei): Gemini Omni voor video + Gemini 3.5 Flash als nieuwe agentic coding default",
+      "bron_urls": [
+        "https://cybernews.com/ai-news/google-io-2026-gemini-omni-antigravity-agentic-ai/",
+        "https://www.techtimes.com/articles/316859/20260519/google-launches-gemini-omni-video-model-holds-back-its-riskiest-feature.htm",
+        "https://mwm.ai/articles/google-updates-gemini-with-neural-expressive-design-and-3-5-flash-model-in-may-2026"
+      ],
+      "bron_namen": [
+        "Cybernews – Google I/O 2026 Gemini Omni & Antigravity",
+        "TechTimes – Gemini Omni Video Model launch",
+        "MWM – Google Updates Gemini 3.5 Flash May 2026"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Op Google I/O 2026 (19 mei) introduceerde Google Gemini Omni, een multimodaal model dat video genereert en bewerkt vanuit vrijwel elke input, uitgerold via Gemini app en de Flow creative tool. Gemini 3.5 Flash wordt de nieuwe default voor de Gemini-ervaring en AI Mode, geoptimaliseerd voor agentic coding en long-horizon tasks. Gemini 3 Deep Think kreeg een upgrade voor wetenschappelijk redeneren.",
+      "technical_depth": "Gemini Omni combineert reasoning met generatieve media-modellen voor video understanding en editing in één model call — beschikbaar gratis voor YouTube Shorts en Create App gebruikers. Gemini 3.5 Flash richt zich op snelle agentic execution met verbeterde long-context reasoning en real-world workflows. Google introduceerde ook 'Antigravity' als agentic AI platform op I/O.",
+      "toepassing": "Gemini 3.5 Flash via API is een relevant en goedkoper alternatief voor Google-gebaseerde MCP integraties (Google Drive, Calendar, Gmail). Vergelijk met Claude Sonnet voor cost/capability tradeoffs in agentic MCP pipelines. Antigravity als agentic platform is het te volgen equivalent van Claude Code vanuit Google's ecosysteem.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "qwen36-35b-a3b-moe-apache-agentic-coding",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Qwen3.6-35B-A3B MoE uitgebracht: frontier agentic coding open-weight model onder Apache 2.0",
+      "bron_urls": [
+        "https://qwen.ai/blog?id=qwen3.6-35b-a3b",
+        "https://huggingface.co/Qwen/Qwen3.6-27B",
+        "https://aimlapi.com/blog/qwen-3-6-series-alibabas-open-source-llm-revolution-in-2026"
+      ],
+      "bron_namen": [
+        "Qwen Blog – Qwen3.6-35B-A3B release",
+        "HuggingFace – Qwen/Qwen3.6-27B",
+        "AI/ML API Blog – Qwen 3.6 Series Alibaba 2026"
+      ],
+      "datum_artikel": "2026-05-01",
+      "samenvatting": "Alibaba's Qwen team bracht Qwen3.6-35B-A3B uit, een Mixture-of-Experts model met 35B totale parameters maar slechts 3B actief per token, onder Apache 2.0 licentie vrij voor commercieel gebruik. Het model scoort 77.2% op SWE-bench Verified en is gepositioneerd als open alternatief voor agentic coding en tool-use scenarios.",
+      "technical_depth": "35B/3B MoE architectuur levert frontier-class performance bij gemiddeld 3B inference cost — efficiënt deployable op moderne consumer GPU's. Apache 2.0 staat fine-tuning en commercieel gebruik toe zonder restricties. Qwen3.6 ondersteunt multimodaliteit (tekst, code, vision) en is beschikbaar via Ollama en HuggingFace voor lokale deployment.",
+      "toepassing": "Lokaal deployen via Ollama als privacy-veilige MCP backend voor gevoelige Orion use-cases. Apache 2.0 laat domein-specifieke fine-tuning op eigen codebase toe. Gebruik als goedkoop alternatief voor Claude Sonnet bij routinetaken in agentic pipelines. SWE-bench 77.2% biedt concrete benchmark voor cost-effectiveness vergelijking.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "mcp-sdk-may19-updates-aaif-tasks-primitive",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP TypeScript + Rust SDK updates op 19 mei en Tasks primitive voor enterprise agent lifecycle",
+      "bron_urls": [
+        "https://github.com/modelcontextprotocol/typescript-sdk",
+        "https://github.com/modelcontextprotocol/rust-sdk",
+        "https://modelcontextprotocol.io/development/roadmap",
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/"
+      ],
+      "bron_namen": [
+        "GitHub – MCP TypeScript SDK (updated 19 mei)",
+        "GitHub – MCP Rust SDK (updated 19 mei)",
+        "Model Context Protocol – Official Roadmap",
+        "MCP Blog – 2026 Roadmap"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Op 19 mei 2026 werden de officiële MCP TypeScript SDK en Rust SDK bijgewerkt. De 2026 MCP roadmap prioriteert enterprise readiness (audit trails, SSO auth, gateway behavior), het Tasks primitive voor agent lifecycle management, en governance via de Agentic AI Foundation (AAIF) onder de Linux Foundation met 9.400+ registry entries.",
+      "technical_depth": "Tasks primitive is experimenteel: lifecycle semantics omvatten retry-logica bij transient failures en expiry policies voor resultaten na completion. AAIF (Anthropic + OpenAI + Block) beheert MCP als vendor-neutrale standaard vergelijkbaar met Kubernetes governance. MCP Apps spec (jan 2026) laat tools interactive UI widgets retourneren als tool response. Enterprise-focus omvat SSO-geïntegreerde auth en configuratie-portabiliteit.",
+      "toepassing": "Gebruik de TypeScript SDK update direct voor eigen MCP server implementaties. Tasks primitive is cruciaal voor betrouwbare long-running agent workflows: implementeer retry-semantics en expiry policies voor Orion-processen die meerdere minuten draaien. AAIF-governance betekent MCP-servers die je nu bouwt werken ook op toekomstige OpenAI en andere clients.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "simonwillison-llm-032a2-responses-endpoint-pycon",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: LLM 0.32a2 integreert OpenAI /v1/responses voor interleaved reasoning + PyCon '6 maanden LLMs' talk",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/12/llm/",
+        "https://simonwillison.net/2026/May/19/5-minute-llms/"
+      ],
+      "bron_namen": [
+        "Simon Willison – LLM 0.32a2 release (12 mei)",
+        "Simon Willison – The last six months in LLMs in five minutes (19 mei, PyCon US 2026)"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Simon Willison bracht op 12 mei LLM 0.32a2 uit waarbij reasoning-capable OpenAI modellen nu de /v1/responses endpoint gebruiken voor interleaved reasoning across tool calls bij GPT-5 klasse modellen, met reasoning tokens in andere kleur zichtbaar in terminal. Op 19 mei publiceerde hij zijn PyCon US 2026 lightning talk die de laatste 6 maanden LLM-ontwikkelingen samenvat.",
+      "technical_depth": "LLM CLI tool (pip install llm) is een multi-provider command-line interface voor model evaluatie. De /v1/responses integratie maakt reasoning-chain observatie mogelijk tijdens tool calls — een developer-tool pattern voor debuggen van agent pipelines. Kleur-coded reasoning tokens in terminal output geven direct inzicht in hoe het model redeneren en tool-use interleaved.",
+      "toepassing": "LLM CLI is een krachtige sidekick naast Claude Code voor snelle multi-provider prompt evaluaties vanuit terminal — test dezelfde prompts op Claude, GPT-5.5 en Gemini 3.5 Flash zonder code te schrijven. De PyCon talk biedt een gecureerde high-level view op de frontier shifts van de laatste 6 maanden, nuttig als input voor P&F AI Blog content planning.",
       "relevantie_score": 7
     }
   ]
