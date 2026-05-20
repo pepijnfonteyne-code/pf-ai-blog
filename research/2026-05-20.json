@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-20",
-  "gegenereerd_op": "11:45 UTC",
-  "run_nummer": 2,
+  "gegenereerd_op": "11:54 UTC",
+  "run_nummer": 3,
   "bevindingen": [
     {
       "id": "claude-for-small-business-2026-05-13",
@@ -176,6 +176,149 @@
       "technical_depth": "Centrale bevinding: architecturale beslissingen creëren aanvalsoppervlakten onafhankelijk van de robuustheid van individuele agents. Communicatietopologie (fully-connected vs. hiërarchisch vs. lineair) bepaalt de propagatiesnelheid van prompt-injection attacks—fully-connected architecturen zijn kwetsbaarder door transitieve aanvalspaden. Memory-sharing vergroot het aanvalsoppervlak significant. Hiërarchische topologieën (orchestrator + specialisten) beperken lateral movement het meest effectief.",
       "toepassing": "Directe implicaties voor Orion-architectuur: gebruik hiërarchische topologie (orchestrator + specialist-agents) i.p.v. fully-connected voor prompt-injection-resistentie. Isoleer memory per agent-rol. Ontwerp expliciete 'security boundaries' tussen orchestratielaag en uitvoerende agents. Het paper biedt kwantitatieve benchmarks om architectuurkeuzes te onderbouwen.",
       "relevantie_score": 8
+    },
+    {
+      "id": "anthropic-mcp-tunnels-self-hosted-sandboxes-20260519",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic lanceert MCP Tunnels en Self-Hosted Sandboxes voor Managed Agents",
+      "bron_urls": [
+        "https://9to5mac.com/2026/05/19/anthropic-enhances-claude-managed-agents-with-two-new-privacy-and-security-features/",
+        "https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/"
+      ],
+      "bron_namen": [
+        "9to5Mac",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Anthropic kondigde op 19 mei 2026 (Code with Claude London) MCP Tunnels en Self-Hosted Sandboxes aan voor Claude Managed Agents. MCP Tunnels stelt agents in staat om via één uitgaande verbinding privé-netwerken te bereiken — geen inbound firewall-regels, end-to-end encrypted — zodat interne databases, private APIs en ticketing systems als MCP-tools beschikbaar zijn. Self-Hosted Sandboxes zijn een alternatief voor Anthropic's eigen executie-infrastructuur.",
+      "technical_depth": "Een lichtgewicht gateway maakt één outbound connectie; geen publieke endpoints nodig. Werkt met zowel Claude Managed Agents als de Messages API direct. MCP Tunnels zit in 'research preview' (opt-in via toegangsverzoek); Self-Hosted Sandboxes in public beta.",
+      "toepassing": "Direct toepasbaar voor Pepijn en Duncan: eigen MCP-servers achter een private netwerk (bijv. interne kennisbanken, Orion-databases, private ticketsystemen) zonder publieke exposure. Ideaal voor enterprise agentic workflows waarbij data de eigen infrastructuur niet mag verlaten.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-plugin-marketplace-radio-20260508",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Plugin Marketplace: /radio, dependency enforcement en background sessions",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/changelog",
+        "https://pasqualepillitteri.it/en/news/2223/claude-code-may-2026-release-notes-radio-plugin-marketplace"
+      ],
+      "bron_namen": [
+        "Claude Code Docs Changelog",
+        "Pasquale Pillitteri Blog"
+      ],
+      "datum_artikel": "2026-05-08",
+      "samenvatting": "Claude Code introduceerde een volwassen plugin-systeem: plugins kunnen slash commands, hooks, sub-agents en skills registreren als één bundel. De --plugin-url flag laadt plugins direct vanuit een URL; --plugin-dir accepteert .zip-archieven. Plugin dependency enforcement voorkomt dat je een plugin uitzet als een andere plugin ervan afhankelijk is. De /resume command maakt achtergrond-sessies (--bg) zichtbaar naast interactieve sessies.",
+      "technical_depth": "Plugins bundelen commands, hooks, agents én skills in één package. De marketplace toont context-kostenschattingen per plugin. /model wijzigt nu alleen het model voor de huidige sessie. Verbeterd PowerShell-support op Windows en verbeterde worktree/daemon-stabiliteit.",
+      "toepassing": "Pepijn en Duncan kunnen eigen Claude Code plugins bouwen die custom slash commands, gespecialiseerde sub-agents en hooks combineren — ideaal voor het verpakken en delen van terugkerende agentic workflows. De --plugin-url flag maakt snelle experimenten met community plugins mogelijk zonder permanente installatie.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-opus-47-1m-context-swe-bench-20260416",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.7: 1M context window, 87.6% SWE-Bench Verified, high-res vision GA",
+      "bron_urls": [
+        "https://www.anthropic.com/claude/opus",
+        "https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-7"
+      ],
+      "bron_namen": [
+        "Anthropic",
+        "Claude API Docs"
+      ],
+      "datum_artikel": "2026-04-16",
+      "samenvatting": "Claude Opus 4.7 (GA 16 april 2026) brengt een 1M-token context window zonder long-context premium, 87.6% op SWE-Bench Verified (vs 80.8% voor Opus 4.6), en high-resolution image support tot 2576px/3.75MP. Fast Mode ondersteunt nu ook Opus 4.7 voor significant snellere outputtokengeneratie. Beschikbaar via Claude API, Bedrock, Vertex AI en Microsoft Foundry.",
+      "technical_depth": "Context: 1M input / 128K output tokens. Prijsmodel: $5/M input, $25/M output; 90% korting via prompt caching, 50% via batch processing. Model ID: claude-opus-4-7. Hybride reasoning model geoptimaliseerd voor lange agentic runs.",
+      "toepassing": "De 1M context maakt het mogelijk volledige codebases of lange agent-sessiehistories in één prompt te verwerken. De SWE-Bench-verbetering is direct relevant voor Claude Code agents die zelfstandig complexe coding-taken uitvoeren. Prompt caching levert 90% kostenbesparing bij repetitieve agentic workflows.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-default-20260505",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: nieuw standaardmodel met 52.5% minder hallucinaties",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": [
+        "OpenAI",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI rolde GPT-5.5 Instant uit als nieuw standaardmodel voor ChatGPT (vervangt GPT-5.3 Instant) en als chat-latest in de API. Het model produceert 52.5% minder gehallucineeerde claims op high-stakes prompts (medisch, juridisch, financieel) en is 30% beknopter in output. Voor Plus/Pro-gebruikers integreert het context uit eerdere chats, bestanden en Gmail voor gepersonaliseerde antwoorden.",
+      "technical_depth": "API-toegang via model ID chat-latest. Verbeteringen in image understanding, STEM-vragen en autonome zoekbeslissingen. Cross-session personalisatie via geheugenintegratie voor Plus/Pro-abonnees.",
+      "toepassing": "Als Pepijn en Duncan de OpenAI API gebruiken als alternatief of benchmark: chat-latest geeft nu automatisch GPT-5.5 Instant. De halvering van hallucinaties op professionele prompts is relevant voor agentic use cases waarbij feitelijke betrouwbaarheid kritisch is.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-interactions-api-breaking-20260507",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA + Interactions API breaking changes: migreer vóór 26 mei",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
+      ],
+      "bron_namen": [
+        "Google AI for Developers",
+        "Google Blog"
+      ],
+      "datum_artikel": "2026-05-07",
+      "samenvatting": "Gemini 3.5 Flash is GA en wordt het nieuwe standaardmodel voor de Gemini-ervaring en AI Mode. Tegelijk introduceert de Interactions API breaking changes die vóór 26 mei 2026 gemigreerd moeten worden: de outputs array wordt steps array, response_mime_type verdwijnt ten gunste van response_format.mime_type, en streaming events veranderen van content.delta naar step.delta. Het legacy schema verdwijnt op 8 juni 2026.",
+      "technical_depth": "Migratie vereist update naar google-genai SDK v2.0.0+. Test met header Api-Revision: 2026-05-20. Nieuwe structuur ondersteunt async tool calls en mid-flight steering. Gemini Managed Agents (public preview) bieden stateful agents in Google-hosted sandboxes.",
+      "toepassing": "Actie vereist binnen 6 dagen als Pepijn en Duncan de Gemini Interactions API gebruiken. De nieuwe async tool calls en mid-flight steering zijn architectureel interessant voor complexe agentic workflows waarbij tool-aanroepen parallel of gestuurd moeten lopen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mistral-medium-35-128b-swe-bench-vibe-20260502",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Mistral Medium 3.5: 128B open-weight model, 77.6% SWE-Bench, zelfhostbaar op 4 GPU's",
+      "bron_urls": [
+        "https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04",
+        "https://www.marktechpost.com/2026/05/02/mistral-ai-launches-remote-agents-in-vibe-and-mistral-medium-3-5-with-77-6-swe-bench-verified-score/"
+      ],
+      "bron_namen": [
+        "Mistral AI Docs",
+        "MarkTechPost"
+      ],
+      "datum_artikel": "2026-05-02",
+      "samenvatting": "Mistral AI lanceerde Mistral Medium 3.5 (29 april 2026): een 128B dense model met 256K context, 77.6% SWE-Bench Verified score en configureerbare reasoning effort per API-request. Het model vervangt drie afzonderlijke modellen (Medium 3.1, Magistral, Devstral 2) in één unified model voor chat, redeneren, coding en vision. Open weights beschikbaar op Hugging Face onder Modified MIT license.",
+      "technical_depth": "Zelfhostbaar op slechts 4 GPU's. Prijzen: $1.50/M input, $7.50/M output via API. Reasoning effort instelbaar via API-parameter — zelfde model voor lichte chatresponses en complexe agentic runs. Remote agents nu beschikbaar in Vibe (Mistral's coding agent platform).",
+      "toepassing": "Als privacy-first alternatief: Medium 3.5 draait op 4 GPU's en scoort 77.6% op SWE-Bench (net onder Sonnet 4.6's 79.6%). Interessant voor Pepijn en Duncan als lokale of private-cloud optie voor coding agents waarbij data de eigen omgeving niet mag verlaten, met Modified MIT-licentie voor commercieel gebruik.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "aws-mcp-server-ga-iam-cloudtrail-20260506",
+      "ecosysteem": "Open Source Tools",
+      "titel": "AWS MCP Server GA: IAM condition keys en CloudTrail audit trail voor agent API-calls",
+      "bron_urls": [
+        "https://aws.amazon.com/blogs/aws/the-aws-mcp-server-is-now-generally-available/",
+        "https://github.com/awslabs/mcp"
+      ],
+      "bron_namen": [
+        "AWS Blog",
+        "awslabs/mcp GitHub"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "AWS MCP Server is nu GA (6 mei 2026): een beheerde MCP-server die AI coding agents veilige en auditeerbare toegang geeft tot AWS-services. Elke API-call draagt automatisch aws:ViaAWSMCPService IAM condition keys, waarmee je fine-grained IAM policies schrijft (bijv. read-only agent access). Volledige CloudTrail-integratie en een apart AWS-MCP CloudWatch namespace voor agent-vs-human monitoring.",
+      "technical_depth": "Agents kunnen elke AWS API aanroepen via één MCP-tool, inclusief file-uploads en long-running operations. Sandboxed Python-scriptexecutie voor multi-step AWS-operaties. Onderdeel van de Agent Toolkit for AWS. Beschikbaar zonder extra kosten; je betaalt alleen voor de AWS-resources.",
+      "toepassing": "Pepijn en Duncan kunnen Claude Code agents direct AWS-services laten aanroepen via MCP, met volledige IAM-controle en CloudTrail-audittrail. Ideaal voor agentic DevOps-workflows: agents die Terraform-state lezen, CloudFormation-stacks inspecteren of Lambda's uitrollen — alles auditeerbaar en toegangsgecontroleerd.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "simonwillison-agentic-engineering-patterns-2026",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison lanceert 'Agentic Engineering Patterns': praktijkgids voor coding agents",
+      "bron_urls": [
+        "https://simonwillison.net/guides/agentic-engineering-patterns/what-is-agentic-engineering/",
+        "https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog - Agentic Engineering Patterns"
+      ],
+      "datum_artikel": "2026-02-23",
+      "samenvatting": "Simon Willison startte een levend gidsdocument 'Agentic Engineering Patterns' met praktische coding-patronen voor het werken met coding agents zoals Claude Code en OpenAI Codex. De gids beschrijft hoe agents werken (LLM + tools in een loop), onconventionele productiviteitstips (bijv. agents 's avonds laten doorwerken), en hoe test-first development agents beknopter en betrouwbaarder maakt.",
+      "technical_depth": "Architecturele definitie: agents = LLM + toolset in een loop die autonoom tools aanroept en resultaten terugkoppelt. Patroon: agents de laatste 30 minuten van de werkdag starten om 's nachts voortgang te boeken. Test-first development reduceert agent-hallucinations door duidelijke succescriteria te geven.",
+      "toepassing": "Directe workflow-inspiratie voor Pepijn en Duncan: de 'einddag agent kickoff' tactiek past goed bij zware agentic Claude Code-sessies. De patronen rond test-first en tool-loop-architectuur helpen bij het ontwerpen van robuustere agentic workflows in Claude Code en Orion.",
+      "relevantie_score": 7
     }
   ]
 }
