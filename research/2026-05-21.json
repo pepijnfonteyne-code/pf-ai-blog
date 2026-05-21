@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-21",
-  "gegenereerd_op": "09:30 UTC",
-  "run_nummer": 3,
+  "gegenereerd_op": "18:09 UTC",
+  "run_nummer": 4,
   "bevindingen": [
     {
       "id": "claude-code-w20-agents-goal",
@@ -282,6 +282,150 @@
       "technical_depth": "De Antigravity SDK geeft programmatische toegang tot dezelfde agent harness die Google's eigen producten (inclusief Spark) aandrijft, geoptimaliseerd voor Gemini modellen. Managed Agents via de Gemini API spinnen met één API-call een agent op in een geïsoleerde Linux-omgeving die kan redeneren, tools gebruikt en code uitvoert. De Antigravity CLI is herschreven in Go voor lage-latency terminal-workflows en vervangt de oudere Gemini CLI volledig.",
       "toepassing": "Antigravity SDK + Managed Agents API is direct vergelijkbaar met de Claude Managed Agents API. Voor Pepijn en Duncan: de Antigravity SDK maakt Gemini-gebaseerde agent orchestratie beschikbaar als alternatieve laag voor multimodel workflows. De gedeelde harness-architectuur is interessant als design pattern voor eigen agent frameworks.",
       "relevantie_score": 7
+    },
+    {
+      "id": "claude-code-w19-plugins-zip-worktree",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 19: Plugins via .zip/URL, worktree.baseRef & Auto Mode Deny Rules",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new/2026-w19",
+        "https://startdebugging.net/2026/05/claude-code-2-1-128-plugin-zip-worktree-fix/"
+      ],
+      "bron_namen": [
+        "Claude Code Docs – What's New W19",
+        "Start Debugging – v2.1.128 Release"
+      ],
+      "datum_artikel": "2026-05-08",
+      "samenvatting": "Claude Code v2.1.128–v2.1.136 (week 19) introduceert plugin-loading vanuit .zip-archieven en URLs via --plugin-dir en --plugin-url, zodat interne plugins zonder marketplace gedistribueerd kunnen worden. Het nieuwe worktree.baseRef-instelling (fresh | head) bepaalt of nieuwe worktrees branchen van origin/<default> of van lokale HEAD, waarmee ongepushte commits standaard buiten nieuwe worktrees blijven. Auto mode hard deny rules blokkeren acties onvoorwaardelijk.",
+      "technical_depth": "--plugin-dir accepteert nu .zip-bestanden naast mappen; --plugin-url fetcht een plugin-archief van een URL voor de huidige sessie. worktree.baseRef=fresh (default) brancht van origin/<default>, =head houdt lokale HEAD inclusief ongepushte commits. Auto mode hard deny regels negeren allow-exceptions volledig. Hooks kunnen het actieve effort level lezen via effort.level en $CLAUDE_EFFORT.",
+      "toepassing": "Distribueer eigen Orion-plugins als .zip-artefact vanuit een CI/artifact store zonder ze in de marketplace te publiceren. worktree.baseRef=head is nuttig wanneer je in een feature-branch werkt en subagents op diezelfde ongemergte commits wil laten draaien. Effort-aware hooks maken adaptieve review-stappen mogelijk (xhigh effort → extra validatie).",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mistral-medium-3-5-vibe-remote-agents",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Mistral Medium 3.5 (128B open-weight) + Vibe Remote Agents: cloud-async coding via CLI",
+      "bron_urls": [
+        "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+        "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
+      ],
+      "bron_namen": [
+        "Mistral AI Blog",
+        "Hugging Face – Mistral Medium 3.5"
+      ],
+      "datum_artikel": "2026-04-29",
+      "samenvatting": "Mistral AI lanceerde Mistral Medium 3.5, een 128B dense open-weight model met 256K context dat instruction-following, reasoning en coding unified in één set weights. Tegelijk lanceerde Mistral Vibe Remote Agents: coding-sessies draaien nu in de cloud, kunnen parallel gespawnd worden vanuit de CLI of Le Chat, en een lokale sessie kan geüpload worden naar de cloud. Het model scoort 77.6% op SWE-Bench Verified.",
+      "technical_depth": "Unified 128B dense architectuur vervangt drie aparte modellen (Medium 3.1, Magistral, Devstral 2). 256K context, configureerbare reasoning, native multimodale input. Vibe remote agents: sessions teleport van lokale CLI naar cloud, parallelle spawning, integraties met GitHub PRs, Linear/Jira issues, Sentry incidents. Prijs: $7.50/M output tokens. Claude Sonnet 4.6 scoort 79.6% SWE-Bench ter vergelijking.",
+      "toepassing": "Vibe Remote Agents is Mistral's directe antwoord op Claude Code agentic workflows — interessant als vergelijkingspunt en mogelijk als open-weight alternatief voor kostenbeheer. De GitHub/Jira/Sentry integraties zijn vergelijkbaar met wat jullie zelf bouwen met MCP-connectors.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "deepseek-v4-pro-flash-mit-1m-context",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "DeepSeek V4 Pro & Flash: MIT open-weight MoE met 1M context en 80.6% SWE-Bench",
+      "bron_urls": [
+        "https://api-docs.deepseek.com/news/news260424",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      ],
+      "bron_namen": [
+        "DeepSeek API Docs",
+        "Hugging Face – DeepSeek V4 Pro"
+      ],
+      "datum_artikel": "2026-04-24",
+      "samenvatting": "DeepSeek lanceerde V4-Pro (1.6T parameters, 49B actief/token) en V4-Flash (284B, 13B actief/token) als preview op 24 april 2026, beiden onder MIT-licentie en met 1M-token context window. V4-Pro bereikt 80.6% op SWE-Bench Verified, 90.1% GPQA Diamond, en surpasses alle bekende modellen op LiveCodeBench. Kritieke migratiedeadline: de legacy deepseek-chat alias vervalt op 24 juli 2026.",
+      "technical_depth": "Hybride attention mechanisme combineert Compressed Sparse Attention (CSA) en Heavily Compressed Attention (HCA) voor long-context efficiëntie. Bij 1M-token context: slechts 27% inference FLOPs en 10% KV-cache versus DeepSeek V3.2. Dual thinking/non-thinking modes, tot 384K output tokens. MIT-licentie maakt commercieel self-hosting mogelijk.",
+      "toepassing": "DeepSeek V4-Pro is zelfhostbaar onder MIT en heeft frontier-level coding-prestaties — bruikbaar als lokale/private agent-backbone. De 1M context maakt het geschikt voor grote codebase-analyse zonder chunking. Let op de migratiedeadline van 24 juli als jullie nog de legacy deepseek-chat alias gebruiken.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-api-cache-diagnostics-beta",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic Cache Diagnostics public beta: cache_miss_reason per API-beurt",
+      "bron_urls": [
+        "https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics",
+        "https://platform.claude.com/docs/en/release-notes/overview"
+      ],
+      "bron_namen": [
+        "Claude API Docs – Cache Diagnostics",
+        "Claude Platform Release Notes"
+      ],
+      "datum_artikel": "2026-05-01",
+      "samenvatting": "Anthropic lanceerde Cache Diagnostics in public beta: door diagnostics.previous_message_id mee te sturen en de beta-header cache-diagnosis-2026-04-07 te gebruiken, retourneert de API een cache_miss_reason die exact aangeeft waar de prompt-cache prefix divergeerde van de vorige beurt. De API rebuildt de fingerprint en vergelijkt request-structuur onafhankelijk van of de cache daadwerkelijk raak was.",
+      "technical_depth": "Stuur diagnostics.previous_message_id in de Messages-request en voeg header cache-diagnosis-2026-04-07 toe. De response bevat een diagnostics-object met het eerste divergentiepunt in de request-structuur. Niet beschikbaar op Amazon Bedrock of Vertex AI — alleen directe Claude API. Op de eerste beurt (previous_message_id: null) is diagnostics altijd null.",
+      "toepassing": "Essentieel debugging-tool voor agentic workflows met prompt caching. Geeft direct inzicht waarom cache misses optreden (gewijzigde system prompt, tool-definitie-volgorde, etc.) en helpt cache hit rates te maximaliseren, wat direct kosten en latency beïnvloedt in Orion-pipelines.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-managed-agents-outcomes-orchestration",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Managed Agents: Outcomes rubric-grader (+10% taaksucces) & Multiagent Orchestration (20 subagents)",
+      "bron_urls": [
+        "https://claude.com/blog/new-in-claude-managed-agents",
+        "https://platform.claude.com/docs/en/managed-agents/define-outcomes"
+      ],
+      "bron_namen": [
+        "Claude Blog – New in Managed Agents",
+        "Claude API Docs – Define Outcomes"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "Op Code with Claude 2026 (6 mei) lanceerde Anthropic twee nieuwe Managed Agents-features: Outcomes (public beta) is een rubric-gedreven grader-loop waarbij een stateless grader na elke writer-beurt de output toetst aan een rubric en feedback teruggeeft — dit verbeterde taaksucces met +10 procentpunten intern. Multiagent Orchestration (public beta) laat een lead-agent tot 20 specialist-subagents aansturen met 25 parallelle threads op een gedeeld bestandssysteem.",
+      "technical_depth": "Outcomes: writer drafts → grader (apart context, geen scratchpad van writer) checkt per-criterion → mislukte criteria gaan terug naar writer. Multiagent orchestration: lead agent delegeert taakstukken aan subagents met eigen model, prompt en tools; subagents werken parallel op shared filesystem. Harvey Law rapporteerde 6x hogere task completion rate; Wisedocs 50% snellere documentreviews.",
+      "toepassing": "Outcomes is direct toepasbaar voor Orion-taken waar kwaliteitsborging kritiek is (code review, rapport-generatie) — wrap elke agent-run in een grade-and-revise loop. Multiagent orchestration met 25 parallelle threads is het platform-equivalent van wat jullie handmatig bouwen met Claude Code agent-dispatching; evalueer of overstap op Managed Agents infrastructuurkosten bespaart.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "mcp-2026-roadmap-streamable-http-tasks",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Roadmap: Stateless Streamable HTTP transport en Tasks primitive voor async agents",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://en.wikipedia.org/wiki/Model_Context_Protocol"
+      ],
+      "bron_namen": [
+        "MCP Blog – 2026 Roadmap",
+        "Wikipedia – Model Context Protocol"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "De officiële MCP 2026 roadmap benoemt vier prioriteiten: (1) Stateless Streamable HTTP transport zodat MCP-servers horizontaal schaalbaar zijn achter load balancers zonder persistente SSE-verbindingen; (2) Tasks primitive (SEP-1686) voor asynchrone langdurige operaties met polling en retry-semantiek; (3) Enterprise readiness met audit trails en SSO-integratie; (4) .well-known metadata-format voor server discovery. Het ecosysteem telt nu 97 miljoen maandelijkse SDK downloads en 10.000+ publieke servers.",
+      "technical_depth": "Streamable HTTP: stateless sessiemodel, load-balancer compatibel, geen persistente SSE. Tasks primitive: agent dispatcht een langdurige job en pollt op completion — essentieel voor pipelines met 20+ minuten subtaken. .well-known discovery-format voor automatische server-registratie. Governance via Linux Foundation AAIF met Anthropic, OpenAI, Google, Microsoft en AWS als backers.",
+      "toepassing": "De stateless HTTP variant vereenvoudigt Kubernetes-deployment van eigen MCP-servers drastisch — geen sticky sessions meer nodig. De Tasks primitive is de bouwsteen voor asynchrone Orion-taken (data pipelines, langdurige agents). Volg SEP-1686 actief als jullie eigen MCP-servers bouwen om op de juiste API voorbereid te zijn.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-ultrareview-cloud-bug-fleet",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code /ultrareview: cloud bug-hunting fleet, $5-20/run, 1% false positive rate",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new/2026-w16",
+        "https://www.mindstudio.ai/blog/claude-code-ultra-review-5-things-to-know-before-running"
+      ],
+      "bron_namen": [
+        "Claude Code Docs – Week 16/17",
+        "MindStudio – ultrareview analyse"
+      ],
+      "datum_artikel": "2026-04-16",
+      "samenvatting": "/ultrareview (research preview, v2.1.111) pakt de repository-state, uploadt die naar een remote sandbox en deployt een vloot van reviewer-agents die de wijziging parallel analyseren elk vanuit een andere hoek (applicatielogica, edge cases, security, performance). Intern meet Anthropic een 1% incorrect-finding rate. Vanaf week 18 is `claude ultrareview` ook beschikbaar in CI-scripts. Kosten: $5-20 per run op basis van change-grootte.",
+      "technical_depth": "Agents werken parallel op dezelfde snapshot vanuit onafhankelijke perspectieven. De onafhankelijke verificatiearchitectuur is de kern van het lage false-positive percentage. `claude ultrareview` in CI integreert via de nieuwe `--add-dir`, `--settings`, en `--permission-mode` flags van `claude agents`. Week 18 voegt ook `claude project purge` toe voor lokale state cleanup.",
+      "toepassing": "Integreer `/ultrareview` in jullie merge-workflow voor kritieke Orion-components. De lage false-positive rate (1%) maakt het praktisch bruikbaar zonder alert-fatigue. `claude ultrareview` in CI-scripts is bruikbaar als een pre-merge gate die automatisch draait bij PRs op main-branches.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-vibe-agentic-convergence-may6",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Vibe coding en agentic engineering convergeren — een paradigmaverschuiving voor practitioners",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog – Vibe coding post",
+        "Simon Willison – Code w/ Claude live blog"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "Simon Willison observeerde op 6 mei (podcast + live blog Anthropic's Code w/ Claude event) dat de grens tussen vibe coding (intuïtief iteratief coderen) en agentic engineering (autonome multi-step workflows) in zijn eigen dagelijkse praktijk aan het vervagen is. Agentic loops zijn nu snel genoeg voor interactieve vibe-workflows, terwijl vibe-sessies steeds meer meerdere autonome stappen bevatten.",
+      "technical_depth": "De convergentie manifesteert zich concreet in Claude Code features: /goal (autonome completion conditions) en agent view (week 20) zijn tools die vibe-achtige interactiviteit combineren met agentic autonomie. Willison signaleert dit als een breekpunt waarop het mentale model van 'ik stuur de AI aan' overgaat naar 'de AI werkt onder mijn richting'.",
+      "toepassing": "Directe mentale model-relevantie voor Pepijn en Duncan als level 3-4 practitioners: de vraag is niet meer 'gebruik ik AI voor dit deelprobleem?' maar 'hoe definieer ik de completion condition zodat Claude autonoom kan doorwerken?' Features als /goal en Outcomes zijn de technische expresssie van deze shift — gebruik ze als de primaire workflow-architectuur voor Orion.",
+      "relevantie_score": 8
     }
   ]
 }
