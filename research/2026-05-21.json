@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-21",
-  "gegenereerd_op": "14:45 UTC",
-  "run_nummer": 1,
+  "gegenereerd_op": "06:10 UTC",
+  "run_nummer": 2,
   "bevindingen": [
     {
       "id": "claude-code-w20-agents-goal",
@@ -149,6 +149,80 @@
       "samenvatting": "Simon Willison publiceerde op 19 mei een beknopte synthesis van zes maanden LLM-ontwikkeling voor builders. Kernthema's: 'context windows that feel infinite' gecombineerd met high-quality memory verandert architectuurkeuzes fundamenteel; multi-agent coördinatie verschuift de bottleneck van model-capaciteit naar orchestration quality; modellen draaien nu uren aan één stuk (vs. minuten een jaar geleden).",
       "technical_depth": "Willison benadrukt dat infinite context + memory kwalitatief anders is dan meer tokens: het vervangt state machines en workflow-engines. Multi-agent bottleneck zit nu in orchestration design, niet in model-capaciteit. De nadruk op 'simple scaffolding' is een directe waarschuwing tegen over-engineering. Teams die het meeste uit Claude halen: automated evals + simple scaffolding + creatief onontdekt modelgebruik.",
       "toepassing": "Automated evals bouwen is de #1 prioriteit voor teams die serieus schalen — direct toepasbaar op Orion. De focus op 'simple scaffolding' bevestigt dat minder infrastructuur-overhead leidt tot betere resultaten in Claude Code workflows. Willison's May 8 HTML post ('Unreasonable Effectiveness of HTML') is ook lezenswaardig voor output-formaat keuzes.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "claude-code-opus47-fast-mode-hooks-mcp-w20",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 20: nieuwe hook-types (continueOnBlock, terminalSequence) en MCP stdio krijgt CLAUDE_PROJECT_DIR",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new/2026-w20",
+        "https://code.claude.com/docs/en/fast-mode#use-fast-mode-on-opus-4-7"
+      ],
+      "bron_namen": [
+        "Claude Code What's New",
+        "Claude Code Fast Mode Docs"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "MCP stdio servers ontvangen nu `CLAUDE_PROJECT_DIR` in hun environment (pariteit met hooks), en drie nieuwe hook-features maken fijnere automatiseringscontrole mogelijk: continueOnBlock hervat de turn na tool-blokkering, terminalSequence stuurt notifications zonder terminal, en args: string[] exec-form elimineert shell-quoting problemen.",
+      "technical_depth": "`continueOnBlock` op PostToolUse-hooks stuurt rejection-reden terug aan Claude en hervat de turn i.p.v. afbreken. `terminalSequence` in hook JSON output verstuurt desktop notifications/window titles/bells zonder controlling terminal. `args: string[]` exec-form spawnt commands direct zonder shell. Plugin configs kunnen `${CLAUDE_PROJECT_DIR}` gebruiken. Fast Mode: /fast draait nu op Opus 4.7 (~2,5× sneller, $30/$150 per MTok); CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1 pinned terug op 4.6.",
+      "toepassing": "Update bestaande hooks naar args: string[] exec-form voor robuustere path-handling in MCP-integraties. Gebruik CLAUDE_PROJECT_DIR in plugin commands. Zet continueOnBlock voor tool-validatie hooks die nu sessies afbreken — laat Claude de error corrigeren en verdergaan zonder handmatige herstart.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "kimi-k26-moonshot-open-weight-agent-swarm",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.6: Moonshot AI lanceert open-weight 1T MoE model met Agent Swarm tot 300 sub-agents",
+      "bron_urls": [
+        "https://github.com/moonshotai/Kimi-K2",
+        "https://miraflow.ai/blog/kimi-k2-6-explained-moonshot-ai-open-source-model-ties-gpt-5-5-coding",
+        "https://llm-stats.com/models/kimi-k2.6"
+      ],
+      "bron_namen": [
+        "Moonshot AI GitHub",
+        "Miraflow AI",
+        "LLM Stats"
+      ],
+      "datum_artikel": "2026-04-20",
+      "samenvatting": "Kimi K2.6 is een 1 biljoen parameter Mixture-of-Experts model (32B actief per token) uitgebracht onder Modified MIT licentie. Het scoort 58,6% op SWE-Bench Pro (gelijk aan GPT-5.5), leidt op Humanity's Last Exam with tools (54,0%), en bevat een Agent Swarm systeem dat 300 gespecialiseerde sub-agents coordineert voor maximaal 4.000 stappen per autonome run.",
+      "technical_depth": "MoE-architectuur: 1T parameters totaal, 32B actief per token, 256K context window. Agent Swarm decomponentiseert complexe prompts in parallelle subtaken en synthetiseert output in finished deliverables (research docs, functionele websites, spreadsheets). ~80% goedkoper per MTok dan GPT-5.5. Beschikbaar via Kimi API en Hugging Face. Modified MIT licentie — commercieel gebruik mogelijk met restricties.",
+      "toepassing": "De Agent Swarm-architectuur is interessant om te vergelijken met Claude's multi-agent orchestration. Test Kimi K2.6 als goedkoop alternatief voor complexe agentic coding pipelines; de 256K context is direct bruikbaar voor grote codebases. Evalueer de SWE-Bench Pro score van 58,6% als benchmark voor eigen coding-agent evaluaties.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "aws-agent-toolkit-mcp-server-ga",
+      "ecosysteem": "Open Source Tools",
+      "titel": "AWS Agent Toolkit gelanceerd: GA MCP Server en agent skills voor AWS-integratie in coding agents",
+      "bron_urls": [
+        "https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/",
+        "https://dev.to/sapph1re/5-mcp-servers-every-ai-developer-should-know-about-in-2026-17bd"
+      ],
+      "bron_namen": [
+        "AWS What's New",
+        "DEV Community – 5 MCP Servers 2026"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "AWS lanceerde de Agent Toolkit for AWS: een productie-klare suite van agent skills, een volledig beheerde MCP Server (nu GA) en installeerbare plugins waarmee AI coding agents elk AWS-service kunnen aanroepen met minder fouten, lagere token-kosten en enterprise security controls.",
+      "technical_depth": "De AWS MCP Server is fully-managed en GA: compatibel met elke MCP-ondersteunende agent (Claude Code, GitHub Copilot, etc.). Bundelt agent skills (domein-specifieke instructies per AWS-service), MCP server configuratie en easy-install plugins. Enterprise security controls (IAM-integratie, audit logging) ingebakken. Eén config-change volstaat om de toolkit in een bestaande agent te laden.",
+      "toepassing": "Configureer de AWS MCP Server als MCP connector in Claude Code voor CloudFormation, Lambda, S3 en andere AWS-diensten direct vanuit de CLI. Elimineert handmatige AWS CLI calls in agentic workflows. Evalueer als vervanging voor custom AWS-integratiescripts in Orion-pipelines; de enterprise security controls zijn relevant voor productie-deployments.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-google-io-gemini-spark-vibe-coding",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison 20 mei: Google I/O analyse, Gemini Spark personal agent en vibe coding convergentie",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/20/google-io/",
+        "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/"
+      ],
+      "bron_namen": [
+        "Simon Willison – Google I/O (20 mei)",
+        "Simon Willison – Vibe coding (6 mei)"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "Willison analyseerde Google I/O 2026 op 20 mei: Gemini 3.5 Flash is de nieuwe flagship en Gemini Spark is Google's aankomende 'personal AI agent' met Google app-integraties. Eerder beschreef hij hoe vibe coding en agentic engineering in zijn werk convergeren — de grens vervaagt in de praktijk tussen snel prototypen en autonome agents aansturen.",
+      "technical_depth": "Gemini Spark positioneert als persoonlijke AI-agent met Google app-integraties (vergelijkbaar met Claude's memory + tool use). De convergentie-observatie is architectureel relevant: dezelfde Claude Code sessie schuift van interactief (vibe coding) naar autonoom (agentic) naarmate het vertrouwen in de agent groeit — implicaties voor human-in-the-loop checkpoint design.",
+      "toepassing": "Gemini Spark signaleert dat persoonlijke AI-agents met app-integraties het volgende competitieve terrein worden — relevant voor Orion-architectuur. De vibe-agentic convergentie is direct toepasbaar: gebruik /goal voor de autonome fase maar design expliciete review-breakpoints in agentic workflows.",
       "relevantie_score": 8
     }
   ]
