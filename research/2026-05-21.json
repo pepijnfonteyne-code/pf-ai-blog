@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-21",
-  "gegenereerd_op": "06:10 UTC",
-  "run_nummer": 2,
+  "gegenereerd_op": "09:30 UTC",
+  "run_nummer": 3,
   "bevindingen": [
     {
       "id": "claude-code-w20-agents-goal",
@@ -224,6 +224,64 @@
       "technical_depth": "Gemini Spark positioneert als persoonlijke AI-agent met Google app-integraties (vergelijkbaar met Claude's memory + tool use). De convergentie-observatie is architectureel relevant: dezelfde Claude Code sessie schuift van interactief (vibe coding) naar autonoom (agentic) naarmate het vertrouwen in de agent groeit — implicaties voor human-in-the-loop checkpoint design.",
       "toepassing": "Gemini Spark signaleert dat persoonlijke AI-agents met app-integraties het volgende competitieve terrein worden — relevant voor Orion-architectuur. De vibe-agentic convergentie is direct toepasbaar: gebruik /goal voor de autonome fase maar design expliciete review-breakpoints in agentic workflows.",
       "relevantie_score": 8
+    },
+    {
+      "id": "claude-managed-agents-dreaming",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Managed Agents: Dreaming brengt zelf-verbeterende geheugenopslag",
+      "bron_urls": [
+        "https://claude.com/blog/new-in-claude-managed-agents",
+        "https://siliconangle.com/2026/05/06/anthropic-letting-claude-agents-dream-dont-sleep-job/",
+        "https://9to5mac.com/2026/05/07/anthropic-updates-claude-managed-agents-with-three-new-features/"
+      ],
+      "bron_namen": [
+        "Claude Blog (Anthropic)",
+        "SiliconAngle",
+        "9to5Mac"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "Anthropic introduceerde dreaming voor Claude Managed Agents: een gepland proces dat bestaande memory stores en sessie-transcripten analyseert, patronen extraheert en een gereorganiseerde memory store produceert. Duplicaten worden samengevoegd, verouderde entries vervangen en nieuwe inzichten gesurfacet. Naast dreaming werden ook multi-agent orchestration (lead agent met parallelle subagenten op shared filesystem) en het outcomes-systeem gelanceerd als public beta.",
+      "technical_depth": "Een dream leest een bestaande memory store en sessie-transcripten als input en produceert een nieuwe gestructureerde memory store zonder de originele te wijzigen. API vereist de managed-agents-2026-04-01 beta header; dreaming vereist aanvullend de dreaming-2026-04-21 beta header. Multi-agent orchestration laat een lead agent delegeren naar specialist subagenten die parallel werken op een shared filesystem, elk met eigen model, prompt en toolset.",
+      "toepassing": "Voor Orion en andere langlopende agents kunnen Pepijn en Duncan dreaming inzetten om agents te laten leren van eerdere sessies: terugkerende fouten worden geïdentificeerd, succesvolle workflows worden onthouden. De multi-agent orchestration met shared filesystem is direct bruikbaar voor complexe codeer- of datapijplijn-taken waarbij parallellisatie wenselijk is.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-codex-dell-enterprise-onprem",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI en Dell brengen Codex naar hybride en on-premises enterprise omgevingen",
+      "bron_urls": [
+        "https://openai.com/index/dell-codex-enterprise-partnership/",
+        "https://www.sahmcapital.com/news/content/openai-partners-with-dell-to-deploy-codex-in-hybrid-on-premises-enterprise-environments-2026-05-18"
+      ],
+      "bron_namen": [
+        "OpenAI",
+        "SahmCapital"
+      ],
+      "datum_artikel": "2026-05-18",
+      "samenvatting": "OpenAI en Dell Technologies kondigden op 18 mei een samenwerking aan om Codex beschikbaar te maken in hybride en on-premises enterprise omgevingen. Codex koppelt aan het Dell AI Data Platform voor toegang tot interne codebases, documentatie en bedrijfssystemen zonder data de cloud in te sturen. Meer dan 4 miljoen developers gebruiken Codex wekelijks; de integratie richt zich op bedrijven die vanwege data-governance niet naar de cloud kunnen.",
+      "technical_depth": "Codex kan via de Dell AI Data Platform connectie context ophalen uit on-premises repositories, documentatie en bedrijfssystemen voor full-cycle software development lifecycle tasks (code review, test coverage, incident response, redeneren over grote codebases). De exploratie omvat ook integratie met de Dell AI Factory voor data preparatie, system-of-record management en AI-applicatie deployment in hybride infrastructuur.",
+      "toepassing": "Relevant als referentiepunt voor enterprise agentic coding deployments en klantgesprekken waarbij on-premises data-residency een vereiste is. Pepijn en Duncan kunnen dit vergelijken met Claude Code's remote en scheduled task architectuur voor soortgelijke use cases.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "google-antigravity-2-agent-dev-platform",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Google Antigravity 2.0: open agent-first developer platform met SDK, CLI en Managed Agents API",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/",
+        "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/",
+        "https://siliconangle.com/2026/05/19/google-accelerates-agent-native-software-development-expanded-antigravity-platform/"
+      ],
+      "bron_namen": [
+        "MarkTechPost",
+        "Google Blog",
+        "SiliconAngle"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde Antigravity 2.0 op Google I/O als een standalone agent-first developer platform bestaande uit vier surfaces die dezelfde agent harness delen: de desktop app, Antigravity CLI (herschreven in Go, opvolger van Gemini CLI), de Antigravity SDK voor programmatische toegang, en Managed Agents in de Gemini API. Alle verbeteringen aan de core harness zijn automatisch beschikbaar op alle vier surfaces.",
+      "technical_depth": "De Antigravity SDK geeft programmatische toegang tot dezelfde agent harness die Google's eigen producten (inclusief Spark) aandrijft, geoptimaliseerd voor Gemini modellen. Managed Agents via de Gemini API spinnen met één API-call een agent op in een geïsoleerde Linux-omgeving die kan redeneren, tools gebruikt en code uitvoert. De Antigravity CLI is herschreven in Go voor lage-latency terminal-workflows en vervangt de oudere Gemini CLI volledig.",
+      "toepassing": "Antigravity SDK + Managed Agents API is direct vergelijkbaar met de Claude Managed Agents API. Voor Pepijn en Duncan: de Antigravity SDK maakt Gemini-gebaseerde agent orchestratie beschikbaar als alternatieve laag voor multimodel workflows. De gedeelde harness-architectuur is interessant als design pattern voor eigen agent frameworks.",
+      "relevantie_score": 7
     }
   ]
 }
