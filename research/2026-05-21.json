@@ -1,0 +1,155 @@
+{
+  "datum": "2026-05-21",
+  "gegenereerd_op": "14:45 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-w20-agents-goal",
+      "ecosysteem": "Claude Code",
+      "titel": "Week 20: claude agents view, /goal command en Fast Mode op Opus 4.7",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://github.com/anthropics/claude-code/releases"
+      ],
+      "bron_namen": [
+        "Claude Code - What's New (officieel)",
+        "anthropics/claude-code GitHub releases"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "Claude Code Week 20 (v2.1.139–v2.1.142) introduceert 'claude agents': één overzichtsscherm voor alle actieve sessions, met status running/blocked/done. De nieuwe '/goal' command houdt Claude werkend over meerdere turns totdat een definieerbare completion condition bereikt is. Fast Mode draait nu standaard op Opus 4.7 (voorheen 4.6). De Rewind-menu kan eerder context comprimeren via 'Summarize up to here'.",
+      "technical_depth": "De 'claude agents' view aggregeert alle background sessions in één TUI-scherm en toont blocked states expliciet — essentieel voor multi-agent orchestratie. '/goal' implementeert een persistence loop die Claude's werksessie doorzet zolang een boolean condition false is. Nieuwe agent flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort en --dangerously-skip-permissions geven volledige controle over gedispatchte background sessions.",
+      "toepassing": "Direct toepasbaar: gebruik 'claude agents' als centrale control plane bij het bouwen van multi-agent pipelines in Orion. '/goal' is ideaal voor langlopende taken zoals uitgebreide code reviews of data-analyse zonder continue handmatige sturing. De nieuwe agent flags maken het mogelijk MCP-configuraties per sub-agent te isoleren — cruciaal voor gelaagde agentic architecturen.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-w-claude-conference-2026",
+      "ecosysteem": "Claude Code",
+      "titel": "Code w/ Claude 2026: rate limits verdubbeld, SpaceX/Colossus partnerschap, 17x API-groei",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/",
+        "https://releasebot.io/updates/anthropic"
+      ],
+      "bron_namen": [
+        "Simon Willison - Live blog Code w/ Claude 2026",
+        "Releasebot - Anthropic Release Notes May 2026"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "Op 6 mei hield Anthropic de 'Code w/ Claude' developer conference. Rate limits voor Claude Code Pro/Max/Enterprise werden verdubbeld (5-uur limiet 2x verhoogd) en Claude Opus API-limieten gingen omhoog. Anthropic onthulde een partnerschap met SpaceX voor volledige benutting van het Colossus datacenter. API-volume steeg het afgelopen jaar 17x jaar-op-jaar.",
+      "technical_depth": "De 17x API-volumegroei bevestigt massale productie-inzet. Colossus is Tesla/SpaceX's 100k H100-cluster in Memphis. De verdubbeling van rate limits is direct relevant voor developer use cases met lange agentic runs. Key insight van Anthropic: 'context windows that feel infinite' gecombineerd met high-quality memory verandert de architectuur van agentic systemen fundamenteel.",
+      "toepassing": "De verhoogde rate limits maken intensievere agentic workflows mogelijk zonder throttling. De Colossus-deal suggereert significante capaciteitsgroei de komende maanden — verwacht verbeterde inferentiesnelheid en beschikbaarheid voor zware Opus-workflows. Teams die het meest succesvol zijn focussen op automated evals en simple scaffolding.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt55-instant-personal-finance",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant nieuw standaardmodel (-52.5% hallucinaties) + ChatGPT Personal Finance Pro",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": [
+        "OpenAI - GPT-5.5 Instant aankondiging",
+        "TechCrunch - GPT-5.5 Instant review"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "OpenAI lanceerde GPT-5.5 Instant als nieuw standaardmodel voor ChatGPT (vervangt GPT-5.3 Instant). Interne evaluaties tonen 52.5% minder gehallucineerde claims op high-stakes prompts in geneeskunde, recht en financiën. Op 15 mei volgde een Personal Finance feature voor Pro-gebruikers (VS) met secure account connections, spending tracking en een money dashboard.",
+      "technical_depth": "Hallucinatiereductie van 52.5% gemeten via interne evaluaties op high-stakes domains. GPT-5.3 Instant blijft beschikbaar voor paid users gedurende 3 maanden via model configuration. De Personal Finance feature gebruikt secured account connections (OAuth/banking API integratie). ChatGPT for Excel/Sheets werkt via sidebar API met Skills en apps support — nu globaal beschikbaar.",
+      "toepassing": "Vergelijk GPT-5.5 Instant's hallucinatieprofiel met Claude Opus 4.7 voor specifieke use cases in Orion. De ChatGPT for Excel/Sheets sidebar-architectuur is een interessant referentieontwerp voor eigen spreadsheet-integraties. De 3-maanden overlap-periode biedt ruimte om gecontroleerd te migreren.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-io2026-omni-flash",
+      "ecosysteem": "Gemini",
+      "titel": "Google I/O 2026: Gemini Omni any-to-any video model + Gemini 3.5 Flash agentic flagship",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/",
+        "https://techcrunch.com/2026/05/19/googles-gemini-omni-turns-images-audio-and-text-into-video-and-thats-just-the-start/",
+        "https://venturebeat.com/technology/google-unveils-gemini-omni-any-to-any-ai-model-what-enterprises-should-know"
+      ],
+      "bron_namen": [
+        "Google DeepMind - Gemini Omni officieel blog",
+        "TechCrunch - Gemini Omni analyse",
+        "VentureBeat - Gemini Omni enterprise"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google onthulde op 19 mei tijdens I/O twee grote releases: Gemini Omni — een unified multimodal model dat text/image/audio/video in één API-call verwerkt en genereert — en Gemini 3.5 Flash, het nieuwe agentic flagship. Gemini Omni vervangt drie separate systemen (Gemini 3.1 + Veo 3.1 + Imagen 4.0) met één unified model met gedeelde context over alle modaliteiten.",
+      "technical_depth": "Gemini Omni collapses multimodal reasoning en generatie in één model: shared context across text, image, audio en video modaliteiten. Omni Flash (uitgerold 19 mei) is gecapped op 10 seconden video/clip (deployment limit, niet technisch). Verwachte API pricing: $0.10-0.50 per seconde output afhankelijk van resolutie. API access 'coming weeks'. Gemini 3 Deep Think scoort gold medal op 2025 International Physics en Chemistry Olympiad.",
+      "toepassing": "Gemini 3.5 Flash is potentieel relevant als snel en goedkoop alternatief voor Claude Opus 4.7 in multi-step agentic pipelines — benchmark vergelijking is de volgende stap. Monitor de Gemini Omni API release voor video-verrijkte workflow toepassingen. De unified multimodal aanpak is architectureel interessant als alternatief voor multi-model orchestratie.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-nvidia-qwen36-dgx-spark",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "NVIDIA: Hermes (NousResearch) + Qwen 3.6 — zelf-verbeterende agents op DGX Spark local hardware",
+      "bron_urls": [
+        "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/",
+        "https://developer.nvidia.com/blog/scaling-autonomous-ai-agents-and-workloads-with-nvidia-dgx-spark/",
+        "https://build.nvidia.com/spark/hermes-agent"
+      ],
+      "bron_namen": [
+        "NVIDIA Blog - Hermes Agent DGX Spark",
+        "NVIDIA Developer Blog - Scaling Autonomous Agents",
+        "NVIDIA Build - Hermes Agent playground"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "NVIDIA publiceerde een technische deep-dive over Hermes (NousResearch), nu het meest gebruikte AI-agent ter wereld volgens OpenRouter (>140k GitHub stars in <3 maanden). Kern-feature: Hermes schrijft en verfijnt zijn eigen skill-bestanden — een concrete self-improvement loop. Draait op NVIDIA DGX Spark (1 petaFLOP FP4, 128GB unified memory) met Qwen 3.6 27B/35B als backbone.",
+      "technical_depth": "Hermes implementeert een self-improvement mechanisme waarbij het agent zijn eigen skill-scripts schrijft en hergebruikt over runs. DGX Spark levert 1 petaFLOP FP4 via GB10 Grace Blackwell Superchip in een compact form factor. Qwen 3.6 27B/35B overtreffen vorige-generatie 120B/400B modellen op agentic taken. Schaling tot 4 DGX Spark nodes via low-latency RoCE voor modellen tot 700B parameters. Hermes biedt OpenAI/Anthropic-compatibele API.",
+      "toepassing": "De Hermes skill-writing architectuur (agent schrijft en hergebruikt eigen tools) is een directe inspiratiebron voor zelf-evoluerende agent designs in Orion. Qwen 3.6 27B als open-weights model maakt lokale/private agent deployment mogelijk. De OpenAI/Anthropic-compatibele API vereenvoudigt integratie in bestaande Claude Code workflows.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "cli-anything-agent-native-framework",
+      "ecosysteem": "Open Source Tools",
+      "titel": "CLI-Anything (HKUDS): automatisch alle CLI-software agent-native via SKILL.md standaard",
+      "bron_urls": [
+        "https://github.com/HKUDS/CLI-Anything",
+        "https://hkuds.github.io/CLI-Anything/"
+      ],
+      "bron_namen": [
+        "GitHub - HKUDS/CLI-Anything (38.5k stars)",
+        "CLI-Anything Hub - agent-friendly CLI registry"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "CLI-Anything (HKUDS, 38.5k GitHub stars, +4k deze week) converteert automatisch elke CLI-tool naar een agent-native interface via een 7-fase geautomatiseerde pipeline. Elke gegenereerde CLI bevat een SKILL.md met naam, beschrijving, command groups, usage examples en agentinstructies, waardoor Claude Code en andere agents autonomously skills kunnen discoveren. CLI-Hub package manager beschikbaar via pip.",
+      "technical_depth": "7-fase automated pipeline: analyse → design → implementatie → testing + validatie. 1.917 tests over 19 applicaties met 100% pass rate. SKILL.md standaard biedt agents structured tool discovery zonder menselijke documentatie. Native support voor Claude Code, OpenCode, Goose, Qodercli, Codex, GitHub Copilot CLI. Package manager: 'pip install cli-anything-hub'. Elke CLI heeft een SKILL.md zodat agents autonomous tool capabilities kunnen discoveren.",
+      "toepassing": "Direct inzetbaar: gebruik CLI-Anything om interne tools en scripts in Orion agent-native te maken. De SKILL.md standaard is uitstekend om over te nemen voor eigen tool-documentatie in Claude Code projects. CLI-Hub maakt het eenvoudig bestaande harnesses te installeren en hergebruiken in Claude Code sessions — dit bespaart significante bootstrapping tijd.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "anthropic-skills-ecosystem-trending",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Anthropic 'skills' repo explodeert naar 138k stars — Agent Skills ecosysteem rijpt snel",
+      "bron_urls": [
+        "https://github.com/anthropics/skills",
+        "https://github.com/trending?l=python&since=weekly"
+      ],
+      "bron_namen": [
+        "GitHub - anthropics/skills (officieel)",
+        "GitHub Python Trending - Week 21 2026"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De officiële Anthropic 'skills' repository staat #3 in GitHub Python trending deze week (+4.749 stars, totaal 138.237). Naast de officiële repo zijn ook 'scientific-agent-skills' (24.9k stars, +3.994/week) en 'academic-research-skills' (16.1k stars) trending — een ecosysteem van herbruikbare Agent Skills bouwt zich razendsnel op rondom Claude Code.",
+      "technical_depth": "Agent Skills zijn modulaire capability pakketten geladen via Claude Code's plugin systeem. 'academic-research-skills' implementeert een volledige research → write → review → revise → finalize workflow. 'scientific-agent-skills' biedt ready-to-use skills voor research, engineering, analyse, finance en writing. Skills worden gedistribueerd als .zip archives of via URL (nieuw in Week 19).",
+      "toepassing": "Pepijn en Duncan kunnen de Anthropic skills repo gebruiken als referentie voor eigen agent patterns. De 'scientific-agent-skills' set biedt directe waarde voor data-analyse en research workflows in Orion. Overweeg eigen domain-specific skills te publiceren als open source — de community-adoptie is momenteel enorm en goede skills worden snel opgepikt.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "simonwillison-5min-llms-may19",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: 'The last six months in LLMs in five minutes' — practitioner synthesis mei 2026",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/19/5-minute-llms/",
+        "https://simonwillison.net/tags/claude-code/"
+      ],
+      "bron_namen": [
+        "Simon Willison - 5-minute LLMs synthesis (19 mei)",
+        "Simon Willison - Claude Code tag archive"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Simon Willison publiceerde op 19 mei een beknopte synthesis van zes maanden LLM-ontwikkeling voor builders. Kernthema's: 'context windows that feel infinite' gecombineerd met high-quality memory verandert architectuurkeuzes fundamenteel; multi-agent coördinatie verschuift de bottleneck van model-capaciteit naar orchestration quality; modellen draaien nu uren aan één stuk (vs. minuten een jaar geleden).",
+      "technical_depth": "Willison benadrukt dat infinite context + memory kwalitatief anders is dan meer tokens: het vervangt state machines en workflow-engines. Multi-agent bottleneck zit nu in orchestration design, niet in model-capaciteit. De nadruk op 'simple scaffolding' is een directe waarschuwing tegen over-engineering. Teams die het meeste uit Claude halen: automated evals + simple scaffolding + creatief onontdekt modelgebruik.",
+      "toepassing": "Automated evals bouwen is de #1 prioriteit voor teams die serieus schalen — direct toepasbaar op Orion. De focus op 'simple scaffolding' bevestigt dat minder infrastructuur-overhead leidt tot betere resultaten in Claude Code workflows. Willison's May 8 HTML post ('Unreasonable Effectiveness of HTML') is ook lezenswaardig voor output-formaat keuzes.",
+      "relevantie_score": 8
+    }
+  ]
+}
