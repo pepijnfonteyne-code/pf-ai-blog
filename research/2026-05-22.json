@@ -1,0 +1,150 @@
+{
+  "datum": "2026-05-22",
+  "gegenereerd_op": "00:10 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-with-claude-2026-agent-features",
+      "ecosysteem": "Claude Code",
+      "titel": "Code with Claude 2026: Agent View, Dreaming, Outcomes en Opus 4.7",
+      "bron_urls": [
+        "https://claude.com/blog/code-w-claude-sf-2026-sf",
+        "https://www.mindstudio.ai/blog/code-with-claude-2026-new-agent-features",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/"
+      ],
+      "bron_namen": [
+        "Anthropic Blog",
+        "MindStudio",
+        "Simon Willison Live Blog"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "Op 6 mei lanceerde Anthropic vijf nieuwe agent-features tijdens Code with Claude 2026: Agent View (multi-sessie dashboard in CLI), Dreaming (automatische geheugenconsolidatie tussen sessies), Outcomes (webhook-notificaties bij agenttaak-voltooiing), multi-agent orchestratie met gedeeld filesystem, en Claude Finance met 10 pre-built agents. Tegelijk werd Claude Opus 4.7 uitgebracht met verbeterde software engineering en hogere beeldresolutie, en werden rate limits voor Claude Code verdubbeld.",
+      "technical_depth": "Dreaming gebruikt scheduled background-processen die vorige agent-sessies analyseren, duplicaten verwijderen en stale geheugen prunen voor verbeterde cross-session persistentie. Agent View exposeert session state via nieuwe CLI-flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort. Multiagent orchestratie werkt via een lead agent die subagenten paralleliseert op een gedeeld filesystem met eigen model/prompt/tool-configuratie.",
+      "toepassing": "De /goal command en Outcomes-webhooks zijn direct inzetbaar voor onbeheerde Orion-workflows. Dreaming lost het probleem van contextdrift in langlopende agents op. De nieuwe --mcp-config en --permission-mode flags in claude agents maken programmatisch batchscripten van agent-sessies mogelijk voor Pepijn en Duncan.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "vscode-1121-remote-agents-claude-code",
+      "ecosysteem": "Claude Code",
+      "titel": "VS Code 1.121 voegt Remote Agents en uitgebreide Claude Code integratie toe",
+      "bron_urls": [
+        "https://visualstudiomagazine.com/articles/2026/05/20/vs-code-1-121-adds-remote-agents-built-in-html-and-mermaid-previews.aspx"
+      ],
+      "bron_namen": [
+        "Visual Studio Magazine"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "VS Code 1.121 (20 mei) bevat Remote Agents-integratie waarmee Claude Code sessies direct vanuit de editor gestart en beheerd kunnen worden. Dit sluit aan op Anthropic's Remote Agents API die geautomatiseerde CI/build-time code fixes mogelijk maakt. De update voegt ook ingebouwde HTML- en Mermaid-previews toe.",
+      "technical_depth": "Remote Agents in VS Code koppelen aan de Anthropic Managed Agents API, waardoor CI auto-fix en asynchrone agent-taken vanuit de IDE triggerable zijn zonder lokale Claude Code CLI. De Managed Agents API biedt sandboxed executie verbonden met private MCP-servers binnen enterprise security boundaries.",
+      "toepassing": "Pepijn en Duncan kunnen VS Code nu gebruiken als launcher voor langlopende Claude Code remote sessies zonder lokale CLI open te houden. Relevant voor overnight refactoring-runs of automatische PR-fixes in CI-pipelines. Mermaid-preview is direct bruikbaar voor diagram-genererende agent-outputs.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt55-instant-gpt53-codex",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant als nieuwe ChatGPT-standaard en GPT-5.3-Codex gelanceerd",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": [
+        "OpenAI Blog",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI lanceerde GPT-5.5 Instant als nieuwe standaard voor alle ChatGPT-gebruikers met 52,5% minder hallucinaties dan GPT-5.3 Instant op high-stakes prompts (geneeskunde, recht, financiën). Parallel verscheen GPT-5.3-Codex, de eerste unified model die Codex en GPT-5 training stacks combineert: circa 25% sneller, state-of-the-art coding benchmarks en ontworpen als stuurbare coding agent.",
+      "technical_depth": "GPT-5.3-Codex combineert code generation van Codex met GPT-5 reasoning in één model. De 52,5% hallucinatiereductie is gemeten via interne evaluaties op high-stakes domeinen. Codex is nu beschikbaar in de ChatGPT mobiele app voor mobiele code review en sturen van actieve coding threads. GPT-5.5 Thinking-variant overtreft eerdere modellen op complexe persoonlijke finance-taken.",
+      "toepassing": "GPT-5.3-Codex is een directe concurrent voor Claude Code in agentic coding workflows. Interessant te benchmarken op Orion-taken om te beslissen welk model wanneer in te zetten. De 52,5% hallucinatiereductie maakt GPT-5.5 Instant relevanter voor verificatiestappen in multi-agent pipelines.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-managed-agents-api",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA, Managed Agents API preview en breaking Interactions API-wijziging op 26 mei",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud",
+        "https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026"
+      ],
+      "bron_namen": [
+        "Google AI Developers",
+        "Google Cloud Blog",
+        "Gemini API Breaking Changes Doc"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "Google lanceerde op Google I/O (20 mei) Gemini 3.5 Flash als GA-model voor agentic en coding tasks en nieuwe standaard voor de Gemini-ervaring. Managed Agents API is in public preview met stateful agents in geïsoleerde Google-hosted Linux sandboxes. URGENT: de Interactions API krijgt breaking changes op 26 mei (outputs->steps schema-rename, output format config wijzigt).",
+      "technical_depth": "Managed Agents API biedt sandboxed Linux-omgevingen met state-persistence, vergelijkbaar met Anthropic's Self-hosted Sandboxes. Event-driven Webhooks vervangen polling voor Batch API en langlopende operaties. Breaking change op 26 mei: response-schema wijzigt van outputs naar steps, en output format configuratie verandert; alle bestaande Interactions API-clients moeten gemigreerd zijn.",
+      "toepassing": "ACTIE VEREIST voor 26 mei: check alle Gemini Interactions API-integraties op het outputs-vs-steps schema. Managed Agents API is een alternatief voor Anthropic's managed infra bij gebruik van Gemini 3.5 Flash. Webhooks voor Batch API zijn direct bruikbaar voor async agent-workflows zonder polling-loops.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "gemini-spark-personal-ai-agent-mcp",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini Spark: Google's 24/7 proactieve AI-agent met 30+ MCP-connectors",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/20/google-io/",
+        "https://mwm.ai/articles/google-updates-gemini-with-neural-expressive-design-and-3-5-flash-model-in-may-2026"
+      ],
+      "bron_namen": [
+        "Simon Willison (Google I/O coverage)",
+        "MWM.ai"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google introduceerde Gemini Spark, een altijd-actieve persoonlijke AI-agent die opereert op user intent en integreert met Gmail en Google Chat als primaire tools, uitbreidbaar naar 30+ third-party tools via MCP (Adobe, Dropbox, Uber). Spark werkt op de achtergrond en neemt proactief acties op basis van gebruikerspatronen en -intentie zonder expliciete triggers.",
+      "technical_depth": "Gemini Spark gebruikt MCP voor third-party tool connectiviteit, wat het direct interoperabel maakt met bestaande MCP-server ecosystemen. De agent-lus is intent-driven (proactief) in plaats van prompt-driven (reactief). Dit is het eerste grootschalige voorbeeld van MCP als enterprise-standard protocol voor cross-service agent connectivity bij een major tech platform.",
+      "toepassing": "Gemini Spark valideert MCP als de-facto standaard voor agent-tool connectivity. Eigen MCP-servers zijn nu direct herbruikbaar als Spark-connectors. Dit maakt cross-platform agent-workflows realistisch: een MCP-server die Pepijn voor Claude Code bouwt werkt potentieel ook in Spark-context.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-agent-foundation-release-v1",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent Foundation Release (v1.0): eerste stabiele versie met xAI Grok 1M-context",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases"
+      ],
+      "bron_namen": [
+        "NousResearch GitHub Releases"
+      ],
+      "datum_artikel": "2026-05-16",
+      "samenvatting": "NousResearch bracht op 16 mei de Foundation Release van Hermes Agent uit: 808 commits, 633 merged PRs, en ondersteuning voor xAI Grok als SuperGrok OAuth provider met 1 miljoen context window. Dit is de eerste stabiele versie van het Hermes Agent framework na een intensieve ontwikkelperiode.",
+      "technical_depth": "De Foundation Release introduceert xAI Grok SuperGrok OAuth als authentication provider, waardoor Grok-modellen met 1M context window beschikbaar zijn in het Hermes Agent ecosysteem. De stabiele API consolideert 808 commits naar een gestructureerde agent orchestratie-interface voor open source modellen met pluggable provider support.",
+      "toepassing": "Hermes Agent v1.0 is nu stable genoeg voor productie-inzet. De 1M context window via Grok SuperGrok maakt het interessant voor long-context agent-taken die Claude's context limits overschrijden. Direct te combineren met NousResearch's Hermes-modellen voor volledig open-source agent stacks als alternatief voor Anthropic's managed infra.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "aws-mcp-server-ga-bernstein-orchestrator",
+      "ecosysteem": "Open Source Tools",
+      "titel": "AWS MCP Server GA en Bernstein multi-agent CLI orchestrator voor 40+ coding agents",
+      "bron_urls": [
+        "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-mcp-server/",
+        "https://github.com/trending?l=python&since=weekly"
+      ],
+      "bron_namen": [
+        "AWS What's New",
+        "GitHub Trending Python"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "AWS lanceerde op 6 mei de AWS MCP Server als generally available: een managed MCP-server met IAM-guardrails, CloudWatch metrics en CloudTrail logging die AI coding agents veilig toegang geeft tot alle AWS APIs inclusief file uploads en long-running operaties. Bernstein verscheen als Python orchestrator die 40+ CLI coding agents (Claude Code, Codex, Gemini CLI, Cursor, Aider) coordineert met één LLM planning-call, git worktree isolatie en HMAC-chained audit logging.",
+      "technical_depth": "AWS MCP Server ondersteunt een generieke tool die elke AWS API aanroept via sandboxed Python script execution zonder toegang tot lokaal filesystem. IAM-guardrails zijn native geïntegreerd. Bernstein gebruikt git worktree isolatie per agent-taak, quality gates na elke agent-stap en HMAC-chaining voor onweerlegbare audit trails van alle agent-acties.",
+      "toepassing": "AWS MCP Server maakt het trivial om Claude Code agent-sessies te geven aan AWS-resources zonder IAM keys in prompts. Bernstein is direct inzetbaar als orchestratielaag voor Orion wanneer meerdere coding agents parallel taken uitvoeren, met ingebouwde kwaliteitscontrole en audit. Gratis beschikbaar, je betaalt alleen voor de AWS-resources.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-vibe-coding-agentic-engineering-convergentie",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: vibe coding en agentic engineering convergeren in de praktijk",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+        "https://simonwillison.net/2026/May/20/google-io/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "Simon Willison publiceerde twee technisch relevante analyses in mei: een reflectie dat 'vibe coding' (snel prototypen zonder volledig begrip) en 'agentic engineering' (verantwoord AI-gebruik voor code) in zijn eigen werk beginnen samen te vloeien, en een technische recensie van Google I/O 2026 met focus op Gemini 3.5, Spark en Genkit Middleware. Hij bouwde live features voor zijn blog met Claude Code for Web.",
+      "technical_depth": "Willison constateert dat het onderscheid tussen vibe coding en agentic engineering praktisch vervaagt naarmate agents autonomer worden, wat implicaties heeft voor code review, testpraktijken en verantwoordelijkheid in AI-gegenereerde codebases. Zijn Google I/O review signaleert dat hij terughoudend is over features die nog niet GA zijn, wat zijn analyse betrouwbaarder maakt als filter.",
+      "toepassing": "Willison's analyse is direct relevant voor de P&F workflow: wanneer gebruik je Claude Code als 'tool' (agentic engineering) vs. wanneer laat je het autonoom lopen? Zijn Google I/O review geeft een betrouwbare second opinion op welke Gemini-features production-ready zijn. Hij gebruikt Claude Code for Web actief voor blog-development: goede bron voor real-world workflow-tips.",
+      "relevantie_score": 8
+    }
+  ]
+}
