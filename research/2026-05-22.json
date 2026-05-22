@@ -1,7 +1,7 @@
 {
   "datum": "2026-05-22",
-  "gegenereerd_op": "00:10 UTC",
-  "run_nummer": 1,
+  "gegenereerd_op": "10:45 UTC",
+  "run_nummer": 2,
   "bevindingen": [
     {
       "id": "claude-code-with-claude-2026-agent-features",
@@ -145,6 +145,150 @@
       "technical_depth": "Willison constateert dat het onderscheid tussen vibe coding en agentic engineering praktisch vervaagt naarmate agents autonomer worden, wat implicaties heeft voor code review, testpraktijken en verantwoordelijkheid in AI-gegenereerde codebases. Zijn Google I/O review signaleert dat hij terughoudend is over features die nog niet GA zijn, wat zijn analyse betrouwbaarder maakt als filter.",
       "toepassing": "Willison's analyse is direct relevant voor de P&F workflow: wanneer gebruik je Claude Code als 'tool' (agentic engineering) vs. wanneer laat je het autonoom lopen? Zijn Google I/O review geeft een betrouwbare second opinion op welke Gemini-features production-ready zijn. Hij gebruikt Claude Code for Web actief voor blog-development: goede bron voor real-world workflow-tips.",
       "relevantie_score": 8
+    },
+    {
+      "id": "claude-code-week20-agent-view-goal",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 20: Agent View en /goal command (v2.1.139–2.1.142)",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code – What's New",
+        "Releasebot Anthropic Claude Code"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "Claude Code versies 2.1.139–2.1.142 (week 11–15 mei) introduceren Agent View via `claude agents`: één TUI-scherm voor alle lopende sessies met status, blokkades en voltooide taken. Het /goal commando houdt Claude aan het werk over meerdere turns totdat een gedefinieerde stopconditie geldt. Fast Mode draait nu standaard op Opus 4.7, en Rewind kan vroege context comprimeren met 'Summarize up to here'.",
+      "technical_depth": "Agent View integreert multi-session management in één TUI: sessies starten, naar achtergrond sturen, statusinspectie en terugspringen per sessie. /goal introduceert loop-controle op conversatieniveau — Claude herstart automatisch turns totdat een boolean conditie true is. 'Summarize up to here' comprimeert vroege context in-place voor KV-efficiëntie bij lange sessies.",
+      "toepassing": "Pepijn en Duncan kunnen nu meerdere agentic pipelines tegelijk monitoren via `claude agents` zonder van terminal te wisselen. /goal is ideaal voor langlopende refactor-taken of Orion-buildcycli die pas stoppen als alle tests groen zijn.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-codex-sdk-voice-intelligence-api-may2026",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI Codex SDK verhuist naar openai-codex repo + Voice Intelligence API nieuwe modellen",
+      "bron_urls": [
+        "https://releasebot.io/updates/openai",
+        "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/"
+      ],
+      "bron_namen": [
+        "Releasebot OpenAI",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "De Codex Python SDK is op 15 mei verplaatst naar openai-codex/openai_codex met pinned runtime-generated types, concurrent turn routing en approval modes voor human-in-the-loop control. Tegelijk lanceerde OpenAI een Voice Intelligence API met nieuwe modellen die real-time spraak-naar-spraak-interactie ondersteunen voor developer-integraties.",
+      "technical_depth": "Concurrent turn routing laat meerdere Codex-agent-turns parallel afhandelen op één SDK-instantie. Approval modes brengen een gate-mechanisme vergelijkbaar met Claude Code's auto mode: safe actions doorstromen, risky actions triggeren een callback. Pinned runtime-generated types zorgen voor stabiele type-inferentie bij dynamische codegen-workflows.",
+      "toepassing": "De approval mode is een directe analogie met Claude Code's auto mode — interessant als vergelijkingspunt voor het ontwerpen van Orion's human-oversight-laag. Voice Intelligence API is relevant als Orion een spraakinterface-laag nodig heeft.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "gemini-omni-unified-multimodal-io-architecture",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini Omni: unified any-to-any I/O architectuur voor video-generatie vanuit alle modaliteiten",
+      "bron_urls": [
+        "https://techcrunch.com/2026/05/19/google-updates-its-gemini-app-to-take-on-chatgpt-and-claude-at-io-2026/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud"
+      ],
+      "bron_namen": [
+        "TechCrunch",
+        "Google Cloud Blog"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde Gemini Omni op Google I/O als model dat tekst, audio, beeld en video als gelijkwaardige input-modaliteiten behandelt en dynamische video-content als primaire output kan genereren. De architectuur combineert alle I/O-typen in één unified model zonder separate modality-adapters.",
+      "technical_depth": "Gemini Omni's unified I/O-architectuur elimineert de traditionele pipeline van aparte encoder-modellen per modaliteit. Video-output wordt gegenereerd door text-, audio-, beeld- en video-inputs te blenden in één latente representatie. Dit is conceptueel vergelijkbaar met hoe GPT-4o modaliteiten unificeert, maar dan met video-generatie als native output.",
+      "toepassing": "Voor de P&F AI Blog is dit de meest technisch interessante Gemini-aankondiging van Google I/O: het unified I/O-paradigma is het referentiemodel voor hoe multimodale agents in de toekomst zullen werken. Relevant als contentthema over de evolutie van LLM-architecturen.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "kimi-k26-qwen36-27b-open-source-coding-may2026",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.6 en Qwen 3.6-27B: open-source coding-modellen met frontier-niveau benchmarks",
+      "bron_urls": [
+        "https://llm-stats.com/llm-updates",
+        "https://qwen.ai/blog?id=qwen3.6-27b"
+      ],
+      "bron_namen": [
+        "LLM Stats",
+        "Qwen Blog"
+      ],
+      "datum_artikel": "2026-05-01",
+      "samenvatting": "In mei 2026 zijn Kimi K2.6 (Moonshot AI, top-tier coding) en Qwen 3.6-27B (Alibaba, 77.2% SWE-bench Verified) beschikbaar gekomen als open-weight modellen. Qwen 3.6-27B is een dense 27B model dat het 397B MoE-model Qwen 3.5 overtreft op alle coding-benchmarks. Kimi K2.6 scoort top op agentic coding-taken en is beschikbaar via Ollama.",
+      "technical_depth": "Qwen 3.6-27B introduceert 'Thinking Preservation': het bewaren van redeneertraces over de conversatiegeschiedenis, wat KV-cache-efficiëntie verhoogt en redundante token-generatie vermindert bij multi-turn agentic workflows. Een dense 27B model vereist ~16GB VRAM (FP16) — lokaal uitvoerbaar op een high-end workstation.",
+      "toepassing": "Qwen 3.6-27B is de meest interessante lokale coding-optie van dit moment: frontier-niveau prestaties zonder API-kosten. Thinking Preservation maakt het geschikt voor Orion-workflows die over meerdere turns redeneren. Kimi K2.6 via Ollama is direct inzetbaar als lokale coding-assistent naast Claude.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "google-genkit-middleware-composable-hooks-may2026",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Google Genkit Middleware: composable hooks voor generate, model en tool interception in agentic pipelines",
+      "bron_urls": [
+        "https://developers.googleblog.com/announcing-genkit-middleware-intercept-extend-and-harden-your-agentic-apps/",
+        "https://xavidop.me/genkit/2026-05-13-genkit-middleware/"
+      ],
+      "bron_namen": [
+        "Google Developers Blog",
+        "Xavier Portilla Edo Blog"
+      ],
+      "datum_artikel": "2026-05-14",
+      "samenvatting": "Google lanceerde Genkit Middleware op 14 mei als open-source component voor TypeScript, Go en Dart (Python binnenkort). Het biedt composable hooks op drie niveaus: Generate (context-injectie per conversatie), Model (retries, fallbacks, caching per LLM-aanroep) en Tool (approval gates, sandboxing, monitoring per tool-executie). Elke generate()-aanroep doorloopt een volledige tool-loop die op elk niveau intercepteerbaar is.",
+      "technical_depth": "De architectuur lijkt op Express.js-middleware maar dan voor agentic AI-pipelines. Model hooks ondersteunen exponential backoff retries en multi-provider fallback chains. Tool hooks kunnen approval gates implementeren die menselijke validatie vereisen vóór tool-executie. Alle middleware is zichtbaar en debugbaar in de Genkit Dev UI.",
+      "toepassing": "Genkit Middleware is het meest complete open-source framework voor production-grade agentic middleware op dit moment. De Tool approval hooks zijn een directe inspiratiebron voor het implementeren van oversight in Orion-workflows. Model fallback chains zijn toepasbaar in multi-provider setups (Claude als primair, open-source als fallback).",
+      "relevantie_score": 8
+    },
+    {
+      "id": "llamaindex-google-agents-api-sandboxed-template",
+      "ecosysteem": "Open Source Tools",
+      "titel": "LlamaIndex template voor Google Agents API: LlamaParse in sandboxed Linux omgeving",
+      "bron_urls": [
+        "https://llm-stats.com/ai-news",
+        "https://github.com/microsoft/agent-framework/releases"
+      ],
+      "bron_namen": [
+        "LLM Stats AI News",
+        "GitHub Microsoft Agent Framework"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "Op 20 mei lanceerde LlamaIndex een officiële template voor Google's Agents API die LlamaParse en LiteParse exposeren over ongestructureerde documenten in een sandboxed Linux-omgeving. Google's Agents API biedt een gestandaardiseerde interface voor het deployen van document-verwerkende agents als managed cloud services.",
+      "technical_depth": "De template wraps LlamaParse als een Google Agents API endpoint: document-ingestion en chunking draaien in een geïsoleerde sandbox met gedefinieerde I/O-grenzen. Dit is de eerste officiële integratie van LlamaIndex's parsing-stack met Google Cloud's agent infrastructure, en volgt het zelfde sandboxed-execution-patroon als Claude Code's computer use.",
+      "toepassing": "Voor Orion-workflows die document-ingestion nodig hebben (PDFs, rapporten, code docs), biedt deze template een productie-ready architectuurpatroon. De sandboxed Linux-omgeving garandeert isolatie voor niet-vertrouwde documenten — relevant als Orion externe content inneemt.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "datasette-agent-first-release-simon-willison",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison lanceert Datasette Agent: extensibele AI-assistent voor Datasette databases",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/21/datasette-agent/",
+        "https://simonwillison.net/2026/May/19/5-minute-llms/"
+      ],
+      "bron_namen": [
+        "Simon Willison – Datasette Agent",
+        "Simon Willison – PyCon US 2026"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Op 21 mei lanceerde Simon Willison de eerste release van Datasette Agent, een extensibele AI-assistent die direct integreert met Datasette-databases via een plugin-architectuur. De agent combineert SQL-querygeneratie met conversationele data-exploratie en beheert context over meerdere SQL-iteraties. Het project is opgebouwd met Claude Code en demonstreert een concreet productiepatroon voor database-gerichte agents.",
+      "technical_depth": "Datasette Agent exposeert Datasette's REST API als een tool-interface voor een LLM-kern. De plugin-architectuur laat toe om domein-specifieke tools toe te voegen (geo-queries, chart-generatie, etc.). De agent houdt SQL-query-iteraties bij als gestructureerde conversation history voor progressieve verfijning.",
+      "toepassing": "Datasette Agent is een uitstekende referentie-implementatie voor hoe je een data-gerichte agent bouwt bovenop een bestaande tool. Het plugin-systeem is direct te adapteren voor Orion-modules die toegang nodig hebben tot specifieke data-backends. Het is ook concrete blogcontent: 'bouwen met Claude Code in productie'.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-5min-llms-pycon-2026-overview",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison op PyCon US 2026: 6 maanden LLM-ontwikkeling in 5 minuten — annotated slides",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/19/5-minute-llms/",
+        "https://simonwillison.net/2026/May/20/google-io/"
+      ],
+      "bron_namen": [
+        "Simon Willison – PyCon US 2026 talk",
+        "Simon Willison – Google I/O"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Simon Willison presenteerde op 19 mei bij PyCon US 2026 een gecureerde tijdlijn van alle major LLM-releases van Q4 2025 t/m Q2 2026, inclusief annotated slides die online beschikbaar zijn. De presentatie dekt multimodale modellen, agentic tooling en de explosie van open-weight coding-modellen — als betrouwbare kuratie van een complex landschap.",
+      "technical_depth": "De annotated slides bevatten Simon's technische interpretaties van elke major release: wat écht nieuw is versus marketing, welke benchmarks te vertrouwen zijn, en welke architecturale verschuivingen fundamenteel zijn. Dit is unieke curator-waarde: niet alleen een lijst maar een beredeneerde selectie door een ervaren practitioner.",
+      "toepassing": "De slides zijn direct bruikbaar als bronmateriaal voor een P&F AI Blog overzichtsartikel over Q1-Q2 2026. Simon's framework voor het beoordelen van LLM-releases is ook direct relevant voor hoe Pepijn en Duncan hun eigen research-workflow kunnen structureren.",
+      "relevantie_score": 7
     }
   ]
 }
