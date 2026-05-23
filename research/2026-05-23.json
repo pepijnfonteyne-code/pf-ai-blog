@@ -1,0 +1,153 @@
+{
+  "datum": "2026-05-23",
+  "gegenereerd_op": "12:15 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-agent-view-goal-command",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code 2.1: Agent View CLI-dashboard en /goal-commando",
+      "bron_urls": [
+        "https://explainx.ai/blog/anthropic-claude-code-agent-view-goal-command",
+        "https://en.ain.ua/2026/05/12/anthropic-launched-agent-view-mode-for-claude-code-this-will-allow-managing-multiple-ai-agents-at-once/",
+        "https://www.infoq.com/news/2026/05/code-with-claude/"
+      ],
+      "bron_namen": [
+        "ExplainX.ai",
+        "AIN Ukraine",
+        "InfoQ"
+      ],
+      "datum_artikel": "2026-05-11",
+      "samenvatting": "Anthropic lanceerde Claude Code 2.1.139 op 11 mei met Agent View: één CLI-scherm dat alle parallelle sessies toont met status (running, blocked, done). Het /goal-commando houdt Claude actief over meerdere turns heen totdat een opgegeven conditie geldt, wat volledig autonome meertraps-taken mogelijk maakt.",
+      "technical_depth": "Agent View werkt via `claude agents` CLI-commando en toont per rij: sessie-ID, staat, laatste activiteit. /goal werkt als persistente stuurvariabele die de agent herbevraagt totdat een evaluatieconditie True retourneert. Fast Mode draait nu standaard op Opus 4.7. Beschikbaar op Pro, Max, Team, Enterprise en API-plannen.",
+      "toepassing": "Pepijn en Duncan kunnen meerdere Claude Code agents parallel laten draaien (bijv. refactoring + test-schrijven + documentatie) en monitoren vanuit één scherm. /goal is perfect voor Orion-workflows waarbij een agent meerdere stappen autonoom moet doorlopen zonder handmatige tussenkomst.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-plugin-marketplace-json-session",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Plugin Marketplace: dependency-enforcement en JSON session listing",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code Docs (What's New)",
+        "Releasebot Anthropic"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Claude Code updates van week 18-23 mei voegden JSON session listing toe, rijkere plugin discovery met kostenindicaties per plugin, en dependency-enforcement: `claude plugin disable` weigert als een andere actieve plugin afhankelijk is van het doelwit en toont een copy-pasteable disable-chain hint.",
+      "technical_depth": "Plugin dependency graph wordt gecontroleerd bij disable-commando's. De /plugin Discover en Browse screens tonen nu commands, agents, skills, hooks en MCP/LSP servers vóór installatie. JSON output voor sessies maakt externe monitoring en scripting eenvoudiger.",
+      "toepassing": "Relevant voor het bouwen van complexe Claude Code plugin-stacks in Orion: dependency-enforcement voorkomt accidenteel verbreken van plugin-ketens. JSON session output maakt het mogelijk om Claude Code sessions te monitoren vanuit externe dashboards of CI/CD pipelines.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt55-instant-default-model",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI zet GPT-5.5 Instant als nieuw standaardmodel — 52,5% minder hallucinaties",
+      "bron_urls": [
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",
+        "https://mwm.ai/articles/openai-upgrades-chatgpt-default-model-to-gpt-5-5-instant-in-may-2026",
+        "https://www.axios.com/2026/05/05/openai-chatgpt-update-default-model"
+      ],
+      "bron_namen": [
+        "TechCrunch",
+        "MWM AI",
+        "Axios"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "OpenAI verving op 6 mei GPT-5.3 Instant door GPT-5.5 Instant als standaardmodel voor alle ChatGPT-gebruikers. Het model haluicineert 52,5% minder op high-stakes prompts (medisch, juridisch, financieel) en reduceert onjuiste claims met 37,3% in uitdagende conversaties.",
+      "technical_depth": "GPT-5.5 Instant geeft beknoptere antwoorden met minder onnodige follow-up vragen en minder overformatting. Nieuw: Memory Sources-functie toont welke opgeslagen herinneringen of gesprekken gebruikt werden voor personalisatie — gebruikers kunnen onjuiste herinneringen corrigeren of verwijderen. GPT-5.3 Instant blijft beschikbaar via model configuration settings tot augustus 2026.",
+      "toepassing": "Benchmark-referentie voor vergelijking met Claude-modellen. De Memory Sources feature is interessant als design pattern voor Orion's geheugenarchitectuur: transparantie over welke opgeslagen context welk antwoord beïnvloedt is een UX-patroon dat Orion ook kan adopteren.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-interactions-api-breaking-changes",
+      "ecosysteem": "Gemini",
+      "titel": "URGENT: Gemini Interactions API breaking changes — deadline 26 mei en 8 juni 2026",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026",
+        "https://byteiota.com/gemini-interactions-api-migrate-before-june-8/"
+      ],
+      "bron_namen": [
+        "Google AI for Developers (officieel)",
+        "ByteIota"
+      ],
+      "datum_artikel": "2026-05-07",
+      "samenvatting": "Google introduceert breaking changes in de Gemini v1beta Interactions API: het `outputs`-array wordt vervangen door een `steps`-array met gestructureerde tijdlijn per interaction-turn. Nieuw schema wordt default op 26 mei (overmorgen); legacy schema verdwijnt definitief op 8 juni 2026.",
+      "technical_depth": "Migratie vereist: (1) response content lezen uit `steps` i.p.v. `outputs`, (2) verwerken van `user_input` en `model_output` step types, (3) `function_call` steps zoeken in steps-array, (4) history management via `steps` in `input`-field. Opt-out tijdelijk via `Api-Revision: 2026-05-07`. Python SDK >=2.0.0 en JS SDK >=2.0.0 handelen migratie automatisch af. De nieuwe steps-structuur ondersteunt ook async tool calls en mid-flight steering.",
+      "toepassing": "Als Pepijn of Duncan Gemini Interactions API integraties gebruikt, moet die voor 26 mei gemigreerd zijn — dat is overmorgen. De nieuwe steps-structuur met async tool calls en mid-flight steering is architectureel interessant voor vergelijking met hoe Claude Agent SDK tools afhandelt.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "gemini-35-flash-managed-agents-api",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA en Managed Agents API in public preview — stateful hosted agents",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud"
+      ],
+      "bron_namen": [
+        "Gemini API Changelog",
+        "Google Cloud Blog"
+      ],
+      "datum_artikel": "2026-05-07",
+      "samenvatting": "Google lanceerde Gemini 3.5 Flash als GA voor agentic en coding tasks en het nieuwe Gemini Omni-model (any-to-any generatie inclusief video output). De Managed Agents API ging in public preview: stateful, autonome agents in geïsoleerde Google-hosted Linux sandboxes zonder eigen state management.",
+      "technical_depth": "Managed Agents API houdt persistent state bij tussen agent-turns. Event-driven Webhooks vervangen polling-workflows voor de Batch API en long-running operations. Gemini 3.5 Flash combineert frontier intelligence met action en wordt het standaardmodel voor de Gemini-ervaring.",
+      "toepassing": "Managed Agents API is een directe concurrent voor Claude Agent SDK en de Orion-architectuur. Interessant om te benchmarken: stateful agent hosting zonder eigen infrastructure. De event-driven webhook aanpak voor long-running operations is een architectuurpatroon dat Orion kan overnemen i.p.v. polling.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-agent-foundation-release-may16",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent 'The Foundation Release' — xAI Grok OAuth en OpenAI-compatible lokale proxy",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases",
+        "https://newreleases.io/project/github/NousResearch/hermes-agent/release/v2026.5.7"
+      ],
+      "bron_namen": [
+        "NousResearch GitHub Releases",
+        "NewReleases.io"
+      ],
+      "datum_artikel": "2026-05-16",
+      "samenvatting": "NousResearch bracht op 16 mei 'The Foundation Release' van Hermes Agent uit (808 commits, 633 PRs). Kerntoevoeging: xAI Grok OAuth-support met 1M context window, een OpenAI-compatible lokale proxy voor OAuth-authenticated providers, en x_search als first-class X/Twitter zoektool.",
+      "technical_depth": "De OpenAI-compatible lokale proxy stelt gebruikers in staat elke OAuth-authed provider (waaronder xAI Grok) te benaderen via de standaard OpenAI API interface — vereenvoudigt model-switching significant. Volgt op de Tenacity Release (7 mei) met multi-agent Kanban board, heartbeat-detectie, hallucination recovery en /goal feature.",
+      "toepassing": "De OpenAI-compatible proxy is direct bruikbaar voor Pepijn en Duncan: providers met OAuth-auth zijn nu toegankelijk via bestaande OpenAI-SDK tooling. x_search als eerste-klas tool is interessant voor agentic workflows die real-time X/Twitter informatie nodig hebben. Hermes Agent's /goal-implementatie vergelijken met de Claude Code /goal-aanpak.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-release-candidate-stateless-may21",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Release Candidate gelockt: stateless protocol, Tasks, MCP Apps — finaal op 28 juli",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": [
+        "MCP Official Blog",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Het MCP Release Candidate voor specificatie 2026-07-28 werd op 21 mei gelockt: de grootste revisie since launch. Kernaanpassing: MCP wordt stateless op protocolniveau — Mcp-Session-Id header en protocol-level session worden verwijderd. Elke MCP-request kan nu op elke serverinstantie landen.",
+      "technical_depth": "Breaking change: sticky routing en shared session stores zijn niet meer nodig op protocolniveau. Remote MCP servers kunnen achter een gewone round-robin load balancer draaien en verkeer routen op Mcp-Method header. Nieuw: Extensions framework (Tasks voor long-running work), MCP Apps (server-rendered HTML UIs in sandboxed iframes), auth aligned met OAuth/OIDC, formeel deprecation-beleid. 10-weken validatiewindow voor Tier 1 SDKs.",
+      "toepassing": "Fundamentele wijziging voor iedereen die remote MCP servers bouwt of gebruikt in Orion of andere workflows. Bestaande MCP server implementaties moeten worden gecontroleerd op protocol-level session-state afhankelijkheden. MCP Apps (HTML in sandboxed iframes) opent de deur naar rijke UIs binnen Claude Code — een groot nieuw design space voor Orion.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "simonwillison-datasette-agent-may21",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Datasette Agent — composable AI agent met plugin-architectuur over databases",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/21/datasette-agent/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Simon Willison publiceerde op 21 mei Datasette Agent: een AI-agent bovenop Datasette die via plugins uitbreidbaar is. Beschikbare plugins: datasette-agent-charts (Observable Plot charts), datasette-agent-openai-imagegen (ChatGPT Images 2.0), en datasette-agent-sprites (code execution in Fly Sprites persistent sandbox).",
+      "technical_depth": "Datasette Agent is gebouwd op een composable plugin-architectuur waarbij elke tool-capability als afzonderlijke Python package wordt gedistribueerd. De Fly Sprites integratie geeft de agent een persistent code-execution sandbox — dit is een implementatie van het 'tool use met sandboxed execution' patroon. Willison bouwde het origineel op zijn telefoon met Claude Code voor web.",
+      "toepassing": "Het plugin-compositie model is een interessant architectuurpatroon voor Orion: modulaire agent-capabilities die on-demand geladen worden i.p.v. een monolithische agent. De Fly Sprites persistent sandbox laat zien hoe je een agent veilig code kunt laten uitvoeren — vergelijkbaar met wat Claude Code's eigen sandboxing doet maar als standalone service.",
+      "relevantie_score": 8
+    }
+  ]
+}
