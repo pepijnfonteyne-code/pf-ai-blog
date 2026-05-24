@@ -1,0 +1,151 @@
+{
+  "datum": "2026-05-24",
+  "gegenereerd_op": "09:45 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-agent-view-week20",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 20: Agent View, /goal Command, en Fast Mode op Opus 4.7",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code What's New",
+        "Releasebot Claude Code Updates"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "Claude Code v2.1.139-v2.1.142 introduceert Agent View via `claude agents`: een unified dashboard dat alle lopende sessies toont met status running/blocked/done. Het `/goal` commando laat Claude autonoom over meerdere turns doorwerken totdat een completion condition geldt. Het Rewind menu kan eerdere context comprimeren via 'Summarize up to here', en fast mode draait nu standaard op Opus 4.7.",
+      "technical_depth": "Agent View aggregeert alle Claude Code-sessies in één scherm en toont welke input nodig hebben versus wat autonoom doorloopt. `/goal` implementeert een condition-based loop waarbij Claude zelf de stop-criteria bewaakt. 'Summarize up to here' comprimeert context-tokens door vroege conversatie samen te vatten in plaats van te verwijderen, waardoor de effectieve sessielengte toeneemt zonder volledig context-verlies.",
+      "toepassing": "Pepijn en Duncan kunnen met Agent View meerdere parallelle Claude Code-sessies monitoren zonder te switchen tussen terminals — direct bruikbaar bij Orion-workflows met meerdere gelijktijdige agents. `/goal` elimineert handmatig re-prompten: definieer een conditionele stopcriteria en laat Claude doorwerken. Context-compressie via Rewind verlengt de sessielengte voor lange coding-taken zonder het context-window te satureren.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-week19-plugins-zip-hard-deny",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 19: Plugins laden vanuit .zip/URL, Auto Mode Hard Deny Rules, Hooks zien Effort Level",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://claudelog.com/claude-code-changelog/"
+      ],
+      "bron_namen": [
+        "Claude Code What's New",
+        "ClaudeLog Changelog"
+      ],
+      "datum_artikel": "2026-05-08",
+      "samenvatting": "Claude Code v2.1.128-v2.1.136 voegt drie significante features toe: `--plugin-dir` accepteert nu `.zip`-bestanden en `--plugin-url` fetcht een plugin-archief voor de sessie, wat distributie van interne plugins vereenvoudigt. Auto Mode krijgt 'hard deny rules' die acties onvoorwaardelijk blokkeren ongeacht allow-uitzonderingen. Hooks krijgen toegang tot `effort.level` en `$CLAUDE_EFFORT`.",
+      "technical_depth": "Plugin .zip-support maakt CI-gebaseerde plugin-distributie mogelijk: bouw een plugin als archief en laad het via URL zonder lokale installatie. Hard deny rules in auto mode zijn unconditional blocks die niet door allow-exceptions overridden kunnen worden — een absolute veiligheidslaag. Hooks die `$CLAUDE_EFFORT` lezen kunnen gedrag conditioneel aanpassen op basis van het ingestelde effort level (low/medium/high/xhigh).",
+      "toepassing": "Plugin URL-loading maakt het mogelijk om interne Orion-plugins te hosten op een private URL en te laden per sessie, zonder deployment op elke machine. Hard deny rules zijn essentieel voor productie-agentic-workflows waar bepaalde destructieve acties (bijv. `git push --force` of `rm -rf`) nooit automatisch mogen worden uitgevoerd. Hooks op effort level stellen fijn-grained resource management in: gebruik xhigh effort alleen voor kritieke taken.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-release-candidate-mei2026",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP Release Candidate gelockt op 21 mei 2026: Stateless Core, Extensions Framework, Tasks en MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": [
+        "Model Context Protocol Blog",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De MCP Release Candidate is op 21 mei 2026 gelockt — de grootste revisie van het protocol sinds de lancering. Kern-features: een stateless protocol core die schaalt op gewone HTTP-infrastructuur, het Extensions-framework met server-rendered UIs via MCP Apps en long-running operations via Tasks, plus authorization die aligns met OAuth 2.0 en OpenID Connect. Finale publicatie: 28 juli 2026.",
+      "technical_depth": "Stateless core elimineert server-side sessie-state: elke request is volledig zelfstandig, waardoor horizontal scaling en serverless deployment triviaal worden. MCP Apps zijn server-rendered UI-componenten via Extensions, waarmee MCP-servers inline UI kunnen renderen in clients. Tasks is een durable execution primitive voor long-running work. Authorization-hardening met OIDC maakt enterprise SSO-integraties mogelijk. Tier 1 SDKs moeten binnen de 10-weeks window (tot 28 juli) support shippen.",
+      "toepassing": "Het stateless design maakt eigen MCP-servers eenvoudig deploybaar op serverless/edge-infrastructuur zonder sticky sessions. Tasks-primitives zijn direct relevant voor Orion-workflows met asynchrone multi-step processen. MCP Apps openen de mogelijkheid voor inline UI-componenten in Claude Code — bijv. een interactief dashboard of formulier direct in de agent-output. Begin nu met testen tegen de RC zodat eigen MCP-servers klaar zijn bij de finale release op 28 juli.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-release",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI lanceert GPT-5.5 Instant: 52,5% minder hallucinaties, nieuw default ChatGPT-model",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": [
+        "OpenAI Blog",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI verving GPT-5.3 Instant als standaard ChatGPT-model met GPT-5.5 Instant. Kernclaim: 52,5% minder gehallumineerde claims op high-stakes prompts (medicatie, recht, financiën). AIME 2025 score: 81,2 vs 65,4 voor het vorige model. MMMU-Pro multimodal: 76 vs 69,2. Via API beschikbaar als `chat-latest`. Personalisatie via search-retrieval over eerdere gesprekken, bestanden en Gmail.",
+      "technical_depth": "GPT-5.5 Instant implementeert search-retrieval over user history als personaliseringslaag — architectureel vergelijkbaar met RAG over per-user document stores. Memory sources zijn nu transparant zichtbaar per response met delete/correct mogelijkheden. Het `chat-latest` alias-systeem in de API maakt automatisch rollout van nieuwe modellen mogelijk zonder client-side versie-management. 52,5% hallucinatiereductie is gemeten op een intern benchmark voor high-stakes domeinen.",
+      "toepassing": "De 52,5% hallucinatiereductie biedt een concreet framework om ook Claude-output te meten en te benchmarken voor Orion-use cases met hoge nauwkeurigheidseisen. De `chat-latest` API-aanpak is interessant als design pattern: overweeg een vergelijkbare abstractielaag in Orion waardoor model-upgrades transparant worden doorgevoerd. De memory/personalisatie architectuur biedt inspiratie voor Orion's user-context management over sessies heen.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-managed-agents-io2026",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash op Google I/O 2026: 4x sneller, 1M-token context, Managed Agents API met geïsoleerde containers",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/",
+        "https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/"
+      ],
+      "bron_namen": [
+        "MarkTechPost",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "Google lanceerde Gemini 3.5 Flash op Google I/O 2026 (19-20 mei): 4x sneller dan vergelijkbare frontier modellen, overtreft Gemini 3.1 Pro op coding en agentic benchmarks (Terminal-Bench 2.1: 76,2%, MCP Atlas: 83,6%), 1.048.576 input tokens, dynamic thinking standaard aan. De Managed Agents API laat één API-call een volledige agent opstarten in een geïsoleerde Linux container met persistente state over follow-up calls.",
+      "technical_depth": "Managed Agents creëert een sandboxed Linux container per agent-run met tool execution, code-uitvoering en file/state-persistentie over meerdere calls. Dynamic thinking alloceert adaptief meer compute voor complexere prompts. MCP Atlas (83,6%) is een specifieke tool-calling benchmark voor multi-step agentic scenarios — vergelijkbaar testkader met SWE-Bench voor coding. Kosten: minder dan 50% van vergelijkbare frontier modellen. Knowledge cutoff: januari 2026.",
+      "toepassing": "MCP Atlas score (83,6%) biedt een objectief meetpunt om Gemini 3.5 Flash te benchmarken voor MCP-tool-calling in Orion-scenarios. De Managed Agents API is architectureel interessant: vergelijk dit container-based isolatie-model met Claude Code's subagent approach voor security en reproducibility. De 4x snelheidswinst bij lagere kosten maakt het interessant als goedkope worker-agent in hybride multi-model pipelines.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "gemini-spark-24-7-mcp-integraties",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini Spark: 24/7 cloud-resident personal agent met 30+ MCP-connectoren (Adobe, Dropbox, Uber)",
+      "bron_urls": [
+        "https://9to5google.com/2026/05/19/gemini-app-google-io-2026/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
+      ],
+      "bron_namen": [
+        "9to5Google",
+        "Google DeepMind Blog"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Gemini Spark is een 24/7 cloud-resident persoonlijke agent die Gemini transformeert van chatbot naar proactieve uitvoerder. Spark draait op user-gedefinieerde intents, integreert Gmail en Google Chat als eerste third-party koppelingen, en ondersteunt 30+ externe tools via MCP (waaronder Adobe, Dropbox, Uber). Aangedreven door Gemini 3.5 Flash als inference backend.",
+      "technical_depth": "Spark implementeert durable intent execution: de agent persisteert over sessies, monitort inkomende data (e-mail, kalender-events) en triggert proactief acties. De 30+ MCP-connectoren zijn native geïntegreerd in Spark's orchestration layer — dezelfde architectuur als Claude Code's plugin/MCP-ecosysteem maar gericht op end-users zonder CLI. Neural Expressive redesign past output-rendering dynamisch aan per content-type (timelines, interactieve visualisaties, video).",
+      "toepassing": "Spark's architectuur — cloud-resident durable agent met uitgebreide MCP-connectorenbibliotheek — is een referentiemodel voor Orion's agentic design. De keuze van de eerste 30 MCP-integraties (Adobe, Dropbox, Uber etc.) geeft inzicht in marktprioritisering van tool-integraties. Analyseer Spark's autonome trigger-mechanismen (event-driven via Gmail/Calendar) als blauwdruk voor Orion's proactieve agent-capabilities.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "kimi-k26-open-weight-agent-swarm",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.6: open-weight 1T MoE met 300-agent swarm, 80,2% SWE-Bench Verified, $0,60/M input-tokens",
+      "bron_urls": [
+        "https://huggingface.co/moonshotai/Kimi-K2.6",
+        "https://mlq.ai/news/moonshot-ai-releases-kimi-k26-open-source-coding-model-with-autonomous-multi-day-task-execution/"
+      ],
+      "bron_namen": [
+        "Hugging Face — moonshotai/Kimi-K2.6",
+        "MLQ.ai News"
+      ],
+      "datum_artikel": "2026-04-20",
+      "samenvatting": "Moonshot AI's Kimi K2.6 is een open-weight 1 biljoen parameter MoE-model (32B actieve parameters per token) met 80,2% op SWE-Bench Verified en SWE-Bench Pro 58,6% — beter dan GPT-5.4 (57,7%) en Claude Opus 4.6 (53,4%). Het Agent Swarm-systeem schaalt naar 300 gespecialiseerde sub-agents met 4.000 gecoördineerde stappen per run. Prijs: $0,60/M input, $2,50/M output (8-10x goedkoper dan Claude Opus 4.7).",
+      "technical_depth": "Architectuur: 384 experts per laag (8 gerouted + 1 shared), Multi-head Latent Attention voor KV-cache compressie, SwiGLU activatie, native INT4 quantisatie, 256K context window. Agent Swarm schaalt van 100 sub-agents (K2.5) naar 300 met 4.000 stappen vs 1.500 eerder. Weights beschikbaar op Hugging Face, INT4-quantisatie maakt lokaal draaien op high-end consumer GPU's mogelijk.",
+      "toepassing": "Kimi K2.6 is momenteel de sterkste open-weight coding agent. Voor Pepijn en Duncan: zelfhostbare alternatief voor Claude in cost-sensitive agentic pipelines — 8,3x lagere input-prijs maakt het aantrekkelijk voor hoog-volume MCP-tool-calling. Agent Swarm architectuur (300 sub-agents, 4K stappen) biedt directe inspiratie voor Orion's orchestration design bij complexe multi-dag taken.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "langgraph-v12-deltachannel-per-node-timeouts",
+      "ecosysteem": "Open Source Tools",
+      "titel": "LangGraph v1.2: DeltaChannel reduceert checkpoint-opslag 41x, per-node timeouts voor productie-agents",
+      "bron_urls": [
+        "https://github.com/langchain-ai/langgraph/releases",
+        "https://www.langchain.com/blog/delta-channels-evolving-agent-runtime"
+      ],
+      "bron_namen": [
+        "LangGraph GitHub Releases",
+        "LangChain Blog — Delta Channels"
+      ],
+      "datum_artikel": "2026-05-11",
+      "samenvatting": "LangGraph 1.2.0 (11 mei 2026) introduceert DeltaChannel: een channel-type dat alleen incrementele deltas opslaat, wat checkpoint-opslag reduceert van 5,3GB naar 129MB voor een 200-turn coding agent (41x reductie). Per-node timeouts voegen `run_timeout`, `idle_timeout` en `TimeoutPolicy` toe met `NodeTimeoutError` en automatische retry-integratie. Content-block-aware streaming API v3 is meegeleverd.",
+      "technical_depth": "DeltaChannel gebruikt `snapshot_frequency=K` om elke K stappen een volledige snapshot te schrijven ter begrenzing van read-latency. Per-node timeouts werken uitsluitend voor async nodes en integreren met LangGraph's retry policy via `NodeTimeoutError` — bij timeout worden writes van die attempt gecleared en overgedragen aan de retry policy. Streaming API v3 is content-block-aware (aligned met Claude's streaming content-block formaat). Python 3.10-3.14 support.",
+      "toepassing": "41x checkpoint-opslaginreductie is direct relevant voor Orion-agents op lange coding sessies: van gigabytes naar megabytes per run verlaagt storage-kosten drastisch. Per-node timeouts zijn essentieel voor productie-grade agents: voorkom dat één trage MCP-tool-call de volledige pipeline blokkeert. Content-block streaming v3 aligned met Claude's API — dit maakt het bouwen van Claude-gebaseerde LangGraph-agents in Orion eenvoudiger zonder custom streaming adapters.",
+      "relevantie_score": 8
+    }
+  ]
+}
