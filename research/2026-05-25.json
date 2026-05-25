@@ -1,0 +1,145 @@
+{
+  "datum": "2026-05-25",
+  "gegenereerd_op": "10:45 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-security-public-beta",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Security in public beta: Opus 4.7 scant codebases en patcht kwetsbaarheden automatisch",
+      "bron_urls": [
+        "https://claude.com/blog/claude-security-public-beta",
+        "https://www.helpnetsecurity.com/2026/05/04/anthropic-claude-security-public-beta/",
+        "https://releasebot.io/updates/anthropic/claude"
+      ],
+      "bron_namen": [
+        "Claude Blog",
+        "Help Net Security",
+        "Releasebot Anthropic"
+      ],
+      "datum_artikel": "2026-05-22",
+      "samenvatting": "Claude Security ging op 22 mei 2026 in public beta voor Claude Enterprise-klanten. Het systeem gebruikt Opus 4.7 om codebases te scannen op kwetsbaarheden via dataflow-analyse en cross-file interactie-tracing, en genereert gerichte patches ter review. In de eerste drie weken zijn al meer dan 2.100 kwetsbaarheden gepatcht.",
+      "technical_depth": "Opus 4.7 traceert dataflows en componentinteracties over meerdere bestanden. Geplande en gerichte scans, audit-systeemintegraties en triaged-findings-tracking beschikbaar. Integraties met CrowdStrike, Microsoft Security, Palo Alto Networks, SentinelOne, TrendAI en Wiz zijn live.",
+      "toepassing": "Direct inzetbaar: Claude Security als scheduled scan of targeted scan op kritieke modules draaien. Bijzonder nuttig voor projecten met veel externe dependencies. Combineer met Claude Code voor een end-to-end scan → patch → PR workflow binnen dezelfde toolchain.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-agent-view-goal-plugin-marketplace",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code week 20: Agent View voor multi-session beheer, /goal command en plugin dependency enforcement",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://github.com/anthropics/claude-code/releases"
+      ],
+      "bron_namen": [
+        "Claude Code Docs - What's New",
+        "Releasebot Claude Code",
+        "GitHub anthropics/claude-code releases"
+      ],
+      "datum_artikel": "2026-05-15",
+      "samenvatting": "Week 20 (11-15 mei) bracht meerdere grote Claude Code-updates: Agent View geeft overzicht van alle actieve sessies (status, gepauzeerd, done) en laat je naadloos switchen, /goal houdt Claude werkend over turns tot een conditie geldt, en plugin dependency enforcement voorkomt conflicten bij enable/disable. Fast mode draait nu standaard op Opus 4.7 met 1M context window.",
+      "technical_depth": "worktree.bgIsolation: 'none' laat background-sessies direct in de working copy schrijven zonder EnterWorktree. Plugin marketplace toont projected context cost estimates. PowerShell krijgt -ExecutionPolicy Bypass. Real-time type-to-filter in /skills en /plugin prompts. claude plugin enable force-enabled transitive dependencies.",
+      "toepassing": "Agent View is direct bruikbaar voor multi-agent workflows: meerdere parallelle taken draaien en alleen bij input-blokkering terugspringen. /goal command ideaal voor langlopende refactor-taken zonder manuele herstart. 1M context in fast mode maakt grote codebase-analyses goedkoper en sneller.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-codex-mobile-gpt55",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI Codex op iOS en Android: remote approval workflow met GPT-5.5 en multi-environment sessions",
+      "bron_urls": [
+        "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
+        "https://openai.com/index/introducing-gpt-5-5/",
+        "https://9to5mac.com/2026/05/14/openai-brings-codex-control-to-chatgpt-for-iphone-and-android/"
+      ],
+      "bron_namen": [
+        "TechCrunch",
+        "OpenAI Blog",
+        "9to5Mac"
+      ],
+      "datum_artikel": "2026-05-14",
+      "samenvatting": "OpenAI bracht Codex op 14 mei 2026 naar de ChatGPT-app voor iOS en Android (preview, alle plans). Via QR-code koppel je je telefoon aan een desktop Codex-sessie en keur je remote decisions goed, review je diffs en volg je terminal output. GPT-5.5 is nu het aanbevolen model in Codex voor complexe coding- en agentic tasks.",
+      "technical_depth": "Setup via QR-code van Codex for Mac, geen port forwarding nodig. Multi-environment app-server sessions, first-class Amazon Bedrock support en remote plugin marketplace browsing gelijktijdig uitgerold. TUI reasoning controls via Alt+, / Alt+. Mobiele pairing vereist macOS host (Windows 'coming soon').",
+      "toepassing": "Interessant als benchmark voor remote agent monitoring naast Claude Code's Agent View. GPT-5.5 vs Opus 4.7 performance op SWE-bench vergelijken. De Bedrock-integratie is relevant voor teams die AWS-infrastructure gebruiken voor hun agentic pipelines.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-google-io-2026",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash op Google I/O: 4x sneller, 83.6% MCP Atlas, overtreft GPT-5.5 op agentic benchmarks",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/",
+        "https://seekingalpha.com/news/4595030-google-releases-gemini-3_5-flash-surpasses-gptminus-5_5-in-agentic-benchmarks"
+      ],
+      "bron_namen": [
+        "Google DeepMind Blog",
+        "MarkTechPost",
+        "Seeking Alpha"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde Gemini 3.5 Flash op Google I/O (19 mei 2026) als hun snelste agentic model. Het overtreft Gemini 3.1 Pro op coding- en agentic benchmarks, is 4x sneller qua output tokens per seconde dan andere frontier models, en scoort 83.6% op MCP Atlas voor tool-use reliability. Gemini 3.5 Pro is intern al in gebruik en volgt in juni 2026.",
+      "technical_depth": "Benchmarks: 76.2% Terminal-Bench 2.1 (coding), 1656 Elo op GDPval-AA (agentic real-world tasks), 83.6% MCP Atlas (scaled tool-use reliability). 4x snellere throughput t.o.v. frontier models. Gemini 3.5 Flash beschikbaar via Gemini app, AI Mode in Google Search, developer platforms en enterprise.",
+      "toepassing": "MCP Atlas-score van 83.6% maakt Gemini 3.5 Flash interessant als snelle backbone voor MCP-server integrations waar latency kritisch is. Testen als alternatief voor Opus 4.7 in high-throughput agentic pipelines waar snelheid belangrijker is dan maximale reasoning. Vergelijk costs vs Opus 4.7 voor bulk-verwerkingsscenarios.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "kimi-k26-open-weight-moe-coding",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.6 GA: open-weight 1T/32B MoE, 80.2% SWE-bench Verified, $0.60/$2.50 per 1M tokens",
+      "bron_urls": [
+        "https://huggingface.co/moonshotai/Kimi-K2.6",
+        "https://www.kimi.com/blog/kimi-k2-6",
+        "https://codersera.com/blog/kimi-k2-6-complete-guide-2026/"
+      ],
+      "bron_namen": [
+        "HuggingFace moonshotai/Kimi-K2.6",
+        "Kimi.com Tech Blog",
+        "Coders Era Complete Guide"
+      ],
+      "datum_artikel": "2026-04-21",
+      "samenvatting": "Moonshot AI's Kimi K2.6 is eind april 2026 GA gegaan als open-weight model (Modified MIT, gewichten vrij op HuggingFace). Het scoort 80.2% op SWE-Bench Verified en 58.6% op SWE-Bench Pro — beter dan GPT-5.4 en Opus 4.6. Architectuur: 1T totale parameters, 32B actief per token via MoE, 256K context, gebouwd voor 12-uur autonome coding-sessies.",
+      "technical_depth": "MoE: 1T totaal / 32B actief, 384 experts (8 geselecteerd + 1 gedeeld), 61 transformer lagen, Multi-head Latent Attention, SwiGLU activatie, 160K vocab, 15.5T training tokens. Benchmarks: 96.4% AIME 2026, 90.5% GPQA-Diamond. API: $0.60/$2.50 per 1M input/output tokens. Zelf-hostbaar.",
+      "toepassing": "Sterke zelf-hostbare optie als backend voor agentic coding workflows met significant lagere API-kosten dan Opus 4.7. Ideaal voor SWE-agent scaffolds (OpenHands, SWE-Agent). De open weights maken fine-tuning op projectspecifieke codestijlen mogelijk. Benchmark: vergelijk met Opus 4.7 op eigen codebase-taken.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-rc-stateless-extensions-tasks",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Release Candidate gepubliceerd (22 mei): stateless HTTP-core, Tasks-extensie en MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": [
+        "MCP Blog - Release Candidate Announcement",
+        "MCP Blog - 2026 Roadmap",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-05-22",
+      "samenvatting": "Op 22 mei 2026 publiceerde het MCP-team de Release Candidate voor de spec die op 28 juli 2026 finaal wordt. De grootste verandering: MCP wordt stateless op protocollniveau via zes SEPs — geen sticky sessions of shared session stores meer nodig, round-robin load balancers volstaan. Nieuwe Extensions: Tasks (async long-running werk) en MCP Apps (server-rendered UI in sandboxed iframe).",
+      "technical_depth": "SEP-2567 verwijdert Mcp-Session-Id header; routing via Mcp-Method header. tools/list responses zijn cacheable via ttlMs. Tasks lifecycle: task handle retourneren vanuit tools/call, client stuurt via tasks/get / tasks/update / tasks/cancel. MCP Apps (SEP-1865): servers leveren interactieve HTML-interfaces die hosts renderen in sandboxed iframe. Breaking changes t.o.v. 2025-11-25 Tasks API.",
+      "toepassing": "Directe actie: bestaande MCP-servers die sticky sessions gebruiken migreren naar stateless HTTP voor horizontale schaalbaarheid. Tasks-extensie inzetten voor langlopende agentic jobs. MCP Apps openen de deur voor custom tool-UIs in Claude Code zonder externe frontend. Tier 1 SDK-support verwacht binnen 10 weken.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "simonwillison-code-w-claude-2026-liveblog",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison's live blog 'Code w/ Claude 2026': praktische inzichten van het Anthropic developer event",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/",
+        "https://code.claude.com/docs/en/whats-new"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog",
+        "Claude Code Docs - What's New"
+      ],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "Simon Willison publiceerde op 6 mei 2026 een live blog van het 'Code w/ Claude 2026' Anthropic-event. Het bundelt technische demonstraties en hands-on inzichten over Claude Code's architectuur en agentic workflow-patterns voor practitioners. Willison's analyses bieden onafhankelijke technische duiding van Anthropic's positionering en wat echt werkt.",
+      "technical_depth": "Live coverage van Claude Code demos inclusief de plugin/skill architectuur, agentic workflow-patronen en de Agent View functionaliteit. Willison's annotaties bevatten kritische observaties over werkelijke werking vs. gedemonstreerde claims — waardevol voor practitioners die features zelf willen evalueren.",
+      "toepassing": "Leesverplichting als context voor alle Claude Code updates van mei 2026. Willison's observaties over wat echt werkt zijn direct toepasbaar bij het evalueren van Agent View en /goal command voor dagelijkse workflows. Zijn onafhankelijke benchmarks en opmerkingen over limitations zijn meer waard dan officiële documentatie.",
+      "relevantie_score": 7
+    }
+  ]
+}
