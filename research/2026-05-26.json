@@ -1,0 +1,128 @@
+{
+  "datum": "2026-05-26",
+  "gegenereerd_op": "12:00 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-mcp-tunnels-sandboxes",
+      "ecosysteem": "Claude Code",
+      "titel": "Self-Hosted Sandboxes & MCP Tunnels voor Claude Managed Agents",
+      "bron_urls": [
+        "https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/",
+        "https://www.infoq.com/news/2026/05/claude-mcp-tunnels/"
+      ],
+      "bron_namen": ["The New Stack", "InfoQ"],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Anthropic lanceerde op Code with Claude London twee infrastructuurfeatures voor Claude Managed Agents: Self-hosted sandboxes (public beta) splitsen orchestration en execution plane, zodat code lokaal draait op eigen infrastructuur terwijl de AI-coördinatie bij Anthropic blijft. MCP Tunnels (research preview) bieden outbound-only verbindingen via Cloudflare met drielaagse versleuteling voor interne, niet-publieke MCP-servers.",
+      "technical_depth": "Architectuur scheiding: orchestration plane op Anthropic, execution plane via een 'environment worker' process dat een werkwachtrij pollt en tool calls lokaal uitvoert. MCP Tunnels gebruiken mutual TLS + inner TLS + OAuth per MCP-server via Cloudflare, enkel outbound verbindingen vereist — geen inbound firewallregels.",
+      "toepassing": "Agent builders met compliance-eisen (GDPR, financiële sector) kunnen gevoelige data volledig on-premise verwerken terwijl Claude de orchestratie doet. Bouw een interne MCP-server (voor CRM/ERP), koppel via MCP Tunnel, en deploy als Managed Agent zonder inbound poorten te openen.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-v2-1-147-code-review",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.147: /code-review command met inline PR-comments & gepinde sessies",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/changelog",
+        "https://code.claude.com/docs/en/whats-new/2026-w20"
+      ],
+      "bron_namen": ["Claude Code Changelog", "Claude Code Week 20"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Claude Code v2.1.147 hernoemt /simplify naar /code-review met instelbaar effort-niveau (bijv. /code-review high) en de mogelijkheid om bevindingen als inline GitHub PR-comments te posten via --comment, waarmee Claude Code een standalone code review pipeline wordt. Gepinde achtergrond-sessies via Ctrl+T in 'claude agents' blijven actief bij inactiviteit; v2.1.148 repareert een Bash-regressie waarbij alle commando's exit code 127 teruggaven.",
+      "technical_depth": "De /code-review command draait een correctheidsscan op de huidige diff op het gewenste effort-niveau en pusht resultaten als inline PR-review comments via de GitHub API. Combineerbaar met Agent View (claude agents) voor parallel beheer van meerdere sessies vanuit één terminal.",
+      "toepassing": "Gebruik /code-review high --comment in CI/CD-pipelines om Claude autonoom security- en correctheidsbugs te laten scannen en als inline PR-comments te plaatsen. Combineer met gepinde achtergrond-sessies en /goal voor volledig autonome review-en-fix loops.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-codex-goal-mode-appshots",
+      "ecosysteem": "OpenAI",
+      "titel": "Codex Goal Mode stabiel + Appshots: persistent multi-turn agentic coding",
+      "bron_urls": [
+        "https://openai.com/index/introducing-upgrades-to-codex/",
+        "https://developers.openai.com/codex/changelog"
+      ],
+      "bron_namen": ["OpenAI Blog", "OpenAI Codex Changelog"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Goal Mode verlaat de experimentele fase in Codex: je wijst een doel toe dat Codex bijhoudt over meerdere sessies en token-budget-resets heen totdat het bereikt is — het directe equivalent van Claude Code's /goal command. Appshots (macOS, app v26.519+) injecteert met een dubbele Command-druk een screenshot én de volledige tekst van het frontste venster in de actieve Codex-thread via accessibility APIs.",
+      "technical_depth": "Goal Mode is backed by dedicated persistent storage en tracked progress across active turns — fundamenteel anders dan stateless turn-by-turn interactie. CLI update vereist npm install -g @openai/codex naar versie 0.128.0+. Locked Machine mode laat Codex autonoom doorgaan op een vergrendelde Mac met remote start via de mobiele app.",
+      "toepassing": "Competitief benchmarkpunt voor agentic coding: Goal Mode + Locked Machine is OpenAI's antwoord op Claude Code's /goal + Agent View. Appshots is een idee voor visuele context-injectie dat ook in eigen agent-workflows toepasbaar is. Relevant voor wie beide tools evalueert voor team-deployment.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "gemini-3-5-flash-release",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash: nieuw frontier-model voor agents met 1M context, 4x sneller",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/"
+      ],
+      "bron_namen": ["Google Blog", "MarkTechPost"],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde Gemini 3.5 Flash op I/O 2026: 4x sneller dan vergelijkbare frontier-modellen bij $1,50/$9,00 per miljoen input/output-tokens, met een contextvenster van 1.048.576 tokens. Het overtreft Gemini 3.1 Pro op Terminal-Bench 2.1 (76,2%), MCP Atlas (83,6%) en CharXiv Reasoning (84,2%), met native multimodale input (text, beeld, audio, video) en dynamic thinking standaard ingeschakeld.",
+      "technical_depth": "Dynamic thinking houdt tussenliggende redenering bij over meerdere beurten zonder API-wijzigingen. Geoptimaliseerd voor agentic workflows, parallelle uitvoering en sub-agent deployment, met function calling, gestructureerde outputs en code-executie als ingebouwde mogelijkheden. Kennisgrens: januari 2026.",
+      "toepassing": "Inzetbaar als goedkopere backbone voor agentic workflows waar snelheid kritisch is. De MCP Atlas-score van 83,6% suggereert sterke MCP tool-use capabilities. Vergelijk met Claude Haiku voor snelle sub-agent taken in multi-agent pipelines. Beschikbaar via Google AI Studio en Gemini API.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "qwen-3-7-max-agent-model",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Qwen3.7-Max: 1M-token agent model met native Anthropic API-protocol support",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/05/21/qwen-introduces-qwen3-7-max-a-reasoning-agent-model-with-a-1m-token-context-window/",
+        "https://codersera.com/blog/qwen-3-7-max-launch-guide-2026/"
+      ],
+      "bron_namen": ["MarkTechPost", "CoderSera"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Alibaba lanceerde Qwen3.7-Max als een agent-first redeneermodel met een contextvenster van 1 miljoen tokens en native ondersteuning voor het Anthropic API-protocol, waardoor het direct inzetbaar is in tools als Claude Code of Aider. Op SWE-Pro scoort het 60,6 en op Terminal-Bench 2.0 69,7 — beter dan Claude Opus 4.6 op agentic codetaken, maar gesloten gewichten via DashScope API.",
+      "technical_depth": "Chain-of-thought redenering intern gegenereerd vóór definitief antwoord; ondersteunt autonome taken tot 35 uur. Beschikbaar via DashScope API ($2,50/$7,50 per 1M tokens input/output) en OpenRouter. Open-weight variant (27B/35B) verwacht in juni-juli 2026. Gesloten architectuur, parameters niet openbaar.",
+      "toepassing": "Inzetbaar als drop-in vervanging voor Claude in Anthropic API-compatibele tools via OpenRouter. Voor langlopende autonome agent-taken met grote codebase-context is het 1M-token venster direct bruikbaar. Benchmark eigen use-cases vóór migratie; open-weight versie in juni-juli biedt lokale deployment-optie.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "mcp-spec-release-candidate-stateless",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Specification Release Candidate: stateless servers, Tasks Extension & MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://github.com/modelcontextprotocol"
+      ],
+      "bron_namen": ["MCP Blog", "GitHub modelcontextprotocol"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De grootste MCP-protocolrevisie ooit werd vastgezet als release candidate: verwijdering van de initialize-handshake en Mcp-Session-Id headers maakt servers volledig stateless en deploybaar achter round-robin load balancers. Nieuwe capabilities: MCP Apps (server-gestuurde HTML-interfaces in sandboxed iframes), Tasks Extension (tasks/get, tasks/update, tasks/cancel voor langlopende processen), en OAuth 2.0/OpenID Connect-hardening. Finale release gepland op 28 juli 2026.",
+      "technical_depth": "Zes Specification Enhancement Proposals (SEPs): Mcp-Method en Mcp-Name headers voor routing zonder body-inspectie, W3C Trace Context-propagatie via _meta voor gedistribueerde monitoring. Roots, Sampling en Logging worden deprecated met 12 maanden overgangsperiode. Tier 1 SDKs (Python, TypeScript, Java, Kotlin, C#) moeten compliant zijn vóór 28 juli.",
+      "toepassing": "MCP-serverontwikkelaars: begin nu met de stateless-migratie — verwijder sessiestate-afhankelijkheden en migreer client-info naar _meta fields. Gebruik de Tasks Extension voor langlopende agent-operaties (CI-runs, compilaties) en MCP Apps voor rijkere UI-integraties in Claude. Controleer SDK-changelogs en plan vóór de deadline van 28 juli.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "langgraph-1-2-1-release",
+      "ecosysteem": "Open Source Tools",
+      "titel": "LangGraph 1.2.1 & WordPress 7.0 MCP Adapter: twee sleutels voor agent-ecosysteem",
+      "bron_urls": [
+        "https://github.com/langchain-ai/langgraph/releases",
+        "https://wordpress.org/news/2026/05/armstrong/"
+      ],
+      "bron_namen": ["LangGraph GitHub Releases", "WordPress.org News"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "LangGraph 1.2.1 (21-22 mei) voegt before_builtins opt-in toe voor stream transformers en repareert tool-results handling in v3 messages, terwijl de SDK-release cron-filter support toevoegt voor geplande agent runs. WordPress 7.0 'Armstrong' (20 mei) introduceert een officieel MCP Adapter-pakket dat de WordPress Abilities API omzet naar MCP-tools, waardoor Claude direct WordPress-functies kan aanroepen.",
+      "technical_depth": "LangGraph stream transformer verbetering is direct relevant voor real-time agent output. WordPress MCP Adapter is een aparte plugin/Composer-package die elke WordPress-installatie als MCP-server beschikbaar maakt: content publiceren, pagina's beheren en metadata aanpassen via gestandaardiseerd MCP protocol zonder custom API-integratie.",
+      "toepassing": "Installeer de WordPress MCP Adapter voor directe Claude-integratie met WordPress-sites — content publicatie vanuit agent-workflows wordt zo een native MCP tool-call. LangGraph 1.2.1 cron-support is bruikbaar voor geplande achtergrond-agents die data verwerken of rapportages genereren.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "datasette-agent-simon-willison",
+      "ecosysteem": "AI Builders",
+      "titel": "Datasette Agent: plugin-extensibele AI-assistent als referentie-architectuur",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/21/datasette-agent/",
+        "https://simonwillison.net/2026/May/24/datasette-agent/",
+        "https://datasette.io/blog/2026/datasette-agent/"
+      ],
+      "bron_namen": ["Simon Willison's Weblog (21 mei)", "Simon Willison's Weblog (24 mei)", "Datasette Blog"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Simon Willison lanceerde Datasette Agent (0.1a3 op 21 mei, 0.1a4 op 24 mei): een open source Datasette-plugin die via het LLM-framework een conversationeel AI-assistent koppelt aan SQLite-databases met ondersteuning voor honderden tool-calling modellen. De plugin-architectuur is modulair: datasette-agent-charts voegt grafieken toe, datasette-agent-sprites geeft een persistent code-executie sandbox, datasette-agent-openai-imagegen koppelt beeldgeneratie.",
+      "technical_depth": "Het 'give the agent a computer'-patroon: de kern-agent heeft SQL-tooling, chart-rendering (Observable Plot) en code-executie (Fly Sprites persistent sandbox) als composable tools. Open source op GitHub (simonw/datasette-agent), live demo draait op Gemini 3.1 Flash-Lite voor SQL-query generatie.",
+      "toepassing": "Concrete open source referentie-implementatie voor het bouwen van plugin-extensibele AI-assistenten bovenop bestaande applicaties. Het patroon van kern-agent + composable tool-plugins is direct te kopiëren voor interne data-tools of dashboards. Bekijk de broncode voor het integratiepatroon met het LLM-framework als tool-orchestratielaag.",
+      "relevantie_score": 8
+    }
+  ]
+}
