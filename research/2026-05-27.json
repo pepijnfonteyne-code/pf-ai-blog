@@ -1,0 +1,151 @@
+{
+  "datum": "2026-05-27",
+  "gegenereerd_op": "12:00 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-managed-agents-dreaming-outcomes-2026-05-07",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Managed Agents: Dreaming, Outcomes en Multi-Agent Orchestration",
+      "bron_urls": [
+        "https://claude.com/blog/new-in-claude-managed-agents",
+        "https://sdtimes.com/ai/new-in-claude-managed-agents-dreaming-outcomes-and-multiagent-orchestration/"
+      ],
+      "bron_namen": [
+        "Anthropic Claude Blog",
+        "SD Times"
+      ],
+      "datum_artikel": "2026-05-07",
+      "samenvatting": "Anthropic lanceerde drie nieuwe features voor Claude Managed Agents: Dreaming (asynchrone sessie-review die memories reorganiseert en patronen extraheert), Outcomes (aparte grader evalueert output tegen een rubric en laat agent itereren) en Multi-Agent Orchestration (fleets van agents voor complexe workflows). Dreaming draait op Opus 4.7 en Sonnet 4.6, verwerkt tot 100 sessies, en schrijft een nieuw output memory store.",
+      "technical_depth": "Dreams API leest een memory store + tot 100 prior sessions, schrijft een nieuw output memory store (merge duplicaten, stale entries, nieuwe patronen). Outcomes gebruikt een aparte grader in eigen context window zodat het niet beinvloed wordt door agent-redenering. Multi-agent orchestration via Managed Agents API met agent-fleet definitie. Ondersteunde modellen: claude-opus-4-7 en claude-sonnet-4-6.",
+      "toepassing": "Dreaming is direct inzetbaar voor langlopende Claude Code workflows die context verliezen over sessies heen. Outcomes is ideaal voor agentic code-review pipelines waar Pepijn en Duncan een kwaliteitsmaatstaf willen definieren zonder handmatige check. Multi-agent orchestration vervangt handgebouwde orchestrators in Orion-achtige workflows.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-reliability-agent-sdk-may2026",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code week 20-27 mei: Agent SDK streaming-fix, background sessions en AskUserQuestion herstel",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md"
+      ],
+      "bron_namen": [
+        "Claude Code Docs - What's New",
+        "anthropics/claude-code CHANGELOG"
+      ],
+      "datum_artikel": "2026-05-27",
+      "samenvatting": "Claude Code release van de week van 20-27 mei pakt infrastructurele bugs aan: uncaught exception bij streaming session-einde in de Agent SDK, pasted text als unreadable placeholder in agents, en meerdere Windows-specifieke problemen. Auto mode onderdrukte AskUserQuestion niet langer wanneer skills of users er expliciet op steunen.",
+      "technical_depth": "Agent SDK: uncaught exception fixed bij einde streaming sessions — relevant voor productiematige SDK-integrations die session lifecycle monitoren. Pasted text fix: agents ontvingen placeholder string i.p.v. werkelijke clipboard-inhoud. /background sessies weigeren niet langer bij skill-only input. Windows: NTFS junction traversal fix in background-job worktrees, CJK-tekens in agent view opgelost.",
+      "toepassing": "De Agent SDK streaming-fix is direct relevant als jullie Claude Code via de Agent SDK orkestreren: session-end exceptions konden silent failures veroorzaken in pipelines. De AskUserQuestion fix herstelt correcte human-in-the-loop gedrag in geautomatiseerde workflows met skills die goedkeuring vragen.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "openai-gpt55-instant-codex-mobile-2026-05-05",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant nieuw standaardmodel + Codex Goal Mode productie-ready + Appshots op macOS",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": [
+        "OpenAI",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI maakte GPT-5.5 Instant het nieuwe standaardmodel voor ChatGPT met scherper redeneren en betere web search integratie. Codex Goal Mode ging van experimenteel naar productie-ready (beschikbaar in CLI, IDE extension en web). Codex Appshots op macOS: beide Command-toetsen sturen screenshot + accessible text van frontmost app naar Codex als context.",
+      "technical_depth": "GPT-5.5 Instant vervangt GPT-5.3 Instant als standaard. Codex Appshots koppelen frontmost-app window via screenshot + accessible text aan Codex context via OS accessibility API. Goal Mode defineert een einddoel, Codex itereert autonoom tot het doel bereikt is.",
+      "toepassing": "Codex Goal Mode is directe concurrent voor Claude Code's agentic workflows. Vergelijkingstest op dezelfde repo-taken legt verschil in autonomie en tool-use bloot. Appshots-pattern (schermcontext als input) is inspiratie voor eigen MCP-tools die IDE-state naar agent sturen.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-google-io-2026-05-20",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash: 81% SWE-Bench, 1M context, $1.50/M — nu GA via Gemini API",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud"
+      ],
+      "bron_namen": [
+        "MarkTechPost",
+        "Google Cloud Blog"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "Google lanceerde Gemini 3.5 Flash op Google I/O 2026 met 1M input context, dynamic thinking standaard aan, en agentic benchmarks boven Gemini 3.1 Pro (Terminal-Bench 2.1: 76.2%, SWE-Bench: 81.0%, MCP Atlas: 83.6%). Tegelijkertijd werd Gemini Omni aangekondigd voor generatie van willekeurige output vanuit willekeurige input. Built-in Tools en Function Calling zijn nu combineerbaar in één API-call.",
+      "technical_depth": "Context: 1,048,576 input / 65,536 output tokens. Dynamic thinking alloceert compute adaptief per taak (on by default). SWE-Bench 81.0% overtreft Claude Opus 4.6 (80.8%). MCP Atlas 83.6% voor multi-tool agentic taken. Cache hits: $0.15/M tokens. Prijs: $1.50/$9.00 per miljoen tokens. Kennisgrens: januari 2026.",
+      "toepassing": "Gemini 3.5 Flash is een serieuze kandidaat voor de goedkope worker-laag in multi-agent architecturen. MCP Atlas 83.6% maakt het interessant als MCP-client in Orion-achtige setups. Test via Gemini API voor langere contexttaken die Claude's token-budget overschieten. Vergelijk prijs/kwaliteit met Claude Sonnet 4.6 voor batch code review.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "kimi-k26-open-source-agentic-2026-05",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.6: beste open-weight coding agent, 300-agent swarm, 80.2% SWE-Bench Verified",
+      "bron_urls": [
+        "https://www.latent.space/p/ainews-moonshot-kimi-k26-the-worlds",
+        "https://www.mindstudio.ai/blog/kimmy-k2-6-qwen-3-6-open-source-frontier-models"
+      ],
+      "bron_namen": [
+        "Latent Space (AINews)",
+        "MindStudio Blog"
+      ],
+      "datum_artikel": "2026-05-01",
+      "samenvatting": "Moonshot AI lanceerde Kimi K2.6, een 1T-parameter MoE met 32B actieve parameters, 384 experts, MLA attention en 256K context. Bijzonder: native multi-agent setup tot 300 sub-agents en ~4.000 gecoordineerde reasoning/execution stappen voor repo-level taken. Staat #4 op Artificial Analysis Intelligence Index achter Anthropic, Google en OpenAI.",
+      "technical_depth": "Architectuur: 1T MoE, 32B active (8 routed + 1 shared experts), MLA attention, 256K context, INT4 quantization. Agent-swarm: tot 300 sub-agents, ~4000 stappen. Benchmarks — SWE-Bench Pro: 58.6%, Verified: 80.2%, Terminal-Bench 2.0: 66.7%, LiveCodeBench v6: 89.6%.",
+      "toepassing": "K2.6 is de sterkste open-weight optie voor een lokale of self-hosted coding agent zonder vendor lock-in. De 256K context maakt lange codebase scans haalbaar. INT4 quantization maakt deployment op A100/H100 realistisch. Vergelijk met Claude Sonnet 4.6 voor kostenefficiëntie bij batch code review in Orion.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "mcp-spec-rc-2026-07-28-stateless-2026-05-21",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Spec RC 2026-07-28: stateless core, Extensions, Tasks, MCP Apps — grootste revisie ooit",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": [
+        "MCP Official Blog",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De grootste MCP-spec revisie since lancering is gepubliceerd als release candidate (locked 21 mei, definitief 28 juli 2026). Kernwijziging: het protocol wordt stateless — de initialize handshake en Mcp-Session-Id header verdwijnen, requests zijn zelfstandig routeerbaar via gewone round-robin load balancers. Drie major deprecaties (Roots, Sampling, Logging) met 12-maanden deprecation window.",
+      "technical_depth": "Stateless core: geen initialize/initialized handshake, geen Mcp-Session-Id. Mcp-Method + Mcp-Name headers voor load balancer routing. ttlMs + cacheScope voor tools/list caching (HTTP Cache-Control model). W3C Trace Context in _meta voor distributed tracing. MCP Apps: servers renderen HTML-UI in sandboxed iframes, tools declareren templates vooraf. Tasks extension: tools/call geeft task handle terug, clients via tasks/get|update|cancel. JSON Schema 2020-12 voor inputSchema/outputSchema inclusief $ref. OAuth/OIDC hardening per RFC 9207.",
+      "toepassing": "Meest impactvolle infra-wijziging voor MCP-builders dit jaar. Audit bestaande MCP-server code op session-afhankelijkheden voor juli 2026. Tasks extension vervangt custom polling-loops bij langlopende agent-taken. MCP Apps opent de deur voor embedded UI in Claude Code plugins — directe kans voor Orion dashboard integratie.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "langgraph-v12-delta-channel-streaming-2026-05",
+      "ecosysteem": "Open Source Tools",
+      "titel": "LangGraph v1.2: per-node timeouts, DeltaChannel en content-block streaming API v3",
+      "bron_urls": [
+        "https://github.com/langchain-ai/langgraph/releases",
+        "https://github.com/topics/mcp-agent"
+      ],
+      "bron_namen": [
+        "LangGraph GitHub Releases",
+        "GitHub MCP Agent Topics"
+      ],
+      "datum_artikel": "2026-05-01",
+      "samenvatting": "LangGraph v1.2 voegt per-node timeouts toe met automatische error recovery en graceful shutdown, een DeltaChannel die checkpoint-overhead op lange threads sterk vermindert, en een content-block-centric streaming API v3 die compatibel is met Anthropic's streaming format. Focus op productie-stabiliteit in langlopende multi-agent workflows.",
+      "technical_depth": "DeltaChannel stuurt alleen diffs naar het checkpoint store in plaats van volledige state snapshots, wat geheugen en latency omlaag brengt bij grote agent-graphs. Streaming API v3 is content-block-centric, compatibel met Anthropic streaming format. Per-node timeouts configureerbaar met fallback-node definitie voor error recovery.",
+      "toepassing": "DeltaChannel is direct relevant voor Orion en langlopende orchestrators: minder checkpoint overhead bij 50+ node graphs. Streaming API v3 maakt integratie met Claude's native streaming eenvoudiger zonder custom adapters. Per-node timeouts vervangen handgebouwde timeout-wrappers in agent nodes.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simon-willison-datasette-agent-truncation-2026-05-21",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: truncation-handling in Datasette Agent en live Code with Claude 2026 verslag",
+      "bron_urls": [
+        "https://simonwillison.net/",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog",
+        "Simon Willison - Code w/ Claude 2026 Liveblog"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Simon Willison documenteerde op 21 mei verbeterde truncated-response handling in zijn Datasette Agent: een patroon waarbij de agent detecteert wanneer een LLM-response afgekapt is en automatisch de sessie continueert. Op 6 mei deed hij live verslag van Code with Claude 2026 met directe technische observaties van alle aankondigingen.",
+      "technical_depth": "Truncation detection: agent inspecteert finish_reason, vergelijkt output tokens met model max, hervat via follow-up prompt met vorige context als prefix. Datasette Agent gebruikt MCP-achtige tool definitions voor SQL query execution en schema inspection. Patroon is model-agnostisch en toepasbaar in elke streaming SDK-integratie.",
+      "toepassing": "Truncation-handling patroon is direct over te nemen in Claude Code SDK agents die grote outputs genereren (code reviews, test output parsing). Zijn Code with Claude liveblog is de meest gedetailleerde externe technische analyse van de aankondigingen van 6 mei — nuttig als referentie voor implementatiebeslissingen rond Managed Agents en nieuwe SDK features.",
+      "relevantie_score": 7
+    }
+  ]
+}
