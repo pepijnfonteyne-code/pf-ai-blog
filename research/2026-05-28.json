@@ -1,0 +1,151 @@
+{
+  "datum": "2026-05-28",
+  "gegenereerd_op": "00:14 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-enterprise-mcp-connectors-may23",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.150: Enterprise cloud MCP connectors instelling & /usage per-categorie",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code Docs – What's New",
+        "Releasebot – Anthropic Claude Code May 2026"
+      ],
+      "datum_artikel": "2026-05-23",
+      "samenvatting": "Claude Code release van 23 mei voegt een enterprise-instelling toe voor Claude.ai cloud MCP connectors, waarmee bedrijven centraal kunnen beheren welke MCP-servers beschikbaar zijn. /usage toont nu een uitsplitsing per categorie (skills, subagents, plugins, per MCP-server) zodat je precies ziet wat je token-budget opslokt.",
+      "technical_depth": "De enterprise MCP-connector instelling werkt via een settings.json-veld dat de Claude.ai cloud MCP-registratie overschrijft. Per-MCP-server kostmonitoring is geïmplementeerd in de telemetrie-laag van de daemon, zonder extra latency op tool-calls.",
+      "toepassing": "Jullie kunnen nu exact meten welke MCP-server (bijv. een Orion-connector) de meeste tokens verbruikt per sessie. Bij het bouwen van nieuwe MCP-integraties: zet de enterprise-instelling op een test-org om connectors te valideren vóór uitrol naar productie.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-pinned-sessions-code-review-may21",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.148: Gepinde achtergrond-sessies overleven updates & hernoemde /code-review flow",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code Docs – What's New",
+        "Releasebot – Anthropic Claude Code May 2026"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Gepinde achtergrond-sessies (Ctrl+T in `claude agents`) blijven nu actief bij auto-updates en worden in-place herstart zodat de Claude Code-versie bijgewerkt wordt zonder de sessiestatus te verliezen. De /code-review flow is hernoemd voor consistentie met de nieuwe claude ultrareview CLI-opdracht.",
+      "technical_depth": "De daemon beheert nu sessie-levenscycli als twee-traps: (1) memory pressure verwijdert eerst niet-gepinde sessies, (2) gepinde sessies worden in-place herstart bij updates via een state-snapshot/restore mechanisme. Dit maakt het mogelijk om langlopende agentic loops te draaien die surviven door pakketupdates heen.",
+      "toepassing": "Zet een gepinde achtergrond-sessie in als continue CI-agent voor Orion: de sessie overleeft nachtelijke Claude Code-updates. Combineer met /goal om een permanente monitoring-loop te draaien zonder handmatig herstarten.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-codex-mobile-secure-relay-may14",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI Codex komt naar mobiel: secure relay-laag synchroniseert actieve coding-sessies naar iOS/Android",
+      "bron_urls": [
+        "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
+        "https://9to5mac.com/2026/05/14/openai-brings-codex-control-to-chatgpt-for-iphone-and-android/"
+      ],
+      "bron_namen": [
+        "TechCrunch – OpenAI says Codex is coming to your phone",
+        "9to5Mac – OpenAI brings Codex to ChatGPT for iPhone, iPad, and Android"
+      ],
+      "datum_artikel": "2026-05-14",
+      "samenvatting": "OpenAI lanceerde op 14 mei een preview van Codex in de ChatGPT mobile app (iOS en Android). Via een secure relay-laag blijven bestanden, credentials en permissies op de host-machine, terwijl terminal-output, diffs en screenshots real-time naar de telefoon stromen. Het onderliggende model is codex-1, een o3-variant getraind op real-world coding tasks via reinforcement learning.",
+      "technical_depth": "De architectuur gebruikt een relay die trusted machines achter NAT bereikbaar houdt zonder directe internet-exposure. Sessiestatus en context worden gesynchroniseerd over apparaten via de relay. Op de phone kun je commands approven, model wisselen en threads sturen – executie blijft volledig op de desktop-agent.",
+      "toepassing": "Praktisch voor Pepijn en Duncan: goedkeuren van Claude Code of Codex-acties vanuit onderweg zonder laptop te openen. De relay-architectuur is ook een blauwdruk voor het bouwen van veilige remote-approval flows in eigen agent-pipelines.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "google-io-2026-gemini-35-flash-antigravity-may20",
+      "ecosysteem": "Gemini",
+      "titel": "Google I/O 2026: Gemini 3.5 Flash GA + Antigravity 2.0 agent-first platform gelanceerd",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/",
+        "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/"
+      ],
+      "bron_namen": [
+        "MarkTechPost – Google Introduces Gemini 3.5 Flash at I/O 2026",
+        "Google Blog – I/O 2026 developer highlights: Antigravity, Gemini API, AI Studio"
+      ],
+      "datum_artikel": "2026-05-20",
+      "samenvatting": "Google lanceerde op 20 mei Gemini 3.5 Flash als GA-model via de Gemini API en Antigravity 2.0. Het model presteert 4x sneller dan vergelijkbare frontier-modellen (tot 12x in Antigravity), scoort 76.2% op Terminal-Bench 2.1 en 83.6% op MCP Atlas. Antigravity 2.0 biedt met één API-call een geïsoleerde Linux-sandbox-agent die redeneert, tools gebruikt en code uitvoert.",
+      "technical_depth": "Gemini 3.5 Flash heeft 1M-token context en 65k max output. Antigravity 2.0 draapt op Gemini 3.5 Flash als harness: de Antigravity SDK geeft programmatische controle over agent-gedrag en laat custom hosting toe. De Managed Agents API in de Gemini API werkt vergelijkbaar met de Claude Agent SDK. Nieuw: gemini-embedding-2-preview ondersteunt multimodaal embedden (text, image, video, audio, PDF) in één embedding space.",
+      "toepassing": "Vergelijk Antigravity 2.0 met de Anthropic Agent SDK voor Orion-use-cases: de isolated Linux sandbox kan interessant zijn voor veilige code-executie. De MCP Atlas benchmark (83.6%) maakt Gemini 3.5 Flash direct vergelijkbaar testen via eigen MCP-servers mogelijk.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "hermes-agent-v014-foundation-release-may16",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent v0.14.0 'The Foundation Release': PyPI installeerbaar, browser 180x sneller, cross-sessie prompt caching",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases",
+        "https://hermes-agent.org/"
+      ],
+      "bron_namen": [
+        "GitHub – NousResearch/hermes-agent releases",
+        "Hermes Agent officiële site"
+      ],
+      "datum_artikel": "2026-05-16",
+      "samenvatting": "NousResearch publiceerde op 16 mei Hermes Agent v0.14.0, de 'Foundation Release'. Grootste wijzigingen: `pip install hermes-agent` werkt nu direct van PyPI, browser CDP-calls zijn 180x sneller via persistente verbindingen, en er is cross-sessie Claude prompt-caching (1 uur) ingebouwd. Het framework ondersteunt nu 22 messaging platforms en de cold-start is ~19 seconden korter.",
+      "technical_depth": "De 180x browser-versnelling komt van persistente CDP-verbindingen (Chrome DevTools Protocol) in plaats van een nieuwe verbinding per call. Cross-sessie prompt-caching hergebruikt de Claude prefill over agent-runs, wat token-kosten bij herhalende system-prompt-patronen fors reduceert. Het /handoff-commando migreert actieve sessies live tussen model-backends (bijv. van Claude naar lokaal Qwen).",
+      "toepassing": "Hermes Agent is nu triviaal te installeren als Python-dependency in een Orion-project. De /handoff-feature is krachtig voor cost-routing: start met Claude voor de planning-fase, handoff naar een goedkoper lokaal model voor bulk-taken. De caching-implementatie is een goed voorbeeld om na te bouwen in eigen agent-harnesses.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-rc-stateless-core-may21",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026-07-28 Release Candidate gelocked op 21 mei: stateless core, Extensions framework, Tasks & OAuth-hardening",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://modelcontextprotocol.io/development/roadmap"
+      ],
+      "bron_namen": [
+        "MCP Blog – The 2026-07-28 Release Candidate",
+        "Model Context Protocol – Development Roadmap"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Op 21 mei werd de Release Candidate voor de MCP 2026-07-28 specificatie gelockt. Dit is de grootste revisie van het protocol sinds de lancering. De kern-wijzigingen: een stateless protocol core die schaalt op gewone HTTP-infrastructuur, een nieuw Extensions framework (MCP Apps voor server-rendered UIs, Tasks voor langlopende processen), versterkte OAuth/OIDC-autorisatie, en een formeel deprecation-beleid. SDK-maintainers hebben 10 weken (tot 28 juli) om te valideren.",
+      "technical_depth": "De stateless core lost het load-balancer-probleem op van de huidige session-gebaseerde architectuur: elke HTTP-request is zelfstandig, wat horizontale scaling mogelijk maakt zonder sticky sessions. Het Tasks-extension voegt retry-semantiek en expiry-policies toe voor asynchrone tool-calls. MCP Apps zijn server-rendered UIs die rechtstreeks via het protocol worden geleverd. OAuth-hardering aligneert met RFC 7591 dynamic client registration.",
+      "toepassing": "Als jullie eigen MCP-servers bouwen voor Orion: begin nu de stateless core te implementeren zodat de server klaar is voor de 28 juli release. De Tasks-extension is cruciaal voor langlopende agentic calls (bijv. een code-review agent die minuten draait). Test jullie bestaande servers met de RC via de MCP SDK beta.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mistral-mcp-connectors-studio-preview-may27",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Mistral MCP Connectors in Studio: public preview – OpenAI, Anthropic én Mistral steunen MCP binnen 8 dagen",
+      "bron_urls": [
+        "https://insights.marvin-42.com/articles/mistral-turns-mcp-connectors-into-first-class-tools-across-studio",
+        "https://docs.mistral.ai/getting-started/changelog"
+      ],
+      "bron_namen": [
+        "Marvin-42 Insights – Mistral turns MCP connectors into first-class tools",
+        "Mistral Docs – Changelog"
+      ],
+      "datum_artikel": "2026-05-27",
+      "samenvatting": "Mistral AI maakte op 27 mei MCP Connectors in Studio public preview, waarmee MCP-integraties first-class tools worden met directe tool-calling en human-in-the-loop goedkeuring. Opvallend: OpenAI (21 mei), Anthropic (22 mei) en Mistral (27 mei) voegden allemaal MCP-support toe binnen 8 dagen van elkaar, wat MCP definitief bekrachtigt als de standaard voor AI-tool-integratie.",
+      "technical_depth": "Mistral Vibe gebruikt MCP als core extensibility-mechanisme: elk MCP-server endpoint is direct aanroepbaar via de Mistral API als native tool. De Studio-interface biedt een approval-workflow waarbij enterprise-gebruikers elke MCP-tool-call kunnen reviewen voor executie – vergelijkbaar met Claude Code's auto-mode maar via een web-UI.",
+      "toepassing": "De convergentie van alle drie grote providers op MCP in één week bevestigt dat bouwen op MCP toekomstbestendig is. Jullie Orion MCP-servers zijn nu compatibel met Claude, OpenAI én Mistral. Overweeg provider-agnostische MCP-tests in jullie CI-pipeline om regressies bij model-switches te detecteren.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-mcp-security-adoption-wave-may2026",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: MCP prompt-injection kwetsbaarheid + datasette-agent 0.1a3 als MCP-integratie patroon",
+      "bron_urls": [
+        "https://simonwillison.net/tags/model-context-protocol/",
+        "https://simonwillison.net/2026/May/21/datasette-agent-2/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog – model-context-protocol tag",
+        "Simon Willison – Release: datasette-agent 0.1a3 (21 mei 2026)"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Simon Willison documenteerde een kritieke MCP prompt-injection exploit waarbij een kwaadaardige MCP-server privé-gebruikersdata kan exfiltreren via de LLM-agent. Tegelijkertijd publiceerde hij datasette-agent 0.1a3 (21 mei) als praktisch voorbeeld van een MCP-integratie die een lokale database via een agent beschikbaar stelt. Hij benadrukt: elke combinatie van (1) toegang tot privé-data, (2) blootstelling aan malicieuze instructies, en (3) exfiltratie-capability maakt een MCP-implementatie kwetsbaar.",
+      "technical_depth": "De exploit werkt via tool-response poisoning: een MCP-server injecteert instructies in zijn tool-response die de agent omleidden om data uit andere tools te lekken. Verdediging: sandboxen van MCP-tool-responses zodat ze nooit als systeem-instructies worden geïnterpreteerd, en auto-mode deny-rules voor gevoelige data-toegang. Datasette-agent exposeert een SQL-interface via een MCP-tool met input-validatie als voorbeeld van veilig design.",
+      "toepassing": "Auditeer jullie eigen MCP-servers op de exfiltratie-driehoek: als een server zowel privé-data leest als output schrijft naar kanalen die door andere agents worden gelezen, is er een risico. Implementeer Claude Code auto-mode hard deny-rules als extra laag voor gevoelige MCP-operaties in Orion.",
+      "relevantie_score": 8
+    }
+  ]
+}
