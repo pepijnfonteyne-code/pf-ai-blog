@@ -1,0 +1,150 @@
+{
+  "datum": "2026-05-29",
+  "gegenereerd_op": "00:11 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-opus-4-8-launch",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8 gelanceerd: 1M context, 69.2% agentic coding benchmark",
+      "bron_urls": [
+        "https://www.anthropic.com/claude/opus",
+        "https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/",
+        "https://coursiv.io/blog/claude-opus-4-8"
+      ],
+      "bron_namen": [
+        "Anthropic",
+        "TechCrunch",
+        "Coursiv"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Anthropic lanceerde gisteren Claude Opus 4.8 via API, Amazon Bedrock, Google Cloud Vertex AI en Microsoft Foundry. Het model heeft een 1M token context window met 128k output tokens, scoring 69.2% op agentic coding benchmarks (vs 64.3% voor Opus 4.7) en is 4x minder foutgevoelig in geproduceerde code. Prijzen starten op $5/$25 per miljoen tokens.",
+      "technical_depth": "Opus 4.8 is een hybride reasoning model met 1M input context en 128k output tokens. Model-ID via API: 'claude-opus-4-8'. Agentic coding SWE-bench: 69.2% vs 64.3% Opus 4.7. Fast mode: $10/$50 per 1M tokens.",
+      "toepassing": "Directe upgrade voor Orion: gebruik 'claude-opus-4-8' als drop-in replacement. Beschikbaar op Bedrock en Vertex. Test agentic coding verbetering voor code review agents en dynamische workflows.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "mcp-2026-07-28-release-candidate",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP 2026-07-28 Release Candidate gelocked: stateless core, Tasks extensie, MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://mcp.directory/blog/mcp-2026-07-28-release-candidate"
+      ],
+      "bron_namen": [
+        "Model Context Protocol Blog",
+        "MCP Directory"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Op 21 mei is de release candidate voor MCP 2026-07-28 gelocked: stateless HTTP core (geen session-id meer), Tasks extensie voor long-running werk, MCP Apps voor server-rendered UIs. Finale release 28 juli. Bevat breaking changes.",
+      "technical_depth": "Elke request bevat protocol version en client info in _meta. Tasks: server antwoordt tools/call met task handle, client via tasks/get, tasks/update, tasks/cancel. Tier 1 SDKs verwacht support binnen 10 weken. Bevat ook OAuth/OpenID Connect authorization hardening.",
+      "toepassing": "Nu beginnen met migratie van bestaande MCP servers naar stateless model. Tasks extensie essentieel voor Orion's long-running agent work met task handles. Check changelog op breaking changes voor alle custom MCP servers.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-dynamic-workflows-agent-view",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code: Dynamic Workflows (research preview), /goal command en claude agents overzichtsscherm",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/"
+      ],
+      "bron_namen": [
+        "Claude Code Docs",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Dynamic Workflows in research preview laat Claude zelfstandig grotere taken aankan door stappen te plannen en delegeren. 'claude agents' toont alle actieve sessies in een TUI-scherm met status (running/blocked/done). /goal houdt Claude werkend over meerdere turns totdat een completion condition bereikt is. Rate limits verdubbeld.",
+      "technical_depth": "/goal <conditie> stopt niet totdat conditie waar is. claude agents TUI: Ctrl+T pinned sessions. Dynamic Workflows: Claude maakt zelf subtaken aan, vergelijkbaar met multiagent orchestration in Managed Agents.",
+      "toepassing": "Gebruik /goal voor meerdere-staps taken die niet in een sessie passen. agents-view direct nuttig bij parallelle Claude Code instanties. Dynamic Workflows testen voor Orion-orchestration.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "gemini-3-5-flash-io-2026",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash op Google I/O: 4x sneller, 76.2% Terminal-Bench, 83.6% MCP Atlas",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+        "https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/"
+      ],
+      "bron_namen": [
+        "Google DeepMind Blog",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Gemini 3.5 Flash gelanceerd op Google I/O 2026: overtreft Gemini 3.1 Pro op Terminal-Bench 2.1 (76.2%), GDPval-AA (1656 Elo), MCP Atlas (83.6%), en is 4x sneller dan vergelijkbare frontier modellen. Open-source Gemini CLI stopt per 18 juni, vervangen door gesloten Antigravity CLI.",
+      "technical_depth": "Model-ID: 'gemini-3.5-flash'. MCP Atlas 83.6% wijst op sterke tool-call capaciteit. Gemini Omni Flash voor any-to-any input/video output. Gemini 3.5 Pro in testing (komt juni). Antigravity vervangt open-source CLI per 18 juni.",
+      "toepassing": "Gemini 3.5 Flash testen als orchestration model: snelheid + MCP Atlas score relevant voor agent workflows. Migreer open-source Gemini CLI code naar Antigravity voor 18 juni. Vergelijk met Opus 4.8 op specifieke tasks.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt-5-5-codex-updates",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 nieuw standaard model; Codex krijgt MCP-verbeteringen en TUI reasoning controls",
+      "bron_urls": [
+        "https://openai.com/index/introducing-gpt-5-5/",
+        "https://developers.openai.com/codex/changelog"
+      ],
+      "bron_namen": [
+        "OpenAI Blog",
+        "OpenAI Codex Changelog"
+      ],
+      "datum_artikel": "2026-05-22",
+      "samenvatting": "GPT-5.5 is nieuw standaard model in ChatGPT (vervangt GPT-5.3 Instant) met sterker multi-step reasoning, tool use en agentic workflows. Codex CLI kreeg verbeterde MCP profile handling, sterkere tool schemas voor remote sessions, en nieuwe TUI reasoning controls (Alt+,/Alt+.).",
+      "technical_depth": "Codex TUI: Alt+, verlaagt reasoning, Alt+. verhoogt het. API: 'gpt-5.5' en 'gpt-5.5-instant'. Case-insensitive search door local conversation history toegevoegd.",
+      "toepassing": "Codex MCP-verbeteringen als benchmark voor Claude Code MCP. Reasoning level controls interessant UX-patroon als referentie. GPT-5.5 via API voor benchmark vergelijking met Opus 4.8.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "open-source-agentic-landscape-may-2026",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Open-source agentic race mei 2026: DeepSeek V4 Pro (#1 GDPval-AA 1554 Elo), Kimi K2.6, Qwen 3.6 (94% tool call accuracy)",
+      "bron_urls": [
+        "https://codersera.com/blog/best-open-source-llm-2026-llama-4-qwen-3-5-deepseek-v4-gemma-4-mistral/",
+        "https://lushbinary.com/blog/best-open-source-llms-ai-agents-may-2026-comparison/"
+      ],
+      "bron_namen": [
+        "CoderSera",
+        "Lushbinary"
+      ],
+      "datum_artikel": "2026-05-24",
+      "samenvatting": "DeepSeek V4 Pro (MIT, 1.6T/49B actief MoE, 1M context, 1554 Elo GDPval-AA), Kimi K2.6 (top coding, AA Index 54) en Qwen 3.6 Plus (78.8% SWE-bench, 94% first-attempt tool call accuracy) domineren de open-weight agentic rankings. Kosten: 10-13x goedkoper dan Opus 4.7.",
+      "technical_depth": "DeepSeek V4 Pro: sparse MoE 1.6T/49B, MLA attention voor efficiente KV-cache bij lange context, 1M context, MIT-licensed. Qwen3.6: linear attention + always-on reasoning_content field in elke response (let op bij JSON parsing).",
+      "toepassing": "DeepSeek V4 Pro of Qwen 3.6 als goedkoop alternatief voor bulk agentic taken. Let op Qwen's always-on reasoning_content bij response parsing in agents. Kimi K2.6 testen voor code review agent in Orion. Alle drie self-hostbaar.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "github-trending-claude-plugins-agent-governance",
+      "ecosysteem": "Open Source Tools",
+      "titel": "GitHub Trending: claude-plugins-official (28K stars), Microsoft agent-governance-toolkit, Honcho memory library",
+      "bron_urls": [
+        "https://github.com/trending?l=python&since=weekly"
+      ],
+      "bron_namen": [
+        "GitHub Trending Python Weekly"
+      ],
+      "datum_artikel": "2026-05-29",
+      "samenvatting": "claude-plugins-official (28.4K stars, +6.9K/week) is Anthropic's officiele curated plugin directory. Microsoft's agent-governance-toolkit (3.2K) implementeert OWASP Agentic Top 10 met zero-trust identity en execution sandboxing. Honcho (4.4K) biedt persistent memory management voor stateful agents.",
+      "technical_depth": "agent-governance-toolkit: policy enforcement per agent-instantie, execution sandboxing, OWASP Agentic Top 10 coverage. honcho: persistent memory stores met context-aware retrieval voor agents.",
+      "toepassing": "claude-plugins-official doorzoeken voor direct bruikbare plugins. agent-governance-toolkit als referentie voor beveiligde Orion deployments. Honcho evalueren voor agent memory management.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simon-willison-pmf-datasette-agent",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Anthropic/OpenAI hebben PMF gevonden; Datasette Agent 0.1a3 als blauwdruk voor domain agents",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/27/product-market-fit/",
+        "https://simonwillison.net/2026/May/21/datasette-agent/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog"
+      ],
+      "datum_artikel": "2026-05-27",
+      "samenvatting": "Willison analyseert dat Anthropic (SpaceX deal $1.25B/maand compute, eerste winstgevende kwartaal verwacht) en OpenAI product-market fit hebben. Datasette Agent 0.1a3 gelanceerd: extensible AI assistant met LLM Python library als praktisch voorbeeld van rijpe builder-tooling.",
+      "technical_depth": "Datasette Agent: LLM Python library + Datasette plugin systeem voor autonome data-query agent. SpaceX deal verklaart verdubbeling van Claude Code rate limits. Google vervangt open-source Gemini CLI per 18 juni (strategische lock-in).",
+      "toepassing": "Datasette Agent als referentie-implementatie voor domain agents met LLM Python library: plugin-based architectuur als patroon voor Orion. Rate limit verdubbeling is structureel door SpaceX-deal. simonwillison.net primaire bron voor nuchtere AI-ecosystem analyses.",
+      "relevantie_score": 8
+    }
+  ]
+}
