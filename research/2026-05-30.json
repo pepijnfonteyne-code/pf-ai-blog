@@ -1,0 +1,169 @@
+{
+  "datum": "2026-05-30",
+  "gegenereerd_op": "00:11 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-dynamic-workflows-20260528",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Dynamic Workflows: tot 1.000 parallelle subagents via JS-orchestratiescript",
+      "bron_urls": [
+        "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+        "https://code.claude.com/docs/en/workflows",
+        "https://www.techtimes.com/articles/317363/20260529/claude-code-dynamic-workflows-scripts-replace-context-windows-ultracode-automates-orchestration.htm",
+        "https://www.anthropic.com/news/claude-opus-4-8"
+      ],
+      "bron_namen": [
+        "Anthropic Blog",
+        "Claude Code Docs",
+        "TechTimes",
+        "Anthropic News"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Anthropic lanceert Dynamic Workflows in Claude Code (research preview, vereist v2.1.154+): in plaats van orchestratie via context-window schrijft Claude een JavaScript-script dat een background runtime uitvoert, met maximaal 16 gelijktijdige agents en 1.000 agents per run. Jarred Sumner porteerde hiermee 750.000 regels van Bun van Zig naar Rust in elf dagen. Beschikbaar op alle betaalde plannen, AWS Bedrock, Google Cloud Vertex AI en Microsoft Foundry.",
+      "technical_depth": "Het orchestratiescript houdt loops, branching en intermediaire resultaten buiten het context-window van Claude, waardoor Claude's context enkel het eindantwoord ontvangt. Agents werken vanuit onafhankelijke invalshoeken en refuteren elkaars bevindingen iteratief totdat antwoorden convergeren. Max concurrency: 16 agents tegelijk; hard ceiling: 1.000 agents per run. Vereist Claude Code v2.1.154+.",
+      "toepassing": "Pepijn en Duncan kunnen kwartaallange projecten (grote refactors, codebase-migraties, uitgebreide documentatie) in dagen afhandelen. Definieer een doel, laat Claude het JS-workflow-script genereren en monitor via Agent View. Ideaal voor parallelle codereview-pipelines of grootschalige Orion-taken waarbij context-limieten nu geen bottleneck meer zijn.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-opus-4-8-effort-controls-20260529",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8: effort controls, Fast Mode 2,5× sneller en 3× goedkoper dan Opus 4.7",
+      "bron_urls": [
+        "https://www.anthropic.com/news/claude-opus-4-8",
+        "https://thenewstack.io/claude-opus-48-release/",
+        "https://winbuzzer.com/2026/05/29/anthropic-ships-opus-48-with-dynamic-workflows-xcxwbn/"
+      ],
+      "bron_namen": [
+        "Anthropic News",
+        "The New Stack",
+        "WinBuzzer"
+      ],
+      "datum_artikel": "2026-05-29",
+      "samenvatting": "Anthropic brengt Claude Opus 4.8 uit — slechts 41 dagen na Opus 4.7 — met effort controls waarmee ontwikkelaars de redeneerdiepte per API-aanvraag programmatisch kunnen sturen. Fast Mode voor Opus 4.8 draait op 2,5× de snelheid en is 3× goedkoper dan Fast Mode was voor vorige modellen. Verbeterde eerlijkheid en minder onbewuste deceptie zijn gemeten verbeteringen in deze release.",
+      "technical_depth": "Effort controls laten je per request het compute-budget instellen, waarmee cost-kwaliteit tradeoffs ingebouwd worden in agentic pipelines. Fast Mode is nu standaard Opus 4.8 (was eerder Opus 4.7) in Claude Code. Verbeterde honesty reduceert sycofantisch gedrag in langere agentic chains — meetbaar via Anthropic's interne evaluatieset.",
+      "toepassing": "Gebruik effort controls in multi-stap agents om goedkope first-pass triage (laag effort) te combineren met deep-reasoning voor kritieke stappen (hoog effort). Fast Mode maakt Opus 4.8 nu betaalbaar voor interactieve Claude Code sessies. Direct inzetbaar als vervanger in bestaande agents die nog op Opus 4.7 draaien.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "gemini-interactions-api-breaking-changes-20260526",
+      "ecosysteem": "Gemini",
+      "titel": "URGENT: Gemini Interactions API outputs→steps migratie verplicht vóór 8 juni 2026",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026",
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://byteiota.com/gemini-interactions-api-migrate-before-june-8/"
+      ],
+      "bron_namen": [
+        "Google AI for Developers",
+        "Gemini API Changelog",
+        "ByteIota"
+      ],
+      "datum_artikel": "2026-05-26",
+      "samenvatting": "Google heeft per 26 mei het nieuwe steps-schema als standaard ingesteld voor de Gemini Interactions API: de outputs-array wordt vervangen door een steps-array met gestructureerde turn-timeline. Vanaf 8 juni verwijdert Google het legacy schema permanent; nieuwe Gemini-features werken uitsluitend op het nieuwe schema. Migratie vereist Python SDK ≥2.0.0 of JavaScript SDK ≥2.0.0.",
+      "technical_depth": "De steps-array introduceert user_input- en model_output-step types en nieuwe SSE-event types (interaction.created, step.delta). response_format vervangt response_mime_type als polymorf configuratie-object. Tijdelijk opt-out via header Api-Revision: 2026-05-07 tot 8 juni. Tegelijk gelanceerd: gemini-embedding-2-preview — eerste multimodale embedding die tekst, afbeelding, video, audio en PDF in één unified vector space mapt.",
+      "toepassing": "Check direct alle Gemini API-integraties op gebruik van outputs — deadline 8 juni laat weinig ruimte. Upgrade naar laatste SDK. De nieuwe multimodale embedding opent kansen voor cross-modal retrieval in RAG-pipelines waarbij tekst en afbeeldingen in dezelfde vector space zitten.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt-5-5-instant-default-20260505",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant nieuw standaard ChatGPT-model: 52,5% minder hallucinaties en Codex op mobiel",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",
+        "https://releasebot.io/updates/openai/chatgpt"
+      ],
+      "bron_namen": [
+        "OpenAI",
+        "TechCrunch",
+        "Releasebot"
+      ],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI stelt GPT-5.5 Instant in als standaardmodel voor ChatGPT: in interne evaluaties 52,5% minder hallucinations dan GPT-5.3 Instant op high-stakes prompts (geneeskunde, recht, financiën). Codex preview is nu beschikbaar op mobiel, zodat gebruikers threads kunnen starten, actions approven en diffs reviewen terwijl Codex op een verbonden Mac draait. Tevens gelanceerd: personal finance preview voor Pro-gebruikers.",
+      "technical_depth": "GPT-5.5 Instant combineert geheugen uit eerdere chats, opgeslagen memories, bestanden en verbonden Gmail voor gecontextualiseerde antwoorden. Codex mobiel toont live project context, diffs, screenshots en testresultaten. Hallucinatie-reductie is gemeten op een curated evaluatieset; methode niet publiek gepubliceerd.",
+      "toepassing": "Codex mobiel is vergelijkbaar met Claude Code's Agent View — bruikbaar als referentie voor hoe mobile async coding review werkt. GPT-5.5 Instant's hallucinatie-metrics zijn een benchmark om naast Opus 4.8 te leggen bij vendor-keuze voor factually-critical agents.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "deepseek-v4-pro-mit-release-20260424",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "DeepSeek V4 Pro: 1,6T parameter MoE, 80,6% SWE-bench Verified, MIT-licentie",
+      "bron_urls": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+        "https://www.aimadetools.com/blog/deepseek-v4-pro-complete-guide/",
+        "https://artificialanalysis.ai/models/deepseek-v4-pro",
+        "https://codersera.com/blog/deepseek-v4-complete-guide-2026/"
+      ],
+      "bron_namen": [
+        "Hugging Face",
+        "AIMadeTools",
+        "Artificial Analysis",
+        "CoderSera"
+      ],
+      "datum_artikel": "2026-04-24",
+      "samenvatting": "DeepSeek V4 Pro is een 1,6 biljoen parameter Mixture-of-Experts model met 49B actieve parameters per forward pass en 1M token context. Het scoort 80,6% op SWE-bench Verified en 93,5% op LiveCodeBench (hoogste van alle huidige modellen) en is uitgebracht onder MIT-licentie op Hugging Face. Bij 1M-token context vereist het slechts 27% van de inference FLOPs van DeepSeek V3.2.",
+      "technical_depth": "Hybrid attention-architectuur combineert Compressed Sparse Attention (CSA) en Heavily Compressed Attention (HCA) voor efficiënte lange-context verwerking. Slechts 10% van het KV-cache volume van V3.2 bij 1M tokens. Expert Mode op chat.deepseek.com activeert maximale redeneerdiepte. MIT-licentie maakt commercieel gebruik en fine-tuning volledig vrij zonder attributieverplichtingen.",
+      "toepassing": "Sterkste open-weight optie voor coding agents — zelf hosten als goedkoop alternatief voor Claude in batch-taken waar kosten critical zijn. Inzetbaar via Hugging Face of DeepSeek API in eigen MCP-integraties voor code review pipelines met 1M context. Fine-tune op eigen Orion-codebase zonder vendor lock-in.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-roadmap-stateless-tasks-20260501",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Roadmap: stateless protocol core, Tasks-primitive en .well-known server discovery",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": [
+        "MCP Blog",
+        "MCP Release Candidate 2026-07-28",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-05-01",
+      "samenvatting": "De officiële MCP 2026 Roadmap introduceert vier pijlers: (1) stateless protocol core die achter gewone round-robin load balancers draait via Mcp-Method header routing — geen sticky sessions meer, (2) Tasks-primitive (SEP-1686) voor langlopende operaties met retry-semantics en expiry policies, (3) MCP Apps voor server-rendered UIs, en (4) formeel deprecatiebeleid. De RC voor versie 2026-07-28 is de grootste protocol-revisie since launch.",
+      "technical_depth": "Stateless core: clients cachen tools/list responses via ttlMs; server discovery via .well-known metadata zonder live verbinding vereist. Mcp-Method header vervangt sessie-state voor routing. Tasks-primitive ondersteunt transient failures via retry-semantics. Extensions-framework blijft buiten de core spec maar wordt formeel ondersteund. Breaking changes in de 2026-07-28 RC. SSO-geïntegreerde authenticatie en audit trails voor enterprise via extensions.",
+      "toepassing": "Plan nu de migratie van eigen MCP-servers naar stateless architectuur voor betere schaalbaarheid. Tasks-primitive is direct bruikbaar voor langlopende Orion-processen. De .well-known discovery maakt plug-and-play MCP-server deployment mogelijk zonder hardcoded endpoints in clients.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-plugins-official-ecosystem-trending-20260530",
+      "ecosysteem": "Open Source Tools",
+      "titel": "claude-plugins-official trending op GitHub: 101 plugins als markdown+JSON, geen code vereist",
+      "bron_urls": [
+        "https://github.com/anthropics/knowledge-work-plugins",
+        "https://www.aibuilderclub.com/blog/claude-code-plugins-official-library-2026",
+        "https://buildtolaunch.substack.com/p/best-claude-code-plugins-tested-review"
+      ],
+      "bron_namen": [
+        "GitHub anthropics/knowledge-work-plugins",
+        "AI Builder Club",
+        "Build to Launch"
+      ],
+      "datum_artikel": "2026-05-30",
+      "samenvatting": "Het officiële claude-plugins-official ecosysteem omvat 101 plugins (33 Anthropic-gebouwd, 68 partner plugins van GitHub, Playwright, Supabase, Figma, Vercel, Linear, Sentry, Stripe) en staat deze week in de GitHub trending top 5 met 4.858 nieuwe stars. Een plugin bundelt skills, slash commands en MCP connectors in één installeerbaar pakket — volledig gebouwd met markdown en JSON, zonder codeerwerk.",
+      "technical_depth": "Plugin-architectuur: SKILL.md definieert expertise die automatisch activeert op basis van context; slash commands zijn expliciete gebruikersacties; connectors zijn MCP-servers die lokaal geïnstalleerd worden. knowledge-work-plugins (open source, Anthropic) bevat 11 knowledge-worker plugins. Partner plugins integreren native met Supabase, Linear en Figma via standaard MCP-protocol. Elke plugin is puur declaratief: markdown voor skills, JSON voor connector config.",
+      "toepassing": "Bouw eigen Orion-plugins in markdown/JSON zonder codeerwerk. Bestaande MCP-servers eenvoudig als connector inpakken in een plugin. Supabase- en Linear-plugins zijn direct inzetbaar voor database workflows en project management in Claude Code. knowledge-work-plugins repo als referentie voor plugin-structuur.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simonwillison-opus-4-8-mcp-token-analysis-20260528",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Opus 4.8 analyse en MCP token-overhead als productie-bottleneck",
+      "bron_urls": [
+        "https://simonwillison.net/",
+        "https://simonwillison.net/tags/ai/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog",
+        "Simon Willison on AI"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Simon Willison publiceert op 28 mei 'Claude Opus 4.8: a modest but tangible improvement' en concludeert een dag eerder dat Anthropic en OpenAI product-market fit hebben gevonden voor developer AI-tools. Kritische observatie: GitHub's officiële MCP-server verbruikt alleen al tienduizenden tokens context, wat MCP's grootste praktische beperking in productie is.",
+      "technical_depth": "Willison test systematisch nieuwe features op praktische bruikbaarheid en publiceert technische analyses zonder vendor bias. Zijn MCP token-overhead observatie is kwantitatief en direct meetbaar in eigen setups. Claude Skills ziet hij als 'possibly a bigger deal than MCP' voor contextuele capability injection, omdat Skills context-efficiënter zijn dan MCP-servers.",
+      "toepassing": "Lees Willison's Opus 4.8 review als onafhankelijke second opinion naast Anthropic's eigen communicatie. Audit welke MCP-servers in Claude Code de meeste tokens verbruiken — GitHub MCP als bekende heavy hitter. Overweeg Claude Skills als token-efficiënt alternatief voor MCP in cases waar context-budget krap is.",
+      "relevantie_score": 7
+    }
+  ]
+}
