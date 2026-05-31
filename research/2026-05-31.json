@@ -1,0 +1,132 @@
+{
+  "datum": "2026-05-31",
+  "gegenereerd_op": "10:30 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-opus-48-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8 lanceert met Dynamic Workflows: tot 1.000 parallelle subagents via gegenereerde JS-scripts",
+      "bron_urls": [
+        "https://www.anthropic.com/news/claude-opus-4-8",
+        "https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/",
+        "https://www.marktechpost.com/2026/05/28/anthropic-ships-claude-opus-4-8-alongside-dynamic-workflows-and-cheaper-fast-mode-with-workflows-capped-at-1000-subagents/"
+      ],
+      "bron_namen": ["Anthropic News", "TechCrunch", "MarkTechPost"],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Anthropic lanceerde op 28 mei Claude Opus 4.8 als nieuw standaardmodel voor Max, Team Premium en Enterprise-accounts. De kernvernieuwing is Dynamic Workflows: Claude schrijft zelf een JavaScript-orchestratiescript dat tot 1.000 parallelle subagents aanstuurt in één sessie, waarbij tussenliggende resultaten in scriptvariabelen leven in plaats van in het contextvenster. Vereist Claude Code v2.1.154+.",
+      "technical_depth": "Een dynamic workflow is een door Claude gegenereerd JS-script dat de Claude Code-runtime in de achtergrond uitvoert. Claude instantieert, monitort en termineert subagents dynamisch op basis van taakvoortgang. Door resultaten in scriptvariabelen op te slaan in plaats van in de context schaalt dit naar codebase-brede migraties over honderdduizenden regels code. Fast mode loopt nu op Opus 4.8 voor $10/$50 per MTok.",
+      "toepassing": "Direct inzetbaar voor Orion-workflows: definieer een taakomschrijving en laat Claude het orchestratiescript genereren voor parallelle refactors, multi-perspectief research of grootschalige codemigraties. Vervang handmatige agent-loops door dynamic workflows voor taken die meer dan ~10 onafhankelijke subagent-stappen vereisen.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-week22-security-plugin",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 22: security-guidance plugin reviewt code live, /usage toont MCP-verbruik per component",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": ["Claude Code What's New (officieel)", "Releasebot Anthropic"],
+      "datum_artikel": "2026-05-29",
+      "samenvatting": "Week 22 (v2.1.150–v2.1.157) bracht de security-guidance plugin die Claudes wijzigingen actief reviewt op beveiligingsproblemen terwijl Claude werkt. Week 21 voegde Auto Mode toe voor Pro-accounts (Sonnet 4.6 + Opus) met achtergrond-veiligheidscontroles in plaats van permissie-prompts. De /usage-command geeft nu een gedetailleerde breakdown van planlimieten per skill, subagent, plugin en MCP-server.",
+      "technical_depth": "De security-guidance plugin draait als parallel agent naast Claudes hoofdwerkstroom en rapporteert kwetsbaarheden incrementeel. Auto Mode op Pro gebruikt een classifier die acties categoriseert als veilig, risicovol of blokkeerbaar — zonder handmatige approve/deny per stap. /usage-output bevat per-component verbruiksdata bruikbaar voor kostenoptimalisatie in multi-MCP-setups.",
+      "toepassing": "Activeer security-guidance als standaardplugin in jullie CLAUDE.md voor Orion-projecten. Gebruik /usage om te achterhalen welke MCP-servers en skills de planlimieten domineren. Schakel Auto Mode in op Pro voor low-risk agentic taken die nu te veel interactie vereisen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-rc-stateless-core",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP 2026-07-28 Release Candidate gelocked: stateless core, Tasks-extensie en versterkte OAuth/OIDC-auth",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://modelcontextprotocol.io/development/roadmap",
+        "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4496698/nsa-releases-security-design-considerations-for-ai-driven-automation-leveraging/"
+      ],
+      "bron_namen": ["MCP Blog (officieel)", "MCP Roadmap", "NSA Press Release"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Op 21 mei werd de Release Candidate van de MCP 2026-07-28 specificatie gelocked — de grootste revisie van het protocol. De spec introduceert een stateless protocolkern die schaalt op gewone HTTP, een extensieframework met Tasks (langlopende agentic workflows) en MCP Apps (server-rendered UIs in clients), en hardened OAuth/OIDC-authenticatie. Finale publicatie op 28 juli na 10 weken SDK-validatieperiode. Tegelijkertijd publiceerde de NSA beveiligingsrichtlijnen specifiek voor MCP-gebaseerde AI-automatisering.",
+      "technical_depth": "De stateless core verwijdert server-side sessiestatus: elke HTTP-request is zelfstandig, wat horizontaal schalen trivialiseert. Tasks is een formele extensie die langlopend werk modelleert als taakobjecten met statusupdates en callbacks. MCP Apps leveren server-rendered UI-componenten die MCP-clients kunnen renderen. De auth-laag sluit nauwer aan bij OAuth 2.0 en OIDC, met een formele deprecation policy voor toekomstige breaking changes.",
+      "toepassing": "Audit jullie bestaande MCP-serverimplementaties nu op stateless-compatibiliteit vóór de RC finaal wordt op 28 juli. Gebruik de Tasks-extensie voor Orion's langlopende agent-workflows als vervanging van ad-hoc polling. Lees de NSA-richtlijnen als security checklist vóór productie-deployment van MCP-servers.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-codex-persistent-agent",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 in OpenAI Codex als persistent autonome agent runtime: computer use op Windows en remote mobile control",
+      "bron_urls": [
+        "https://developers.openai.com/codex/changelog",
+        "https://codersera.com/blog/openai-may-2026-updates-roundup/amp/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": ["OpenAI Codex Changelog", "Coder's Era May 2026 Roundup", "TechCrunch"],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "GPT-5.5 (88,7% SWE-bench, $5/$30 per MTok, 1M context) draait nu in OpenAI Codex als flagship coding model. Via vier releases in april-mei evolueert Codex naar een persistent autonome agent runtime: computer use voor Windows-desktop-automatisering, remote control vanuit ChatGPT op iOS/Android, en uitgebreide diagnostics. GPT-5.5 Instant werd de ChatGPT-standaard met 52,5% minder hallucinaties op high-stakes prompts.",
+      "technical_depth": "Codex als persistent runtime betekent dat sessies actief blijven voor follow-up taken via remote status checks — vergelijkbaar met Claude Code's background sessions. Computer use breidt zich uit naar Windows GUI-automatisering. GPT-5.5 Instant integreert memory met Gmail-toegang (Plus/Pro) en Canvas is vervangen door native writing/code blocks in chat. GPT-5.5 heeft 1M-contextvenster en is beschikbaar via API.",
+      "toepassing": "Benchmark GPT-5.5 in Codex versus Claude Opus 4.8 op jullie eigen coding tasks voor vergelijkend blogartikel. De persistent runtime en Windows computer use zijn directe vergelijkingspunten met Claude Code's dynamic workflows en auto mode. GPT-5.5's Gmail-memory-integratie is een MCP-equivalent use case om te analyseren voor de blog.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-io26-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash op Google I/O 2026: 4x sneller, MCP Atlas 83,6%, Managed Agents API in geïsoleerde containers",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/",
+        "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/"
+      ],
+      "bron_namen": ["Google DeepMind Blog", "MarkTechPost", "Google I/O 2026 Developer Highlights"],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde Gemini 3.5 Flash op Google I/O 2026: 4x sneller dan andere frontier models, $1,50 per miljoen input tokens, en betere scores dan Gemini 3.1 Pro op coding- en agentic benchmarks (Terminal-Bench 2.1: 76,2%, MCP Atlas: 83,6%, SWE-bench: 78%). Via de Gemini API is een Managed Agents-functie beschikbaar waarbij één API-call een volledige agent opzet in een geïsoleerde Linux-container met reasoning, tools en code-executie. Gemini 3.5 Pro is intern al in gebruik en komt volgende maand.",
+      "technical_depth": "Gemini 3.5 Flash scoort 84,2% op CharXiv Reasoning voor multimodale begrip. Managed Agents in de Gemini API leveren gehoste agent-uitvoering: de omgeving draait in een sandboxed Linux-container, aangestuurd via één API-call. Gemini Omni is een aparte variant voor dynamische video-generatie via gecombineerde tekst/audio/beeld/video-inputs. Google Antigravity vervangt vorig jaar's SDK-laag voor API-toegang.",
+      "toepassing": "Test Gemini 3.5 Flash als cost-efficient alternatief in jullie agentic pipelines vanwege de lage prijs ($1,50/MTok) en hoge snelheid. De Managed Agents API is direct vergelijkbaar met Claude Code's subagent-model — interessant materiaal voor een benchmarkvergelijking in de blog. Monitor Gemini 3.5 Pro release volgende maand.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "kimi-k26-agent-swarm-1t-moe",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.6: open-weights 1T MoE model met Agent Swarm tot 300 gespecialiseerde subagents, #4 op AI Intelligence Index",
+      "bron_urls": [
+        "https://kimi-k2.org/blog/24-kimi-k2-6-release",
+        "https://codersera.com/blog/kimi-k2-6-complete-guide-2026/",
+        "https://www.latent.space/p/ainews-moonshot-kimi-k26-the-worlds"
+      ],
+      "bron_namen": ["Kimi K2 Blog", "Coder's Era Guide", "Latent Space Newsletter"],
+      "datum_artikel": "2026-04-20",
+      "samenvatting": "Moonshot AI lanceerde Kimi K2.6, een open-weights 1-triljoen parameter MoE-model (32B actief per token), als sterkste open-source coding model van dit moment. Het staat op #4 in de Artificial Analysis Intelligence Index (score 54), direct achter de top closed models van Anthropic, Google en OpenAI. De Agent Swarm feature schaalt naar 300 domein-gespecialiseerde subagents voor maximaal 4.000 gecoördineerde stappen in één autonome run.",
+      "technical_depth": "Kimi K2.6 gebruikt sparse MoE: 1T totale parameters maar slechts 32B actief per token, vergelijkbaar in inferentiekost met een 32B dense model. De Agent Swarm is een hiërarchisch multi-agent systeem met specialisatielagen per domein. Model is beschikbaar als open weights via HuggingFace en via de Kimi API, wat lokale deployment en fine-tuning mogelijk maakt.",
+      "toepassing": "Test Kimi K2.6 via de Kimi API of via vLLM/Ollama voor use cases waar jullie geen gesloten model data willen sturen. De Agent Swarm-architectuur (300 gespecialiseerde subagents, 4.000 stappen) is directe inspiratie voor Orion's multi-agent orkestratiearchitectuur en een goede vergelijking met Claude's dynamic workflows.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "qwenpaw-v119-coding-mode-oauth-mcp",
+      "ecosysteem": "Open Source Tools",
+      "titel": "QwenPaw v1.1.9: volledig IDE-layout als Coding Mode met inline diff review en OAuth 2.1 MCP-support",
+      "bron_urls": [
+        "https://github.com/agentscope-ai/QwenPaw",
+        "https://github.com/agentscope-ai/QwenPaw/releases"
+      ],
+      "bron_namen": ["QwenPaw GitHub Repository", "QwenPaw GitHub Releases"],
+      "datum_artikel": "2026-05-14",
+      "samenvatting": "QwenPaw, de open-source persoonlijke AI-assistent op basis van Qwen, bracht in mei drie snelle releases uit. v1.1.9 (14 mei) introduceert Coding Mode: volledig IDE-layout met file tree, tabblad-editor met inline diff review en Git-panel. v1.1.8 (19 mei) voegt officiële plugin-distributie en streaming cards toe. v1.1.7 implementeert OAuth 2.1 MCP-support, wat geauthenticeerde MCP-serververbindingen in de open-source toolchain mogelijk maakt — in lijn met de nieuwe MCP RC-spec.",
+      "technical_depth": "Coding Mode integreert IDE-functionaliteit als een laag bovenop het conversatie-interface: file tree navigatie, tabbed editing met diff-highlighting voor inline code review, en een Git-panel voor staged/unstaged changes. OAuth 2.1 MCP-support implementeert het nieuwe auth-protocol uit de MCP 2026-07-28 RC, wat betekent dat QwenPaw als open-source MCP-client al vooruitloopt op de finale specificatie.",
+      "toepassing": "Gebruik QwenPaw als open-source referentie-implementatie voor hoe IDE-functionaliteit in een agent-conversatie-interface integreert — relevant voor Orion's UI-ontwerp. De OAuth 2.1 MCP-implementatie is een praktisch open-source voorbeeld om naast jullie eigen MCP-client te leggen. Beschikbaar onder Apache 2.0.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simonwillison-vibe-coding-agentic-engineering",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison op Code w/ Claude 2026: vibe coding en agentic engineering convergeren — README-driven development als praktische brug",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/"
+      ],
+      "bron_namen": ["Simon Willison's Weblog", "Code w/ Claude 2026 Live Blog"],
+      "datum_artikel": "2026-05-06",
+      "samenvatting": "Simon Willison analyseerde op 6 mei — tevens tijdens het Code w/ Claude 2026-evenement — de convergentie van vibe coding en agentic engineering. Zijn centrale stelling: AI-coding agents verlagen onderhoudskosten alleen als je dezelfde snelheidswinst ook investeert in kwaliteit. Hij demonstreerde README-driven development: schrijf eerst de volledige README uit als functionele spec, dump die in Claude Code, en laat Claude de implementatie bouwen met red/green TDD — in 30 minuten een repo met 100+ commits en uitgebreide tests.",
+      "technical_depth": "README-driven development werkt als formele specificatielaag voor Claude Code: de README fungeert als functionele spec die Claude direct vertaalt naar implementatie + tests. Kernspanning die Willison identificeert: vibe coding en agentic engineering convergeren qua tooling (beide gebruiken dezelfde LLMs en Claude Code-features) maar divergeren qua mindset — ongestructureerd versus deterministisch. Praktische demonstratie met Claude Code's nieuwe agent view en /goal-command.",
+      "toepassing": "Adopteer README-driven development als standaardmethode voor nieuwe Orion-componenten: schrijf eerst de volledige spec als README, gebruik die als Claude Code prompt. Direct uitvoerbaar blogartikel: 'Wij testten Simon Willisons methode op [specifieke Orion-feature]'. Gebruik /goal + de README als completion condition voor geautomatiseerde feature-builds.",
+      "relevantie_score": 8
+    }
+  ]
+}
