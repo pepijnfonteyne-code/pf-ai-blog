@@ -1,0 +1,165 @@
+{
+  "datum": "2026-06-01",
+  "gegenereerd_op": "00:13 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-opus-4-8-release",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic lanceert Claude Opus 4.8 met sterkere agentic coding benchmarks",
+      "bron_urls": [
+        "https://9to5mac.com/2026/05/28/anthropic-upgrades-claude-with-new-opus-4-8-model-heres-whats-new/",
+        "https://www.axios.com/2026/05/28/anthropic-opus-release-mythos",
+        "https://releasebot.io/updates/anthropic/claude"
+      ],
+      "bron_namen": [
+        "9to5Mac",
+        "Axios",
+        "Releasebot"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Anthropic heeft Claude Opus 4.8 uitgebracht op 28 mei 2026 als nieuwste frontier model. Agentic coding benchmark stijgt van 64.3% naar 69.2%, multidisciplinary reasoning with tools van 54.7% naar 57.9%, knowledge work score van 1753 naar 1890. Pricing blijft gelijk aan Opus 4.7. Complicerende aankondiging: Claude Mythos staat in de pipeline voor release in de komende weken.",
+      "technical_depth": "Benchmark delta's: agentic coding +4.9pp (64.3→69.2%), reasoning with tools +3.2pp (54.7→57.9%), computer use +0.6pp (82.8→83.4%). Het model heeft 'sharper judgement, more honesty about progress, and the ability to work independently for longer'. Companion releases: Managed Agents webhooks voor event-driven workflows, multi-agent orchestration in Claude Console, self-hosted sandboxes op AWS, effort control in claude.ai, en dubbele rate limits op Claude Code.",
+      "toepassing": "Direct voelbaar als default model in Claude Code: langere autonome runs en betere code-judgement. De verdubbelde rate limits zijn relevant voor jullie multi-agent workflows. Managed Agents webhooks maken event-driven orchestratie mogelijk zonder polling. Houd Claude Mythos in de gaten als volgende upgrade voor zware reasoning taken.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Dynamic Workflows: tot 1000 parallelle subagents via gegenereerde JS-orchestratie",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/workflows",
+        "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+        "https://medium.com/illumination/claude-codes-dynamic-workflows-the-ai-agent-architecture-that-just-rewrote-750-000-lines-of-code-d605a1d9b6d4"
+      ],
+      "bron_namen": [
+        "Claude Code Docs",
+        "Anthropic Blog",
+        "Medium ILLUMINATION"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Dynamic Workflows (research preview) introduceert een nieuw orchestratieparadigma: Claude genereert automatisch een JavaScript-script dat als orchestrator fungeert voor tot 1000 parallelle subagents. Proof-of-concept: Jarred Sumner porteerde 750.000 regels Bun van Zig naar Rust (99.8% tests passing) in 11 dagen. Vereist Claude Code v2.1.154+ en alle paid plans.",
+      "technical_depth": "Kernarchitectuur: het gegenereerde JS-script IS de orchestrator — Claude's context window bevat alleen het finale geverifieerde antwoord, niet de tussenliggende output van elke agent. Technische specs: max 1000 agents/workflow, 16 concurrent (resource-bounding), adversarial verification (agents weerleggen elkaars bevindingen), convergence-driven iteration (blijft spawnen tot antwoorden stabiliseren), caching-backed resumability bij onderbreking. Beschikbaar op Anthropic API, Amazon Bedrock, Google Vertex AI, Microsoft Foundry.",
+      "toepassing": "Transformatief voor grootschalige refactors, multi-file migraties en complexe research. Beschrijf de taak in plain language, Claude genereert het orchestratiescript automatisch. Ideaal voor: codebase-brede API-migraties, parallelle test-generatie over meerdere modules, of grootschalige data-analyse in Orion. Start met v2.1.154 via 'claude update'.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "openai-rosalind-gpt56-canary",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI lanceert Rosalind Biodefense en GPT-5.6 verschijnt in canary logs",
+      "bron_urls": [
+        "https://releasebot.io/updates/openai",
+        "https://codersera.com/blog/openai-may-2026-updates-roundup/amp/",
+        "https://fazm.ai/t/openai-new-model-release-may-2026"
+      ],
+      "bron_namen": [
+        "Releasebot",
+        "CoderSera",
+        "Fazm.ai"
+      ],
+      "datum_artikel": "2026-05-29",
+      "samenvatting": "OpenAI lanceerde op 29 mei Rosalind Biodefense: een gespecialiseerd frontier model voor life sciences, alleen beschikbaar voor geselecteerde US-overheidspartners. Tegelijkertijd verscheen GPT-5.6 als referentie in Codex backend logs — canary testing, geen publieke release. GPT-4.5 wordt 27 juni 2026 verwijderd uit ChatGPT (30-daagse sunset gestart).",
+      "technical_depth": "Rosalind: domeinspecifiek model op GPT-Rosalind basis, geoptimaliseerd voor biodefense/public health/pandemic preparedness. GPT-5.6: gevonden in Codex log entries, consistent met backend canary testing — nog geen model card, API endpoint, benchmarks of releasedatum. Polymarket: 80-89% kans op publieke release voor 30 juni. GPT-4.5 sunset: API-gebruikers moeten migreren naar GPT-5.x.",
+      "toepassing": "Directe actie: controleer of jullie code nog GPT-4.5 API calls gebruikt en migreer voor 27 juni. GPT-5.6 mogelijk interessant als coding-specifiek model zodra het publiek gaat — vergelijkbaar met Opus 4.8 op agentic benchmarks. Rosalind illustreert de trend naar verticaal gespecialiseerde modellen buiten de general-purpose lijn.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "gemini-35-flash-managed-agents-breaking",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini Interactions API breaking change + Managed Agents public preview via Antigravity",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026",
+        "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/",
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/"
+      ],
+      "bron_namen": [
+        "Google AI Developers Docs",
+        "Google Blog (I/O 2026)",
+        "MarkTechPost"
+      ],
+      "datum_artikel": "2026-05-26",
+      "samenvatting": "Op 26 mei ging de Gemini Interactions API breaking schema-change live: het 'outputs'-veld wordt 'steps', legacy schema verwijderd op 8 juni. Gelijktijdig: Managed Agents API in public preview, aangedreven door 'Antigravity' harness (model-id: antigravity-preview-05-2026). Één API call start een volledige agent die redeneert, tools gebruikt en code uitvoert in een geïsoleerde Linux container.",
+      "technical_depth": "Breaking change: outputs → steps in response schema, response_format_config wijzigt. Hard deadline verwijdering legacy: 8 juni 2026. Managed Agents: agent-id 'antigravity-preview-05-2026', gebouwd op Gemini 3.5 Flash (GA 19 mei), geïsoleerde Linux container met persistente file-state across follow-up calls voor naadloze multi-turn agent sessies. Gemini Omni (video-generatie, any-to-any) in preview. Gemini 3.5 Pro aangekondigd voor juni.",
+      "toepassing": "Urgente actie: als jullie Gemini Interactions API gebruiken, migreer het response schema vóór 8 juni (outputs → steps). De Managed Agents API is een directe concurrent van Claude Code Dynamic Workflows — test Antigravity voor code-execution tasks als goedkoper alternatief. Gemini 3.5 Flash is nu GA en stabiel als backbone voor Gemini-based agent tooling.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-rc-stateless-protocol",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Release Candidate: stateless protocol core, Extensions, MCP Apps en formeel deprecation beleid",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://modelcontextprotocol.io/development/roadmap"
+      ],
+      "bron_namen": [
+        "MCP Blog (RC)",
+        "MCP Blog (Roadmap)",
+        "modelcontextprotocol.io"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "De Release Candidate voor MCP specificatie 2026-07-28 is gepubliceerd — de grootste protocolrevisie since de launch. Centrale verandering: MCP wordt stateless op protocollniveau, schaalt op gewone HTTP-infrastructuur. Zes SEPs werken samen: stateless core, Extensions framework (Tasks + MCP Apps), authorization hardening (OAuth/OIDC alignment), en een formeel deprecation policy. Final spec: 28 juli 2026.",
+      "technical_depth": "Stateless core: geen server-side session state meer op protocollniveau. Extensions: server-rendered UIs via MCP Apps; long-running async work via Tasks extension. Authorization: closer alignment met OAuth 2.0 en OpenID Connect enterprise deployments. Breaking changes aanwezig. Deprecation lifecycle: Active → Deprecated (min 12 maanden) → Removed — future revisions kunnen protocol laten evolueren zonder bestaande capabilities te breken. Zes SEPs als governance-laag.",
+      "toepassing": "Kritisch voor jullie MCP-server stack: de stateless architectuur vereenvoudigt horizontal scaling en deployment maar vereist migratie van bestaande state-management patterns. MCP Apps openen de deur voor rijkere UI-elementen direct in Claude Code. De 12-maand deprecation window geeft ruim tijd. Plan de migratie voor de final spec op 28 juli.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "github-trending-dograh-agentscope-week",
+      "ecosysteem": "Open Source Tools",
+      "titel": "GitHub trending week: dograh (voice-MCP), AgentScope (observability) en knowledge-work-plugins",
+      "bron_urls": [
+        "https://github.com/trending?l=python&since=weekly",
+        "https://github.com/anthropics/claude-code"
+      ],
+      "bron_namen": [
+        "GitHub Trending Python (weekly)",
+        "GitHub anthropics/claude-code"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "De GitHub Python trending list van de week (per 1 juni) toont drie AI-tooling projecten met sterk momentum: dograh (open-source voice AI met native MCP-support, +1329 stars deze week), AgentScope (25.9K stars, observability-first agent framework), en knowledge-work-plugins van Anthropic (18.4K stars, +4944 stars deze week). claude-code zelf staat op 128.8K stars.",
+      "technical_depth": "Dograh: open-source voice AI platform met built-in MCP connector — brug tussen voice-interfaces en het MCP-tool ecosysteem. AgentScope: 'agents you can see, understand and trust' met ingebouwde traceability en debuggability per agent-stap. Anthropic knowledge-work-plugins: gestructureerde plugin-architectuur voor Claude Cowork, signaleert Anthropic's investering in domain-specific tool extensions naast de generieke MCP-laag.",
+      "toepassing": "Dograh's MCP-support is direct toepasbaar als jullie een voice-interface willen op bestaande MCP-servers. AgentScope's observability-patterns zijn inspiratie voor betere debugging van jullie eigen multi-agent workflows. knowledge-work-plugins bekijken als referentie-architectuur voor Orion-specifieke Claude plugins.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simon-willison-anthropic-openai-pmf-analyse",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Anthropic en OpenAI hebben product-market fit gevonden via agentic coding",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/27/product-market-fit/",
+        "https://simonwillison.net/2026/May/29/anthropic/",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/"
+      ],
+      "bron_namen": [
+        "simonwillison.net (PMF)",
+        "simonwillison.net (Anthropic revenue)",
+        "simonwillison.net (Code w/ Claude liveblog)"
+      ],
+      "datum_artikel": "2026-05-27",
+      "samenvatting": "Simon Willison betoogt op 27 mei dat Anthropic en OpenAI échte product-market fit hebben gevonden — niet via consumer chat maar via agentic developer tooling waarbij ROI direct meetbaar is. Onderbouwd door Anthropic's $47 miljard run-rate revenue (29 mei), mede gedreven door de SpaceX Cloud Services Agreement ($1.25B/maand t/m 2029). Zijn Code w/ Claude 2026 liveblog (6 mei) documenteert alle technische aankondigingen.",
+      "technical_depth": "Willison's PMF-thesis: de marktvalidatie komt van de directe ROI-meetbaarheid van agentic coding tools voor developers — bedrijven betalen omdat de productiviteitswinst zichtbaar is in sprint-velocity en code-throughput. Zijn liveblog van Code w/ Claude 2026 (6 mei) bevat chronologische technische details van alle Anthropic-aankondigingen inclusief Dynamic Workflows en Opus 4.8.",
+      "toepassing": "Strategisch frame voor de P&F AI Blog: de PMF-analyse valideert het doelgroep-niveau van jullie readers. Willison's liveblog is bruikbaar als primaire bron voor een eigen terugblik. Zijn 'laatste 6 maanden LLMs in 5 minuten' PyCon-talk (19 mei) is een compact bronmateriaal voor een P&F State-of-AI post.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "open-source-llm-landscape-kimi-qwen-hermes",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Open source LLM landschap mei 2026: MoE dominant, Kimi K2.6 top-1, Qwen3.6-27B beste dense coder",
+      "bron_urls": [
+        "https://codersera.com/blog/best-open-source-llm-2026-llama-4-qwen-3-5-deepseek-v4-gemma-4-mistral/",
+        "https://huggingface.co/Qwen/Qwen3.6-27B",
+        "https://presenc.ai/research/open-source-llm-landscape-2026"
+      ],
+      "bron_namen": [
+        "CoderSera",
+        "Hugging Face (Qwen3.6-27B)",
+        "Presenc AI Research"
+      ],
+      "datum_artikel": "2026-05-25",
+      "samenvatting": "Het open source LLM-landschap van mei 2026 wordt gedomineerd door sparse Mixture-of-Experts. Top van de Artificial Analysis Index: Kimi K2.6 (#1 open, #4 overall), DeepSeek V4 Pro (sterkst op agentic coding en SWE-bench), Qwen3.6-27B (77.2% SWE-bench, beste dense model onder Apache 2.0). Hermes 3 van Nous Research op Llama 3.1-basis (3B/8B/70B/405B) is de go-to voor tool-calling agents.",
+      "technical_depth": "Qwen3.6-27B architectuur: hybrid Gated DeltaNet + Gated Attention (64 layers, 3:1 ratio linear:standard attention), Multi-Token Prediction voor speculative decoding, Thinking Preservation voor efficient KV-cache in multi-turn workflows, 262K native/1M extended context, Apache 2.0. MoE is nu standaard op schaal: DeepSeek V4 Pro, Llama 4 Maverick, Qwen 3.5, Mistral Large 3 zijn allemaal sparse MoE. Llama 5 (Meta, april 8): 600B+ parameters, open-source, claims to exceed leading proprietary models op reasoning en agentic coding.",
+      "toepassing": "Qwen3.6-27B-FP8 draait op consumer GPU hardware (FP8 quantized) met near-frontier coding performance — test als lokaal alternatief. Hermes 3 op 8B is de praktische keuze voor embedded tool-calling in agent setups met beperkte resources. DeepSeek V4 Pro via API als kosten-effectief alternatief voor zware coding tasks. Noteer: recente releases zijn april 2026, geen nieuwe open-source model releases in de laatste 7 dagen.",
+      "relevantie_score": 7
+    }
+  ]
+}
