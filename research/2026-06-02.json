@@ -1,0 +1,130 @@
+{
+  "datum": "2026-06-02",
+  "gegenereerd_op": "00:12 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-opus-48-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8 + Dynamic Workflows: Orchestreer tot 1000 Subagenten",
+      "bron_urls": [
+        "https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/",
+        "https://www.marktechpost.com/2026/05/28/anthropic-ships-claude-opus-4-8-alongside-dynamic-workflows-and-cheaper-fast-mode-with-workflows-capped-at-1000-subagents/",
+        "https://allthings.how/claude-opus-4-8-dynamic-workflows-in-claude-code-explained/"
+      ],
+      "bron_namen": ["TechCrunch", "MarkTechPost", "AllThings.how"],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Anthropic lanceerde claude-opus-4-8 op 28 mei 2026 met twee grote toevoegingen: Dynamic Workflows in Claude Code en Effort Control in claude.ai. Opus 4.8 scoort 0% op het onkritisch accepteren van foutieve resultaten en is 4x minder geneigd om fouten in eigen code onopgemerkt te laten. Fast mode is nu 3x goedkoper dan bij Opus 4.7.",
+      "technical_depth": "Dynamic Workflows zijn JavaScript-orchestratiescripts die Claude schrijft op basis van jouw promptbeschrijving. Een runtime voert het script op de achtergrond uit: maximaal 16 subagenten tegelijk, maximaal 1000 totaal per run. De taakplanning zit in scriptvariabelen (niet in Claude's context window), dus enkel het eindresultaat keert terug naar je sessie. Vereist Claude Code v2.1.154+, beschikbaar in CLI, Desktop en VS Code extension. In research preview voor Enterprise, Team en Max plans.",
+      "toepassing": "Direct inzetbaar voor grote refactors of multi-repo analyses: laat Claude een workflow schrijven die 100+ bestanden parallel analyseert of test. Combineer met Orion: trigger een Dynamic Workflow als subtaak-orchestrator voor batch-operaties (indexering, multi-repo updates, parallelle test-runs). Effort Control geeft fijnmazige controle over inference compute voor quick vs. deep reasoning tasks in claude.ai.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "openai-codex-computer-use-windows",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI Codex krijgt Computer Use voor Windows-applicaties in Enterprise",
+      "bron_urls": [
+        "https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes",
+        "https://releasebot.io/updates/openai"
+      ],
+      "bron_namen": ["OpenAI Help Center - Enterprise Release Notes", "Releasebot OpenAI"],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "OpenAI voegde Computer Use toe aan Codex, waardoor het nu kan zien, klikken en typen in Windows-applicaties. Dit breidt Codex uit van pure code-generatie naar GUI-automatisering in bestaande Windows-omgevingen. Beschikbaar voor Enterprise en Edu workspaces. Tegelijkertijd werd GPT-4.5 angekondigd als deprecated per 27 juni 2026.",
+      "technical_depth": "Codex Computer Use gebruikt screen capture + vision model inference om UI-elementen te identificeren en acties te triggeren via gesimuleerde muis/toetsenbord invoer - vergelijkbaar met Anthropic's Computer Use API maar geïntegreerd in de Codex coding agent flow. Maakt multi-step workflows mogelijk die IDE + browser + native Windows tools combineren in één agentic run.",
+      "toepassing": "Relevant voor legacy Windows-workflows die niet via API te automatiseren zijn. Benchmark direct tegen Claude's Computer Use voor dezelfde tasks. OpenAI's enterprise-focus (ook met Codex op Windows + o3 pensioen in aug '26) toont een duidelijke verschuiving richting agentic enterprise tools - relevant voor het positioneren van jullie Orion-platform.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "google-gemini-managed-agents-antigravity",
+      "ecosysteem": "Gemini",
+      "titel": "Google lanceert Managed Agents API met Antigravity-agent in sandboxed Linux",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/",
+        "https://ai.google.dev/gemini-api/docs/custom-agents",
+        "https://ai.google.dev/gemini-api/docs/managed-agents-quickstart"
+      ],
+      "bron_namen": ["Google AI Blog", "Google AI for Developers - Custom Agents", "Google AI for Developers - Quickstart"],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde Managed Agents in de Gemini API als public preview op Google I/O 2026. De kern is de Antigravity-agent (Gemini 3.5 Flash) die autonoom plant, code schrijft en uitvoert, bestanden beheert en het web browst in een geïsoleerde ephemeral Linux sandbox. Gemini CLI en Code Assist worden gesunt op 18 juni 2026 ten gunste van dit platform.",
+      "technical_depth": "Managed Agents werken via de Interactions API: één call spawnt een stateful agent in een Google-hosted Linux sandbox. Configuratie via inline instructies of als persistent agent-ID. Customisatie via AGENTS.md (gedrag/instructies) en SKILL.md (skills/tools) - exact dezelfde structuur als Claude Code's skills-systeem. Beperkingen nu: enkel antigravity-preview-05-2026 als base_agent, nog geen subagent-delegatie, geen versioning/rollback.",
+      "toepassing": "AGENTS.md/SKILL.md structuur is bijna identiek aan hoe Claude Code skills werken - je bestaande kennis is direct overdraagbaar. Test Antigravity voor tasks met sterke Google-ecosysteem-integratie (Drive, Sheets, Gmail). De sunset van Gemini CLI op 18 juni is urgent: migreer eventuele Gemini CLI-based workflows vóór die datum.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "kimi-k2-6-open-weight-moe-coding",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.6: 1-Trillion Parameter MoE Open-Weight Model met MIT-licentie",
+      "bron_urls": [
+        "https://www.kimi.com/blog/kimi-k2-6",
+        "https://llm-stats.com/models/kimi-k2.6",
+        "https://huggingface.co/moonshotai/Kimi-K2.6"
+      ],
+      "bron_namen": ["Kimi Tech Blog (Moonshot AI)", "LLM Stats", "HuggingFace - moonshotai/Kimi-K2.6"],
+      "datum_artikel": "2026-04-20",
+      "samenvatting": "Moonshot AI lanceerde Kimi K2.6, een 1-trillion parameter Mixture-of-Experts model met 32 miljard actieve parameters per token, onder een Modified MIT-licentie (commercieel vrij onder 100M MAU of $20M/maand omzet). Het scoort top-tier op coding benchmarks en is ontworpen als native multimodale agentic model. K2.6 Code Preview (coding-specialisatie) wordt verwacht Q2 2026.",
+      "technical_depth": "MoE-architectuur met 1T totale parameters, 32B actieve params per token - vergelijkbaar met Mixtral's schaalbaarheidsvoordelen op grotere schaal. Native multimodaal (tekst + beeld) en specifiek geoptimaliseerd voor agentic tasks. De Modified MIT-licentie is praktisch equivalent aan standaard MIT voor vrijwel alle commerciële use cases. Deploy via vLLM (tensor parallelism vereist minimaal 8x A100 80GB voor FP16).",
+      "toepassing": "Geschikt voor self-hosted inference in privacy-gevoelige projecten. De MIT-licentie maakt het inzetbaar in commerciële producten zonder OpenAI/Anthropic API-afhankelijkheid. Test als alternatief voor Claude op coding-subtaken in een hybrid-agent setup via vLLM of Ollama. Interessant als lokale MCP-backend voor use cases waar data de organisatie niet mag verlaten.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "google-genkit-middleware-composable-hooks",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Google Genkit krijgt composable Middleware-systeem voor AI-pipelines",
+      "bron_urls": [
+        "https://github.com/firebase/genkit",
+        "https://ai.google.dev/genkit"
+      ],
+      "bron_namen": ["GitHub - firebase/genkit", "Google AI - Genkit Docs"],
+      "datum_artikel": "2026-05-14",
+      "samenvatting": "Google's open-source Genkit framework (Node.js en Go) kreeg een nieuw middleware-systeem met composable hooks op generate-, model- en tool-niveau. Dit maakt het mogelijk om retries met exponential backoff, model fallbacks, tool approval gates en scoped filesystem access te combineren als herbruikbare middleware-lagen voor AI pipelines. Compatibel met MCP via de bestaande Genkit-MCP connector.",
+      "technical_depth": "Hooks werken op drie niveaus: (1) generate-level intercepten de volledige generatie-call, (2) model-level wrappen individuele model inference, (3) tool-level intercepten tool-calls voor en na uitvoering. Middleware is composable via pipe()-functie. Bijzonder: SKILL.md injection als middleware maakt contextafhankelijk laden van skills mogelijk. De MCP-connector stelt Genkit in staat als orchestratie-laag te fungeren voor MCP-servers.",
+      "toepassing": "Gebruik tool approval gate middleware als veiligheidsmechanisme in productie-agents: laat kritieke tool-calls (write, delete, externe API calls) via een confirmation flow lopen. Implementeer model fallback middleware om Claude te fallbacken naar Gemini Flash bij rate limits. De SKILL.md injection biedt een elegant patroon voor dynamische skill-loading dat je kunt adopteren in eigen agent-architectuur.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simon-willison-agentic-engineering-patterns-guide",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison's 'Agentic Engineering Patterns': living guide voor coding agent professionals",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/",
+        "https://simonw.substack.com/p/agentic-engineering-patterns"
+      ],
+      "bron_namen": ["Simon Willison's Weblog", "Simon Willison's Newsletter (Substack)"],
+      "datum_artikel": "2026-02-23",
+      "samenvatting": "Simon Willison lanceerde een doorlopende living guide over Agentic Engineering Patterns - gedefinieerd als het gebruik van coding agents (Claude Code, Codex) door professionele engineers om hun expertise te versterken, in tegenstelling tot 'vibe coding'. De guide is opgebouwd als updatebare hoofdstukken, losjes geïnspireerd op het GoF Design Patterns format uit 1994.",
+      "technical_depth": "Centraal patroon: 'Writing code is cheap now' - initiële kosten voor werkende code dalen naar bijna nul, maar de bottleneck verschuift naar validatie, testen en herkenning van subtiele fouten. Willison onderscheidt Agentic Engineering van vibe coding door de nadruk op bestaande engineering-expertise die de agent aanstuurt. Documenta concrete patterns: task decomposition, checkpoint-driven development, context-window management en effectief gebruik van subagent delegation.",
+      "toepassing": "Gebruik als referentiekader voor Orion-workflow design en Claude Code-gebruik. 'Writing code is cheap now' impliceert dat de investering nu moet gaan naar betere tests en validatiestappen - niet naar code-schrijven zelf. De guide wordt regelmatig bijgewerkt met nieuwe patterns; volg via Substack. Willison's patterns zijn direct vertaalbaar naar Claude Code-workflows en MCP-serverontwerp.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "gemini-spark-24-7-persistent-mcp-agent",
+      "ecosysteem": "Gemini",
+      "titel": "Google Gemini Spark: 24/7 cloud-resident agent met 30+ MCP-integraties",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/",
+        "https://llm-stats.com/llm-updates"
+      ],
+      "bron_namen": ["Google AI Blog - Google I/O 2026", "LLM Stats - AI Updates June 2026"],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Gemini Spark werd aangekondigd op Google I/O 2026 als een 24/7 cloud-resident persoonlijke AI-agent die proactief handelt op gebruikersintent zonder directe prompts. Spark integreert initieel met Gmail en Google Chat en verbindt daarna met 30+ externe tools via MCP. Beschikbaar voor Google AI Ultra abonnees ($100/maand) in de VS.",
+      "technical_depth": "Spark is een stateful, persistent agent die op de achtergrond draait op basis van user context (calendar, email, chat). De MCP-integratie is technisch het meest significante aspect: Spark fungeert als MCP-client die verbinding maakt met externe MCP-servers van derde partijen. Dit is een architectuurbevestiging van MCP als de standaard voor agent-integraties op Google's productie-infrastructuur. De 30+ onboarded MCP-servers worden een waardevolle community-referentielijst.",
+      "toepassing": "Volg Spark's MCP-client implementatie: hoe Google MCP implementeert in een persistent production agent geeft concrete architectuurlessen voor Orion. De 30+ MCP-servers die Google onboardt zijn een directe referentielijst voor community-servers. Test zodra beschikbaar buiten VS voor Gmail-workflow automatisering. MCP als Google's productie-standaard versterkt de keuze om Orion op MCP te bouwen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mistral-vibe-remote-coding-agent",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Mistral lanceert 'Vibe': geïntegreerde agent voor werk én code met remote PR-support",
+      "bron_urls": [
+        "https://mistral.ai/news/",
+        "https://beginnersinai.org/whats-new-mistral-2026/"
+      ],
+      "bron_namen": ["Mistral AI News", "Beginners in AI - Mistral 2026 overzicht"],
+      "datum_artikel": "2026-05-01",
+      "samenvatting": "Mistral lanceerde 'Vibe' als geïntegreerde AI-agent platform met twee modi: Work Mode voor langlopende knowledge work taken en Code Mode voor remote coding inclusief pull request aanmaken. Mistral Small 4 is volledig open-source en fine-tunebaar. Dit is Mistral's directe antwoord op Claude Code en OpenAI Codex als zelfstandig agent-platform.",
+      "technical_depth": "Code Mode werkt via remote code execution: de agent cloned een repository, schrijft code, runt tests en maakt een PR aan - volledig asynchroon. Work Mode is multi-step orchestratie voor research en drafting. Draait op Mistral's eigen modellen. Mistral Small 4 (open-source, fine-tunebaar) gecombineerd met Codestral 2 (Apache 2.0, 22B dense, sterk FIM) maakt een volledig self-hostable coding stack mogelijk.",
+      "toepassing": "Test Vibe's Code Mode als alternatief voor Claude Code voor asynchrone repo-taken. De combinatie Mistral Small 4 + Codestral 2 (Apache 2.0) is nu de meest praktische volledig open-source coding stack voor self-hosted deployment. Relevant voor projecten met strikte data-sovereignty eisen als alternatief voor proprietary API-afhankelijkheden.",
+      "relevantie_score": 6
+    }
+  ]
+}
