@@ -1,0 +1,151 @@
+{
+  "datum": "2026-06-03",
+  "gegenereerd_op": "08:30 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-week22-opus48-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 22: Opus 4.8 als standaard + Dynamic Workflows + Security Plugin",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://code.claude.com/docs/en/whats-new/2026-w22"
+      ],
+      "bron_namen": [
+        "Claude Code - What's New",
+        "Claude Code Week 22 Digest"
+      ],
+      "datum_artikel": "2026-05-29",
+      "samenvatting": "Claude Opus 4.8 is de nieuwe standaard voor Max, Team Premium, Enterprise en API-accounts met hoge inspanning als default. Dynamic Workflows laat Claude zelf een script schrijven dat tientallen tot honderden subagents orkestreert voor grootschalige problemen. De security-guidance plugin reviewt Claude's codewijzigingen real-time op kwetsbaarheden terwijl je werkt.",
+      "technical_depth": "Dynamic Workflows zijn een Claude-geschreven orchestratiescript dat parallel subagents aanstuurt — een shift van lineaire naar graph-based agentic execution. Security-guidance plugin is een proactieve SAST-laag die integreert in de Claude Code edit-loop. Opus 4.8 introduceert /effort xhigh voor de zwaarste taken; Fast Mode draait op $10/$50 per MTok (3x goedkoper dan vorige generatie).",
+      "toepassing": "Gebruik Dynamic Workflows voor grootschalige refactors of multi-repo migrations in Orion-projecten. Activeer de security-guidance plugin bij elke sessie die productie-code raakt. Upgrade naar Opus 4.8 en test /effort xhigh voor complexe agentic runs om het kwaliteitsverschil te meten.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "anthropic-model-deprecation-june15-billing",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic depreceert Claude Sonnet 4 & Opus 4 op 15 juni — migratie vereist + AWS Platform launch",
+      "bron_urls": [
+        "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+        "https://codersera.com/blog/anthropic-june-2026-billing-change-claude-code/"
+      ],
+      "bron_namen": [
+        "Anthropic Model Deprecations Docs",
+        "Codersera - Anthropic June Billing Change"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Claude Sonnet 4 en Claude Opus 4 worden op 15 juni 2026 geretireerd van de Claude API; migreer naar Sonnet 4.6 respectievelijk Opus 4.7. Tegelijkertijd lanceerde Anthropic het Claude Platform op AWS met IAM-authenticatie en AWS-billing, waarmee Messages API, Files API, Message Batches API en Managed Agents beschikbaar zijn vanuit de AWS-infrastructuur.",
+      "technical_depth": "Hard deadline 15 juni: alle hardcoded model-strings 'claude-sonnet-4' of 'claude-opus-4' in code breken. AWS-integratie via Claude Platform brengt een IAM-beheerde endpoint die afrekent via AWS-billing. Managed Agents op AWS bieden serverkant orchestratie zonder eigen agent-runtime.",
+      "toepassing": "Urgentie: scan direct alle MCP-servers, agent-configs en API-calls op verwijzingen naar 'claude-sonnet-4' of 'claude-opus-4'. Overweeg de AWS-route voor Orion indien IAM-auth en consolidated AWS-billing gewenst zijn — dit elimineert aparte API-key management.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-default-writing-blocks",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant nieuwe standaard: verbeterde antwoordstijl, writing/code blocks in chat",
+      "bron_urls": [
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",
+        "https://releasebot.io/updates/openai"
+      ],
+      "bron_namen": [
+        "TechCrunch",
+        "Releasebot - OpenAI Updates June 2026"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "GPT-5.5 Instant is bijgewerkt als standaard voor ChatGPT en de API, met focus op verbeterde antwoordstijl: minder bullet-heavy, natuurlijker in conversatie en beter gedoseerd bij praktische hulptaken. Writing blocks en code blocks zijn nu native onderdeel van chatresponses. GPT-4.5 wordt op 27 juni geretireerd; o3 per 26 augustus.",
+      "technical_depth": "GPT-5.5 Instant is latency-geoptimaliseerd voor dagelijkse taken; GPT-5.5 (volledig) richt zich op multi-step reasoning en agentic completion. De API introduceert writing_blocks en code_blocks als structured output types in chatresponses. ChatGPT for Excel en Google Sheets beschikbaar als sidebar-integratie.",
+      "toepassing": "Relevant voor benchmark-vergelijkingen met Opus 4.8 in jullie blog. De structured output-types zijn interessant als alternatief voor tool_use bij content-generatie in agents. Zet een migratie-deadline voor GPT-4.5 API-calls vóór 27 juni als jullie OpenAI in tooling gebruiken.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-agentic-enterprise-mandatory",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA: top agentic- en coding-model, verplicht in Enterprise per 8 juni",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://www.geeky-gadgets.com/google-gemini-update-2026/"
+      ],
+      "bron_namen": [
+        "Google Gemini API Changelog",
+        "Geeky Gadgets - Gemini 3.5 Flash"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Gemini 3.5 Flash is nu Generally Available en wordt per 8 juni 2026 de verplichte standaard in de Gemini Enterprise-app. Google positioneert het als het meest intelligente model voor sustained frontier performance op agentic en coding tasks, met native video-begrip, timestamped insights en uitgebreide tokenlimieten voor grote datasets.",
+      "technical_depth": "Gemini 3.5 Flash combineert multimodale vision, native videoverwerking met timestamps en grote contextvensters. Gemini 3 Deep Think breidt reasoning-capaciteit uit. Gemini 3.1 Pro en 3.1 Flash-Lite zijn ook beschikbaar in de Gemini Enterprise Agent Platform. GA-status betekent SLA-garanties en productie-readiness.",
+      "toepassing": "Test Gemini 3.5 Flash via de Gemini API als alternatief voor Claude op video-analyse en lange-context taken. De verplichte Enterprise-rollout per 8 juni maakt een directe benchmark met Opus 4.8 op coding-taken voor jullie blog bijzonder actueel — publiceer vóór of op 8 juni.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "nous-hermes-agent-v015-skill-loop",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "NousResearch Hermes Agent v0.15: gesloten leerlus schrijft herbruikbare skills na voltooide taken",
+      "bron_urls": [
+        "https://fast.io/resources/hermes-llm/",
+        "https://llm-stats.com/llm-updates"
+      ],
+      "bron_namen": [
+        "Fast.io - Hermes LLM Resource",
+        "LLM Stats - AI Updates Today"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "NousResearch heeft Hermes Agent v0.15 uitgebracht op 28 mei 2026 in een 747-PR release. De kernvernieuwing is een gesloten leerlus: nadat een complexe taak voltooid is, schrijft de agent automatisch een herbruikbare skill zodat vergelijkbare taken sneller uitgevoerd worden. Het project stond na 12 weken op 160.000+ GitHub stars, sneller groeiend dan OpenClaw.",
+      "technical_depth": "De skill-writeback mechanic is self-improving agentic memory: elke voltooide taak genereert een gestructureerde skill-definitie die teruggeschreven wordt in de agent's skill-library. Conceptueel parallel met Claude Code's .claude/skills auto-loading (Week 22) maar dan model-native en cross-session persistent. Hermes 3 draait op Llama 3.1 base (3B, 8B, 70B, 405B varianten).",
+      "toepassing": "Vergelijk Hermes Agent v0.15's skill-autogeneration met Claude Code's plugin-systeem voor een open-source agent vergelijkingsartikel. Test als lokaal alternatief voor privacy-gevoelige Orion-workflows. De 160K-stars tractie maakt het een community-relevant onderwerp.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-rc-stateless-apps-tasks-breaking",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Release Candidate (deadline 28 juli): stateless HTTP-core, MCP Apps UI, Tasks extension — breaking changes",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://blog.modelcontextprotocol.io/"
+      ],
+      "bron_namen": [
+        "MCP Blog - 2026-07-28 Release Candidate",
+        "Model Context Protocol Blog"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Het MCP-team publiceerde een Release Candidate voor de 2026-07-28 specificatie — de grootste revisie sinds launch. Het protocol wordt stateless op de transportlaag (plain HTTP, geen persistente sessies), waardoor MCP-servers schaalbaar zijn op standaard infrastructuur. Twee nieuwe extensies: MCP Apps (servers shippen interactieve HTML-UI's die de host rendert in sandboxed iframe) en Tasks (lang-lopende werk via task handles met tasks/get, tasks/update, tasks/cancel).",
+      "technical_depth": "Stateless core = geen WebSocket-sessies meer; elke tools/call is standalone HTTP. Tasks-extensie geeft een task handle terug bij tools/call, waarna client async pollt of cancelt — essentieel voor lange agentic runs. Authorization aligned met OAuth 2.0 + OpenID Connect. Tier 1 SDKs moeten support shippen binnen het 10-weken validatievenster. Breaking changes vereisen migratie van alle stateful MCP-implementaties.",
+      "toepassing": "Kritisch: audit welke van jullie MCP-servers stateful zijn (WebSocket/SSE) en plan migratie naar HTTP-only transport vóór 28 juli. De Tasks-extensie is ideaal voor Orion's lange agent-runs. MCP Apps opent de weg naar server-rendered UI's in Claude Desktop. Plan een dedicated blog-post over de migratiestrategie.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "qwenpaw-v110-spawn-subagent-hierarchical",
+      "ecosysteem": "Open Source Tools",
+      "titel": "QwenPaw v1.1.10 (1 juni): spawn_subagent tool voor hiërarchische multi-agent orchestratie",
+      "bron_urls": [
+        "https://github.com/agentscope-ai/QwenPaw",
+        "https://llm-stats.com/llm-updates"
+      ],
+      "bron_namen": [
+        "GitHub - agentscope-ai/QwenPaw",
+        "LLM Stats - AI Updates Today"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "QwenPaw v1.1.10, uitgebracht op 1 juni 2026, introduceert een spawn_subagent tool waarmee agents ephemere sub-agents kunnen aanmaken voor in-workspace taakuitvoering. Dit maakt hiërarchische multi-agent orchestratie mogelijk in het QwenPaw-ecosysteem en sluit aan op de bredere industrie-trend naar agent-spawning patterns.",
+      "technical_depth": "spawn_subagent creëert ephemeral agent-instanties binnen de workspace-context voor sandboxed subtaakuitvoering zonder volledige agent-lifecycle overhead. Lokaal te draaien met Qwen3-modellen. Vergelijkbaar met Claude Code's Dynamic Workflows maar als open-source, lokale implementatie — relevant voor airgapped of privacy-first deployments.",
+      "toepassing": "Test QwenPaw's spawn_subagent naast Claude Code's Dynamic Workflows voor een vergelijkend artikel over multi-agent orchestratie patterns. QwenPaw's lokale deployment is aantrekkelijk voor scenarios zonder cloud-API-dependency. Goed onderwerp voor een hands-on blog-post met benchmarks.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simonwillison-anthropic-openai-product-market-fit",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: 'Anthropic en OpenAI hebben product-market fit' — Claude Code sloopt AI-budgetten",
+      "bron_urls": [
+        "https://simonwillison.net/2026/May/27/product-market-fit/",
+        "https://simonwillison.net/2026/May/21/datasette-agent/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog - Product Market Fit",
+        "Simon Willison - Datasette Agent"
+      ],
+      "datum_artikel": "2026-05-27",
+      "samenvatting": "Simon Willison analyseert hoe Anthropic en OpenAI echte product-market fit bereikten: hij citeert Uber dat in 2026 al zijn volledig jaars-AI-budget opsoupeerde slechts enkele maanden in het jaar, grotendeels door Claude Code dat pas echt goed werd in november 2025. Hij documenteert ook legacy-app rewrites via coding agents en lanceerde zelf Datasette Agent als extensible AI-assistent op 21 mei.",
+      "technical_depth": "De analyse raakt de kern van agentic ROI: de productiviteitssprong van Claude Code is zo groot dat enterprise AI-budgettering structureel verandert. Verschuiving van 'AI als experiment' naar 'AI als kritieke infrastructuur'. Datasette Agent is een concrete implementatie van extensible AI tooling bovenop een open-source databasing framework.",
+      "toepassing": "Gebruik deze analyse als framing voor een blog-post over AI-adoptiepatronen en ROI voor practitioners. De Uber-anekdote is een getal-gedreven argument voor Claude Code ROI. Datasette Agent is een interessant open-source voorbeeld van MCP-integratie met een bestaand tool-ecosysteem.",
+      "relevantie_score": 8
+    }
+  ]
+}
