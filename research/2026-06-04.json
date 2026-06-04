@@ -1,0 +1,151 @@
+{
+  "datum": "2026-06-04",
+  "gegenereerd_op": "00:10 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-opus-4-8-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8 als nieuwe standaard + Dynamic Workflows in research preview",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new/2026-w22",
+        "https://code.claude.com/docs/en/whats-new"
+      ],
+      "bron_namen": [
+        "Claude Code What's New – Week 22",
+        "Claude Code Changelog (v2.1.150–v2.1.157)"
+      ],
+      "datum_artikel": "2026-05-27",
+      "samenvatting": "Claude Opus 4.8 is nu de standaardmodel voor Max, Team Premium, Enterprise pay-as-you-go en Anthropic API-accounts, met 'high effort' als default en /effort xhigh voor de zwaarste taken. Dynamic Workflows (research preview) laat Claude een orchestratiescript schrijven dat tientallen tot honderden subagents parallel aanstuurt op de achtergrond; beheer via /workflows. Fast mode draait nu ook op Opus 4.8 tegen $10/$50 per MTok (2x standaardprijs, ~2.5x snelheid).",
+      "technical_depth": "Dynamic Workflows genereert een Claude-geschreven orchestratiescript dat asynchroon subagent-sesssies spawnt; elk subagent erft de settings.json-agent-configuratie en kan apart worden gepauzeerd of gevolgd. Skills in .claude/skills worden nu automatisch geladen zonder marketplace; claude plugin init <naam> scaffoldt een plugin-skelet. MessageDisplay hook-event laat hooks assistent-output transformeren vóór weergave. Vim-mode krijgt / voor reverse history search in NORMAL mode.",
+      "toepassing": "Gebruik Dynamic Workflows voor codebase-brede migraties of audits ('create a workflow that migrates every fetch() call to HttpClient'). Ideaal voor Orion als je meerdere repos tegelijk wil laten scannen. /effort xhigh op Opus 4.8 is de aanbevolen instelling voor complexe refactor-taken. Skills auto-loading maakt eigen interne plugins (bijv. project-specifieke MCP-wrappers) trivaal te distribueren.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-security-guidance-plugin",
+      "ecosysteem": "Claude Code",
+      "titel": "Security Guidance Plugin: real-time kwetsbaarheidsdetectie tijdens code-edits",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new/2026-w22",
+        "https://code.claude.com/docs/en/security-guidance"
+      ],
+      "bron_namen": [
+        "Claude Code What's New – Week 22",
+        "Claude Code Security Guidance Docs"
+      ],
+      "datum_artikel": "2026-05-27",
+      "samenvatting": "Anthropic heeft de security-guidance plugin uitgebracht (officiële marketplace) die automatisch kwetsbaarheden in Claude's code-wijzigingen opspoort en repareert in dezelfde sessie. De plugin werkt in drie lagen: snelle patrooncheck per bestand-edit, model-review aan het einde van elke turn, en een diepere agentische review op commit of push. Projectspecifieke beveiligingsregels kunnen worden gedefinieerd in .claude/claude-security-guidance.md.",
+      "technical_depth": "De plugin combineert statische patroonmatch (regex-achtig, razendsnel) met een model-review die de volledige diff beoordeelt per turn. Op commit/push draait een volledig agentic review-run die de wijzigingen nogmaals evalueert met uitgebreider context. installatie: /plugin install security-guidance@claude-plugins-official, activatie: /reload-plugins. Projectregels in .claude/claude-security-guidance.md overschrijven de standaard-checks.",
+      "toepassing": "Direct toepasbaar als 'shift-left' security in elke Claude Code-sessie. Voeg een .claude/claude-security-guidance.md toe met Orion-specifieke regels (bijv. verbod op directe SQL-string-interpolatie, vereiste API-key-rotatie). Gecombineerd met Dynamic Workflows: laat de security-plugin meelopen op elke subagent-run voor complete audit coverage.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "anthropic-ipo-billing-overhaul-june-15",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic IPO-filing + aparte credit pool voor programmatisch gebruik per 15 juni",
+      "bron_urls": [
+        "https://devtoolpicks.com/blog/anthropic-splits-claude-subscriptions-agent-sdk-credit-june-2026",
+        "https://codersera.com/blog/anthropic-june-2026-billing-change-claude-code/"
+      ],
+      "bron_namen": [
+        "DevToolPicks: Anthropic Splits Claude Subscriptions",
+        "CoderSera: Anthropic June 2026 Billing Change"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Anthropic heeft vertrouwelijk een IPO-aanvraag ingediend en een funding rond van $65 miljard afgerond (waardering ~$965 miljard). Vanaf 15 juni 2026 wordt programmatisch gebruik van Claude via Agent SDK en Claude Code losgekoppeld van de standaard abonnementslimiet in een aparte maandelijkse credit pool. Dit raakt direct alle geautomatiseerde workflows en CI/CD-pipelines die de API gebruiken via een abonnement.",
+      "technical_depth": "De billing-split scheidt interactief gebruik (claude.ai UI) van programmatisch gebruik (API-calls, Agent SDK, Claude Code subagents). Twee aparte credit pools met eigen limieten en tarieven. Bestaande API-keys blijven werken maar worden per 15 juni bijgehouden tegen de nieuwe pool. Developers moeten hun usage-dashboards controleren en eventueel aparte API-keys aanmaken per use case om granulaire tracking te krijgen.",
+      "toepassing": "Controleer vóór 15 juni jullie huidige maandelijkse API-gebruik via /usage in Claude Code en het Anthropic-dashboard. Maak aparte API-keys aan voor Orion-automatisering vs. interactief gebruik om cost attribution te scheiden. Stel billing-alerts in op de nieuwe credit pools om onverwachte kosten bij agent-runs te voorkomen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-07-28-release-candidate",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026-07-28 Release Candidate: stateless core, Tasks-extensie en MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/",
+        "https://modelcontextprotocol.io/development/roadmap"
+      ],
+      "bron_namen": [
+        "MCP Blog – Release Candidate Announcement (21 mei 2026)",
+        "MCP Development Roadmap"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "Het MCP-team heeft op 21 mei 2026 de release candidate gepubliceerd voor de grootste revisie van het protocol since de lancering, gepland voor finale release op 28 juli 2026. De kern is een stateless protocol core die draait op gewone HTTP-infrastructuur zonder sticky sessions of gedeelde session-stores. Nieuw zijn de Tasks-extensie (long-running werk), MCP Apps (server-rendered UIs via MCP), hardened OAuth/OIDC-autorisatie, en een formeel deprecation-beleid.",
+      "technical_depth": "Stateless core: server-side sessie-state verdwijnt; een remote MCP-server achter een round-robin load balancer werkt nu zonder speciale gateway-configuratie. Tasks extension: asynchrone, long-running operaties met progress-callbacks en cancellation. MCP Apps: servers kunnen UI-componenten renderen in de client via het protocol zelf. Auth-laag sluit nu aan bij standaard OAuth 2.0/OpenID Connect flows in plaats van eigen token-systeem. SDK-maintainers (Tier 1) hebben 10 weken om support te shippen vóór 28 juli.",
+      "toepassing": "Begin nu met testen van jullie MCP-servers tegen de RC-spec om de migratie voor 28 juli klaar te hebben. De stateless core is een gamechanger voor productie-deployments van MCP-servers (geen Redis meer voor sessie-state). Tasks-extensie maakt het mogelijk om langlopende Orion-analyses via MCP te initiëren en te monitoren zonder timeout-problemen. MCP Apps biedt de basis voor rijkere UIs in Claude Code-plugins.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-codex-ga-aws-bedrock-role-plugins",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI Codex GA op AWS Bedrock + rol-specifieke plugins en Sites-preview",
+      "bron_urls": [
+        "https://releasebot.io/updates/openai",
+        "https://openai.com/news/product-releases/"
+      ],
+      "bron_namen": [
+        "Releasebot: OpenAI Updates Juni 2026",
+        "OpenAI Newsroom: Product Releases"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "OpenAI heeft op 2 juni 2026 aangekondigd dat frontier models en Codex nu generally available zijn op AWS via Amazon Bedrock (inclusief GovCloud). Tegelijk breidt Codex uit met rol-specifieke plugins, een preview van 'Sites' voor het delen van interactieve workspace-apps, en annotations voor inline team-samenwerking op documenten. Meer dan 5 miljoen mensen gebruiken Codex wekelijks.",
+      "technical_depth": "Codex op Bedrock elimineert de OpenAI-API-directe integratie voor enterprise-klanten: alle requests lopen via Bedrock's IAM, VPC-endpoints, bestaande compliance-kaders en AWS-factuur. Rol-specifieke plugins stellen teams in staat Codex te fine-tunen voor specifieke rollen (bijv. security-reviewer, documentatiespecialist). Sites genereren interactieve apps en websites vanuit Codex-workspaces. GPT-4.5 wordt op 27 juni 2026 geretireed; GPT-5.6 gepland voor later in juni.",
+      "toepassing": "Voor enterprise-gebruik (bijv. klanten van Orion met AWS-contracten) is Bedrock-integratie nu de aanbevolen route voor Codex. Vergelijk de Bedrock-pricing met directe OpenAI-API voor jullie use cases. De Sites-feature is interessant als alternatief voor het delen van agent-outputs in een rijker formaat dan plain text.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "google-gemini-3-5-flash-ga-omni-io2026",
+      "ecosysteem": "Gemini",
+      "titel": "Google I/O 2026: Gemini 3.5 Flash GA voor agents/coding + Gemini Omni any-to-video",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://www.geeky-gadgets.com/google-gemini-update-2026/"
+      ],
+      "bron_namen": [
+        "Google AI for Developers: Gemini API Changelog",
+        "Geeky Gadgets: Google Gemini 3.5 Flash Capabilities Guide"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Op Google I/O 2026 kondigde Google Gemini 3.5 Flash GA aan als het 'meest intelligente model voor agentic en coding tasks', beschikbaar in Global/US/EU regio's, standaard ingeschakeld voor Gemini Enterprise vanaf 8 juni. Tevens gelanceerd: Gemini Omni, een nieuw model dat video kan genereren vanuit elke combinatie van beeld, audio, video en tekst. Gemini 3 Deep Think verhoogt redenervermogen voor complexe multi-step problemen.",
+      "technical_depth": "Gemini 3.5 Flash: geoptimaliseerd voor long-horizon agentic taken, uitgebreide tokenlimieten voor grote datasets, native video-begrip met timestamp-inzichten. GA in Vertex AI en Gemini API. Gemini Omni: multimodale input (tekst, beeld, audio, video) → video-output gegrond op real-world kennis. Gemini 3 Deep Think: chain-of-thought reasoning voor complexe problemen. Deep Research: geautomatiseerde research-workflows met meerdere zoekslagen.",
+      "toepassing": "Test Gemini 3.5 Flash via de Gemini API als alternatief voor Opus 4.8 bij agentic coding-taken die budget-gevoelig zijn (Flash is goedkoper). Gemini Omni is relevant voor multimodale agent-workflows waarbij video-output nodig is. Vergelijk Gemini Deep Research met Claude's Dynamic Workflows voor research-automatisering use cases in Orion.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-4-3-seed-36b-hybrid-reasoning",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes 4.3 op ByteDance Seed 36B: hybrid reasoning, 512K context, gedecentraliseerde training",
+      "bron_urls": [
+        "https://nousresearch.com/releases",
+        "https://venturebeat.com/ai/nous-research-drops-hermes-4-ai-models-that-outperform-chatgpt-without-content-restrictions"
+      ],
+      "bron_namen": [
+        "Nous Research Releases",
+        "VentureBeat: Hermes 4 modellen"
+      ],
+      "datum_artikel": "2026-05-25",
+      "samenvatting": "Nous Research heeft Hermes 4.3 uitgebracht als de eerste Hermes fine-tune op een niet-Meta basis: ByteDance's Seed 36B, dat 70B-klasse prestaties levert in een 36B dense architectuur met 512K tokencontext. Het model biedt hybrid reasoning: schakel redenering in/uit via een system prompt of <think>-tags. De training gebruikte ~60 miljard tokens (50x meer dan Hermes 4) via het gedecentraliseerde Psyche-trainingsnetwerk.",
+      "technical_depth": "Seed 36B basis: ByteDance's dense architectuur die 70B benchmarks haalt met 36B parameters (efficiëntere MoE-geïnspireerde layering). Hybrid reasoning: model produceert <think>...</think> traces intern voor multi-step redenering of antwoordt direct zonder; instelbaar per system prompt. Training: ~5 miljoen samples, ~60B tokens, Psyche decentralized GPU cluster (geen centraal datacenter). Hermes Agent v0.12.0 (open source, April 2026) biedt een compleet agentic framework op Hermes-modellen.",
+      "toepassing": "Hermes 4.3 is een sterke lokale/self-hosted optie voor taken die gevoelige data verwerken (geen data naar externe API's). 512K context maakt het bruikbaar voor grote codebase-analyses. Hybrid reasoning via system prompt maakt het makkelijk om te schakelen tussen snelle antwoorden en diep nadenken in hetzelfde model. Evalueer Hermes Agent als open-source alternatief voor Claude Code bij on-premise Orion-deployments.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simonwillison-uber-ai-costs-microsoft-mai",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Uber kapt AI-gebruik op $1500/maand + Microsoft lanceert MAI-modellen",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/3/uber-caps-usage/",
+        "https://simonwillison.net/2026/Jun/2/microsofts-new-models/"
+      ],
+      "bron_namen": [
+        "Simon Willison: Uber Caps Usage of AI Tools Like Claude Code (3 juni 2026)",
+        "Simon Willison: Microsoft's new MAI models (2 juni 2026)"
+      ],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Simon Willison beschrijft op 3 juni hoe Uber alle medewerkers beperkt tot $1.500 per maand aan AI-coding tools (inclusief Claude Code en Cursor) nadat het bedrijf zijn 2026 AI-budget in vier maanden verbrande. Op 2 juni beschreef hij Microsoft's aankondiging van MAI-Thinking-1 en MAI-Code-1-Flash: twee nieuwe frontier-modellen die Microsoft's afhankelijkheid van OpenAI moeten verminderen en ontwikkelaarskosten verlagen.",
+      "technical_depth": "Uber's $1.500/maand-cap geldt per medewerker per tool, voor agentic coding software (Cursor, Claude Code). Dit illustreert het token-verbrandingseffect van agentic workflows op enterprise-schaal. Microsoft MAI-Thinking-1: reasoning-geoptimaliseerd model voor complexe taken; MAI-Code-1-Flash: geoptimaliseerd voor code met lage latency en kostprijs, bedoeld als Azure-native alternatief voor Codex. Beide modellen zijn beschikbaar via Azure AI.",
+      "toepassing": "De Uber-case is een reëel benchmark voor enterprise AI-kosten bij intensief Claude Code gebruik: $1.500/maand is het plafond dat enterprise-teams als redelijk zien. Gebruik /usage in Claude Code om jullie eigen token-consumptie per skill/subagent te analyseren. MAI-Code-1-Flash via Azure is een interessant alternatief als kostprijs het struikelblok is voor grote agent-runs in Azure-omgevingen.",
+      "relevantie_score": 8
+    }
+  ]
+}
