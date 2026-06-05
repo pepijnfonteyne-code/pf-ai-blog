@@ -1,0 +1,127 @@
+{
+  "datum": "2026-06-05",
+  "gegenereerd_op": "00:12 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-dynamic-workflows-opus48",
+      "ecosysteem": "Claude Code",
+      "titel": "Dynamic Workflows en Claude Opus 4.8 nu standaard in Claude Code",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": ["Claude Code What's New (Anthropic)", "Releasebot Anthropic"],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Claude Code Week 22 introduceert Dynamic Workflows (research preview voor Enterprise/Team/Max): Claude schrijft zelf een orchestratiescript dat honderden parallelle subagents aanstuurt binnen één sessie voor codebase-brede migraties. Tegelijkertijd is Claude Opus 4.8 de nieuwe standaard voor Max, Team Premium, Enterprise en API-accounts, met /effort xhigh als intensiefste werkstand en fast mode voor $10/$50 per MTok.",
+      "technical_depth": "Dynamic Workflows genereert een orchestratiescript dat subagent-spawning coördineert via de bestaande agent SDK — Claude bepaalt zelf de parallellisatiestrategie. Opus 4.8 scoort 84% op Online-Mind2Web benchmark (computer-use/browser-agent), een significante sprong boven Opus 4.7 en GPT-5.5. Fast mode op Opus 4.8 draait 2,5× sneller en is 3× goedkoper dan bij vorige modellen.",
+      "toepassing": "Direct inzetbaar voor grootschalige refactors of Orion codebase-migraties: één hoog-niveau prompt → Claude schrijft het orchestratiescript → honderden subagents werken parallel. Combineer met /effort xhigh voor de zwaarste taken. Security-guidance plugin (ook Week 22) reviewt code-wijzigingen real-time op kwetsbaarheden — relevant voor productie-deploys.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-agent-view-goal-autmode",
+      "ecosysteem": "Claude Code",
+      "titel": "Agent View, /goal command en Auto Mode Pro: multi-session orchestratie in CLI",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://www.mindstudio.ai/blog/code-with-claude-2026-new-agent-features"
+      ],
+      "bron_namen": ["Claude Code What's New (Anthropic)", "MindStudio Blog"],
+      "datum_artikel": "2026-05-13",
+      "samenvatting": "Week 20 introduceert `claude agents` als nieuwe CLI-view voor alle actieve sessies met status, laatste respons en geblokkeerde taken. Het /goal command laat Claude over meerdere turns doorwerken totdat een programmeerbare completion-conditie geldt. Week 21 breidt Auto Mode uit naar Pro-accounts: permission prompts worden vervangen door background safety checks, met Sonnet 4.6 naast Opus als model-optie.",
+      "technical_depth": "`claude agents` maakt multi-agent orchestratie vanuit één terminal mogelijk — start agents, stuur ze naar de achtergrond, peek status, spring terug als input nodig is. /goal werkt als assertie-loop: evaluatie na elke turn of de conditie geldt, anders doorgaan. /usage breakdown toont token-verbruik per skill, subagent, plugin en MCP-server.",
+      "toepassing": "Essentieel workflow-upgrade: beheer een fleet van parallellopende Orion-agents vanuit één terminal. /goal automatiseert quality gates ('ga door tot alle tests groen zijn'). /usage per MCP-server helpt bij het optimaliseren van token-kosten in complexe agentic pipelines.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-default",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: nieuw standaardmodel met 52,5% minder hallucinaties",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": ["OpenAI Blog", "TechCrunch"],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI lanceerde GPT-5.5 Instant als nieuw standaardmodel voor alle ChatGPT-gebruikers ter vervanging van GPT-5.3 Instant. Het model produceert 52,5% minder gehallucineerde claims op high-stakes prompts (medisch/juridisch/financieel). GPT-4.5 wordt op 27 juni 2026 verwijderd; o3 op 26 augustus.",
+      "technical_depth": "GPT-5.5 Instant combineert sterkere contextretentie met verbeterde STEM-accuraatheid en tighter websearch-integratie. Hallucination-reductie van 52,5% gemeten op domein-specifieke prompts in interne evaluaties. Tegelijk lanceerde OpenAI GPT-Rosalind voor life sciences research met agentic coding en bioinformatics plugins.",
+      "toepassing": "Relevant als concurrentie-benchmark: test GPT-5.5 Instant vs Opus 4.8 op jullie specifieke agent-taken. API-migratie-deadline: verwijder GPT-4.5 calls vóór 27 juni. GPT-Rosalind's bioinformatics plugins zijn interessant als referentie voor domein-specifieke agent design patterns.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-managed-agents-io26",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA op I/O 2026: frontier-kwaliteit bij Flash-prijs + Managed Agents preview",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud"
+      ],
+      "bron_namen": ["MarkTechPost", "Google Cloud Blog"],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde Gemini 3.5 Flash op I/O 2026 ($1,50/$9 per MTok) als GA-model dat Gemini 3.1 Pro overtreft op coding en agentic benchmarks bij Flash-snelheid (4× output tokens/sec). Tegelijk: Managed Agents in public preview — stateful, autonome agents in geïsoleerde Google-hosted Linux-sandboxen, plus Antigravity Agent als eerste ingebouwde managed agent.",
+      "technical_depth": "Managed Agents draaien in afgeschermde containers met persistente state, webaccess, code-executie en file management — vergelijkbaar met Claude's Dynamic Workflows maar Google-hosted. Interactions API breaking change (outputs → steps, legacy schema removed June 8): migratie verplicht. Gemini 3.5 Pro wordt verwacht in juni 2026.",
+      "toepassing": "Gemini 3.5 Flash is een serieuze goedkope optie voor high-volume API-calls. Interactions API-migratie is urgent (deadline 8 juni): check bestaande Gemini API-integraties nu. Managed Agents vergelijken met Claude Dynamic Workflows kan architectuurkeuzes voor Orion informeren.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-agent-v014-foundation-release",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent v0.14.0: pip-installatie, 180× snellere CDP en Claude prompt caching",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.16",
+        "https://hermes-agent.org/"
+      ],
+      "bron_namen": ["NousResearch GitHub Releases", "Hermes Agent Website"],
+      "datum_artikel": "2026-05-16",
+      "samenvatting": "Hermes Agent v0.14.0 (Foundation Release door NousResearch) maakt installatie triviaal via `pip install hermes-agent && hermes`, reduceert cold start met ~19 seconden via deferred imports, en versnelt browser CDP-calls 180× via persistente WebSocket-verbindingen. Nieuw: cross-session Claude prompt caching (1 uur), xAI Grok-integratie (1M context), LINE Messaging API en SimpleX Chat (22 platforms totaal).",
+      "technical_depth": "Browser automation via persistente CDP WebSocket i.p.v. per-call verbindingen (180× speedup). PyPI lazy-loading framework met tiered install fallback. OpenAI-compatible proxy laat tools als Aider/Cline gebruik maken van geabonneerde services. LSP semantic diagnostics triggeren bij file writes voor directe type-error detectie. Plugin systeem krijgt `ctx.llm` voor LLM-calls en `tool_override` flags. Supply-chain advisory checker ingebouwd.",
+      "toepassing": "Claude prompt caching (1u) in Hermes is direct relevant voor Orion: kostenbesparing op herhaalde agent-context. OpenAI-compatible proxy maakt hybride setups mogelijk (Cline/Aider via Hermes naar Claude). LSP-integratie geeft real-time type-feedback in agentic coding — vergelijk met Claude Code security-guidance plugin.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-roadmap-stateless-http-tasks",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Roadmap en RC 2026-07-28: stateless HTTP-core en Tasks-extensie",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": ["Model Context Protocol Blog (Anthropic)", "The New Stack"],
+      "datum_artikel": "2026-01-15",
+      "samenvatting": "De MCP Release Candidate voor specificatie 2026-07-28 is beschikbaar en introduceert een stateless protocol-core: remote servers draaien achter gewone round-robin load balancers via Mcp-Method header routing, zonder sticky sessions of shared session stores. De Tasks-extensie voegt durable async jobs toe met retry semantics. Extensions framework biedt server-rendered UIs via MCP Apps.",
+      "technical_depth": "Stateless core: clients cachen tools/list responses via server-opgegeven ttlMs; servers hoeven geen per-sessie state bij te houden. Tasks-extensie: langlopende jobs met result expiry policies — vervangt lange polling patterns. Governance: contributor ladder met SEP-delegatie naar werkgroepen. Enterprise: audit trails, SSO, gateway config via extensions (niet core spec). 97M monthly downloads Python/TypeScript SDK; 10.000+ actieve publieke MCP-servers.",
+      "toepassing": "Stateless HTTP-core is essentieel voor Orion productie-scaling: geen sticky session infra meer. Implementeer al ttlMs-caching op jullie MCP-servers voor tools/list. Test nu met de RC (beschikbaar) om bij finale release 28 juli klaar te zijn. Tasks-extensie biedt het fundament voor langlopende agentic jobs buiten de token-window.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "microsoft-mai-thinking1-code1-build2026",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Microsoft Build 2026: MAI-Thinking-1 (1T params), MAI-Code-1-Flash en Copilot Studio",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/2/microsofts-new-models/",
+        "https://windowsnews.ai/article/build-2026-microsofts-agent-first-ai-platform-for-windows-github-and-dev-boxes.421865"
+      ],
+      "bron_namen": ["Simon Willison's Weblog", "Windows News"],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Microsoft aankondigde op Build 2026 (2 juni) twee eigen MAI-modellen: MAI-Thinking-1 (1 biljoen parameters, reasoning-model als o3-concurrent) en MAI-Code-1-Flash (137B parameters, geoptimaliseerd voor GitHub Copilot). Copilot Studio integreert nu met VS Code en GitHub Codespaces als visuele agent-bouwer in Python/C#/TypeScript. GitHub Copilot stapt over op usage-based billing via AI Credits.",
+      "technical_depth": "MAI-Thinking-1 is Microsofts eerste eigengebouwde frontier reasoning-model — directe concurrent voor o3 en Claude Opus. MAI-Code-1-Flash (137B) geoptimaliseerd voor lage latency in coding context. Copilot Studio biedt visuele workflow designer voor multi-step agent orchestratie. Nieuwe billing: AI Credits per gebruik i.p.v. vast abonnement, met user-level budgets en Copilot Max upgrade pad.",
+      "toepassing": "MAI-Code-1-Flash benchmarken tegen Claude Code's /ultrareview voor CI-geïntegreerde code review. Als GitHub-heavy shop: Copilot Studio visuele workflow designer vergelijken met jullie huidige MCP/agent setup. GitHub AI Credits billing-model is een preview van hoe enterprise token-budgetten gaan werken.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "uber-claude-code-cost-caps-willison",
+      "ecosysteem": "AI Builders",
+      "titel": "Uber begrenst Claude Code/Cursor op $1.500/maand — Simon Willison over token-kosten at scale",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/3/uber-caps-usage/",
+        "https://simonw.substack.com/"
+      ],
+      "bron_namen": ["Simon Willison's Weblog (3 juni 2026)", "Simon Willison Newsletter"],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Uber heeft een harde spending-cap van $1.500 per maand per developer ingesteld voor agentic coding tools zoals Claude Code en Cursor. Simon Willison analyseert dit als vroeg signaal dat token-kosten bij schaal een boardroom-item worden: teams worden gedwongen te kiezen tussen model-kwaliteit en gebruiksfrequentie, of te investeren in efficiëntere agent-architecturen en caching.",
+      "technical_depth": "Bij intensief gebruik van agentic coding tools met Opus-klasse modellen lopen kosten snel op tot $1.000-2.000/maand per engineer. De cap dwingt teams naar: (1) model-tiering (Sonnet voor routine, Opus voor complex), (2) prompt caching maximaliseren, (3) subagent-granulariteit optimaliseren om onnodige context-overdracht te vermijden, (4) /usage monitoring per skill/agent.",
+      "toepassing": "Stel nu al token-budgetten in per taak-type in Orion: gebruik `/usage` breakdown om top-3 token-verbruikers te identificeren. Implementeer model-tiering: Sonnet 4.6 voor leesopdrachten/summaries, Opus 4.8 alleen voor schrijven en complexe redenering. Cross-session Claude prompt caching (via Hermes of native) kan 40-60% besparen op herhaalde agent-context.",
+      "relevantie_score": 9
+    }
+  ]
+}
