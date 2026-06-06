@@ -1,0 +1,155 @@
+{
+  "datum": "2026-06-06",
+  "gegenereerd_op": "11:45 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code introduceert Dynamic Workflows met honderden parallelle subagents",
+      "bron_urls": [
+        "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+        "https://www.infoq.com/news/2026/06/dynamic-workflows-claude-code/",
+        "https://code.claude.com/docs/en/workflows"
+      ],
+      "bron_namen": [
+        "Anthropic Claude Blog",
+        "InfoQ",
+        "Claude Code Docs"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Anthropic heeft Dynamic Workflows uitgebracht als research preview voor Claude Code: een orkestratiemechanisme waarbij Claude dynamisch een script schrijft dat tientallen tot honderden parallelle subagents coordineert in een sessie. Elk subagent pakt het probleem vanuit een onafhankelijke hoek aan, andere agents weerleggen de bevindingen, en de run itereert totdat antwoorden convergeren. Beschikbaar voor Max-, Team- en Enterprise-plans, plus de Claude API op Bedrock, Vertex en Microsoft Foundry.",
+      "technical_depth": "Claude schrijft on-the-fly orchestratiescripts die subagent-spawning, resultaatchecking en iteratieve convergentie combineren. De --json vlag in claude agents toont nu een waitingFor veld zodat je live ziet waarop een sessie blokkeert. Jarred Sumner gebruikte het om Bun van Zig naar Rust te porteren: ~750k regels Rust, 99,8% testresultaat, 11 dagen.",
+      "toepassing": "Pepijn en Duncan kunnen Dynamic Workflows inzetten voor grootschalige codemigraties, security-audits over meerdere repos tegelijk, of het parallel analyseren van complexe projectarchitecturen. Via de API op Bedrock/Vertex is het direct te integreren in bestaande pipelines.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-opus-48-default",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8 wordt default in Claude Code met security-guidance plugin en goedkopere fast mode",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://decodethefuture.org/en/claude-opus-4-8-explained/"
+      ],
+      "bron_namen": [
+        "Releasebot Anthropic Claude Code",
+        "DecodetheFuture"
+      ],
+      "datum_artikel": "2026-05-30",
+      "samenvatting": "Anthropic heeft Claude Opus 4.8 uitgerold als nieuwe default voor Max-, Team Premium-, Enterprise pay-as-you-go- en API-accounts in Claude Code. Fast Mode draait nu ook op Opus 4.8 tegen $10/$50 per miljoen tokens (input/output). Tegelijk is er een nieuwe security-guidance plugin die real-time code-modificaties controleert op kwetsbaarheden.",
+      "technical_depth": "Opus 4.8 is standaard ingesteld op high effort, met een optie voor higher intensity bij complexe taken. Fast Mode biedt dezelfde Opus 4.8 backbone tegen sterk gereduceerde kosten ($10/$50 per M tokens). De security-guidance plugin haakt in op het tool-use pipeline van Claude Code en scant elke file-write proactief op bekende kwetsbaarheidpatronen.",
+      "toepassing": "De goedkopere Fast Mode maakt intensief gebruik van Claude Code in CI-pipelines of lange agentic runs financieel haalbaar. De security plugin is een directe gratis beveiligingslaag voor projecten van Pepijn en Duncan zonder extra tooling.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-default",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI maakt GPT-5.5 Instant default voor alle ChatGPT-gebruikers, 52,5% minder hallucinaties",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": [
+        "OpenAI",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "OpenAI heeft GPT-5.5 Instant op 5 mei 2026 uitgerold als vervanger van GPT-5.3 Instant als standaard ChatGPT-model voor alle gebruikers inclusief de free tier. Het model produceert 52,5% minder gehallucineerde claims dan zijn voorganger op high-stakes prompts in domeinen als geneeskunde, recht en financieen. Tegelijk worden GPT-4.5 (27 juni) en o3 (26 augustus) uit ChatGPT verwijderd.",
+      "technical_depth": "GPT-5.5 Instant is een geoptimaliseerde variant van GPT-5.5 voor snelle inferentie. De halvering van hallucinaties is gemeten op een intern benchmark-suite die hoge-stakes factual claims test. GPT-5.5 (volledig) is gelanceerd op 23 april 2026 en combineert agentic tool-use, coding en multi-step redeneren in een model.",
+      "toepassing": "Via de API biedt GPT-5.5 agentic capabilities vergelijkbaar met Claude Code workflows. De verbeterde factual accuracy maakt het interessant voor RAG-toepassingen en kennisbankintegraties in de P&F-projecten.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemma-4-12b-encoder-free-audio",
+      "ecosysteem": "Gemini",
+      "titel": "Google DeepMind lanceert Gemma 4 12B: eerste mid-size model met native audio en encoder-vrije architectuur",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/",
+        "https://www.marktechpost.com/2026/06/03/google-deepmind-releases-gemma-4-12b-an-encoder-free-multimodal-model-with-native-audio-that-runs-on-a-16-gb-laptop/"
+      ],
+      "bron_namen": [
+        "Google Blog",
+        "MarkTechPost"
+      ],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Google DeepMind heeft op 3 juni 2026 Gemma 4 12B uitgebracht: een 12B-parameter decoder-only transformer zonder aparte vision- of audio-encoders. Beeld en geluid stromen direct als raw patches/waveforms via lichte lineaire projecties de LLM-backbone in, waardoor latentie en geheugenoverhead wegvallen. Het model draait op een laptop met 16 GB VRAM en is beschikbaar onder Apache 2.0.",
+      "technical_depth": "Encoder-free multimodale architectuur: vision patches en audio waveforms worden via lineaire projecties direct in de embedding-ruimte van de transformer geprojected. Eerste mid-size Gemma met native audio input. Apache 2.0 licentie. Minimale hardware: 16 GB VRAM (consumer GPU).",
+      "toepassing": "Pepijn en Duncan kunnen Gemma 4 12B lokaal draaien als privacy-first multimodaal model voor audio- en beeldverwerking in agents, zonder cloud-afhankelijkheid en zonder licentiebeperkingen voor commercieel gebruik.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-desktop-v0152-cross-platform",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Nous Research lanceert Hermes Desktop: native cross-platform GUI voor Hermes Agent v0.15.2 met streaming tool output",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/06/03/nous-research-releases-hermes-desktop-a-native-cross-platform-front-end-for-hermes-agent-v0-15-2-with-streaming-tool-output/",
+        "https://github.com/nousresearch/hermes-agent"
+      ],
+      "bron_namen": [
+        "MarkTechPost",
+        "GitHub NousResearch"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Nous Research heeft op 2 juni 2026 Hermes Desktop in public preview gelanceerd: een native macOS/Windows/Linux applicatie die de Hermes Agent v0.15.2 kern inpakt met een GUI. Het venster toont streaming responses, live tool-activiteit en een rechter paneel dat webpaginas, bestanden en tool-output previewt. De CLI-, TUI- en GUI-oppervlakten delen een bron van waarheid: sessies, geheugen, vaardigheden en API-keys zijn volledig gesynchroniseerd.",
+      "technical_depth": "Hermes Agent v0.15.2 voegt streaming tool output toe: tool-calls worden token-voor-token zichtbaar in de UI zonder te wachten op afronding. De desktop forkt de agent core niet - het is een thin native shell (MIT licentie) rond de bestaande daemon. Ondersteunt macOS 12+, Windows 10/11 en Linux.",
+      "toepassing": "Als alternatief voor de Claude Code CLI kunnen Pepijn en Duncan Hermes Desktop gebruiken voor self-hosted agentic workflows met eigen modellen (Hermes 4.3 lokaal) zonder cloud API-kosten, inclusief persistente memory en cron-taken.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "minimax-m3-open-weight-frontier",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "MiniMax M3: eerste open-weight model met frontier coding (59% SWE-Bench Pro), 1M-token context en MSA-architectuur",
+      "bron_urls": [
+        "https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/",
+        "https://llm-stats.com/llm-updates"
+      ],
+      "bron_namen": [
+        "The Decoder",
+        "LLM Stats"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "MiniMax heeft M3 uitgebracht als het eerste open-weight model dat frontier coding (59% SWE-Bench Pro), een 1-miljoen-token contextvenster en native multimodaliteit combineert. De nieuwe MSA-architectuur (MiniMax Sparse Attention) selecteert via een index-branch welke tokenblokken aandacht nodig hebben, waardoor bij 1M-context de compute per token 20x lager is en prefill 9x sneller. Startprijs: $0,30/$1,20 per M tokens met tijdelijke 50% korting.",
+      "technical_depth": "MSA: lichtgewicht index-branch scant inkomende tokens en selecteert relevante blokken uit de KV-cache, attention loopt alleen op die blokken. Resultaat: 20x lagere per-token compute, 9x snellere prefill, 15x snellere decoding bij 1M context. Getraind op ~100 triljoen tokens inclusief interleaved tekst-beeld data. Score: 59,0% SWE-Bench Pro, 83,5 BrowseComp. Open weights volgen binnen 10 dagen op Hugging Face.",
+      "toepassing": "M3 is interessant voor lange-context analysistaken (grote codebases, lange documenten) in zelfgehoste omgevingen. De lage prijs maakt het ook geschikt als goedkoop API-alternatief voor zware coding-tasks in de P&F-projecten.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "fastmcp-340-remote-bridge",
+      "ecosysteem": "Open Source Tools",
+      "titel": "FastMCP 3.4.0 lanceert fastmcp-remote: OAuth-brug tussen stdio MCP-hosts en HTTP MCP-servers",
+      "bron_urls": [
+        "https://gofastmcp.com/updates",
+        "https://pypi.org/project/fastmcp/"
+      ],
+      "bron_namen": [
+        "FastMCP Updates",
+        "PyPI FastMCP"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "FastMCP 3.4.0 (uitgebracht 2 juni 2026) introduceert fastmcp-remote: een standalone Python-tool die stdio-only MCP-hosts (zoals Claude Code of lokale agents) verbindt met remote MCP-servers over HTTP. Voor HTTPS-servers wordt OAuth automatisch geactiveerd; expliciete bearer tokens en custom headers worden ook ondersteund. Proxy-objecten zijn lazy bridges die de upstream server pas aanspreken als een echte client verbindt.",
+      "technical_depth": "fastmcp-remote werkt als protocol-bridge: het presenteert een stdio-interface aan de MCP-host terwijl het MCP-berichten doorstuurt naar een HTTP(S)-server. De initialize-handshake wordt doorgestuurd zodat een proxy pas succesvol handshakt na bevestiging van de upstream. OAuth-flow is ingebakken voor HTTPS-endpoints en hoeft niet manueel geconfigureerd te worden.",
+      "toepassing": "Pepijn en Duncan kunnen hiermee hun lokale Claude Code of Hermes Agent koppelen aan hosted MCP-servers (bv. Strava, Atlassian, eigen APIs) zonder die servers te herschrijven naar stdio. Ideaal voor het uitbreiden van het MCP-ecosysteem in bestaande projecten.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "microsoft-mai-models-build2026",
+      "ecosysteem": "AI Builders",
+      "titel": "Microsoft lanceert MAI-Thinking-1 en MAI-Code-1-Flash op Build 2026: OpenAI-onafhankelijke frontier modellen",
+      "bron_urls": [
+        "https://microsoft.ai/news/introducing-mai-thinking-1/",
+        "https://microsoft.ai/news/introducingmai-code-1-flash/",
+        "https://simonwillison.net/2026/Jun/2/microsofts-new-models/"
+      ],
+      "bron_namen": [
+        "Microsoft AI",
+        "Microsoft AI",
+        "Simon Willison"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Microsoft heeft op Build 2026 (2-3 juni) twee eigen LLMs gepresenteerd die volledig onafhankelijk van OpenAI zijn ontwikkeld. MAI-Thinking-1 is een ~1T-parameter sparse MoE-model (35B actief) met 256K contextvenster dat 97% haalt op AIME 2025 en vergelijkbaar scoort met Claude Opus 4.6 op SWE-Bench Pro. MAI-Code-1-Flash (5B actief) scoort +16 punten beter dan Claude Haiku 4.5 op SWE-Bench Pro met 60% minder tokens.",
+      "technical_depth": "MAI-Thinking-1: sparse MoE, 35B actieve parameters uit ~1T totaal, 256K context, trained without distillation from third-party models, pipeline: pretraining, midtraining, SFT, RL. MAI-Code-1-Flash: 5B actieve params, gebouwd op MAI-Thinking-1 mid-training checkpoint, getraind met GitHub Copilot harnesses voor production agentic coding, adaptive solution length control zorgt dat model 60% minder tokens gebruikt.",
+      "toepassing": "Via Azure AI Foundry zijn beide modellen direct inzetbaar. MAI-Code-1-Flash is interessant als goedkoop, snel coding-model in CI/CD pipelines. Microsoft Agent Framework 1.0 (ook Build 2026) combineert Semantic Kernel en AutoGen tot een productie-ready SDK voor .NET en Python.",
+      "relevantie_score": 8
+    }
+  ]
+}
