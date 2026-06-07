@@ -1,0 +1,134 @@
+{
+  "datum": "2026-06-07",
+  "gegenereerd_op": "00:06 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-opus-48-ultracode-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8 lanceert met Ultracode-modus en Dynamic Workflows",
+      "bron_urls": [
+        "https://www.anthropic.com/news/claude-opus-4-8",
+        "https://thenewstack.io/claude-opus-48-release/",
+        "https://theplanettools.ai/blog/claude-opus-4-8-dynamic-workflows-ultracode-claude-code-may-2026"
+      ],
+      "bron_namen": ["Anthropic", "The New Stack", "ThePlanetTools.ai"],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Claude Opus 4.8 is op 28 mei GA gegaan op dezelfde prijs als 4.7 ($5/$25 per MTok). De release bevat Ultracode: een Claude Code-instelling die xhigh-effort combineert met dynamische multi-agent orchestratie via door Claude geschreven JavaScript-scripts. Dynamic Workflows draait honderden parallelle subagents in één sessie voor taken die te groot zijn voor één conversatie.",
+      "technical_depth": "Ultracode stuurt xhigh effort naar het model én activeert Dynamic Workflows automatisch voor complexe taken. De workflows zijn JS-orchestratiescripts die Claude zelf schrijft en via de Agent SDK aansturen. Fast Mode met Opus 4.8 kost $10/$50/MTok voor 2,5x snelheid. Plugins in .claude/skills worden nu automatisch geladen, en /reload-skills herscant zonder herstart.",
+      "toepassing": "Pepijn en Duncan kunnen Ultracode inzetten voor codebase-brede migraties of audits. Dynamic Workflows zijn direct bruikbaar voor Orion: één JS-script stuurt tientallen parallelle subagents aan. De security-guidance plugin (controleert elke edit op vulnerabilities) is nuttig in productie-codebases. /reload-skills versnelt plugin-ontwikkelcycli.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "mcp-release-candidate-stateless-2026-07-28",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP Release Candidate gepubliceerd: stateless protocol, Tasks-extensie en MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://mcp.directory/blog/mcp-2026-07-28-release-candidate"
+      ],
+      "bron_namen": ["Model Context Protocol Blog", "Medium (Balaji Bal)", "MCP.Directory"],
+      "datum_artikel": "2026-06-04",
+      "samenvatting": "De release candidate voor de MCP-spec van 2026-07-28 is beschikbaar — de grootste revisie sinds lancering. De Mcp-Session-Id header vervalt, waardoor MCP-servers stateless worden en achter een gewone round-robin load balancer draaien zonder sticky sessions. Nieuw zijn de Extensions-laag (Tasks voor langlopende werk, MCP Apps voor server-rendered UIs) en OAuth/OIDC-conforme autorisatie.",
+      "technical_depth": "Servers hoeven geen session-state meer bij te houden. Load balancers routen op de Mcp-Method header zonder body-inspectie. Tools/list responses krijgen ttlMs en cacheScope voor client-side caching. W3C Trace Context in _meta standaardiseert distributed tracing (traceparent, tracestate, baggage). Tier 1 SDKs (inclusief Python/TypeScript) moeten binnen de 10-weken-window support shippen.",
+      "toepassing": "Pepijn en Duncan kunnen hun MCP-servers vereenvoudigen: geen session-state meer managen in Redis of vergelijkbaar. De Tasks-extensie is direct bruikbaar voor langlopende Orion-jobs met progress feedback. MCP Apps openen de deur voor server-rendered tool-UIs zichtbaar in Claude Code. Nu is het moment om bestaande servers te reviewen op session-afhankelijkheid.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-coding-blocks-gpt45-sunset",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant krijgt coding blocks; GPT-4.5 sunset op 27 juni",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://releasebot.io/updates/openai/chatgpt",
+        "https://help.openai.com/en/articles/9624314-model-release-notes"
+      ],
+      "bron_namen": ["OpenAI", "Releasebot ChatGPT Updates", "OpenAI Help Center"],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "ChatGPT heeft GPT-5.5 Instant bijgewerkt met dedicate coding blocks en schrijfblokken voor beter leesbare output. GPT-4.5 wordt op 27 juni 2026 uit ChatGPT verwijderd na een 30-daagse sunset. OpenAI lanceerde tevens GPT-Rosalind voor life sciences met agentic coding-versterking en domein-specifieke plugins voor bioinformatica-workflows.",
+      "technical_depth": "Coding blocks zijn gestructureerde UI-elementen die code anders renderen dan proza in ChatGPT-interface. De Dreaming-geheugenfunctie (slaap-achtige consolidatie) is nu ook beschikbaar voor Free-gebruikers. GPT-Rosalind voegt evidence retrieval en genomics workflow-plugins toe aan de trusted-access research preview.",
+      "toepassing": "Actie vereist: API-calls naar gpt-4.5 moeten vóór 27 juni gemigreerd worden naar gpt-5.5-instant of een ander model. GPT-Rosalind toont de trend van domein-gespecialiseerde frontier modellen met plugins — een architectuurpatroon ook toepasbaar in Orion via MCP tools.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "gemini-managed-agents-antigravity-35flash-ga",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini Managed Agents in public preview: stateful agents in Google-hosted Linux sandboxes",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+        "https://aidatainsider.com/ai/google-i-o-2026-gemini-3-5-flash-antigravity-and-managed-agents-explained/",
+        "https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/"
+      ],
+      "bron_namen": ["Google DeepMind Blog", "AI Data Insider", "TechCrunch"],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Gemini Managed Agents zijn in public preview: één API-call start een stateful agent in een geïsoleerde Google-hosted Linux sandbox die autonoom plant, codeert, bestanden beheert en browst. Gemini 3.5 Flash is GA en wordt verplicht voor Enterprise-gebruikers vanaf 8 juni. Antigravity 2.0 biedt een agent-first desktop met multi-agent orchestratie.",
+      "technical_depth": "Managed Agent containers zijn persistent tussen API-calls. File Search ondersteunt nu multimodale search via gemini-embedding-2. Gemini 3.5 Flash outperformt 3.1 Pro op agent- en coding-benchmarks terwijl het flash-tier prijs aanhoudt. Gemini 3.5 Pro (hoger gepland) wordt verwacht in juni 2026. Antigravity Agent kan autonoom code uitvoeren, files managen en browsen.",
+      "toepassing": "Directe vergelijking met Anthropic's Dynamic Workflows: Google host de gehele agent-infra, Anthropic via Agent SDK. Als evaluatiecriterium voor Orion: Managed Agents bieden zero-infra met minder controle, Agent SDK meer controle met eigen hosting. Multimodale File Search via gemini-embedding-2 is interessant voor document-zware Orion-taken.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "hermes-agent-desktop-v016-surface-release",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent Desktop App live (2 juni) en v0.16.0 'Surface Release' (5 juni)",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5",
+        "https://www.marktechpost.com/2026/06/03/nous-research-releases-hermes-desktop-a-native-cross-platform-front-end-for-hermes-agent-v0-15-2-with-streaming-tool-output/",
+        "https://hermes-agent.nousresearch.com/"
+      ],
+      "bron_namen": ["GitHub NousResearch", "MarkTechPost", "Nous Research"],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "Nous Research lanceerde op 2 juni de officiële Hermes Agent Desktop App (v0.15.2 public preview) als native cross-platform client voor macOS, Windows en Linux met streaming tool output. Op 5 juni volgde v0.16.0 'The Surface Release'. Hermes Agent draait als persistente daemon, accumuleert geheugen over sessies heen, en voert geplande cron-taken uit op eigen infrastructuur.",
+      "technical_depth": "Desktop app biedt one-click install, in-app self-update, drag-and-drop bestanden, inline model picker, concurrent multi-profile sessies. v0.16.0 bouwt op Tenacity Release (v0.13.0): multi-agent Kanban board met heartbeat/zombie-detection, checkpoint v2 met auto-resume, 7 locale-ondersteuning. Op GitHub trending: 184.749 sterren, +11.355 deze week.",
+      "toepassing": "Hermes Agent is een directe open-source concurrent van Claude Code als autonome agent met persistent memory. De cron-functionaliteit en 16+ messaging platform-connectoren maken het geschikt als self-hosted alternatief voor taken waarbij privacy of kostenbeheer prioriteit heeft. Interessant als benchmark-agent voor Orion-architectuurkeuzes.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "headroom-token-compression-mcp-server",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Headroom: 60-95% tokenreductie via reversibele context compression — library, proxy én MCP server",
+      "bron_urls": [
+        "https://github.com/chopratejas/headroom",
+        "https://aitoolly.com/ai-news/article/2026-06-05-headroom-innovative-compression-tool-reduces-llm-token-consumption-by-up-to-95-percent",
+        "https://headroom-docs.vercel.app/docs/mcp"
+      ],
+      "bron_namen": ["GitHub chopratejas/headroom", "AIToolly", "Headroom Docs"],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "Headroom is een open-source context compression layer die tool outputs, logs, RAG-chunks, bestanden en conversatiegeschiedenis comprimeert vóór ze het LLM bereiken. Deze week één van de snelst groeiende Python-repos op GitHub (+13.308 sterren). Beschikbaar als Python library, HTTP proxy, en MCP server. Compressie is reversibel via CCR zodat het LLM originelen on-demand opvraagt.",
+      "technical_depth": "CCR (Compression with Conditional Retrieval) is een reversibel schema waarbij gecomprimeerde referenties worden opgeslagen. Als MCP server zit Headroom transparant tussen client en LLM. Als proxy werkt het met `headroom wrap claude` of `headroom wrap codex`. Compressieratio 60-95% afhankelijk van content-type. Modulaire pip-packages, volledig open source.",
+      "toepassing": "Direct toepasbaar in Claude Code via de MCP server mode: voeg Headroom toe als MCP server zodat alle tool outputs automatisch worden gecomprimeerd voor ze in de context terechtkomen. Kritisch relevant voor Orion-sessies met veel file reads, log outputs of grote RAG-chunks. Na de Anthropic-factureringswijziging van 15 juni is tokenbesparing een directe kostenpost.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "open-source-llm-landscape-juni-2026",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Open-source LLM juni 2026: Qwen 3.6 27B leidt, Mistral Small 4 meest efficiënt, Kimi K2.6 beste coder",
+      "bron_urls": [
+        "https://llm-stats.com/llm-updates",
+        "https://ollama.com/library",
+        "https://featherless.ai/blog/best-open-source-llms-2026"
+      ],
+      "bron_namen": ["LLM Stats", "Ollama Library", "Featherless AI"],
+      "datum_artikel": "2026-06-07",
+      "samenvatting": "Het actuele open-source LLM-landschap toont Qwen 3.6 27B als sterkste algemene model op consumer hardware in juni 2026. Kimi K2.6 is de beste open coding-model. Mistral Small 4 (119B MoE, slechts 6B actieve parameters, 256K context, Apache 2.0) uit maart 2026 is de meest efficiënte keuze. Llama 4 Scout is het populairste model op Ollama voor long-context use cases.",
+      "technical_depth": "Mistral Small 4: 128 experts, 4 actief per token, 256K context, Apache 2.0 licentie. Qwen 3.6 27B: native multimodaal, 256K context, 201 talen. Llama 4 Scout: 17B actieve parameters, 109B totaal, 16 experts (MoE), extern beschikbaar met 10M token context. DeepSeek-R1 blijft leider voor reasoning. Qwen 3.5 (Feb 2026) biedt 1M token context venster.",
+      "toepassing": "Mistral Small 4 of Qwen 3.6 27B lokaal via Ollama draaien als privacy-bewust alternatief voor Claude in niet-kritische agentic subtaken. Kimi K2.6 testen als coding-agent waar een open model volstaat. Llama 4 Scout's 10M-token context is interessant voor codebase-brede analyses in Orion zonder de Anthropic-kosten.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "simon-willison-micropython-wasm-code-sandbox",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: micropython-wasm als veilige code execution sandbox voor agentic plugins",
+      "bron_urls": [
+        "https://simonwillison.net/",
+        "https://simonwillison.net/2026/May/6/code-w-claude-2026/"
+      ],
+      "bron_namen": ["Simon Willison's Weblog", "Simon Willison - Code w/ Claude 2026 liveblog"],
+      "datum_artikel": "2026-06-06",
+      "samenvatting": "Simon Willison publiceerde gisteren een update over micropython-wasm: een CLI-tool die MicroPython in WebAssembly draait als veilige code execution sandbox. Hij gebruikt het als plugin voor Datasette Agent om Python-code te laten uitvoeren zonder server-side risico's en zonder container-overhead. De aanpak illustreert een lichtgewicht sandboxing-primitief voor agentic code execution.",
+      "technical_depth": "MicroPython gecompileerd naar WASM draait volledig in een WASM runtime — geen netwerktoegang, geen filesystem access buiten de sandbox. Willison pakt dit als alpha-package met Claude Code plugin interface. Eerder liveblogde hij de Code w/ Claude 2026-conferentie (mei), inclusief updates over multi-agent orchestratie, verhoogde rate limits voor Pro/Max/Enterprise en Claude Code routines.",
+      "toepassing": "De WASM-sandbox aanpak is een lichtgewicht alternatief voor Docker containers bij agentic code execution. Pepijn en Duncan kunnen dit patroon toepassen in Orion als user-provided of agent-generated code veilig uitgevoerd moet worden. De alpha-packagestructuur toont ook hoe je snel Claude Code plugins kunt prototypen — vergelijkbaar met wat Anthropic nu ondersteunt via /reload-skills.",
+      "relevantie_score": 7
+    }
+  ]
+}
