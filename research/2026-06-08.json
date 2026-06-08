@@ -1,0 +1,126 @@
+{
+  "datum": "2026-06-08",
+  "gegenereerd_op": "10:00 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "anthropic-billing-split-june-15",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic scheidt Agent SDK billing van Claude-abonnement per 15 juni 2026",
+      "bron_urls": [
+        "https://codersera.com/blog/anthropic-june-2026-billing-change-claude-code/",
+        "https://thenewstack.io/anthropic-agent-sdk-credits/"
+      ],
+      "bron_namen": ["CoderSera", "The New Stack"],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Per 15 juni 2026 worden Agent SDK, claude -p, Claude Code GitHub Actions en third-party agents uit het flat-rate subscription gehaald en metered op een apart maandelijks credit ($20 Pro / $100 Max 5x / $200 Max 20x) tegen volledige API-tarieven zonder rollover. Subscriptions subsidieerden agent-gebruik tot 30x goedkoper dan API-prijzen, dus dit is een significante kostenstijging voor zware agent-gebruikers. Een eenmalige opt-in via je Claude account is vereist.",
+      "technical_depth": "Agent SDK requests worden metered op volledige API-tarieven (input/output tokens per request). Als het maandelijkse credit op is stopt SDK-gebruik volledig, tenzij je expliciet usage credits hebt ingeschakeld als backstop. Interactive Claude.ai chat en terminal Claude Code sessies blijven onveranderd op het bestaande plan.",
+      "toepassing": "Pepijn en Duncan moeten voor 15 juni: (1) de eenmalige opt-in claim doen in Claude account, (2) agent-intensieve workflows doorlichten op tokenverbruik, (3) overwegen usage credits in te schakelen als backstop voor productie-agents, (4) claude -p gebruik in scripts limiteren of output cachen om credit te sparen.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-ultracode-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code: Ultracode-modus, Dynamic Workflows en security-guidance plugin",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://www.mindstudio.ai/blog/code-with-claude-2026-new-agent-features"
+      ],
+      "bron_namen": ["Releasebot - Claude Code Updates", "MindStudio Blog"],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "Claude Code heeft een nieuwe ultracode-instelling via het effort menu die effort op xhigh zet en Claude automatisch laat beslissen wanneer een multi-step workflow nodig is voor taken zoals codebase-brede bug hunts, security audits, grote migraties en moderniseringsprojecten. De security-guidance plugin scant elke code-edit direct op kwetsbaarheden met een snelle patrooncheck én een volledig modelreview aan het einde van elke turn. Tevens toegevoegd: fallback models, bredere glob-support voor deny rules en sterkere cross-session message security.",
+      "technical_depth": "Ultracode triggert automatisch workflow orchestration via xhigh effort level. Security-guidance draait twee passes: snelle patroon-scan per edit + modelreview per turn-einde. Fallback models garanderen continuïteit bij primaire model unavailability. Deny-rule glob support is uitgebreid voor fijnmaziger permissie-beheer.",
+      "toepassing": "Activeer ultracode voor grote refactors of security audits in Orion of andere projecten. Voeg security-guidance toe als standaard plugin in je Claude Code config om kwetsbaarheden te vangen zonder aparte review-stap. Test fallback model configuratie voor productie-agents.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mcp-2026-rc-stateless-core",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Release Candidate: stateless HTTP-core, MCP Apps en Tasks extension",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f"
+      ],
+      "bron_namen": ["MCP Official Blog", "Medium - Balaji Bal"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De grootste MCP-revisie seit de lancering maakt het protocol stateless op HTTP-niveau: remote MCP-servers hoeven geen sticky sessions, shared session store of deep packet inspection meer op de gateway — een plain round-robin load balancer volstaat. Nieuwe extensies zijn MCP Apps (server-rendered UIs via MCP), Tasks (long-running work als first-class concept), W3C Trace Context voor distributed tracing, en hardened OAuth/OpenID Connect autorisatie. Final release gepland 28 juli 2026.",
+      "technical_depth": "Clients kunnen tools/list responses cachen zolang de server's ttlMs het toestaat. Traffic routing via Mcp-Method header. Full JSON Schema support voor tool definitions. Formeel deprecation policy ingevoerd. W3C Trace Context in _meta veld voor cross-SDK trace correlatie.",
+      "toepassing": "MCP-servers die jullie bouwen kunnen nu achter standaard load balancers draaien zonder session affinity. MCP Apps opent de mogelijkheid voor embedded UIs in agent workflows. Begin met migratie naar stateless architectuur — de RC spec is stabiel genoeg om op te bouwen.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "gemini-35-flash-ga-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA + Managed Agents API: stateful agents in geïsoleerde Linux sandbox",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/"
+      ],
+      "bron_namen": ["Gemini API Changelog", "MarkTechPost"],
+      "datum_artikel": "2026-06-08",
+      "samenvatting": "Gemini 3.5 Flash is vandaag (8 juni 2026) de standaard in de Gemini Enterprise app en presteert beter dan Gemini 3.1 Pro op key benchmarks. De Managed Agents API (public preview, 19 mei) laat één API-call een volledige stateful agent spawnen in een geïsoleerde Google-hosted Linux sandbox met 1M token context, dynamic thinking standaard aan, en persistente bestanden tussen follow-up calls via versioneerbare AGENTS.md/SKILL.md configuratie.",
+      "technical_depth": "1,048,576 input tokens, 65,536 max output. Context compaction bij ~135K tokens. Inputs: text, image, audio, video. Sandbox geconfigureerd via AGENTS.md en SKILL.md. Antigravity managed agent (antigravity-preview-05-2026) kan autonoom plannen, code schrijven/uitvoeren, bestanden beheren en browsen.",
+      "toepassing": "Vergelijk de AGENTS.md/SKILL.md configuratie-aanpak met jullie eigen Claude Code CLAUDE.md setup. De isolated sandbox met persistent files is een direct vergelijkbaar patroon met jullie Orion agent orchestration — interessant als benchmark voor feature pariteit.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-micropython-wasm-sandbox",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: micropython-wasm alpha — WASM-gebaseerde code execution sandbox voor agents",
+      "bron_urls": [
+        "https://simonwillison.net/",
+        "https://simonw.substack.com/p/agentic-engineering-patterns"
+      ],
+      "bron_namen": ["Simon Willison's Weblog", "Simon Willison's Newsletter"],
+      "datum_artikel": "2026-06-06",
+      "samenvatting": "Simon Willison publiceerde micropython-wasm als alpha package (6 juni 2026): een WebAssembly-gebaseerde Python sandbox voor code execution in agents, gebouwd als datasette-agent-micropython plugin voor Datasette Agent. Het concept biedt geïsoleerde code execution zonder container overhead. Willison analyseert ook Uber's aanpak van AI tool usage caps als kostenbeheersingspatroon — extra relevant gezien Anthropic's komende billing change.",
+      "technical_depth": "micropython-wasm wraps MicroPython in WASM voor sandboxed Python execution zonder Docker/container dependency. Integreerbaar als MCP tool of agent plugin. Per-session isolated computation pattern. WASM biedt memory isolation en deterministic execution als security boundary.",
+      "toepassing": "micropython-wasm is een lichtgewicht alternatief voor Docker-sandboxes bij code-execution in Claude Code agents — geen container overhead, direct embeddable als MCP tool. Bestudeer ook Uber's cost-cap patterns als voorbereiding op de Agent SDK billing change per 15 juni.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "microsoft-agent-framework-180-mcp-skills",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Microsoft Agent Framework Python 1.8.0: MCP-based skills discovery en progressive tool exposure",
+      "bron_urls": [
+        "https://github.com/microsoft/agent-framework/releases"
+      ],
+      "bron_namen": ["GitHub - microsoft/agent-framework"],
+      "datum_artikel": "2026-06-04",
+      "samenvatting": "Python 1.8.0 (4 juni) voegt MCP-gebaseerde skills discovery toe met progressive tool exposure, AgentFileStore voor gestructureerde bestandsoperaties en native structured output via Bedrock's Converse API. De .NET 1.9.0 release (3 juni) upgradet GitHub Copilot SDK naar v1.0.0 stable. Beide releases signaleren dat MCP het standaard skill-distributiekanaal wordt in het Microsoft enterprise agent ecosysteem.",
+      "technical_depth": "Progressive tool exposure: agents ontdekken incrementeel tools via MCP skill registries (skill-md type). AgentFileStore + FileAccessProvider bieden sandboxed FS-toegang. HarnessAgent ondersteunt background agent uitvoering. Message-ID collision fixes verbeteren multi-agent orchestration betrouwbaarheid.",
+      "toepassing": "Het MCP skill registry pattern is overdraagbaar naar jullie eigen tooling: distribueer agent capabilities als MCP skills voor modulaire ontdekking. AgentFileStore is een goed referentie-design voor veilige file access. Vergelijk de HarnessAgent background execution met jullie eigen async agent patterns.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemma-4-12b-multimodal-laptop",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Gemma 4 12B: multimodaal open-source model op 16GB laptop met 256K context, Apache 2.0",
+      "bron_urls": [
+        "https://venturebeat.com/technology/googles-new-open-source-gemma-4-12b-analyzes-audio-video-and-runs-entirely-locally-on-a-typical-16gb-enterprise-laptop",
+        "https://developers.googleblog.com/gemma-4-12b-the-developer-guide/"
+      ],
+      "bron_namen": ["VentureBeat", "Google Developers Blog"],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Gemma 4 12B (3 juni 2026) is een encoder-vrije decoder-only transformer die tekst, afbeeldingen, video en native audio verwerkt in één unified token space, draaiend in 16GB RAM. Met ~77.2% op MMLU Pro en ~78.8% op GPQA Diamond scoort het dicht bij de 26B MoE-variant. Apache 2.0, beschikbaar op Hugging Face/Kaggle, compatibel met vLLM, SGLang, MLX en llama.cpp.",
+      "technical_depth": "256K context window. Encoder-free architectuur: audio/video/image verwerking via dezelfde decoder zonder aparte encoders. Native multimodaliteit via unified token space vereenvoudigt deployment. Fine-tuning mogelijk via standaard Hugging Face workflows.",
+      "toepassing": "Direct inzetbaar als lokale backbone voor privacy-gevoelige agent tasks (code review, document analyse) zonder API-kosten. Test via llama.cpp of vLLM als lokale vervanging voor Gemini Flash in Orion-achtige workflows. 256K context maakt lange document chains mogelijk zonder chunking.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "openai-gpt55-instant-memory-dreaming",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: nieuwe ChatGPT default met async 'dreaming' memory en writing blocks",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      ],
+      "bron_namen": ["OpenAI Blog", "OpenAI Help Center - Release Notes"],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "GPT-5.5 Instant vervangt GPT-5.3 Instant als standaard ChatGPT-model met betere nauwkeurigheid, sterkere STEM/coding hulp en native writing/coding blocks in de chat UI. De nieuwe memory upgrade introduceert 'dreaming': een asynchroon background process dat memories automatisch bijwerkt als tijd verstrijkt (bijv. 'Je gaat naar Singapore in juli' wordt na de trip automatisch 'Je bent in juli 2026 naar Singapore geweest'). GPT-4.5 wordt retired per 27 juni 2026.",
+      "technical_depth": "Memory dreaming is een async background process dat fact-aging toepast op bestaande memories zonder user intervention. Reviewable memory summary page voor gebruikersinzage. Writing/coding blocks zijn native UI components. GPT-4.5 sunset per 27 juni.",
+      "toepassing": "Dreaming memory is een interessant patroon voor jullie eigen agent memory architectuur: auto-updating context dat temporele feiten corrigeert zonder user prompts. Vergelijk met jullie huidige persistent memory implementatie in Claude Code agents — kan je een vergelijkbaar aging-mechanisme bouwen als MCP tool?",
+      "relevantie_score": 7
+    }
+  ]
+}
