@@ -1,0 +1,167 @@
+{
+  "datum": "2026-06-09",
+  "gegenereerd_op": "00:05 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-opus-48-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Opus 4.8 nieuw standaardmodel + Dynamic Workflows orchestreert honderden subagenten",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://9to5mac.com/2026/05/28/anthropic-upgrades-claude-with-new-opus-4-8-model-heres-whats-new/",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code What's New (Anthropic)",
+        "9to5Mac",
+        "Releasebot"
+      ],
+      "datum_artikel": "2026-05-29",
+      "samenvatting": "Claude Opus 4.8 is de nieuwe standaard voor Max/Team Premium/Enterprise-accounts, met hoge effort standaard en /effort xhigh voor de zwaarste taken. Dynamic Workflows (research preview) laten Claude een orkestratiescript schrijven dat tientallen tot honderden subagenten parallel coördineert zonder handmatige orchestratie. Fast mode draait nu op Opus 4.8 voor $10/$50 per MTok.",
+      "technical_depth": "Dynamic Workflows genereren een Python-orkestratiescript dat Claude zelf schrijft; de harness voert het script uit en schaalt subagenten automatisch. Dit is fundamenteel anders dan statische multi-agent setups: de workflow is zelf een artifact dat Claude per taak opnieuw kan samenstellen.",
+      "toepassing": "Direct inzetbaar voor parallelle codebase-analyses, multi-file refactoring met dynamisch gegenereerde subagent-teams, en grote agentic pipelines in Orion-projecten. /effort xhigh aanzetten voor complexe reasoning taken.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-enhanced-memory",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant wordt nieuw standaardmodel in ChatGPT en API, met herontworpen geheugensysteem",
+      "bron_urls": [
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "https://releasebot.io/updates/openai/chatgpt",
+        "https://platform.openai.com/docs/changelog"
+      ],
+      "bron_namen": [
+        "ChatGPT Release Notes (OpenAI Help Center)",
+        "Releasebot",
+        "OpenAI Platform Changelog"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "GPT-5.5 Instant vervangt GPT-5.3 Instant als standaard in ChatGPT met verbeterde nauwkeurigheid, beeldverwerking, en web search-beslissingen. OpenAI lanceerde tegelijkertijd een nieuw schaalbaar geheugensysteem dat context langdurig bijhoudt, gebruikersvoorkeuren volgt en een reviewbare memory summary pagina biedt. Container sessions worden per minuut gefactureerd (5 min minimum) in plaats van per 20-minuutsessie.",
+      "technical_depth": "GPT-5.5 Instant is geoptimaliseerd voor kortere, naturelere antwoorden met minder bullet-point overload. Het nieuwe memory systeem is architectureel herontworpen voor persistentie over sessies: het combineert episodic en semantic memory met expliciete user-reviewability, wat een stap richting stateful agents is.",
+      "toepassing": "API-migratie van GPT-5.3 naar GPT-5.5 Instant voor kortere latency. Memory API relevant voor agent-workflows waarbij user-state over sessies heen bijgehouden moet worden zonder eigen vectordatabase.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash algemeen beschikbaar + Managed Agents public preview met sandbox-isolatie",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026",
+        "https://releasebot.io/updates/google"
+      ],
+      "bron_namen": [
+        "Gemini API Changelog (Google AI for Developers)",
+        "Gemini API Breaking Changes Docs",
+        "Releasebot"
+      ],
+      "datum_artikel": "2026-06-08",
+      "samenvatting": "Gemini 3.5 Flash is nu GA als het meest intelligente model voor agentic en coding taken. De Gemini API lanceerde Managed Agents in public preview: stateful, autonome agents die draaien in geïsoleerde Google-hosted Linux sandboxes. Tegelijk verwijderde Google op 8 juni het legacy Interactions API schema (outputs→steps migratie voltooid) en is de 3.5 Flash enterprise toggle permanent verwijderd.",
+      "technical_depth": "Managed Agents zijn stateful server-side agent loops met geïsoleerde sandbox-omgevingen, vergelijkbaar met Claude's Self-Hosted Sandboxes maar volledig beheerd door Google. De Antigravity Agent kan zelfstandig plannen, code schrijven/uitvoeren, bestanden beheren en browsen. De Interactions API breaking change (outputs→steps rename) vereist migratie van bestaande integrations.",
+      "toepassing": "Gemini Managed Agents vergelijken met Claude Managed Agents voor enterprise use cases. Let op de Interactions API migratie als jullie Gemini API gebruiken. Gemini 3.1 Flash Image GA is interessant voor multimodale pipelines.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-desktop-native-app",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "NousResearch lanceert Hermes Desktop: native cross-platform app voor Hermes Agent met streaming tool output",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/06/03/nous-research-releases-hermes-desktop-a-native-cross-platform-front-end-for-hermes-agent-v0-15-2-with-streaming-tool-output/",
+        "https://hermes-agent.nousresearch.com/",
+        "https://aitoolly.com/ai-news/article/2026-06-06-nousresearch-unveils-hermes-agent-a-new-paradigm-for-ai-entities-that-grow-with-users"
+      ],
+      "bron_namen": [
+        "MarkTechPost",
+        "NousResearch Hermes Agent",
+        "AIToolly"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Nous Research bracht op 3 juni Hermes Desktop uit: een native macOS, Windows, en Linux-app als frontend voor Hermes Agent v0.15.2, met streaming tool output. Hermes Agent is een open-source persistent agent die integreert met messaging accounts en meegeoeit met de gebruiker. Sinds de lancering in februari 2026 zijn er al meer dan 15 major versies uitgebracht.",
+      "technical_depth": "Hermes Desktop biedt een native GUI met streaming tool output (real-time zichtbaarheid van tool-calls), wat debuggen en monitoring van agent-acties sterk verbetert. De architectuur is gebouwd rondom persistent agent state: geen sessie-gebaseerd model maar een langetermijn-entiteit die context, preferences en relaties opbouwt.",
+      "toepassing": "Als alternatief voor CLI-gebaseerde agents evalueren voor gebruikers die een GUI nodig hebben. De streaming tool output is een interessant UX-patroon om over te nemen in eigen agent-interfaces.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemma-4-12b-release",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Google Gemma 4 12B uitgebracht: 77.2% MMLU Pro, sterkste small model van juni 2026",
+      "bron_urls": [
+        "https://llm-stats.com/llm-updates",
+        "https://huggingface.co/blog/daya-shankar/open-source-llms",
+        "https://featherless.ai/blog/best-open-source-llms-2026"
+      ],
+      "bron_namen": [
+        "LLM Stats",
+        "Hugging Face Blog",
+        "Featherless AI"
+      ],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Gemma 4 12B werd op 3 juni uitgebracht en scoort 77.2% op MMLU Pro, waarmee het de benchmark leidt in zijn gewichtsklasse. De open-source landscape in juni 2026 wordt verder gedomineerd door Qwen 3 235B-A22B (beste overall reasoning), DeepSeek R1-0528 (deep math), en Llama 4 Scout (10M token context op een H100). Phi-4-reasoning is de sterkste kleine reasoning model met MIT-licentie.",
+      "technical_depth": "Gemma 4 12B past op consumer GPU's en combineert hoge MMLU Pro score met praktische deployability. De 2026 frontier toont een patroon van MoE-architecturen (Qwen 3, DeepSeek) die grote parameter counts combineren met kleine actieve parameters (235B/22B, 671B/37B) voor efficiënte inference.",
+      "toepassing": "Gemma 4 12B evalueren als lokaal of zelf-gehost model in MCP-workflows waar privacy of kosten belangrijker zijn dan frontier performance. Phi-4-reasoning als lichtgewicht reasoning model voor edge/embedded agent-use cases.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "microsoft-agent-framework-codeact-build2026",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Microsoft Agent Framework op BUILD 2026: CodeAct voert tool-calls uit als één Python-programma in Hyperlight micro-VM",
+      "bron_urls": [
+        "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/",
+        "https://github.com/microsoft/agent-framework/releases",
+        "https://redmondmag.com/articles/2026/06/02/microsoft-uses-build-2026-to-put-ai-agents-at-the-center-of-windows.aspx"
+      ],
+      "bron_namen": [
+        "Microsoft Agent Framework Dev Blog",
+        "GitHub microsoft/agent-framework",
+        "Redmond Magazine"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Microsoft presenteerde op BUILD 2026 CodeAct als onderdeel van het Agent Framework: in plaats van sequentiële tool-calls schrijft het model één Python-programma dat alle tools aanroept via call_tool(), uitvoert in een Hyperlight micro-VM, en één geconsolideerd resultaat teruggeeft. Dit elimineert meerdere model round-trips per agent-stap. Verder werden Agent Harness, Hosted Agents in Foundry Agent Service, en handoff orchestration aangekondigd.",
+      "technical_depth": "CodeAct draait in agent-framework-hyperlight (alpha), een package dat model-gegenereerde code uitvoert in verse, lokaal geïsoleerde Hyperlight micro-VM's per call. Sterke sandboxisolatie is hierdoor gratis op het granulariteitsniveau van één tool-call. Het patroon elimineert de N×(model call + tool call) loop naar 1×(model call) + 1×(Python execution).",
+      "toepassing": "CodeAct-patroon implementeren in eigen MCP-workflows om tool-call latency drastisch te verlagen. Hyperlight micro-VM sandbox als isolatiepatroon voor eigen agent runtimes overwegen. Vergelijken met Claude's Dynamic Workflows architectuur.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-dev-summit-2026-07-28-spec-rc",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Dev Summit Bengaluru vandaag + 2026-07-28 release candidate maakt protocol stateless",
+      "bron_urls": [
+        "https://aaif.io/blog/mcp-is-growing-up/",
+        "https://truthifi.com/education/state-of-mcp-2026-ai-agents-connect-to-your-data",
+        "https://mcpplaygroundonline.com/blog/ai-agent-mcp-explained"
+      ],
+      "bron_namen": [
+        "Agentic AI Foundation (AAIF)",
+        "Truthifi MCP State 2026",
+        "MCP Playground"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "MCP Dev Summit Bengaluru vindt vandaag en morgen (9-10 juni) plaats. Tegelijk is de release candidate voor de MCP specificatie 2026-07-28 beschikbaar: de headline change is dat MCP stateless wordt op het protocolniveau, wat het makkelijker maakt om te runnen, te redeneren over, en uit te breiden in agentic systemen. SDK-maintainers hebben 10 weken om de changes te valideren. Het MCP-ecosysteem telt inmiddels 10.000+ actieve publieke servers en de Python SDK heeft 164 miljoen maandelijkse PyPI downloads.",
+      "technical_depth": "De shift naar stateless MCP protocol layer is een fundamentele architectuurwijziging: sessie-state verplaatst van de protocol-laag naar de applicatielaag, waardoor MCP-servers horizontaal schaalbaarder worden en load balancing triviaal wordt. Dit heeft directe implicaties voor enterprise MCP deployments.",
+      "toepassing": "Direct: de 2026-07-28 spec RC doorlezen en eigen MCP-server implementaties testen op compatibiliteit. Eigen servers migreren naar stateless design voor betere schaalbaarheid. De Dev Summit presentaties volgen voor best practices.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "simonwillison-microsoft-mai-models",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison analyseert Microsoft's MAI-Thinking-1 en MAI-Code-1-Flash: eigen frontier modellen als Claude-alternatief",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/2/microsofts-new-models/",
+        "https://simonwillison.net/2026/Jun/3/uber-caps-usage/",
+        "https://simonwillison.net/2026/Jun/4/ai-enthusiasts-ai-skeptics/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog - Microsoft MAI models",
+        "Simon Willison's Weblog - Uber caps AI usage",
+        "Simon Willison's Weblog - AI enthusiasts vs skeptics"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Microsoft lanceerde twee eigen LLM's: MAI-Thinking-1 (1T params, 35B actief, reasoning model, 'preferred over Sonnet 4.6 in blind evals') en MAI-Code-1-Flash (137B params, 5B actief, purpose-built voor GitHub Copilot/VS Code). Willison bespreekt ook dat Uber alle medewerkers limiteert op $1.500/maand token spend voor agentic coding tools als Claude Code en Cursor. Hij noemt april 2026 als inflectiepunt waarbij AI-kosten serieus landen bij grote bedrijven.",
+      "technical_depth": "MAI-Thinking-1 en MAI-Code-1-Flash zijn beide sparse MoE-architecturen (hoge totale maar lage actieve parameters), wat inference-efficiënt is. Microsoft's bewering dat MAI-Thinking-1 Sonnet 4.6 overtreft in blind evaluaties is significant als het klopt: dit zou de eerste eigen frontier model zijn die concurreert met Anthropic's midrange offering.",
+      "toepassing": "MAI-Code-1-Flash monitoren als potentieel goedkoop alternatief voor coding-specifieke taken in VS Code-gebaseerde workflows. De Uber-capping news is een reminder om token spend per agent-workflow te meten en budgetten te definiëren in productie-setups.",
+      "relevantie_score": 8
+    }
+  ]
+}
