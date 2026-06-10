@@ -1,0 +1,153 @@
+{
+  "datum": "2026-06-10",
+  "gegenereerd_op": "00:08 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-v2170-safe-mode-cd",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.170: Safe Mode, /cd Command en disableBundledSkills",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/changelog",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code Docs – Changelog",
+        "Releasebot Anthropic Claude Code"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Release v2.1.170 van 9 juni introduceert --safe-mode dat de CLI start zonder CLAUDE.md, plugins, skills, hooks en MCP-servers—ideaal voor reproduceerbaar troubleshooten. De nieuwe /cd-command verplaatst een sessie naar een ander werkdirectory zonder de bestaande prompt-cache te invalideren. De disableBundledSkills-instelling verbergt de ingebouwde slash-commands van het model zodat je een schone, custom-only command-set kunt aanbieden.",
+      "technical_depth": "--safe-mode isoleert de volledige configuratie-stack en laat je exact achterhalen of onverwacht gedrag in CLAUDE.md, een hook of een MCP-server zit. /cd exploiteert de bestaande prompt-cache door alleen de werkmap-context te vervangen, wat cache-hits behoudt bij monorepo-navigatie. disableBundledSkills voorkomt dat model-context gevuld wordt met builtin-skill-definities die je niet gebruikt.",
+      "toepassing": "Gebruik --safe-mode bij onverklaarbaar gedrag in complexe multi-MCP-setups zoals Orion; gebruik /cd om in één Claude Code-sessie efficiënt van frontend naar backend-directory te switchen zonder prompt-cache-verlies en extra tokenkosten.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-codex-computer-use-windows-desktop-handoff",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI Codex: Computer Use op Windows en /app Desktop Handoff vanuit CLI",
+      "bron_urls": [
+        "https://developers.openai.com/codex/changelog",
+        "https://releasebot.io/updates/openai"
+      ],
+      "bron_namen": [
+        "OpenAI Codex Changelog",
+        "Releasebot OpenAI"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Codex breidt Computer Use uit naar Windows: de agent kan nu native Windows desktop-applicaties zien, klikken en typen. De /app-command in de Codex CLI geeft een actieve CLI-thread door aan Codex Desktop op macOS en native Windows, zodat je naadloos tussen terminal en GUI-interface kunt switchen. GPT-5.5 Instant krijgt herschreven responses via schrijf- en codeblokken in chat in plaats van via Canvas.",
+      "technical_depth": "Computer Use op Windows gebruikt de Windows Accessibility API en GDI-schermcapture in plaats van de Quartz/Core Graphics stack van macOS. De CLI-naar-Desktop handoff via /app behoudt de volledige conversatie-state en context zonder re-tokenisatie van de sessiehistorie.",
+      "toepassing": "Computer Use op Windows opent de deur voor geautomatiseerde GUI-testing in CI-pipelines; de desktop handoff is nuttig wanneer je een Codex-sessie wilt visualiseren voor stakeholders zonder de CLI-thread te onderbreken. Als Claude Code-alternatiefonderzoek interessant voor feature-vergelijking.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-mcp-atlas-benchmark",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA: Frontier Agentic Performance met 83,6% op MCP Atlas Benchmark",
+      "bron_urls": [
+        "https://deepmind.google/models/gemini/",
+        "https://ai.google.dev/gemini-api/docs/changelog"
+      ],
+      "bron_namen": [
+        "Google DeepMind – Gemini Models",
+        "Gemini API Changelog"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Gemini 3.5 Flash is nu algemeen beschikbaar als Google's meest intelligente model voor agentic en coding-taken op Flash-latentie en overtreft Gemini 3.1 Pro op Terminal-Bench 2.1 (76,2%), GDPval-AA (1656 Elo) en MCP Atlas (83,6%). Gelijktijdig lanceerde Google Managed Agents in de Gemini API in public preview: developers kunnen nu stateful agents deployen in geïsoleerde Google-hosted Linux sandbox-omgevingen via de Interactions API.",
+      "technical_depth": "De MCP Atlas-benchmark (83,6%) meet de capaciteit om MCP-tool-calls correct te sequentiëren in complexe agentic scenario's—direct relevante metric voor MCP-heavy pipelines. Managed Agents bieden een serverless runtime met ingebouwde state-management en sandbox-isolatie, vergelijkbaar met AWS Lambda maar specifiek voor stateful agent-workloads met persistent session context.",
+      "toepassing": "Overweeg Gemini 3.5 Flash als alternatief of second-opinion model in multi-agent setups voor kostengevoelige subtasks; de hoge MCP Atlas-score maakt het een serieuze kandidaat voor MCP-heavy workflows naast Claude. Managed Agents API is relevant als je serverless agent-hosting wilt exploreren zonder eigen infra.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-agent-v016-surface-desktop-app",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent v0.16 Surface Release: Native Desktop App met Remote Gateway OAuth",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases",
+        "https://blakecrosley.com/guides/hermes",
+        "https://medium.com/@tentenco/hermes-agent-desktop-app-everything-you-need-to-know-about-nous-researchs-self-improving-ai-agent-3cb59bd31e5f"
+      ],
+      "bron_namen": [
+        "NousResearch Hermes Agent GitHub Releases",
+        "Blake Crosley – Hermes v0.16 Reference",
+        "Medium – Ewan Mak"
+      ],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "NousResearch bracht op 5 juni Hermes Agent v0.16 (Surface Release) uit, gebouwd uit 100 PR's en 159 commits in één week. De release levert een native desktop-applicatie voor macOS, Linux en Windows met one-click install, in-app self-update, drag-and-drop bestanden, inline model-picker in de statusbalk, concurrent multi-profile sessies en verbinding met een remote Hermes-gateway via OAuth of gebruikersnaam/wachtwoord. Het project staat op 188.000+ GitHub-stars.",
+      "technical_depth": "Hermes Agent is een open-source, zelf-verbeterend agent-framework (MIT-licentie) bovenop NousResearch's Hermes LLM-familie (fine-tunes van Llama, Mistral, Qwen en Seed). De desktop-app draait een lokale Hermes-gateway en exposeert dezelfde API als de remote variant, waardoor hybrid local/cloud-deployments mogelijk zijn zonder code-aanpassingen tussen omgevingen.",
+      "toepassing": "De multi-profile sessies en model-picker maken Hermes Agent interessant als lokale testomgeving voor snel wisselen van base model; de gateway-architectuur en MIT-licentie maken het geschikt als open-source basis voor custom agent-frameworks of als benchmarking-referentie naast Claude Code.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "headroom-token-compression-mcp-server",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Headroom v0.23: 60-95% Token-reductie via Context Compression als MCP Server",
+      "bron_urls": [
+        "https://github.com/chopratejas/headroom",
+        "https://aitoolly.com/ai-news/article/2026-06-05-headroom-innovative-compression-tool-reduces-llm-token-consumption-by-up-to-95-percent"
+      ],
+      "bron_namen": [
+        "GitHub – chopratejas/headroom",
+        "AIToolly – Headroom Artikel"
+      ],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "Headroom (v0.23+) comprimeert tool-outputs, logbestanden en RAG-chunks voordat ze de LLM bereiken, met 60-95% tokenreductie en behoud van antwoordkwaliteit. Het werkt als Python-library, HTTP-proxy, en als MCP-server. Wanneer het model de volledige data nodig heeft roept het automatisch headroom_retrieve aan met ~1ms latency uit een lokale SQLite/LRU-cache. Het project bereikte #1 op GitHub Trending met 12.800+ stars na de Uber-kostencrisis.",
+      "technical_depth": "Headroom slaat originelen op met een hash en LRU/SQLite-cache, injecteert een summary-marker in de gecomprimeerde output, en registreert headroom_retrieve als extra tool bij het model. Dit is een transparante compressie-laag: het model detecteert zelf wanneer het de volledige inhoud nodig heeft en voert de retrieve-call uit zonder expliciete prompt-engineering van de gebruiker.",
+      "toepassing": "Direct toepasbaar in elke MCP-pipeline voor Claude Code om context-windows efficiënter te benutten—activeer de MCP-server modus voor alle tool-outputs die grote logbestanden, code-dumps of RAG-resultaten retourneren. Bijzonder relevant voor Orion-sessies met omvangrijke tool-outputs en voor het reduceren van kosten in long-running agent-sessies.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mcp-spec-rc-stateless-streamable-http",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Spec Release Candidate: Stateless Core, Streamable HTTP Headers en MCP Apps Extension",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f"
+      ],
+      "bron_namen": [
+        "Model Context Protocol Blog – Release Candidate",
+        "Medium – Balaji Bal"
+      ],
+      "datum_artikel": "2026-06-04",
+      "samenvatting": "De MCP-specificatie Release Candidate voor de definitieve 2026-07-28 release is beschikbaar—de grootste revisie van het protocol sinds de lancering. De kernwijziging: MCP is nu stateless op protocol-laag. De Streamable HTTP-transport vereist Mcp-Method en Mcp-Name headers zodat load balancers op operatie kunnen routeren zonder de request-body te parsen. Extensies voegen server-rendered UI's (MCP Apps) en long-running background tasks (Tasks extension) toe.",
+      "technical_depth": "Stateless core elimineert sticky-session-vereisten voor horizontale schaling van MCP-servers. De Mcp-Method/Mcp-Name headers maken operatie-gebaseerd rate-limiting en caching op gateway-niveau mogelijk. Auth aligns nu met OAuth 2.1 en OpenID Connect voor enterprise SSO-integraties. Tier 1 SDK's worden verwacht binnen 10 weken support te shippen.",
+      "toepassing": "Begin nu met testen van je MCP-servers en custom connectors tegen de RC-spec om migratieproblemen te vermijden voor de definitieve release op 28 juli. De stateless core vereenvoudigt load balancing voor productie-deployments; MCP Apps opent de deur voor server-side UI-rendering direct in Claude Code-sessies.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "simon-willison-micropython-wasm-agent-sandbox",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: micropython-wasm als Lichtgewicht Code-Execution Sandbox voor AI Agents",
+      "bron_urls": [
+        "https://simonwillison.net",
+        "https://simonw.substack.com/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog",
+        "Simon Willison's Newsletter (Substack)"
+      ],
+      "datum_artikel": "2026-06-06",
+      "samenvatting": "Simon Willison publiceerde op 6 juni zijn alpha-package micropython-wasm waarmee Python-code in een WebAssembly-sandbox wordt uitgevoerd zonder systeem-toegang. Hij integreert dit als Datasette Agent-plugin (datasette-agent-micropython) zodat de agent LLM-gegenereerde code kan uitvoeren en resultaten direct in de conversatie kan gebruiken, zonder beveiligingsrisico's van een volledige Python-interpreter of de overhead van containers.",
+      "technical_depth": "MicroPython gecompileerd naar WebAssembly biedt een geïsoleerde runtime met beperkte builtins en geen bestandssysteem- of netwerk-toegang. WASM-instantiatie kost milliseconden versus seconden voor Docker-containers of gVisor. Dit vermijdt de complexiteit van container-gebaseerde agent sandboxes zoals E2B of Modal voor eenvoudigere use cases.",
+      "toepassing": "Dit patroon is bruikbaar voor elke agentic workflow waarbij je LLM-gegenereerde code veilig wilt uitvoeren—als Claude Code tool, als MCP-server endpoint, of ingebed in Orion. Evalueer micropython-wasm als alternatief voor zwaardere sandboxing-oplossingen voor Python-berekeningen en data-transformaties.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-omni-any-to-any-video-generation",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini Omni: Any-to-Any Multimodal Model met Native Video Generatie via Natural Language",
+      "bron_urls": [
+        "https://deepmind.google/models/gemini/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud"
+      ],
+      "bron_namen": [
+        "Google DeepMind – Gemini Models",
+        "Google Cloud Blog – Google I/O 26"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Gemini Omni is een nieuw model dat any-to-any multimodale generatie ondersteunt: het accepteert tekst, audio, afbeeldingen en video als input en genereert elk van deze output-types in één model-pass. Het model is specifiek geoptimaliseerd voor dynamische video-creatie en editing via natural language door meerdere input-modaliteiten te combineren.",
+      "technical_depth": "Any-to-any architectuur vereist een uniforme representatie-ruimte voor alle modaliteiten via cross-modal attention of gedeelde embedding-space. Native video-output in één model-pass vermijdt de cascade van gespecialiseerde modellen (text-to-image + image-animation) die huidige multi-model pipelines gebruiken, wat latency en architecturale complexiteit reduceert.",
+      "toepassing": "Relevant voor content-generatie pipelines waarbij tekst direct naar video-output moet zonder tussenliggende model-calls; de natural language editing-interface maakt iteratief verfijnen mogelijk. Als API-component bruikbaar in agentic workflows die multimodale output vereisen naast tekstuele reasoning.",
+      "relevantie_score": 6
+    }
+  ]
+}
