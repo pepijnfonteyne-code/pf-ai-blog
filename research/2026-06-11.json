@@ -1,0 +1,130 @@
+{
+  "datum": "2026-06-11",
+  "gegenereerd_op": "00:13 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-fable-5-launch",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Fable 5: Eerste publieke Mythos-class model gelanceerd",
+      "bron_urls": [
+        "https://codersera.com/blog/claude-fable-5-launch-guide-2026/",
+        "https://releasebot.io/updates/anthropic/claude",
+        "https://www.scriptbyai.com/anthropic-claude-timeline/"
+      ],
+      "bron_namen": ["CoderSera", "Releasebot Anthropic", "ScriptByAI Timeline"],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic lanceerde Claude Fable 5 op 9 juni 2026 — het eerste publiek beschikbare Mythos-class model, een tier boven Claude Opus 4.8. Onafhankelijke tests rapporteren ~80% op SWE-Bench Pro. Prijs: $10/$50 per miljoen input/output tokens (2x Opus 4.8). Claude Mythos 5 (zonder safeguards) is alleen beschikbaar via 'Project Glasswing' voor geselecteerde infra-providers en cybersecurity researchers.",
+      "technical_depth": "Mythos-class is een nieuwe tier boven de bestaande Opus-lijn. ~80% SWE-Bench Pro gemeten in onafhankelijke evals. Simon Willison testte het 5,5 uur en kwalificeerde het als 'slow, expensive' maar uitzonderlijk capabel. Project Glasswing biedt een aparte, minder-geconstrained variant exclusief voor vetted security researchers en infrastructure partners.",
+      "toepassing": "Inzetbaar als top-tier model in Claude Code voor de zwaarste agentic coding sessies. Kostenoverwegingen (2x Opus 4.8) maken gerichte inzet logisch: gebruik Fable 5 voor complexe codebase-migraties, deep reasoning chains, of als judge-model in multi-agent orchestration. Gebruik Opus 4.8 voor dagelijkse taken.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mcp-rc-stateless-protocol-caching",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP 2026 Release Candidate: Stateless core + ttlMs caching elimineren sticky sessions",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/"
+      ],
+      "bron_namen": ["MCP Blog (officieel)", "Medium / Balaji Bal", "MCP Roadmap Blog"],
+      "datum_artikel": "2026-06-04",
+      "samenvatting": "De Release Candidate voor de MCP 2026 spec is beschikbaar. De grootste architectuurwijziging: het protocol-core wordt volledig stateless. MCP servers kunnen nu achter een plain round-robin load balancer draaien — geen sticky sessions, geen shared session store, geen deep packet inspection meer nodig. Final spec verschijnt 28 juli 2026.",
+      "technical_depth": "tools/list responses krijgen ttlMs en cacheScope fields (SEP-2549, analoog aan HTTP Cache-Control); clients kunnen list-responses cachen zolang ttlMs geldig is zonder server-side state bij te houden. Routing via Mcp-Method header. Tasks primitief (SEP-1686) krijgt retry-semantiek en expiry-beleid. Een lange SSE-stream is niet meer de enige manier om server-side changes te signaleren.",
+      "toepassing": "Bij het bouwen van MCP servers (voor Orion of andere projecten): implementeer nu al ttlMs en cacheScope in tools/list responses zodat de migratie naar de final spec minimaal is. Stateless design maakt horizontale schaling trivial — een plain nginx round-robin is genoeg, geen sticky session configuratie. Tien weken validatievenster voor de RC loopt nu.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-week22-opus48-dynamic-workflows",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 22: Opus 4.8 default + Dynamic Workflows voor parallelle subagent-orchestratie",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": ["Claude Code What's New (officieel)", "Releasebot Claude Code"],
+      "datum_artikel": "2026-05-29",
+      "samenvatting": "Claude Code verhief Opus 4.8 tot default model voor Max, Team Premium en Enterprise-accounts (week 22). Dynamic Workflows (research preview, Enterprise/Team/Max) laat Claude zelf een orchestratie-script schrijven dat tientallen tot honderden subagents parallel spawnt binnen één sessie. Fast mode draait nu ook op Opus 4.8 voor $10/$50 per MTok.",
+      "technical_depth": "Dynamic Workflows: Claude schrijft runtime een orchestratie-script dat N subagents parallel afvuurt, resultaten samenvoegt en retry-logica beheert. Security-guidance plugin reviewt code-changes live op OWASP-patronen terwijl Claude werkt. /effort xhigh is de aanbevolen instelling voor zware taken op Opus 4.8.",
+      "toepassing": "Dynamic Workflows zijn direct bruikbaar voor grootschalige refactoring, API-migraties of codebase-analyse over grote repos. Combineer met /ultrareview (cloud bug-hunting agents) voor een gelaagde kwaliteitscheck. De security plugin is standaard beschikbaar — schakel in via plugin-settings voor alle sessies.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "gemini-35-flash-ga-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA + Managed Agents in public preview op Gemini API",
+      "bron_urls": [
+        "https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm",
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud"
+      ],
+      "bron_namen": ["TechTimes", "Google AI Gemini API Changelog", "Google Cloud Blog (I/O 26)"],
+      "datum_artikel": "2026-06-06",
+      "samenvatting": "Google maakte Gemini 3.5 Flash algemeen beschikbaar als hun meest intelligente model voor agentic en coding taken. Tegelijkertijd opende Managed Agents in de Gemini API voor public preview: stateful agents draaien in geïsoleerde Google-hosted Linux sandbox-omgevingen. Gemini 3.5 Pro (2M context + Deep Think) nadert GA in juni.",
+      "technical_depth": "Gemini 3.5 Flash is GA (stable endpoint). Managed Agents: Google-hosted secure sandboxed Linux envs voor stateful agent execution — vergelijkbaar met Anthropic's Managed Agents maar op Google-infra. Gemini 3.5 Pro: 2M token context window, Deep Think reasoning mode. Deprecated 25 juni: gemini-3.1-flash-image-preview en gemini-3-pro-image-preview.",
+      "toepassing": "Gemini 3.5 Flash via Gemini API is een serieus alternatief voor lange-context taken waar Anthropic-pricing knelt. De 2M context van Gemini 3.5 Pro (aankomend) is interessant voor grote codebase-analyse in multi-model pipelines. Managed Agents preview is te testen als vergelijkingspunt voor Claude Managed Agents.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "wwdc-siri-gemini-private-cloud",
+      "ecosysteem": "AI Builders",
+      "titel": "WWDC 2026: Apple Siri draait op Gemini-afgeleid model via Private Cloud Compute",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/8/wwdc/",
+        "https://blog.mean.ceo/google-gemini-news-june-2026/"
+      ],
+      "bron_namen": ["Simon Willison", "Mean.ceo Blog"],
+      "datum_artikel": "2026-06-08",
+      "samenvatting": "Apple onthulde op WWDC 2026 dat nieuwe Siri AI-features draaien op een custom Gemini-afgeleid model via Apple's Private Cloud Compute. Apple gebruikt Google's model-architectuur onder licentie maar host alle inferentie in eigen beveiligde cloud-infra. Dit is een nieuw patroon: frontier model-licentie + private hosting voor privacy-compliance.",
+      "technical_depth": "Private Cloud Compute isoleert inferentie van Apple's reguliere cloud; het Gemini-derived model behoudt de multimodale architectuur maar heeft Apple's safety- en privacy-layers erbovenop. On-device vs. cloud balancing blijft: lichte taken on-device (Apple Silicon NPU), zware naar PCC. Impliceert dat Apple niet gebonden is aan één model-provider.",
+      "toepassing": "Het 'licentie model + private hosting'-patroon is een template voor enterprise-deployments die compliance-eisen (GDPR, SOC2) hebben maar toch frontier models willen. Relevant als architectuurkeuze als Orion ooit richting enterprise gaat en klanten eigen hosting willen.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simonwillison-micropython-wasm-agent-sandbox",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: MicroPython + WASM als veilige code-executie sandbox voor AI agents",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/",
+        "https://simonwillison.net/2026/Jun/6/micropython-wasm/"
+      ],
+      "bron_namen": ["Simon Willison (blogpost)", "Simon Willison (release notes)"],
+      "datum_artikel": "2026-06-06",
+      "samenvatting": "Simon Willison publiceerde micropython-wasm 0.1a2 en bouwde er datasette-agent-micropython op: een Datasette Agent plugin die Python-code veilig uitvoert in een WebAssembly MicroPython sandbox. De aanpak elimineert code-injection risico's in AI-agent workflows zonder overhead van Docker of VM's.",
+      "technical_depth": "MicroPython gecompileerd naar WASM draait in een geïsoleerde JS-runtime met expliciete memory bounds. Geen filesystem access, geen network, geen subprocess mogelijk vanuit de sandbox. De plugin exposeert een tool-call interface zodat Claude Python schrijft en uitvoert zonder server-side code execution risico. 0.1a2 = alpha, API nog niet stabiel.",
+      "toepassing": "Direct bruikbaar als pattern voor Claude Code custom tools of MCP servers waarbij Claude willekeurige code moet uitvoeren. WASM-sandbox is lichter dan Docker voor korte snippets. Overweeg micropython-wasm als veilige tool-execution layer in agent workflows waar je geen full sandboxed container wilt deployen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "microsoft-mai-models-copilot",
+      "ecosysteem": "OpenAI",
+      "titel": "Microsoft lanceert eigen MAI-Thinking-1 en MAI-Code-1-Flash — onafhankelijk van OpenAI",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/2/microsofts-new-models/",
+        "https://releasebot.io/updates/openai"
+      ],
+      "bron_namen": ["Simon Willison", "Releasebot OpenAI"],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Microsoft kondigde twee eigen frontier LLMs aan: MAI-Thinking-1 (1T parameters totaal, 35B actief, reasoning-focused MoE) en MAI-Code-1-Flash (137B parameters, 5B actief, geoptimaliseerd voor snelle code completion in GitHub Copilot). Dit markeert een strategische verschuiving: Microsoft bouwt nu parallel aan OpenAI's modellen.",
+      "technical_depth": "MAI-Thinking-1: sparse MoE-architectuur (1T/35B actief) voor diepe reasoning chains. MAI-Code-1-Flash: ultra-efficiënte MoE (137B/5B actief) voor lage latency code-completion, primair ingezet als Copilot's inference backbone. Beide modellen draaien op Azure; MAI-Code-1-Flash beschikbaar via GitHub Copilot API.",
+      "toepassing": "MAI-Code-1-Flash via GitHub Copilot API is een optie voor lage-latency code-assist integraties. Strategisch relevant: Microsoft's eigen modelstrategie betekent dat Azure-gebaseerde multi-model setups nu ook Microsoft-native modellen kunnen bevatten naast OpenAI en Anthropic. Goed om in de gaten te houden voor Copilot-integraties.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemma4-12b-june-release",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Gemma 4 12B: Google's nieuwste open model overtreft Gemma 3 27B op MMLU Pro",
+      "bron_urls": [
+        "https://llm-stats.com/llm-updates",
+        "https://huggingface.co/blog/daya-shankar/open-source-llms"
+      ],
+      "bron_namen": ["LLM Stats (dagelijks bijgewerkt)", "HuggingFace Blog"],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Google lanceerde Gemma 4 12B op 3 juni 2026 — het scoort 77.2% op MMLU Pro, waarmee het het grotere Gemma 3 27B overtreft. Gemma 4 12B ondersteunt vision en tool calling, waardoor het de meest capabele open Gemma-variant is op compacte hardware. Ideaal voor lokale deployment op consumer GPU's.",
+      "technical_depth": "Gemma 4 12B: 12B parameter dense model met native vision + structured tool calling support (function calling via JSON schema). 77.2% MMLU Pro overtreft Gemma 3 27B ondanks de helft van de parameters. Past in ~8-10 GB VRAM (Q4 quantized) — één RTX 3090 of 4090 volstaat.",
+      "toepassing": "Gemma 4 12B is nu de beste keuze voor lokale open-source deployment op één GPU met vision en tool calling. Interessant voor Orion of andere projecten waar je een open model nodig hebt voor lokale inferentie zonder API-kosten — vervang Phi-4 of Mistral 12B in experimenten met Gemma 4 12B.",
+      "relevantie_score": 7
+    }
+  ]
+}
