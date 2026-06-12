@@ -1,0 +1,167 @@
+{
+  "datum": "2026-06-12",
+  "gegenereerd_op": "00:10 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-fable-5-release",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Fable 5 en Mythos 5: Anthropic's eerste Mythos-class model voor algemeen gebruik",
+      "bron_urls": [
+        "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "https://www.vellum.ai/blog/claude-fable-5-and-mythos-5-benchmarks-explained",
+        "https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot/"
+      ],
+      "bron_namen": [
+        "Anthropic Official Announcement",
+        "Vellum.ai Benchmark Analysis",
+        "GitHub Changelog"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic lanceerde op 9 juni 2026 Claude Fable 5, het eerste Mythos-class model beschikbaar voor algemeen gebruik, naast het gereserveerde Claude Mythos 5 voor cyber defenders. Fable 5 scoort 80,3% op SWE-Bench Pro (vs. 69,2% Opus 4.8, 58,6% GPT-5.5), en bij Stripe werd een migratie van een 50M-regel Ruby codebase in 1 dag uitgevoerd die anders 2 maanden had gekost. Pricing: $10/M input en $50/M output tokens.",
+      "technical_depth": "Fable 5 bevat ingebouwde safety-classifiers die queries over cybersecurity, biologie/chemie en model distillation automatisch doorsturen naar Opus 4.8. Mythos 5 heeft dezelfde weights maar minder safeguards en is enkel beschikbaar voor een selecte groep infrastructure providers.",
+      "toepassing": "Upgrade Claude Code naar versie 2.1.170+ voor toegang tot Fable 5. Inzetbaar voor complexe codemigraties, multi-stap agentic taken en zware engineering workflows zoals Orion. Via API en consumptie-Enterprise al live; Pro/Max/Team gratis t/m 22 juni.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-nested-subagents-ultracode",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code: nested sub-agents tot 5 lagen diep en nieuwe 'ultracode' orchestratiemodus",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/changelog",
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://www.developersdigest.tech/blog/ultracode-effort-level-explained"
+      ],
+      "bron_namen": [
+        "Claude Code Official Changelog",
+        "Releasebot Claude Code Updates",
+        "Developers Digest – Ultracode Explained"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Claude Code kan nu sub-agents aanmaken die op hun beurt ook sub-agents spawnen tot maximaal 5 niveaus diep. De nieuwe 'ultracode' instelling stuurt xhigh effort naar het model en laat Claude automatisch beslissen wanneer het een dynamische multi-agent workflow opstart. Rate limits zijn verdubbeld en Opus 4.8 is de nieuwe standaard.",
+      "technical_depth": "Trigger keyword hernoemd van 'workflow' naar 'ultracode'. Ultracode is een Claude Code-specifieke setting (geen model effort level): combineert xhigh effort met dynamische workflow-orchestratie. Sub-agent nesting tot 5 lagen maakt parallelle decomposities mogelijk zonder handmatige orchestratiecode.",
+      "toepassing": "Gebruik ultracode voor grote refactors of multi-repo taken. Ontwerp agenthiërarchieën bewust: root-agent voor planning, level-2 per module, level-3 per bestand is nu native. Verdubbelde rate limits zijn direct merkbaar in lange agentic sessies op Orion.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mcp-2026-rc-stateless-protocol",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Release Candidate: volledig stateless protocol verwijdert sessions en init-handshake",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://byteiota.com/mcp-goes-stateless-2026-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f"
+      ],
+      "bron_namen": [
+        "MCP Official Blog",
+        "ByteIota – MCP Goes Stateless",
+        "Medium – MCP's Upcoming 2026 Release"
+      ],
+      "datum_artikel": "2026-06-04",
+      "samenvatting": "Het MCP RC (finale spec 28 juli 2026) verwijdert de Mcp-Session-Id header (SEP-2567) en de initialize/initialized handshake (SEP-2575). MCP-servers draaien voortaan als plain stateless HTTP: geen sticky sessions, geen shared session stores, gewoon round-robin load balancing. Dit is de grootste revisie van het protocol sinds de lancering.",
+      "technical_depth": "Tools/list, resources/list en resources/read responses krijgen ttlMs en cacheScope velden voor client-side caching. Sampling en Roots zijn deprecated met migratiepad. RC introduceert ook het Extensions framework (MCP Apps voor server-rendered UIs), Tasks-extensie voor langlopende processen, en OAuth/OIDC-gebaseerde authorization hardening.",
+      "toepassing": "Controleer alle custom MCP-servers op Mcp-Session-Id headers en initialize handshakes vóór 28 juli. Remote MCP-deployments kunnen na migratie achter plain HTTP load balancers draaien. De ttlMs caching reduceert tools/list calls direct in high-throughput agent pipelines. Begin nu met de migratiecheck als je Sampling of Roots gebruikt.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "headroom-context-compression-mcp",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Headroom: open-source context-compressielaag als MCP-server die tokens 60-95% reduceert",
+      "bron_urls": [
+        "https://aitoolly.com/ai-news/article/2026-06-07-headroom-new-open-source-tool-reduces-llm-token-consumption-by-60-95-for-rag-and-logs",
+        "https://andrew.ooo/posts/headroom-context-compression-llm-agents-review/",
+        "https://dashen-tech.com/en/dev-tools/headroom-llm-token-compression/"
+      ],
+      "bron_namen": [
+        "AIToolly – Headroom Release",
+        "Andrew.ooo – Headroom Review",
+        "Dashen Tech – Headroom Guide 2026"
+      ],
+      "datum_artikel": "2026-06-07",
+      "samenvatting": "Headroom is een open-source compressielaag die tussen agent en LLM-provider in zit en tool outputs, RAG-chunks, logs en code comprimeert vóór ze het model bereiken. Benchmarks: 92% reductie op code search (17.700 → 1.400 tokens), SRE debugging van 65.694 → 5.118 tokens zonder kwaliteitsverlies. Het project staat op #2 van GitHub Trendshift juni 2026.",
+      "technical_depth": "Drie-laags architectuur: ContentRouter detecteert automatisch content-type. SmartCrusher voor JSON, CodeCompressor voor AST-aware code-compressie, Kompress-base voor HuggingFace modellen. CCR (Reversible Compression) houdt raw data lokaal; LLM haalt het op via headroom_retrieve wanneer nodig. Als MCP-server exposed: headroom_compress, headroom_retrieve en headroom_stats.",
+      "toepassing": "Drop de headroom MCP-server in je Claude Code MCP-config voor runs met grote tool outputs of RAG-pipelines. headroom_stats geeft live inzicht in token-besparingen per sessie. Bijzonder waardevol bij Orion-sessies die grote codebase-scans uitvoeren en snel tegen context-limieten aanlopen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "gemini-35-flash-mcp-atlas-combined-tools",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash: 83,6% MCP Atlas score (hoogste ooit) en gecombineerde built-in + function calling API",
+      "bron_urls": [
+        "https://deepmind.google/models/gemini/flash/",
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://www.aimadetools.com/blog/gemini-3-5-flash-complete-guide/"
+      ],
+      "bron_namen": [
+        "Google DeepMind – Gemini Flash",
+        "Gemini API Changelog",
+        "AIMadeTools – Gemini 3.5 Flash Guide"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Gemini 3.5 Flash (gelanceerd Google I/O 26, 19 mei) is nu GA en scoort 83,6% op MCP Atlas, het hoogste van alle modellen – 21,6 punten boven Gemini 3 Flash en 5,4 punten boven Gemini 3.1 Pro. Een nieuw Combined Tools API-endpoint combineert Google Search, URL context, code execution én custom function calls in één enkele API-aanroep.",
+      "technical_depth": "MCP Atlas score van 83,6% reflecteert complexe tool-orchestration workloads. Combined Tool Use API laat built-in tools parallel activeren met eigen function definitions in dezelfde request – eerder onmogelijk via de standaard API. Ondersteunt JSON mode gecombineerd met alle built-in tools voor gestructureerde output.",
+      "toepassing": "Als je MCP-servers bouwt die ook Google Search of URL-context nodig hebben naast custom tools, is Gemini 3.5 Flash de sterkste optie. Test de Combined Tools API voor research-agents die web-data en eigen databronnen combineren. Hoge MCP Atlas score maakt het interessant als alternatief model in multi-model agent pipelines naast Claude.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt55-instant-codex-websearch",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant wordt nieuwe API default; Codex krijgt standalone web search in code mode",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://openai.com/news/product-releases/",
+        "https://help.openai.com/en/articles/9624314-model-release-notes"
+      ],
+      "bron_namen": [
+        "OpenAI – GPT-5.5 Instant Announcement",
+        "OpenAI News – Product Releases",
+        "OpenAI Model Release Notes"
+      ],
+      "datum_artikel": "2026-06-08",
+      "samenvatting": "GPT-5.5 Instant vervangt GPT-5.3 Instant als standaard ChatGPT-model én als chat-latest in de API, met kortere en directere responses. Codex kan nu standalone web search aanroepen direct vanuit JavaScript tool calls. OpenAI kondigt tegelijk de pensionering aan van o3 (26 augustus) en GPT-4.5 (27 juni).",
+      "technical_depth": "GPT-5.5 Instant is geoptimaliseerd voor minder bullet-heavy, beter gepaceerde outputs. Codex web search werkt via nested JavaScript tool calls die plaintext search results ontvangen zonder extra API-integratie. Pensioneringen van o3 en GPT-4.5 vereisen migratieplannen bij developers die deze modellen direct aanroepen.",
+      "toepassing": "Update OpenAI API clients die op chat-latest draaien: ze ontvangen nu GPT-5.5 Instant. Controleer direct of GPT-4.5 in gebruik is en migreer vóór 27 juni. Codex web search in tool calls is interessant voor research-agent pipelines die dynamisch web-data nodig hebben tijdens code generatie.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "hermes-agent-nous-research-self-improving",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent (Nous Research): zelf-verbeterend open-source framework met 190K stars, draait op Qwen 3.6",
+      "bron_urls": [
+        "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/",
+        "https://www.codeintechnology.com/blog/hermes-agent-nvidia-rtx-dgx-spark-qwen-self-improving-ai",
+        "https://byteiota.com/hermes-agent-self-improving-ai-runs-locally-on-rtx/"
+      ],
+      "bron_namen": [
+        "NVIDIA Blog – Hermes Agent",
+        "CodeInTechnology – Hermes + Qwen 3.6",
+        "ByteIota – Hermes Self-Improving AI"
+      ],
+      "datum_artikel": "2026-06-06",
+      "samenvatting": "Hermes Agent van Nous Research is een open-source agentic framework dat zijn eigen skills schrijft en verfijnt, draait 24/7 op NVIDIA RTX/DGX Spark hardware en staat dit week op #2 trending GitHub repository (190K+ stars, #1 meest gebruikte agent op OpenRouter). Qwen 3.6 27B/35B modellen die Hermes aandrijven overtreffen vorige-generatie 120B/400B modellen.",
+      "technical_depth": "Hermes functioneert als persistente orchestratielaag: schrijft skills als Python-functies, test ze, verfijnt op basis van uitkomsten en hergebruikt succesvolle skills. Integreert met messaging-apps en lokale bestanden. Op DGX Spark (128GB unified memory, 1 petaFLOP) draait het 120B MoE-modellen continu. Qwen 3.6 geeft hoge throughput via NVIDIA Tensor Cores.",
+      "toepassing": "Gebruik Hermes als referentieontwerp voor self-improving agent-patronen. Het skills-systeem (schrijf → test → verfijn) is adapteerbaar voor Orion-taken die herhaaldelijk vergelijkbare analyses uitvoeren. Qwen 3.6 27B lokaal op RTX hardware is een privacyvriendelijke, kostenloze basis voor agent development zonder cloud-afhankelijkheid.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "diffusiongemma-google-open-weight",
+      "ecosysteem": "AI Builders",
+      "titel": "DiffusionGemma: Google's Apache-2 diffusion LLM haalt 1000+ tokens/sec en is gratis via NVIDIA NIM",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/10/diffusiongemma/",
+        "https://www.marktechpost.com/2026/06/10/google-ai-releases-diffusiongemma-a-26b-moe-open-model-using-text-diffusion-for-up-to-4x-faster-generation/",
+        "https://siliconangle.com/2026/06/10/google-open-sources-speedy-diffusiongemma-text-diffusion-model/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog",
+        "MarkTechPost",
+        "SiliconAngle"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Google DeepMind publiceerde DiffusionGemma (Apache 2), een 26B MoE open model dat tekst genereert via diffusie in plaats van autoregressief token-voor-token. Het haalt 1000+ tokens/sec op H100 en ~700 op RTX 5090, heeft 256K context en is multimodaal. Simon Willison analyseerde het op 10 juni en genereerde testcontent in 4,4 seconden.",
+      "technical_depth": "Diffusion LLMs genereren en verfijnen token-blokken parallel: onzekere tokens worden iteratief bijgesteld tot de output convergeert, in plaats van één token per stap. Gebouwd op Gemma 4 26B A4B MoE architectuur. Geeft tot 4x hogere throughput dan autoregressive modellen bij vergelijkbare output-kwaliteit. Input: interleaved tekst, afbeeldingen en video.",
+      "toepassing": "Test via NVIDIA NIM gratis als snelle inference-optie voor streaming tool responses of real-time code completion in agent pipelines. Apache 2 licentie maakt on-premise deployment mogelijk. Interessant voor hoge-throughput taken waarbij latency kritisch is en kwaliteit acceptabel is op basis van Willisons praktijktest.",
+      "relevantie_score": 8
+    }
+  ]
+}
