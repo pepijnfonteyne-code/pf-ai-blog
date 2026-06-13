@@ -1,0 +1,169 @@
+{
+  "datum": "2026-06-13",
+  "gegenereerd_op": "00:11 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-agent-view-multiagent-june-2026",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code: Agent View, Nested Sub-Agents, Opus 4.8 en Verdubbelde Rate Limits",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://www.geeky-gadgets.com/claude-code-agent-view-update/",
+        "https://claudefa.st/blog/guide/changelog"
+      ],
+      "bron_namen": [
+        "Releasebot - Anthropic Claude Code Updates",
+        "Geeky Gadgets - Claude Code Agent View Update",
+        "ClaudeFast - Claude Code Changelog"
+      ],
+      "datum_artikel": "2026-06-13",
+      "samenvatting": "Claude Code heeft in juni 2026 een reeks significante updates gekregen: een nieuwe Agent View voor het beheren van meerdere parallelle sessies vanuit één CLI-dashboard, nested sub-agents met slimmere model- en regio-handling, Opus 4.8 als nieuw standaardmodel, en verdubbelde rate limits. Daarnaast is een /usage breakdown toegevoegd waarmee je per plugin-component het tokenverbruik kunt zien, en zijn background sessions uitgebreid met bewaard -ide, --chrome en --bare flags.",
+      "technical_depth": "Agent View (`claude agents`) toont elke actieve sessie als rij met status, last response en timestamp. Je kunt inline antwoorden zonder in te springen in een sessie. Nested sub-agents ondersteunen nu smart model routing en multi-regio load balancing. De `--json` flag inclusief `--all` vlag exposeert id en state velden voor programmatisch orchestreren van agents.",
+      "toepassing": "Pepijn en Duncan kunnen Claude Code nu als echte multi-agent orchestrator inzetten: meerdere parallelle coding-agents dispatchen voor verschillende branches of subtaken, via `claude agents --json` monitoren in CI/CD scripts, en met de /usage breakdown precies optimaliseren welke plugins de meeste tokens kosten in hun agentic workflows.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mcp-release-candidate-stateless-2026",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP Release Candidate: Stateless Core, Tasks Extension en JSON Schema 2020-12",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://chatforest.com/guides/mcp-2026-roadmap-whats-coming/"
+      ],
+      "bron_namen": [
+        "Model Context Protocol Blog - Release Candidate",
+        "Medium - MCP's Upcoming 2026 Release Is a Big Deal",
+        "ChatForest - MCP 2026 Roadmap"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De MCP Release Candidate voor de finale spec van 28 juli 2026 introduceert een stateless protocol core die werkt op gewone HTTP-infrastructuur zonder sticky sessions. De `initialize`/`initialized` handshake en `Mcp-Session-Id` header zijn verwijderd. Twee officiële extensions zijn geformaliseerd: MCP Apps (server-rendered UIs in sandboxed iframes) en Tasks (async work via task handles). Volledige JSON Schema 2020-12 support voor tool schemas is toegevoegd.",
+      "technical_depth": "Stateless core: verzoeken kunnen naar elk serverinstantie zonder session affinity. Tasks extension: server retourneert een task handle bij `tools/call`, client beheert via `tasks/get`, `tasks/update`, `tasks/cancel`. JSON Schema 2020-12 ondersteunt `oneOf`, `anyOf`, `allOf` en conditional logic in tool definitions. OAuth 2.0/OIDC alignment met verplichte `iss` parameter validatie (RFC 9207). Roots, Sampling en Logging krijgen formele deprecation.",
+      "toepassing": "Bij het bouwen van MCP servers moeten Pepijn en Duncan nu rekening houden met de stateless migratie: geen session state bewaren in server-geheugen maar via expliciete handles. De Tasks extension maakt langlopende agentic taken (bijv. code review jobs) formeel beheersbaar. JSON Schema 2020-12 geeft rijkere tool-type-definities voor betere LLM tool calling accuracy.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt-5-5-instant-superapp-june-2026",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI GPT-5.5 Instant Updates en ChatGPT Super App Overhaul Juni 2026",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://note.com/tothinks/n/nbb4f563fe619?hl=en",
+        "https://platform.openai.com/docs/changelog"
+      ],
+      "bron_namen": [
+        "OpenAI - GPT-5.5 Instant",
+        "Note.com - ChatGPT June 2026 Super App Guide",
+        "OpenAI API Changelog"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Op 9 juni 2026 rolde OpenAI personalisatie-verbeteringen uit voor ChatGPT Go & Free, waarbij het standaardmodel intelligenter en nauwkeuriger is met beknoptere antwoorden afgestemd op de gebruiker. OpenAI is tegelijkertijd bezig met de grootste ChatGPT overhaul ooit, waarbij het platform zich omvormt tot een super app met geïntegreerde coding tools, AI agents, image generation en 90+ third-party plugins. GPT-4.5 wordt 27 juni 2026 retired.",
+      "technical_depth": "GPT-5.5 Instant rollout verbetert follow-up tone en reduceert teaser-style phrasing. Container sessions worden nu per minuut gefactureerd (5-minuten minimum) i.p.v. vaste 20-minuten rate. Codex groeide naar 4M weekly developers via GPT-5.5 als agentic-first base model met parallel worker sub-agents en cloud sandbox execution.",
+      "toepassing": "De super app strategie van OpenAI met 90+ plugins (Jira, Microsoft 365, Notion, Slack) is interessant als vergelijkingspunt voor de MCP-ecosysteembenadering die Pepijn en Duncan kennen vanuit Claude Code. Het per-minuut billing model voor container sessions is relevant voor kostencalculaties bij langlopende agentic workflows.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-pro-june-2026-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Pro Nadert GA en Managed Agents API in Public Preview",
+      "bron_urls": [
+        "https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm",
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-faster-model-for-ai-agents-and-coding/"
+      ],
+      "bron_namen": [
+        "TechTimes - Gemini 3.5 Pro June Launch",
+        "Google AI Developer - Gemini API Changelog",
+        "MarkTechPost - Gemini 3.5 Flash at I/O 2026"
+      ],
+      "datum_artikel": "2026-06-06",
+      "samenvatting": "Gemini 3.5 Pro nadert GA-release in juni 2026 met een 2M-token context window en Deep Think reasoning. De Managed Agents API is beschikbaar in public preview, waarmee developers autonomous stateful agents kunnen bouwen die draaien in geïsoleerde Google-hosted Linux sandboxes. Gemini 3.5 Flash is GA en standaard ingesteld voor alle Gemini Enterprise gebruikers als beste model voor agentic en coding taken.",
+      "technical_depth": "Managed Agents API: stateful agents in secure, isolated Linux sandbox environments op Google infrastructure. Antigravity Agent (`antigravity-preview-05-2026`) kan autonoom plannen, redeneren, code schrijven en uitvoeren, bestanden beheren en het web browsen in zijn sandbox. Gemini 3.5 Pro target 2M-token context (vergelijk Gemini 3.5 Flash) met Deep Think reasoning voor complexe multi-step taken.",
+      "toepassing": "De Managed Agents API van Google is een directe concurrent voor de Claude Code agent workflows die Pepijn en Duncan bouwen. Het sandbox execution model is vergelijkbaar met Codex's cloud sandbox aanpak. De 2M context window van Gemini 3.5 Pro is interessant voor grote codebase analyse taken die nu wellicht multi-call vereisen in Claude Code.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "nousresearch-hermes-agent-surface-release-june-2026",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "NousResearch Hermes Agent v0.16.0 - The Surface Release: Native Desktop App en MCP Catalog",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5",
+        "https://aitoolly.com/ai-news/article/2026-06-06-nousresearch-unveils-hermes-agent-a-new-paradigm-for-ai-entities-that-grow-with-users",
+        "https://fintechextra.com/news/hermes-agent-v0160-launches-native-desktop-app-633"
+      ],
+      "bron_namen": [
+        "GitHub - NousResearch/hermes-agent v2026.6.5",
+        "AIToolly - Hermes Agent Surface Release",
+        "FintechExtra - Hermes Agent Desktop App"
+      ],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "NousResearch heeft op 5 juni 2026 Hermes Agent v0.16.0 'The Surface Release' uitgebracht — 874 commits en 542 merged PRs. De release brengt een native Electron desktop app voor macOS/Linux/Windows met one-click install en in-app self-update, remote OAuth gateway connectiviteit voor multi-profile sessies, en een volledig web dashboard admin panel inclusief MCP catalog, messaging channels en credentials beheer.",
+      "technical_depth": "Native desktop app gebouwd in 100 PRs en 159 commits in één week. Remote gateway connectiviteit via OAuth of username/password voor multi-profile concurrent sessies. Admin panel biedt pluggable OIDC/username-password login. Fuzzy model picker groepeert multi-endpoint providers. `/undo [N]` command voor turn rollback. NVIDIA skills hub als vertrouwde standaard bron. Optionele skills via `hermes skills install`.",
+      "toepassing": "Hermes Agent is nu een volwassen alternatief voor Claude Code met MCP-catalog integratie. Pepijn en Duncan kunnen Hermes inzetten als self-hosted agent gateway die via OAuth verbindt met hun eigen MCP servers — interessant als open-source alternatief of aanvulling op Claude Code in workflows waar Anthropic API kosten of rate limits een bottleneck zijn.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "headroom-token-compression-mcp-server-june-2026",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Headroom: 60-95% Token Reductie via Context Compression Library en MCP Server",
+      "bron_urls": [
+        "https://github.com/chopratejas/headroom",
+        "https://aitoolly.com/ai-news/article/2026-06-07-headroom-new-open-source-tool-reduces-llm-token-consumption-by-60-95-for-rag-and-logs",
+        "https://www.alphamatch.ai/blog/headroom-context-compression-ai-agents-2026"
+      ],
+      "bron_namen": [
+        "GitHub - chopratejas/headroom",
+        "AIToolly - Headroom Token Compression",
+        "AlphaMatch - Headroom Context Compression for AI Agents"
+      ],
+      "datum_artikel": "2026-06-07",
+      "samenvatting": "Headroom is een open-source context compression tool (Apache 2.0) gebouwd door een senior Netflix engineer die tool outputs, logs, bestanden en RAG chunks comprimeert vóór ze de LLM bereiken, met 60-95% minder tokens zonder kwaliteitsverlies. In juni 2026 bereikte het #1 op GitHub trending (12.8k sterren, +3.139 per dag), aangejaagd door enterprise AI kostencrisissen. Het project biedt drie deployment modes: Python library, HTTP proxy en MCP server.",
+      "technical_depth": "Drie deployment modes: (1) Python library voor directe integratie, (2) HTTP proxy die transparant voor bestaande LLM clients werkt, (3) MCP server die compressie als tool exposeert aan Claude Code en andere MCP clients. Comprimeert conversation history, tool outputs, logs en RAG chunks. Apache 2.0 license, geen vendor lock-in.",
+      "toepassing": "Direct toepasbaar in Claude Code agentic workflows: de MCP server mode verbindt Headroom als tool die automatisch alle context comprimeert voor het naar Claude wordt gestuurd. Bij langlopende agent sessies met veel tool calls (bijv. codebase analyse, log verwerking) kan dit 60-95% API kosten besparen. Pepijn en Duncan kunnen dit combineren met de /usage breakdown in Claude Code om het effect te meten.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "strava-mcp-connector-oauth-june-2026",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Strava Lanceert Officieel MCP Connector voor Claude — Read-Only OAuth Remote Server",
+      "bron_urls": [
+        "https://press.strava.com/articles/strava-launches-mcp-connector",
+        "https://support.strava.com/hc/en-us/articles/46190267796237-Strava-MCP-Connector",
+        "https://letsdatascience.com/news/strava-launches-mcp-connector-for-claude-integration-909e07a0"
+      ],
+      "bron_namen": [
+        "Strava Press - MCP Connector Launch",
+        "Strava Support - MCP Connector Documentation",
+        "Let's Data Science - Strava MCP Connector"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Strava heeft op 1 juni 2026 een officiële remote MCP server gelanceerd die subscribers via OAuth toegang geeft tot hun trainingsdata vanuit Claude.ai, Claude Desktop en Claude Code. De connector geeft toegang tot per-seconde heart rate streams, GPS route data, cycling power en club/event metadata. Het is read-only en scoped aan het eigen account, intrekkend via Strava settings. Strava is partner van Anthropic en plant uitbreiding naar andere AI clients.",
+      "technical_depth": "Remote MCP server architecture met OAuth flow voor authenticatie. Data scope: per-seconde HR/pace streams, GPS routes, cycling power, club/event metadata. Read-only, geen write permissions. Toegankelijk via Claude Code door MCP server toe te voegen als remote endpoint. Eerste grote sport-API die native MCP ondersteunt — toont het volwassen worden van het MCP ecosysteem.",
+      "toepassing": "Praktisch voorbeeld van een production-grade remote MCP server met OAuth — het Strava MCP is een referentie-implementatie voor Pepijn en Duncan als ze eigen remote MCP servers bouwen met OAuth auth. De architectuur (read-only, scoped OAuth, revocable) is het patroon voor enterprise MCP integraties. Direct bruikbaar in Claude Code: `strava-mcp` toevoegen en hardlopen vragen analyseren.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "ai-developer-workflow-vibe-coding-2026",
+      "ecosysteem": "AI Builders",
+      "titel": "Claude Code #1 AI Coding Tool bij Professional Engineers: Graduate Workflow en 80.8% SWE-bench",
+      "bron_urls": [
+        "https://launchtoolsai.com/best/emerging-ai-developer-tools-june-2026",
+        "https://aiviewer.ai/playbooks/engineer-workflow/",
+        "https://addyosmani.com/blog/ai-coding-workflow/",
+        "https://daily.dev/blog/vibe-coding-how-ai-changing-developers-code/"
+      ],
+      "bron_namen": [
+        "LaunchToolsAI - 15 Emerging AI Developer Tools June 2026",
+        "AIViewer - The 2026 AI Workflow for Software Engineers",
+        "Addy Osmani - My LLM Coding Workflow Going into 2026",
+        "Daily.dev - Vibe Coding in 2026"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Claude Code scoort 80.8% op SWE-bench Verified en is in juni 2026 het meest gebruikte AI coding tool bij professional engineers. Het 'Graduate Workflow' patroon wint terrein: prototype met Bolt/Lovable, verfijn daarna met Claude Code voor productie-kwaliteit. De paradigmaverschuiving is van Code Generation naar Code Review: AI schrijft complete feature drafts en patches voor meerdere bestanden tegelijk, de developer reviewt.",
+      "technical_depth": "SWE-bench score: 80.8% (branchenorm). Graduate Workflow: browser-based vibe-coding tools voor rapid prototyping, Claude Code voor SWE-bench-niveau refactoring en multi-file patches. Dify voor workflow orchestration en Firecrawl voor data ingestion zijn aanvullende tools in de 2026 developer stack. AI workflow builders evolueren naar intelligent orchestration platforms met reasoning en adaptive execution.",
+      "toepassing": "Het Graduate Workflow en de Code Review paradigma zijn direct relevant voor hoe Pepijn en Duncan Claude Code inzetten. De combinatie van Dify voor orchestration + Claude Code voor uitvoering past in hun agentic workflow architectuur. De 80.8% SWE-bench score bevestigt dat Claude Code voor complexe multi-file coding taken de beste keuze blijft t.o.v. alternatieven.",
+      "relevantie_score": 8
+    }
+  ]
+}
