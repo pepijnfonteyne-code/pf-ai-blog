@@ -1,0 +1,151 @@
+{
+  "datum": "2026-06-14",
+  "gegenereerd_op": "00:10 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-fable-5-release",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Fable 5 & Mythos 5: Anthropic's meest capabele publieke model",
+      "bron_urls": [
+        "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/"
+      ],
+      "bron_namen": [
+        "Anthropic Claude API Docs",
+        "Simon Willison's Weblog"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic lanceerde op 9 juni 2026 Claude Fable 5 (model ID: claude-fable-5), de meest capabele publiek beschikbare Claude tot nu toe met dezelfde capabilities als het beperkt beschikbare Mythos 5. Het model voegt safety classifiers toe die hoog-risico queries afwijzen via een nieuwe stop_reason: 'refusal' response (HTTP 200, geen error). Beschikbaar op Claude API, AWS Bedrock, Vertex AI en Microsoft Foundry; scoort 80.3% op SWE-Bench Pro — 11 punten voor op de dichtstbijzijnde concurrent.",
+      "technical_depth": "1M token context window, 128k output tokens. Adaptive thinking altijd actief (kan niet uitgeschakeld worden). Raw chain-of-thought is nooit zichtbaar; thinking.display='summarized' geeft leesbare samenvatting van het redeneerproces. Nieuwe API parameters: effort (denk-diepte en kostenbeheer), task-budgets (beta, header: task-budgets-2026-03-13), fallbacks (server-side retry op ander model, ook beta). Pricing: $10/1M input, $50/1M output. Fallback credit compenseert prompt-cache kosten bij model-switch.",
+      "toepassing": "Direct inzetbaar als claude-fable-5 in Claude Code en API-calls. Implementeer de fallbacks-parameter in agentic pipelines zodat geweigerde tasks automatisch retrien op Opus 4.8 zonder de hele run te laten crashen. Test de effort-parameter voor lange agentic taken om denkkosten te managen. Let op: Fable 5 is significant proactiver dan vorige modellen — verscherp system prompts voor wat de agent NIET mag doen zonder expliciete toestemming.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-code-nested-subagents-v2172",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.172: Nested Sub-Agents 5 lagen diep + /bg Agent View",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://ofox.ai/blog/claude-code-nested-subagents-2026/"
+      ],
+      "bron_namen": [
+        "Releasebot — Anthropic Claude Code Updates",
+        "OFOX AI Blog"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Claude Code versie 2.1.172 (10 juni 2026) voegt nested sub-agents toe: sub-agents kunnen nu recursief tot 5 niveaus diep andere sub-agents spawnen, elk met eigen system prompt en model-selectie via frontmatter. De /bg-command verplaatst actieve sessies naar de Agent View voor asynchrone achtergrondverwerking die doorgaat ook zonder actief terminal. Rate limits voor Claude Code zijn tegelijk verdubbeld.",
+      "technical_depth": "Elke nesting-laag heeft een aparte frontmatter-gedefinieerde system prompt en model. De /agents view toont diepte-indicatoren en status per panel. Achtergrond-sessies (via /bg) zijn volledig persistent: sessies draaien door na terminal-sluiting of window-close. Agent View geeft real-time status, laatste respons en input-behoeften per sessie vanuit één CLI-scherm.",
+      "toepassing": "Bouw hiërarchische agent-topologieën in Claude Code: orchestrator spawnt specialisten (coder, tester, reviewer) die zelf sub-specialists spawnen. Gebruik /bg voor langlopende refactoring of research-taken terwijl je door werkt in een nieuwe sessie. De verdubbelde rate limits maken parallelle agent-runs praktisch haalbaar voor grotere projecten.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mcp-2026-release-candidate-stateless",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP 2026-07-28 RC: Stateless Core, Tasks Extension, MCP Apps, OAuth 2.1",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/"
+      ],
+      "bron_namen": [
+        "Model Context Protocol Blog — RC Announcement",
+        "MCP 2026 Roadmap"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De release candidate van de grootste MCP-herziening ooit is beschikbaar (publicatie 21 mei 2026, final spec 28 juli). De kern is een stateless protocol-architectuur die horizontaal schaalt op standaard HTTP zonder sticky sessions of speciale load balancers. Nieuwe extensions: MCP Apps voor server-rendered UIs in de client, en Tasks (SEP-1686 stable in RC) voor langlopend werk met retry-semantics en expiry policies.",
+      "technical_depth": "Stateless core: clients sturen volledige context mee per request; geen server-side sessie-state. .well-known endpoint voor server discovery zonder live connectie. Tasks extension: retry-semantics bij transient failures, configeerbare expiry policies voor resultaatretentie. MCP Apps: servers renderen UI-componenten direct in de client-interface. Autorisatie aligned met OAuth 2.1 en OpenID Connect deployment patterns. Formeel deprecatiebeleid zodat het protocol kan evolueren zonder breaking changes. Huidige stable blijft 2025-11-25 tot 28 juli.",
+      "toepassing": "Begin nu met migratie van SSE/WebSocket MCP-servers naar stateless HTTP-transport voor schaalbaarheid. De Tasks extension is essentieel voor agentic workflows waarbij langlopende jobs worden gedispatched en gemonitord — denk aan Orion's research-pipelines. Test de RC direct: de 10-week validatieperiode loopt af op 28 juli, dus SDK-breaking changes zijn nu nog te ontdekken voor productie-impact.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt52-retired-gpt55-default",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.2 geretireerd 12 juni; GPT-5.5 Instant nieuwe ChatGPT-default",
+      "bron_urls": [
+        "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": [
+        "OpenAI Model Release Notes",
+        "TechCrunch"
+      ],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "Vanaf 12 juni 2026 zijn alle GPT-5.2-modellen (Instant, Thinking, Pro) verwijderd uit ChatGPT; bestaande conversations schakelen automatisch over naar de GPT-5.5-equivalenten. GPT-5.5 Instant (gelanceerd 5 mei 2026) is de ChatGPT-default voor alle gebruikers en produceert 52,5% minder gehallucineerde claims dan 5.3 Instant op high-stakes prompts in recht, geneeskunde en financiën. GPT-4.5 volgt op 27 juni.",
+      "technical_depth": "GPT-5.5 Instant benchmarks: AIME 2025 score 81.2, MMMU-Pro 76 (vs 69.2 voor 5.3). Search-tool heeft nu toegang tot past conversations, files en Gmail (Plus/Pro gebruikers via web). Personalization rollout op Free/Go-tier per 9 juni. GPT-4.5 sunset deadline: 27 juni 2026 na 30-daagse deprecation period.",
+      "toepassing": "Controleer alle API-integraties die expliciet gpt-5.2-* aanroepen en migreer naar gpt-5.5-instant of gpt-5.5. GPT-4.5-afhankelijkheden moeten voor 27 juni gemigreerd zijn. De hallucinatieverbetering bij 5.5 Instant is relevant voor agentic fact-checking pipelines: overweeg 5.5 als verificatie-stap in RAG-workflows.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-agent-benchmarks",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA: Frontier Agentic Performance bij Flash-snelheid en -prijzen",
+      "bron_urls": [
+        "https://datanorth.ai/news/google-releases-gemini-3-5-flash",
+        "https://wavespeed.ai/blog/posts/gemini-3-5-flash-shipped-leads-agent-benchmarks/"
+      ],
+      "bron_namen": [
+        "DataNorth AI",
+        "WaveSpeed Blog"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google bracht Gemini 3.5 Flash op 19 mei 2026 naar GA via Gemini API, AI Studio en Vertex AI. Het model overtreft Gemini 3.1 Pro op agentic en coding benchmarks bij ~280 tokens/seconde output en significant lagere kosten ($1,50/1M input vs de Pro-prijs). Dynamic thinking is standaard aan, waardoor het model zelfstandig kan beslissen wanneer het diep nadenkt.",
+      "technical_depth": "1,048,576 input / 65,536 output tokens context window. Terminal-Bench 2.1: 76.2% (vs 70.3% voor 3.1 Pro). MCP Atlas tool-use evaluatie: 83.6%. GDPval-AA agentic Elo: 1656. Knowledge cutoff: januari 2026. Deprecated per 25 juni 2026: gemini-3.1-flash-image-preview en gemini-3-pro-image-preview. Cache-korting: 90% op gecachede input ($0.15/1M tokens).",
+      "toepassing": "Vervang Gemini 3.1 Pro door 3.5 Flash voor agentic subagents in high-throughput pipelines — de combinatie van 83.6% MCP Atlas score en 280 tok/s maakt het de snelste optie met frontier tool-use kwaliteit. De 90% cache-discount maakt grote-documentworkflows (contracten, codebases) goedkoop als context hergebruikt wordt. Controleer vóór 25 juni of je nog gemini-3.1-flash-image-preview aanroept.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "gemma-4-12b-multimodal-tool-calling",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Gemma 4 12B: Multimodale Vision + Native Tool Calling, Apache 2.0, 16GB RAM",
+      "bron_urls": [
+        "https://developers.googleblog.com/gemma-4-12b-the-developer-guide/",
+        "https://www.techtimes.com/articles/317758/20260604/google-gemma-4-12b-brings-multimodal-ai-16gb-laptops-free-under-apache-20.htm"
+      ],
+      "bron_namen": [
+        "Google Developers Blog",
+        "TechTimes"
+      ],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Google lanceerde Gemma 4 12B op 3 juni 2026 onder Apache 2.0: een open-source model dat vision, native function-calling en JSON structured output combineert en op 16GB RAM draait. De tool-use interface is Gemini API-compatibel, waardoor bestaande MCP- en function-calling setups direct werken zonder aanpassingen.",
+      "technical_depth": "12B parameters, native multimodaliteit: verwerkt images en video op variabele resolutie, sterk in OCR en chart understanding. Function-calling via dezelfde interface als Gemini API. Structured JSON output en native system instructions voor agentic setups. Apache 2.0 licentie: commercieel gebruik, fine-tuning en redistributie vrij. Draait op consumer-hardware: 16GB VRAM (GPU) of RAM (CPU-inference).",
+      "toepassing": "Ideaal voor lokale agentic prototypes zonder API-kosten of dataretentie-risico's (GDPR-gevoelige data). Gemini API-compatibele tool-calling: drop-in vervanging voor cloud Gemini calls in bestaande MCP-setups. Fine-tune op eigen codebase voor een gespecialiseerde code-review of documentanalyse-agent die volledig lokaal draait.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "microsoft-maf-build2026-codeact-hyperlight",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Microsoft Agent Framework BUILD 2026: Agent Harness, CodeAct in Hyperlight Micro-VM, Hosted Agents GA",
+      "bron_urls": [
+        "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/",
+        "https://dev.to/brucewong001/microsoft-build-2026-agent-harness-is-about-making-agents-production-ready-1alb"
+      ],
+      "bron_namen": [
+        "Microsoft Agent Framework Blog",
+        "DEV Community"
+      ],
+      "datum_artikel": "2026-06-02",
+      "samenvatting": "Op BUILD 2026 (2-3 juni) kondigde Microsoft drie productie-gerichte upgrades aan voor het Microsoft Agent Framework (1.0 GA april 2026, combineert AutoGen + Semantic Kernel): Agent Harness voor context compaction en approval flows, CodeAct via Hyperlight micro-VM's voor geïsoleerde code-executie, en Hosted Agents in Foundry Agent Service die eind juni GA gaan.",
+      "technical_depth": "Agent Harness: instruction merging, todo tracking, context compaction en extensible providers als first-class features — reduceert token-verspilling in lange agentic runs. CodeAct: model-gegenereerde code draait in Hyperlight micro-VM's (hardware-geïsoleerd van de host-omgeving), collaps van meerdere tool-calls naar minder model-turns. Hosted Agents: session persistence, auto-scaling, ingebouwde observability. Multi-agent Handoff 1.0 met expliciete topologie en guardrails. Python + .NET SDK's.",
+      "toepassing": "Agent Harness-context compaction is direct toepasbaar als patroon in Claude Code agents: structureer system prompts met instruction merging om token-overloop in lange sessies te voorkomen. CodeAct in micro-VM is de Microsoft-equivalent van Simon Willison's MicroPython WASM sandbox — evalueer beide voor veilige code-executie in Orion agents. MAF Hosted Agents biedt een alternatief deployment-pad naast Vercel/Railway voor productie-agents.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simonwillison-fable5-micropython-wasm-sandbox",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Claude Fable 5 is 'relentlessly proactive' + MicroPython WASM code sandbox",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/",
+        "https://simonwillison.net/2026/Jun/6/running-python-code-in-a-sandbox-with-micropython-and-wasm/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog — Claude Fable 5 impressions",
+        "Simon Willison's Weblog — MicroPython WASM sandbox"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Simon Willison documenteerde op 9 juni zijn eerste indrukken van Claude Fable 5 — het model neemt significant meer initiatief dan vorige versies en handelt ambigue taken proactief af zonder te vragen. Op 6 juni beschreef hij zijn micropython-wasm alpha-package: een Python-code sandbox via WebAssembly zonder OS-toegang, geïmplementeerd als datasette-agent-micropython plugin voor veilige code-executie in agents.",
+      "technical_depth": "micropython-wasm: Python-executie in WASM-sandbox, geen filesystem-toegang, geen netwerk, deterministische uitvoer. Gebouwd als Datasette Agent plugin (datasette-agent-micropython). Fable 5-observatie: het model neemt significant meer ongevraagd initiatief dan Opus 4.8 — zowel een kracht (minder micro-management nodig) als risico (meer kans op ongewenste acties) voor agentic systemen.",
+      "toepassing": "Gebruik micropython-wasm als veilige sandbox voor agents die Python-snippets uitvoeren (data-transformaties, calculaties) zonder host-OS compromisrisico. De Fable 5 proactiviteitsobservatie vereist actiemodus: audit bestaande system prompts en voeg expliciete negatieve instructies toe ('vraag altijd toestemming voor X', 'doe Y niet zonder bevestiging') voordat je naar Fable 5 migreert.",
+      "relevantie_score": 8
+    }
+  ]
+}
