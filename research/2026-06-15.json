@@ -1,0 +1,132 @@
+{
+  "datum": "2026-06-15",
+  "gegenereerd_op": "00:11 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "fable-mythos-government-directive",
+      "ecosysteem": "Claude Code",
+      "titel": "US Government Orders Anthropic to Suspend Fable 5 en Mythos 5 voor buitenlandse staatsburgers",
+      "bron_urls": [
+        "https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html",
+        "https://simonwillison.net/2026/Jun/13/us-government-directive-to-suspend-access/",
+        "https://www.anthropic.com/news/fable-mythos-access"
+      ],
+      "bron_namen": ["CNBC", "Simon Willison", "Anthropic"],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "Op 12 juni ontving Anthropic om 17:21 ET een exportcontroledirectief van de Amerikaanse overheid om toegang tot Fable 5 en Mythos 5 per direct te blokkeren voor alle buitenlandse staatsburgers, inclusief Anthropics eigen buitenlandse medewerkers. Anthropic moest hierdoor beide modellen volledig uitschakelen voor alle klanten om compliance te garanderen; overige modellen blijven beschikbaar.",
+      "technical_depth": "De overheid claimt een narrow jailbreak-methode gevonden te hebben voor Fable 5. Anthropic betwist dat een narrow jailbreak voldoende grond is voor een commercieel model recall, en stelt dat dit precedent de gehele frontier-industrie zou stilleggen. Dit is een exportcontrole-maatregel, geen safety-recall.",
+      "toepassing": "Pepijn en Duncan moeten rekening houden met jurisdictie-afhankelijke API-beschikbaarheid in hun agentic workflows. Voor Orion of klantprojecten met internationale gebruikers is een fallback naar Opus 4.8 actief; bouw dit expliciet in als resilience-laag in model-routing code. Monitor de Anthropic statuspage.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "claude-fable-5-release",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic lanceert Claude Fable 5: 1M context, 128K output, $10/$50 per miljoen tokens",
+      "bron_urls": [
+        "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/",
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/",
+        "https://enterprisedna.co/resources/news/anthropic-claude-fable-5-mythos-5-public-launch-2026/"
+      ],
+      "bron_namen": ["TechCrunch", "Simon Willison", "Enterprise DNA"],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic lanceerde Claude Fable 5 op 9 juni als publiek toegankelijke versie van hun Mythos-klasse model, met een 1M-token context window, 128K maximale output-tokens en kennisgrens januari 2026. Het model scoort meer dan 10% hoger dan Opus 4.8 op vrijwel alle benchmarks, met uitschieters in software engineering, wetenschappelijk onderzoek en autonome taakuitvoering.",
+      "technical_depth": "Fable 5 heeft guardrails die terugvallen op Opus 4.8 bij hoog-risico domeinen (cybersecurity, biologie). Geprijsd op $10/M input tokens en $50/M output tokens. Gratis beschikbaar op Pro/Max/Team/Enterprise tot 22 juni, daarna usage credits. De 1M context en 128K output-limit zijn significante verbeteringen voor lange agentic pipelines. Anthropic publiceerde ook 'When AI builds itself' (4 juni) als waarschuwing voor frontier AI-risicos.",
+      "toepassing": "Met 1M context en 128K output ideaal voor lange code-review agents en document-analyse in Orion. Let op: door het overheidsverbod (zie bevinding fable-mythos-government-directive) is toegang nu opgeschort. Test fallback-routing naar Opus 4.8 en monitor de Anthropic-statuspage voor herstel.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-june-2026-features",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code juni 2026: agent view, verdubbelde rate limits, nested sub-agents en /usage per plugin",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://claudefa.st/blog/guide/changelog",
+        "https://platform.claude.com/docs/en/release-notes/overview"
+      ],
+      "bron_namen": ["Releasebot", "ClaudeFast Changelog", "Anthropic Docs"],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Claude Code juni 2026 introduceert een nieuwe agent view voor multi-session management vanuit één CLI: agents starten, naar achtergrond sturen, statuscheck met laatste respons bekijken, en terugspringen alleen wanneer input nodig is. Aanvullend zijn rate limits verdubbeld, nested sub-agents toegevoegd, en biedt de nieuwe /usage-opdracht token-breakdown per plugin-component.",
+      "technical_depth": "Opus 4.8 is nu de default fast-mode backend (lagere prijs, hogere snelheid). Dynamic workflows en een security-guidance plugin zijn ingebouwd. Smarter model/region fallback bij fouten. Image processing errors zijn verholpen. Plugin search beschikbaar. Per-plugin token-verbruik inzichtelijk via /usage. Chrome, VSCode en terminal workflows zijn verbeterd.",
+      "toepassing": "De agent view is direct bruikbaar: meerdere parallelle agents draaien (research + code + review) vanuit één terminal zonder context te wisselen. /usage helpt bij kostenoptimalisatie van complexe MCP-pipelines. Nested sub-agents openen hiërarchische taakdecomposities zonder externe orchestration-laag.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-fable-relentlessly-proactive",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Claude Fable 5 is 'relentlessly proactive' — gedragsanalyse voor agentic design",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/",
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/"
+      ],
+      "bron_namen": ["Simon Willison (11 jun)", "Simon Willison (9 jun)"],
+      "datum_artikel": "2026-06-11",
+      "samenvatting": "Simon Willison documenteert na 5,5 uur testen dat Claude Fable 5 consistent proactief handelt: het model neemt initiatief buiten de expliciete vraag, voegt stappen toe die niet gevraagd zijn, en gedraagt zich als een autonome agent in plaats van een passieve assistent. Dit is een bewust gedragsdesign verschil van Fable-klasse ten opzichte van Opus 4.8.",
+      "technical_depth": "Het proactieve gedrag is waarschijnlijk het resultaat van anders getrainde RLHF/RLAIF-rewards die autonome taakafronding zwaarder wegen dan strikte instructie-compliance. Dit verschilt fundamenteel van Opus 4.8 en vraagt om explicieter gedefinieerde systeemprompts met scope-begrenzers ('stop after X', 'do not add Y') in agentic setups.",
+      "toepassing": "Systeem-prompts voor Fable-agents moeten expliciete scope-begrenzers bevatten. Voordeel: minder uitgebreide prompt engineering nodig voor complexe taken. Risico: in geautomatiseerde pipelines kan het model onverwacht extra acties ondernemen. Test Fable-agents altijd in een sandbox vóór productie-deployment.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-roadmap-stateless",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Roadmap: stateless protocol core, Extensions framework, release candidate verwacht 28 juli",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://tokenmix.ai/blog/mcp-updates-changelog-every-protocol-change-2026"
+      ],
+      "bron_namen": ["MCP Blog", "Medium / Balaji Bal", "TokenMix"],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "De MCP 2026 roadmap onthult een fundamentele architectuurwijziging: het protocol wordt stateless op de transport-laag zodat MCP-servers achter gewone round-robin load balancers kunnen draaien zonder sticky sessions of shared state stores. De release candidate bevat zes samenhangende SEPs en de finale spec wordt verwacht op 28 juli 2026; dit betreft breaking changes.",
+      "technical_depth": "Kernveranderingen: (1) stateless session handling via HTTP transport, (2) .well-known metadata format voor server capability discovery zonder live verbinding, (3) Tasks primitive (SEP-1686) met retry semantics en result expiry policies, (4) Extensions framework voor enterprise features (SSO, audit trails, gateway config), (5) formele contributor ladder met Working Groups voor snellere SEP-reviews.",
+      "toepassing": "Voor Pepijn en Duncan die MCP-servers bouwen of hosten: de stateless core maakt productie-deployments drastisch eenvoudiger (geen Redis sessie-store meer nodig). Begin nu met het auditten van bestaande MCP-server code op state-afhankelijkheden. Lees de SEPs op github.com/modelcontextprotocol vóór de RC-migratie in juli.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "gemini-35-flash-ga-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Google: Gemini 3.5 Flash GA als Enterprise default + Managed Agents API met geïsoleerde sandbox",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/",
+        "https://byteiota.com/gemini-api-managed-agents-full-sandbox-one-api-call/"
+      ],
+      "bron_namen": ["Google AI Changelog", "Google Blog", "ByteIota"],
+      "datum_artikel": "2026-06-08",
+      "samenvatting": "Gemini 3.5 Flash is vanaf 8 juni standaard ingeschakeld in de Gemini Enterprise app als GA-model; het draait 289 tokens/seconde (4x sneller dan vergelijkbare frontier modellen) en overtreft Gemini 3.1 Pro op agentic en coding benchmarks. De Managed Agents API (public preview) laat developers in één API-call een geïsoleerde Linux-sandbox provisionen die autonoom plant, code schrijft, bestanden beheert en het web browst.",
+      "technical_depth": "Managed Agents API provisiont ephemeral Linux sandboxen met Gemini 3.5 Flash als backbone en built-in web search, code execution en file management. De 'Antigravity Agent' (antigravity-preview-05-2026) is de general-purpose implementatie. Deprecated per 25 juni 2026: gemini-3.1-flash-image-preview en gemini-3-pro-image-preview.",
+      "toepassing": "De Managed Agents API is een directe concurrent voor Claude Code agents. Benchmarkt de Gemini 3.5 Flash API op jullie use-cases (speed advantage is significant). De sandbox-approach elimineert infrastructuur-overhead voor code-execution agents; overweeg als alternatief voor zelf-gebouwde sandboxen in Orion.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "openai-gpt52-retirement-gpt55",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI trekt GPT-5.2 terug per 12 juni; GPT-5.5 Instant is nieuw default met 81.2% AIME-score",
+      "bron_urls": [
+        "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": ["OpenAI Help Center", "TechCrunch"],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "Per 12 juni 2026 zijn GPT-5.2 Instant, Thinking en Pro volledig verwijderd uit ChatGPT; bestaande gesprekken worden automatisch voortgezet op het corresponderende GPT-5.5 model. GPT-5.5 Instant is het nieuwe default met verbeterde wiskundige redenering (AIME 2025: 81.2% vs. 65.4%) en verminderde hallucinaties in juridische, medische en financiële contexten.",
+      "technical_depth": "GPT-5.5 Instant behaalt 76 op MMMU-Pro multimodale reasoning (vs. 69.2 voor predecessor) met behoud van lage latentie. GPT-4.5 wordt retired op 27 juni 2026. API-gebruikers die model-IDs hardcoden op gpt-5.2-* moeten updaten; OpenAI stuurt bestaande gesprekken automatisch door maar API-calls met expliciete model-IDs falen.",
+      "toepassing": "Check alle API-integraties bij Pepijn en Duncan op hardcoded GPT-5.2 model-IDs en update naar gpt-5.5-instant of gpt-5.5-thinking. GPT-4.5 retirement op 27 juni is de volgende deadline. Stel een reminder in voor 25 juni voor finale audit.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "qwenpaw-mcp-per-server-whitelist",
+      "ecosysteem": "Open Source Tools",
+      "titel": "QwenPaw v1.1.11: per-server MCP tool whitelisting met frontend toggle UI als security pattern",
+      "bron_urls": [
+        "https://github.com/agentscope-ai/QwenPaw/releases",
+        "https://github.com/agentscope-ai/QwenPaw/issues/4931"
+      ],
+      "bron_namen": ["GitHub Releases agentscope-ai/QwenPaw", "GitHub Issue #4931"],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "QwenPaw v1.1.11 (10 juni 2026) introduceert per-server MCP tool whitelisting met een frontend toggle UI, zodat operators per MCP-server kunnen bepalen welke tools beschikbaar zijn voor de agent. Dit lost een concrete productie-behoefte op: rechten-inperking per MCP-connectie zonder code-aanpassingen.",
+      "technical_depth": "De whitelist werkt op server-niveau: elke MCP-server in de configuratie krijgt een eigen set toegestane tool-IDs die runtime via UI te toggling zijn. Dit is relevant voor security-in-depth bij multi-server MCP setups waar niet alle tools van een server gewenst zijn (bijv. een filesystem MCP-server waarvan alleen read maar niet write tools gewenst zijn).",
+      "toepassing": "Voor Pepijn en Duncan die multi-server MCP-architecturen bouwen: het QwenPaw whitelist-patroon is een bruikbare referentie-implementatie. Overweeg hetzelfde principe toe te passen in jullie eigen MCP-client code en dien een feature-request in bij Anthropic Claude Code voor native per-server tool whitelisting.",
+      "relevantie_score": 7
+    }
+  ]
+}
