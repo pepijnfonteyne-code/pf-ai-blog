@@ -1,0 +1,161 @@
+{
+  "datum": "2026-06-16",
+  "gegenereerd_op": "00:09 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-fable-5-release",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Fable 5: Mythos-class model nu algemeen beschikbaar",
+      "bron_urls": [
+        "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/",
+        "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5"
+      ],
+      "bron_namen": [
+        "Anthropic News",
+        "TechCrunch",
+        "Anthropic API Docs"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic lanceerde Claude Fable 5 op 9 juni 2026 — een Mythos-class model met safeguards voor algemeen gebruik, met een 1M-token context-window en 128k output-tokens per request. Het model is beschikbaar op de Claude API, AWS, Amazon Bedrock, Vertex AI en Microsoft Foundry en presteert state-of-the-art op vrijwel alle benchmarks voor redeneren, coderen en lange agentic taken.",
+      "technical_depth": "1M token context, 128k output tokens, uitzonderlijk sterk op software engineering en long-horizon agentic taken. Ingebouwde safety classifiers triggeren in minder dan 5% van de sessies en vallen dan terug op Claude Opus 4.8.",
+      "toepassing": "Directe vervanging voor Opus 4.8 in zware agentic Claude Code-workflows: de 1M-context verwerkt volledige codebases in één sessie. Testen of Fable 5 Orion-taken beter oplost dan de huidige model-defaults.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-routines-launch",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Routines: geplande en webhook-getriggerde cloud-agents",
+      "bron_urls": [
+        "https://claude.com/blog/introducing-routines-in-claude-code",
+        "https://thenewstack.io/claude-code-can-now-do-your-job-overnight/",
+        "https://www.mindstudio.ai/blog/claude-code-routines-scheduled-agents"
+      ],
+      "bron_namen": [
+        "Anthropic Claude Blog",
+        "The New Stack",
+        "MindStudio Blog"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic lanceerde Routines in Claude Code — een feature waarmee je prompts kunt plannen via cron-schema, GitHub-events of API-webhook-triggers, uitgevoerd in de cloud zonder dat je eigen machine aan hoeft te zijn. Beschikbaar voor Pro, Max, Team en Enterprise-gebruikers met Claude Code on the web ingeschakeld.",
+      "technical_depth": "Drie trigger-types: scheduled (cron-achtig), GitHub event (push/PR/issue webhooks), en API trigger vanuit eigen code. Asynchroon, serverless-hosted door Anthropic. Ideaal voor 'wake up to PRs ready to merge'-workflows.",
+      "toepassing": "Dit is precies wat deze research-agent doet: stel nachtelijke code-reviews, PR-analyse na elke push, of dagelijkse research-runs in als Routine. Vervangt zelf-gehoste cron-agents volledig.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "anthropic-agent-sdk-credit-split",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic splitst Agent SDK-gebruik af van Pro/Max-subscriptions (15 juni)",
+      "bron_urls": [
+        "https://www.digitalapplied.com/blog/anthropic-claude-credit-overhaul-june-15-2026",
+        "https://devtoolpicks.com/blog/anthropic-splits-claude-subscriptions-agent-sdk-credit-june-2026"
+      ],
+      "bron_namen": [
+        "Digital Applied",
+        "DevToolPicks"
+      ],
+      "datum_artikel": "2026-06-15",
+      "samenvatting": "Vanaf 15 juni 2026 telt claude -p en Agent SDK-gebruik niet meer mee uit de Pro/Max/Team/Enterprise-abonnementspools, maar uit een apart maandelijks dollar-krediet gelijk aan de abonnementskosten. De 'onbegrensde' subsidie voor agentic API-gebruik is daarmee beëindigd — rate limits werden vooraf verdubbeld als compensatie.",
+      "technical_depth": "Aparte credit-pool voor Agent SDK en claude -p; credit-grootte gelijk aan abonnementsbedrag per maand; rate limits op Claude Code zijn verdubbeld; API-limieten voor Opus verhoogd. Na uitputting van het krediet gelden standaard API-tarieven.",
+      "toepassing": "Pepijn en Duncan moeten hun Agent SDK-workflows budgetteren en credit-verbruik monitoren. Bepaal welke agentic runs het meest kosten en overweeg caching-strategieën om input-tokens te reduceren.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-07-28-release-candidate",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026-07-28 RC: stateless protocol, JSON Schema 2020-12, Tasks en MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://dev.to/akaranjkar08/mcp-spec-ships-july-28-every-breaking-change-and-how-to-migrate-4co8",
+        "https://mcp.directory/blog/mcp-2026-07-28-release-candidate"
+      ],
+      "bron_namen": [
+        "MCP Official Blog",
+        "DEV Community - Migration Guide",
+        "MCP Directory"
+      ],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "De MCP 2026-07-28 Release Candidate is gepubliceerd en introduceert een volledig stateless protocol-laag: sessies zijn verwijderd en client-metadata reist via _meta op elk request. Bevat breaking changes inclusief full JSON Schema 2020-12 voor tool-schemas en een gewijzigde error-code voor ontbrekende resources.",
+      "technical_depth": "Sessies verwijderd — client-capabilities in _meta per request; JSON Schema 2020-12 met oneOf/anyOf/allOf/$ref/$defs voor tool inputSchema/outputSchema; error -32002 vervangen door standaard JSON-RPC -32602; Tasks extension voor long-running werk; MCP Apps voor server-rendered UIs; finalisatie op 28 juli 2026.",
+      "toepassing": "Alle zelf-gebouwde MCP-servers en clients moeten vóór 28 juli gemigreerd worden. Stateless design vereenvoudigt horizontale scaling en deployment achter load balancers — directe impact op Orion MCP-infrastructuur.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-personalization",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: personalisatie-uitrol naar Go & Free + model-retirements juni",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      ],
+      "bron_namen": [
+        "OpenAI Blog",
+        "OpenAI Help Center - Release Notes"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Op 9 juni rolde OpenAI personalisatie-verbeteringen voor GPT-5.5 Instant uit naar Go & Free-gebruikers — betere context-benutting van eerdere chats, geüploade bestanden en verbonden accounts. Parallel kondigt OpenAI model-retirements aan: GPT-5.2 verwijderd per 12 juni, GPT-4.5 per 27 juni.",
+      "technical_depth": "Verbeterde retrieval over gesprekshistorie, files en connected accounts; AIME 2025 score 81.2; MMMU-Pro 76 vs 69.2 van voorganger; lager hallucinatiepercentage op law/medicine/finance domains.",
+      "toepassing": "API-developers moeten migreren van GPT-5.2 en GPT-4.5 vóór de pension-datums. GPT-5.5 Instant nu standaard — test of personalisatie-verbeteringen invloed hebben op agentic toepassingen.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "gemini-managed-agents-api-preview",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini Managed Agents: één API-call provisioneert een geïsoleerde Linux-sandbox-agent",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/managed-agents-quickstart",
+        "https://dev.to/pulkitgovrani/getting-started-with-gemini-api-managed-agents-the-quickest-path-from-prompt-to-deployed-agent-120h",
+        "https://www.philschmid.de/gemini-managed-agents-developer-guide"
+      ],
+      "bron_namen": [
+        "Google AI for Developers",
+        "DEV Community",
+        "Phil Schmid Developer Guide"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Google lanceerde Gemini Managed Agents in de Gemini API in public preview: één API-call provisioneert een stateful, Google-gehoste Linux-sandbox waar de 'Antigravity' Gemini 3.5 Flash-agent code uitvoert, bestanden beheert en het web doorzoekt. Sandbox-computing is gratis tijdens de preview; tokens worden billed tegen standaard Gemini API-tarieven.",
+      "technical_depth": "Model: antigravity-preview-05-2026 (Gemini 3.5 Flash); stateful Linux sandbox met code-execution, file management, web browsing; geen eigen infrastructure vereist; SDK beschikbaar; gratis sandbox-compute in preview.",
+      "toepassing": "Google-equivalent van Claude Code's cloud-agent model — interessant om te vergelijken of voor hybride setups waar Google's sandbox-capaciteiten waardevol zijn. Gratis preview-periode is ideaal voor benchmarking.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "kimi-k27-code-open-source",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Kimi K2.7-Code: 1T-parameter open-source coding model, 256K context, MIT-licentie",
+      "bron_urls": [
+        "https://cryptobriefing.com/kimi-k2-7-code-open-source-release/",
+        "https://www.explainx.ai/blog/kimi-k2-7-code-open-source-coding-model-2026",
+        "https://huggingface.co/models?search=kimi-k2"
+      ],
+      "bron_namen": [
+        "CryptoBriefing",
+        "ExplainX AI",
+        "HuggingFace"
+      ],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "Moonshot AI publiceerde Kimi K2.7-Code op 12 juni 2026 — een 1T-parameter MoE-model met 32B actief per token, 256K context, MoonViT vision encoder, onder Modified MIT-licentie, met weights op HuggingFace. Het model scoort +21.8% op Kimi Code Bench v2 en gebruikt ~30% minder reasoning-tokens dan K2.6.",
+      "technical_depth": "384 experts, 61 lagen, MLA-attention, 256K context-window, 400M MoonViT vision encoder voor beeld/video-input. +21.8% Kimi Code Bench v2, +11.0% Program Bench, +31.5% MLS Bench Lite. API: $0.95/$4.00 per MTok (input/output). OpenAI & Anthropic-compatible API.",
+      "toepassing": "Self-hosten als kostenbesparend alternatief voor Claude/GPT in coding-agents: 256K context geschikt voor grote codebase-analyse, Modified MIT laat commercieel gebruik toe. API-compatible met bestaande Claude-code.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-datasette-agent-agentsview",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: datasette-agent 0.2a0 met save_query-tool + AgentsView voor token-monitoring",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/10/datasette-agent/",
+        "https://simonwillison.net/2026/Jun/11/datasette/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog",
+        "Simon Willison's Weblog - Datasette"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Simon Willison bracht datasette-agent 0.2a0 uit met een nieuwe ingebouwde save_query-tool waarmee de LLM-agent SQL-queries opslaat als Datasette stored queries — elke schrijfoperatie vereist expliciete menselijke goedkeuring. Tegelijk gebruikt hij AgentsView om token-verbruik over verschillende coding agents (Claude Code, Cursor etc.) te monitoren.",
+      "technical_depth": "Human-in-the-loop approval pattern voor agent-writes via LLM tool-definitie; datasette 1.0a33 breidt ?_extra= patroon uit naar queries en rows. AgentsView geeft inzicht in token-gebruik per agent-sessie op lokale machine.",
+      "toepassing": "Het approval-patroon voor schrijfoperaties is direct toepasbaar in eigen MCP-server-ontwerp: vereis bevestiging voor destructieve of persistente acties. AgentsView gebruiken voor kostenbewaking van Claude Code-sessies.",
+      "relevantie_score": 7
+    }
+  ]
+}
