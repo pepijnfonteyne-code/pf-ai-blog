@@ -1,0 +1,161 @@
+{
+  "datum": "2026-06-17",
+  "gegenereerd_op": "00:10 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-rate-limits-safe-mode-juni-2026",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code verdubbelt rate limits en introduceert Safe Mode, Opus 4.8 en plugin marketplace",
+      "bron_urls": [
+        "https://jangwook.net/en/blog/en/claude-code-june-2026-new-features-changelog-developer-guide/",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Jangwook.net – Claude Code June 2026 Developer Guide",
+        "Releasebot – Anthropic Claude Code Updates June 2026"
+      ],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Anthropic verdubbelde de rate limits voor Claude Code, waardoor developers, startups en enterprises betrouwbaarder op schaal kunnen bouwen. Nieuw in juni 2026: Safe Mode (blokkeert gevaarlijke commando's op protocol-niveau), officiële Opus 4.8-integratie, een doorzoekbare plugin marketplace met versie-guardrails, en de /cd-command waarmee een sessie naar een andere working directory verplaatst zonder de prompt-cache te herbouwen.",
+      "technical_depth": "De /cd-command appends de CLAUDE.md van de nieuwe directory als message en verplaatst project storage, zodat volledige context behouden blijft. Safe Mode blokkeert destructieve shell-commando's op protocol-niveau vóór uitvoering. Plugins krijgen versie-guardrails via requiredMinimumVersion/requiredMaximumVersion. De /usage-breakdown toont welke plugin-component tokens consumeert.",
+      "toepassing": "Verdubbelde rate limits maken het praktisch om meerdere parallelle Claude Code agents te draaien in Orion-workflows. De /cd-command is ideaal voor monorepos: één sessie, meerdere sub-projecten zonder cache-rebuild. Safe Mode maakt het veilig om agents in CI-pipelines te draaien zonder risico op destructieve commando's.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-agent-view-multi-session",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Agent View: één CLI-dashboard voor alle parallelle agent-sessies (v2.1.139+)",
+      "bron_urls": [
+        "https://www.buildfastwithai.com/blogs/claude-code-agent-view-guide",
+        "https://www.mindstudio.ai/blog/claude-code-agent-view-multiple-agents",
+        "https://pasqualepillitteri.it/en/news/2384/claude-code-agent-view-cli-dashboard-sessions-2026"
+      ],
+      "bron_namen": [
+        "BuildFastWithAI – Claude Code Agent View Guide",
+        "MindStudio – Claude Code Agent View Multiple Agents",
+        "Pasquale Pillitteri – Claude Code Agent View Research Preview"
+      ],
+      "datum_artikel": "2026-05-11",
+      "samenvatting": "Claude Code v2.1.139 introduceerde 'Agent View' (research preview, 11 mei 2026): via 'claude agents' opent een enkel CLI-dashboard dat alle actieve sessies toont met status-icons (werkend, wacht op input, PR geopend), laatste response en tijdstip. Developers kunnen agents naar de achtergrond sturen, inline antwoorden of teruggaan naar een sessie zonder contextenverlies.",
+      "technical_depth": "Agent View vereist Claude Code v2.1.139+, beschikbaar op Pro/Max/Team/Enterprise/API-plans. Elke rij toont: sessie-naam, laatste response, timestamp, en wacht-status. 'claude agents' opent de lijst; van daaruit kan je attachen of inline antwoorden zonder een nieuwe shell te spawnen. Ondersteunt diepere sub-agent nesting en slimmere AWS region detection.",
+      "toepassing": "Vervangt tmux/meerdere terminals voor parallel agentic werk volledig. Pepijn en Duncan kunnen meerdere Claude Code-agents gelijktijdig draaien (bijv. één per microservice of per feature-branch) en via Agent View in real-time monitoren wie blokkeert, wie klaar is, en wie input nodig heeft — de ideale interface voor Orion multi-agent orchestratie.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-personalisatie-juni2026",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: personalisatie-update uitgerold (9 juni 2026) en GPT-4.5 sunset op 27 juni",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      ],
+      "bron_namen": [
+        "OpenAI – GPT-5.5 Instant aankondiging",
+        "OpenAI Help Center – ChatGPT Release Notes"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Vanaf 9 juni 2026 rolt OpenAI personalisatie-verbeteringen uit voor GPT-5.5 Instant in Go & Free-tiers: sterkere en beknoptere antwoorden, naturalere conversatietoon, en betere hergebruik van eerder gedeelde context zonder expliciete memory-opvraag. GPT-4.5 wordt op 27 juni 2026 definitief geretireerd na een 30-daagse sunset; container sessions zijn vanaf 2 juni per-minuut gefactureerd (min. 5 min.) in plaats van het vaste 20-minuuttarief.",
+      "technical_depth": "GPT-5.5 Instant gebruikt contextvenster-management (1M tokens) om eerder gedeelde gebruikersinfo te hergebruiken via heuristieken in het system prompt, zonder persistente memory-state op server-niveau. De update is progressief uitgerold per account-cohort. GPT-5.6 (verwacht juni 2026, niet officieel bevestigd) zou 1,5M context en verbeterde tool-chains meebrengen.",
+      "toepassing": "De per-minuut billing voor container sessions is direct relevant als jullie OpenAI's code-execution omgeving evalueren als alternatief voor eigen sandboxing. Test of GPT-5.5 Instant's verbeterde contexthergebruik meerwaarde biedt in langlopende conversation-agents versus Claude's Projects-geheugen.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-default-juni2026",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash standaard voor alle Enterprise-gebruikers vanaf 16 juni 2026",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://blog.mean.ceo/google-gemini-latest-model-news-june-2026/"
+      ],
+      "bron_namen": [
+        "Google AI for Developers – Gemini API Changelog",
+        "Mean.CEO – Google Gemini Latest Model News June 2026"
+      ],
+      "datum_artikel": "2026-06-16",
+      "samenvatting": "Vanaf 16 juni 2026 is Gemini 3.5 Flash standaard ingeschakeld voor alle Gemini Enterprise App-gebruikers en kan niet meer worden uitgeschakeld. Gemini 3.5 Flash is Google's meest intelligente model voor sustained frontier performance op agentic en coding tasks en is de GA-versie van de Gemini 3 generatie, met 3.1 Pro en 3.1 Flash-Lite als aanvullende varianten.",
+      "technical_depth": "Gemini 3.5 Flash vervangt de beheer-toggle in de Enterprise-app; de feature management UI verdwijnt. Als onderdeel van de Gemini 3-familie ondersteunt het multimodale inputs, Deep Think voor reasoning-intensieve taken, en Gemini Live voor real-time interactie. API-versie in Gemini API Changelog toont wijzigingen per model-ID.",
+      "toepassing": "Gemini 3.5 Flash als verplichte standaard in Enterprise betekent dat Google Workspace-integraties automatisch upgraden. Evalueer de Gemini API voor multimodale pipeline-taken (code+beeld) als aanvulling op Claude voor specifieke workloads in Orion.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-managed-agents-api-preview",
+      "ecosysteem": "Gemini",
+      "titel": "Google Gemini Managed Agents API in public preview: autonome agents in Linux-sandbox via één API-call",
+      "bron_urls": [
+        "https://winbuzzer.com/2026/05/20/google-opens-managed-agents-preview-in-gemini-api-xcxwbn/",
+        "https://ai.google.dev/gemini-api/docs/agents",
+        "https://cryptobriefing.com/google-managed-agents-api-io-2026/"
+      ],
+      "bron_namen": [
+        "Winbuzzer – Google Opens Managed Agents Preview",
+        "Google AI for Developers – Agents Overview",
+        "CryptoBriefing – Google Managed Agents API at I/O 2026"
+      ],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Google lanceerde tijdens Google I/O 2026 (19 mei) de Managed Agents API in public preview: één POST naar de Interactions API provisiont een Gemini 3.5 Flash-agent (model: antigravity-preview-05-2026) in een geïsoleerde Linux-sandbox met geïntegreerde code-execution, web search en URL fetch. De agent plant autonoom, schrijft en voert code uit, beheert bestanden en browst het web binnen de container.",
+      "technical_depth": "Pre-GA software (geen SLA, niet voor productie of gevoelige data). De Interactions API abstraheert de volledige agent-lifecycle: sandboxprovisioning, tool-calling loop, resultaataggregatie. De sandbox is stateful binnen een sessie maar ephemeral daarna. Vergelijkbaar met Anthropic's computer-use maar als fully-managed hosted service.",
+      "toepassing": "Directe Google-tegenhanger van Claude's computer-use en Anthropic's hosted agent-execution. Test voor use-cases waar een volledig Linux-env nodig is (bijv. complexe data-pipelines, multi-file codegeneratie met uitvoering). Vergelijk latency en kosten met zelf-gehoste MCP-tool-orchestratie in Orion voor de juiste trade-off.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "deepseek-r1-0528-open-source-mit",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "DeepSeek R1-0528: 671B MoE reasoning-model met MIT-licentie overtreft GPT-4 op AIME (87,5%)",
+      "bron_urls": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528",
+        "https://firstaimovers.substack.com/p/deepseek-r1-0528-the-open-source",
+        "https://ashishchadha11944.medium.com/deepseek-r1-0528-the-open-source-reasoning-powerhouse-redefining-ai-benchmarks-f37910be672d"
+      ],
+      "bron_namen": [
+        "Hugging Face – DeepSeek-R1-0528 model card",
+        "First AI Movers – DeepSeek R1-0528: The Open-Source GPT-4 Rival",
+        "Medium – DeepSeek R1-0528: Open-Source Reasoning Powerhouse"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "DeepSeek R1-0528 is een 671B-parameter Mixture-of-Experts model (37B geactiveerd per token via dynamisch routing) uitgebracht onder MIT-licentie en beschikbaar op Hugging Face. AIME 2025-nauwkeurigheid steeg van 70% naar 87,5% t.o.v. de voorganger; distilled varianten (1,5B tot 70B) draaien op consumer-hardware, de 32B-distill op één RTX 4090.",
+      "technical_depth": "MoE-architectuur: 671B totale parameters, 58 expertgroepen, dynamic routing activeert 37B per token bij inferentie. MIT-licentie staat commercieel gebruik en fine-tuning toe. Distilled varianten via supervised fine-tuning op R1-0528 outputs. Parallel verscheen Microsoft's Phi-4 reasoning-vision (14B, past op laptop-GPU met 8 GB VRAM) als compact multimodaal alternatief.",
+      "toepassing": "De 32B-distill is direct inzetbaar op een enkele GPU voor lokale agent-workloads waar privacy of latency vereist is. Overweeg als basis voor fine-tuned coding-agents met open weights. Vergelijk reasoning-kwaliteit en cost-per-token met Claude Haiku 4.5 voor budget-gevoelige toepassingen in Orion; de MIT-licentie maakt commercieel hergebruik zonder restricties mogelijk.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-roadmap-stateless-core-rc-juli",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026 Roadmap: stateless protocol-kern, Extensions (Tasks/MCP Apps) en RC op 28 juli 2026",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://modelcontextprotocol.info/blog/mcp-next-version-update/"
+      ],
+      "bron_namen": [
+        "MCP Blog – The 2026 MCP Roadmap",
+        "Medium – MCP's Upcoming 2026 Release Is a Big Deal",
+        "MCP Info – Update on the Next MCP Protocol Release"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "De MCP Release Candidate (RC 28 juli 2026, full spec) maakt de protocol-kern stateless: remote MCP-servers kunnen achter een gewone round-robin load balancer draaien zonder sticky sessions of shared session store — routering via Mcp-Method header. Het Extensions framework voegt MCP Apps (server-rendered UIs in de client) en de Tasks-extensie (langlopend async werk met retry-semantics en expiry policies) toe.",
+      "technical_depth": "Breaking change: sessie-state verschuift naar client-side caching via server-opgegeven ttlMs. Capability discovery via .well-known metadata-endpoint zonder live verbinding. SEP-1686 Tasks krijgt retry-semantics voor transient failures. Contributor ladder en Working Groups versnellen domein-specifieke SEP-reviews. Enterprise features (audit trails, SSO-auth, gateway-standards) worden als Extensions geleverd, niet in de core.",
+      "toepassing": "DIRECTE IMPACT op Orion: migreer zelfgebouwde MCP-servers nu naar stateless design (geen server-side sessie-state), zodat de RC-upgrade een non-event is. Stateless core maakt horizontale auto-scaling van MCP-servers triviaal. Implementeer de Tasks-extensie voor long-running agentic workflows die nu via custom polling werken. Lees de breaking changes vóór 28 juli en plan een migratievenster.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "simonwillison-claude-fable5-proactieve-bugs-juni2026",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Claude Fable 5 'een beast' — proactief bugs detecteren en fixen zonder instructie (11 juni 2026)",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/10/",
+        "https://simonwillison.net/",
+        "https://simonwillison.net/2026/Jun/1/may-newsletter/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog – Archief 10 juni 2026",
+        "Simon Willison's Weblog – Homepage",
+        "Simon Willison's Weblog – Mei 2026 newsletter"
+      ],
+      "datum_artikel": "2026-06-11",
+      "samenvatting": "Simon Willison publiceerde op 11 juni 2026 zijn eerste indrukken van Claude Fable 5 na ~5,5 uur hands-on testen: 'slow, expensive and quite happily churning through everything I've thrown at it.' Opmerkelijkst: Fable 5 detecteerde zelfstandig bugs in een utility library die Willison gebruikte in Datasette-ontwikkeling en fixte deze proactief, zonder dat hij ernaar vroeg. Tevens verscheen zijn nieuw 'Datasette extras explorer'-tool (11 juni) voor JSON endpoint exploratie.",
+      "technical_depth": "Fable 5 toont hogere inferentie-latency dan Claude Sonnet 4.6, maar neemt complexere multi-step taken aan. Proactief bug-detection-gedrag duidt op agressievere tool-use en bredere scope-interpretatie bij code-context: het model scant actief gerelateerde code buiten de expliciete taak. Willison's experiment op 9 juni met geïsoleerde code-execution sandboxes loopt parallel en heeft mogelijk synergie met Fable 5.",
+      "toepassing": "Test Fable 5 expliciet voor complexe refactoring, codebase-analyse, of lange agentic coding-sessies in Claude Code waar Sonnet 4.6 vastloopt of scoopt afbreekt. Het proactieve bug-fix-gedrag is waardevol bij legacy-codereview. Positioneer als 'senior engineer'-model voor diepe taken; gebruik Sonnet 4.6 voor snelle iteraties. Monitor kosten nauwkeurig — Fable 5 is duurder en trager.",
+      "relevantie_score": 8
+    }
+  ]
+}
