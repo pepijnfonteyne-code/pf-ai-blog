@@ -1,0 +1,133 @@
+{
+  "datum": "2026-06-18",
+  "gegenereerd_op": "10:45 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-fable-5-launch",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Fable 5 & Mythos 5 gelanceerd: Mythos-class boven Opus, tijdelijk offline door overheidsrichtlijn",
+      "bron_urls": [
+        "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/",
+        "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/"
+      ],
+      "bron_namen": ["Anthropic", "Simon Willison", "TechCrunch"],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Op 9 juni lanceerde Anthropic Claude Fable 5 en Mythos 5, twee Mythos-class modellen die een nieuwe tier boven Opus vormen. Fable 5 is publiek beschikbaar via Claude API, AWS, Bedrock, Vertex AI en Microsoft Foundry, maar werd kort na lancering tijdelijk offline gehaald door een Amerikaanse overheidsrichtlijn. Mythos 5 is beperkt tot Glasswing-partners en geselecteerde biologen.",
+      "technical_depth": "Nieuwe Mythos modelklasse boven Opus; 1M token context window; 128K max output tokens; $10/M input, $50/M output; Fable 5 heeft safeguards waarbij bepaalde queries naar Opus 4.8 worden doorgestuurd; Mythos 5 heeft dezelfde basis maar gedeeltelijk opgeheven safeguards; state-of-the-art op nagenoeg alle benchmarks met grotere voorsprong op langere en complexere taken; beschikbaar op Claude API + Claude Platform on AWS + Bedrock + Vertex AI + Microsoft Foundry.",
+      "toepassing": "Inzetbaar als primair model in Claude Code en agentic workflows voor de meest complexe taken. De 1M context window maakt ultra-lange code sessies en documentanalyse mogelijk. Fable 5 is gratis op Pro/Max/Team plans tot 22 juni. Let op: het tijdelijk offline-gaan toont dat Anthropic subject is aan overheidsinterventie - bouw fallback naar Opus 4.8 in kritische workflows.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-nested-subagents-safe-mode",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.172: Recursive nested sub-agents (5 levels diep) en --safe-mode debug flag",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/changelog",
+        "https://ofox.ai/blog/claude-code-nested-subagents-2026/",
+        "https://www.developersdigest.tech/blog/ultracode-effort-level-explained"
+      ],
+      "bron_namen": ["Claude Code Changelog", "oFox AI Blog", "Developers Digest"],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Claude Code v2.1.172 (10 juni) staat recursieve nested sub-agents toe: sub-agents kunnen nu hun eigen sub-agents spawnen tot 5 niveaus diep, waarmee complexe fan-out agent architecturen mogelijk worden. Tegelijk is --safe-mode toegevoegd die Claude Code start zonder alle customizations voor snelle isolatie van configuratieproblemen.",
+      "technical_depth": "Sub-agents recursief tot 5 niveaus diep; elke node heeft toegang tot volledige toolset; safe mode via --safe-mode CLI flag of CLAUDE_CODE_SAFE_MODE env var; safe mode schakelt CLAUDE.md, skills, plugins, hooks en MCP servers uit maar behoudt authenticatie, modelkeuze, built-in tools en permissions; ultracode (hernoemd van 'workflow' in v2.1.160 op 2 juni) stuurt xhigh effort en orchestreert automatisch dynamische multi-agent workflows voor substantiele taken.",
+      "toepassing": "Nested sub-agents zijn direct toepasbaar voor Orion-workflows: bouw orchestrator-agents die specialist-subagents spawnen (reviewer, test-runner, docs-subagent). --safe-mode is essentieel bij debuggen van kapotte MCP-configuraties of hooks. Activeer ultracode via effort menu voor complexe taken die anders one-window overspannen.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "gpt55-default-gpt52-retired",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant wordt default model, volledige GPT-5.2 lijn gepensioneerd per 12 juni",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "https://releasebot.io/updates/openai"
+      ],
+      "bron_namen": ["OpenAI Blog", "OpenAI Model Release Notes", "Releasebot OpenAI"],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "Per 12 juni 2026 is de volledige GPT-5.2 familie (Instant, Thinking, Pro) uit ChatGPT en de API verwijderd; bestaande gesprekken migreren automatisch naar corresponderende GPT-5.5 varianten. GPT-5.5 Instant is nu het standaardmodel met scherpere, beknoptere antwoorden en verbeterde personalisatie. GPT-4.5 retirement volgt op 27 juni.",
+      "technical_depth": "GPT-5.5 Instant vervangt GPT-5.2 Instant als default ChatGPT model; personalisatie-verbeteringen uitgerold naar Free en Go plans per 9 juni; API-gebruikers moeten model IDs updaten van gpt-5.2-instant/thinking/pro naar corresponderende 5.5 varianten; GPT-5.6 in ontwikkeling met verwacht 1.5M context window en verbeterde agentic en multimodale capabilities; GPT-4.5 deprecated per 27 juni.",
+      "toepassing": "Controleer en update alle OpenAI API-integraties die GPT-5.2 model IDs gebruiken voor de harde cutoff. Zet GPT-4.5 calls om voor 27 juni. Volg GPT-5.6 aankondigingen voor de 1.5M context window die relevant is voor grote codebase analyses en lange agentic workflows.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-agentic",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA: 83.6% op MCP Atlas tool-use benchmark, Gemini 3.5 Pro verwacht in juni",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://datanorth.ai/news/google-releases-gemini-3-5-flash",
+        "https://sumatosolutions.com/blog-google-ai-updates-2026-gemini-flash-agentic-app-builder/"
+      ],
+      "bron_namen": ["Google AI Changelog", "DataNorth AI", "Sumato Solutions"],
+      "datum_artikel": "2026-05-19",
+      "samenvatting": "Gemini 3.5 Flash is GA geworden als Google's meest intelligente model voor agentic en coding taken. Het scoort 83.6% op MCP Atlas (tool-use benchmark) en 76.2% op Terminal-Bench 2.1, en positioneert zich als serieuze concurrent voor Claude Sonnet in tool-heavy agentic workflows. Gemini 3.5 Pro wordt in juni 2026 verwacht.",
+      "technical_depth": "Model ID: gemini-3.5-flash (stable GA, beschikbaar in global/US/EU Gemini Enterprise); Terminal-Bench 2.1: 76.2% (vs 70.3% voor Gemini 3.1 Pro); MCP Atlas tool-use score: 83.6%; GDPval-AA economisch waardevolle agentic work: 1656 Elo; prijs: $1.50/M input, $9/M output; 90% discount op gecachede input ($0.15/M); Gemini Omni video-model ook aangekondigd.",
+      "toepassing": "Test Gemini 3.5 Flash als kostenefficient alternatief voor Claude Sonnet in MCP-heavy workflows: de 83.6% MCP Atlas score is sterk en de 90% cache discount is aantrekkelijk voor repetitieve agentic patterns. Vergelijk in Google AI Studio met jullie specifieke agentic taken voordat je migreert.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-agent-v0160-surface-release",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent v0.16.0 'Surface Release': native desktop app, admin panel en NVIDIA Skills Hub",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5",
+        "https://medium.com/@tentenco/hermes-agent-desktop-app-everything-you-need-to-know-about-nous-researchs-self-improving-ai-agent-3cb59bd31e5f",
+        "https://www.marktechpost.com/2026/06/03/nous-research-releases-hermes-desktop-a-native-cross-platform-front-end-for-hermes-agent-v0-15-2-with-streaming-tool-output/"
+      ],
+      "bron_namen": ["NousResearch GitHub Releases", "Medium - Ewan Mak", "MarkTechPost"],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "NousResearch lanceerde Hermes Agent v0.16.0 'The Surface Release' met 874 commits en 542 merged PRs. De grootste toevoeging is een native Electron desktop app (macOS/Linux/Windows) met one-click install, in-app self-update, drag-and-drop bestanden en Cmd+K command palette. De release bevat ook een volledige browser-based admin panel met MCP catalog en NVIDIA/skills integratie.",
+      "technical_depth": "874 commits, 542 merged PRs, 1962 bestanden gewijzigd, 170 contributors; native Electron desktop app met concurrent multi-profile sessions; web admin panel voor MCP catalog, messaging channels, credentials, webhooks en memory; NVIDIA/skills in trusted Skills Hub taps; OAuth + username/password remote gateway; security fixes: CVE-2026-48710 (Starlette pin), SSRF hardening, subprocess credential stripping.",
+      "toepassing": "Hermes Desktop is het meest complete open-source alternatief voor Claude Code UI geworden. De MCP catalog integratie en Skills Hub maken het interessant als self-hosted agent platform voor projecten met privacy-vereisten. Bruikbaar als referentie-implementatie voor agent UI patronen en native desktop agent apps.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "mcp-rc-stateless-core-tasks-apps",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP Release Candidate (21 mei): stateless core elimineert sticky sessions, Tasks en MCP Apps extensions",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://modelcontextprotocol.io/development/roadmap"
+      ],
+      "bron_namen": ["MCP Official Blog", "Medium - Balaji Bal", "MCP Roadmap"],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De MCP Release Candidate (gepubliceerd 21 mei, finale release 28 juli) maakt het protocol stateless: de initialize/initialized handshake en Mcp-Session-Id header vervallen; protocol version en client capabilities reizen voortaan mee in _meta op elk request. Dit elimineert sticky sessions en shared session stores bij remote MCP servers.",
+      "technical_depth": "Stateless core: elimineert initialize/initialized handshake en Mcp-Session-Id header; client capabilities in _meta per request; remote servers kunnen achter plain round-robin load balancers draaien; Tasks extension: servers antwoorden op tools/call met task handles, clients managen via tasks/get, tasks/update, tasks/cancel met retry semantics en expiry policies; MCP Apps: servers shippen HTML interfaces die hosts renderen in sandboxed iframes via JSON-RPC; OAuth hardening: 6 SEPs, verplichte iss-parameter validatie (RFC 9207); 10-week validatievenster loopt tot 28 juli.",
+      "toepassing": "Plan nu de migratie van jullie stateful MCP servers naar de stateless architectuur voor 28 juli. De Tasks extension is direct bruikbaar voor lange agentic jobs in Orion: spawn een task, geef handle terug, poll met tasks/get. MCP Apps maakt het mogelijk om custom UIs te bouwen die direct in de agent host (bijv. Claude Code) worden gerenderd. Tier 1 SDKs shippen support binnen de 10-week window.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "microsoft-agent-governance-toolkit",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Microsoft Agent Governance Toolkit: volledige OWASP Agentic Top 10 coverage + zero-trust identity",
+      "bron_urls": [
+        "https://github.com/microsoft/agent-governance-toolkit",
+        "https://github.com/microsoft/agent-framework/releases"
+      ],
+      "bron_namen": ["Microsoft GitHub - Agent Governance Toolkit", "Microsoft Agent Framework Releases"],
+      "datum_artikel": "2026-06-14",
+      "samenvatting": "Microsoft verifieerde op 14 juni dat de Agent Governance Toolkit alle AARM Extended R1-R9 vereisten dekt en alle 10 OWASP Agentic Top 10 risicos adresseert. De toolkit biedt policy enforcement, zero-trust identity, execution sandboxing en reliability engineering voor autonomous AI agents als open-source aanvulling op het Agent Framework v1.0.",
+      "technical_depth": "Volledige OWASP Agentic Top 10 coverage (10/10); AARM Extended R1-R9 compliance verified op 14 juni; policy enforcement via declaratieve regels; zero-trust identity verificatie voor agent-to-agent communicatie; execution sandboxing voor tool calls; reliability engineering patterns; integreert met Microsoft Agent Framework v1.0 (Python en .NET); Microsoft.Extensions.AI packages v10.6.0.",
+      "toepassing": "Gebruik als referentie-framework en security checklist voor agent deployments in Orion. De OWASP Agentic Top 10 coverage geeft een concrete lijst van risicos om te mitigeren in jullie agentic workflows. Zero-trust identity patterns zijn direct toepasbaar voor multi-agent architecturen waarbij agents elkaars calls moeten verifiëren.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "simonwillison-datasette-agent-ask-user",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: datasette-agent 0.2a0 met ask_user() human-in-the-loop patroon via ToolContext",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/10/datasette-agent/",
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/"
+      ],
+      "bron_namen": ["Simon Willison Weblog - datasette-agent", "Simon Willison Weblog - Claude Fable 5"],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Simon Willison releasede datasette-agent 0.2a0 met een nieuw ask_user() patroon waarmee tools mid-execution de gebruiker om input kunnen vragen via een ToolContext object. Dit human-in-the-loop mechanisme is gebouwd met Claude Fable 5 vanwege de 128K output token limiet en maakt interactieve agentic workflows mogelijk waarbij de agent pauzeert voor menselijke bevestiging.",
+      "technical_depth": "ask_user() is een LLM alpha feature: tools declareren een context parameter die een ToolContext object ontvangt; via ToolContext kan een tool de executie onderbreken en een vraag stellen aan de gebruiker; antwoord wordt teruggegeven aan de tool die dan verdergaat; gebouwd bovenop Simon's LLM Python library; datasette-agent gebruikt het voor database query-confirmaties; Claude Fable 5 als backbone vanwege 128K output tokens en superieure agentic performance.",
+      "toepassing": "Het ask_user()/ToolContext patroon is direct implementeerbaar in eigen agent tools voor destructieve operaties, ambigue instructies of kritieke beslissingen. Implementeer ToolContext in MCP tools om human-in-the-loop toe te voegen zonder de agent flow te breken. Simon's datasette-agent code is open source en bruikbaar als referentie voor interactieve Orion agent tools.",
+      "relevantie_score": 8
+    }
+  ]
+}
