@@ -1,0 +1,165 @@
+{
+  "datum": "2026-06-19",
+  "gegenereerd_op": "09:15 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-fable5-release-government-suspension",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Fable 5 uitgebracht en direct gesuspendeerd door US export-richtlijn",
+      "bron_urls": [
+        "https://www.infoq.com/news/2026/06/claude-5-release/",
+        "https://simonwillison.net/2026/Jun/13/us-government-directive-to-suspend-access/",
+        "https://releasebot.io/updates/anthropic/claude"
+      ],
+      "bron_namen": [
+        "InfoQ",
+        "Simon Willison",
+        "Releasebot – Anthropic Claude Updates"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Op 9 juni 2026 lanceerde Anthropic Claude Fable 5, het eerste publiek beschikbare model uit de Mythos-klasse met altijd-actief adaptief denken, een contextvenster van 1 miljoen tokens en 128K output-tokens. Slechts drie dagen later, op 12 juni, kondigde Anthropic aan dat een US government export-control richtlijn verplichtte de toegang tot zowel Fable 5 als Mythos 5 per direct te staken. Fable 5 en Mythos 5 delen dezelfde onderliggende architectuur; Fable 5 is de publieke, beveiligde variant van het eerder op 7 april 2026 aangekondigde Mythos 5.",
+      "technical_depth": "Fable 5 draait met always-on adaptive thinking (continu chain-of-thought), 1M token context en 128K output tokens. Beschikbaar via Claude API, AWS Bedrock en Microsoft Azure. De export-richtlijn beperkt toegang door buitenlandse staatsburgers, ook Anthropic's eigen buitenlandse medewerkers. Zelfde gewichten als Mythos 5, andere guardrails.",
+      "toepassing": "De tijdelijke opschorting beinvloedt Pepijn en Duncan niet direct (EU-burgers met API-toegang), maar signaleert een structureel risico voor het bouwen op frontier-modellen: compliance-risico kan deployment midway onderbreken. Bouw agentic workflows met fallback-modellen via het nieuwe `fallbackModel` config-veld in Claude Code.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-v2-1-172-nested-subagents-agent-view",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.172: sub-agents spawnen sub-agents (5 niveaus diep) en nieuwe Agent View",
+      "bron_urls": [
+        "https://byteiota.com/claude-code-v2-1-172-sub-agents-can-now-spawn-sub-agents/",
+        "https://chatforest.com/builders-log/claude-code-nested-sub-agents-depth-5-token-math-builder-guide/",
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://claudefa.st/blog/guide/agents/nested-subagents"
+      ],
+      "bron_namen": [
+        "byteiota.com",
+        "ChatForest Builders Log",
+        "Releasebot – Claude Code Updates",
+        "ClaudeFa.st"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Release v2.1.172 (10 juni 2026) heft de eerder harde beperking op dat sub-agents geen eigen sub-agents konden spawnen. Background agent-chains zijn nu tot 5 niveaus diep ondersteund, hard afgedwongen server-side. Tegelijk introduceert Claude Code een nieuwe Agent View: een CLI-overzicht waarmee meerdere parallelle sessies gelijktijdig gemanaged, gepauzeerd en hervat kunnen worden zonder de parent-context te verlaten.",
+      "technical_depth": "De 5-lagen cap is server-side enforced en niet te overschrijven via config. Het doel is context-isolatie, niet parallelisatie: alleen conclusies stromen omhoog naar de parent. Token-overhead kan tot 7x escaleren bij volledige nesting; praktisch advies is maximaal 2-3 lagen te gebruiken. Ook nieuw: `/cd`-commando (directory wisselen zonder cache-rebuild), `--safe-mode` (alle customizations uitschakelen voor troubleshooting), en `fallbackModel` (tot 3 fallback-modellen in volgorde configureren).",
+      "toepassing": "Pepijn en Duncan kunnen nu orchestrator -> planner -> executor -> verifier-chains bouwen. Praktisch patroon: outer agent ontvangt taak, spawnt sub-agents per onafhankelijke codebase-component, elke sub-agent retourneert alleen diff + samenvatting. Gebruik `tools: Agent(child_name)` allowlist om runaway-chains te voorkomen. Agent View is direct bruikbaar voor het monitoren van langlopende Orion-sessies.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "anthropic-agent-sdk-billing-split-june-15",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic Agent SDK billing gesplitst (en direct gepauseerd) op 15 juni 2026",
+      "bron_urls": [
+        "https://www.techtimes.com/articles/317625/20260602/anthropic-ends-subscription-subsidy-agents-june-15-credit-pool-replaces-flat-rate-access.htm",
+        "https://www.digitalapplied.com/blog/anthropic-claude-credit-overhaul-june-15-2026",
+        "https://codersera.com/blog/anthropic-june-2026-billing-change-claude-code/"
+      ],
+      "bron_namen": [
+        "TechTimes",
+        "Digital Applied",
+        "Codersera"
+      ],
+      "datum_artikel": "2026-06-15",
+      "samenvatting": "Vanaf 15 juni 2026 zou programmatisch Claude-gebruik (Claude Agent SDK, `claude -p`, GitHub Actions, derde-partij apps) uit een aparte maandelijkse creditpool worden afgeschreven: ca. $20 voor Pro, $100 voor Max 5x, $200 voor Max 20x tegen standaard API-tarieven. Op dezelfde dag kondigde Anthropic aan de wijziging toch niet door te voeren en de bestaande flat-rate toegang te continueren.",
+      "technical_depth": "De creditpool zou draaien op API-rates (niet de gesubsidieerde inference van Claude.ai). Unused credits zouden niet overrollen. Volgorde: credit-pool eerst, daarna usage-credits. Claude Platform-accounts (pure API-sleutel) ontvangen geen credit; uitsluitend Pro/Max/Team/Enterprise-abonnementen. De snelle terugdraaiing suggereert sterke pushback vanuit de developer-community.",
+      "toepassing": "Hoewel de change gepauseerd is, geeft dit een duidelijk signaal: Anthropic scheidt programmatisch gebruik structureel van consumer-gebruik. Pepijn en Duncan moeten anticiperen op een toekomstige kostenwijziging voor hun agentic workflows via Claude Code GitHub Actions en `claude -p` automations. Maak nu een baseline-meting van het token-gebruik per pipeline-run.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt55-instant-personalization-free",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: personalisatie uitgerold naar ChatGPT Go & Free-tier (9 juni 2026)",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://releasebot.io/updates/openai"
+      ],
+      "bron_namen": [
+        "OpenAI Blog",
+        "Releasebot – OpenAI Updates"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Op 9 juni 2026 rolde OpenAI de personalisatiefuncties van GPT-5.5 Instant uit naar de ChatGPT Go- en Free-tiers. GPT-5.5 Instant, gelanceerd op 5 mei als het nieuwe standaardmodel, brengt verminderde hallucinaties en verbeterde personalisatiecontroles naar alle gebruikers. Tegelijk worden GPT-5.2-modellen (Instant, Thinking, Pro) uitgefaseerd; bestaande gesprekken migreren automatisch naar GPT-5.5.",
+      "technical_depth": "GPT-5.5 beschikbaar in de API vanaf 24 april 2026. De Instant-variant is geoptimaliseerd voor lage latency en dagelijks gebruik, tegenover de Pro-variant voor complexe taken. Personalisatie omvat een persistent user-model dat gedragspatronen leert over sessies heen. GPT-5.2-modellen zijn deprecated per juni 2026.",
+      "toepassing": "Interessant als vergelijkingsbasis voor Claude-gebaseerde workflows: GPT-5.5's personalisatie-aanpak is nu breed beschikbaar. Voor benchmarking van reasoning-taken is GPT-5.5 API het huidige baseline-model bij OpenAI. De deprecation van GPT-5.2 is relevant als jullie nog integraties hebben op die model-IDs.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-managed-agents-sandbox-api",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini API: Managed Agents in public preview – autonome agents in geïsoleerde Linux-sandbox",
+      "bron_urls": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/",
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://byteiota.com/gemini-api-managed-agents-full-sandbox-one-api-call/"
+      ],
+      "bron_namen": [
+        "Google Blog",
+        "Gemini API Changelog",
+        "byteiota.com"
+      ],
+      "datum_artikel": "2026-05-28",
+      "samenvatting": "Google lanceerde Managed Agents in de Gemini API als public preview: één `client.interactions.create()`-call deployt een stateful, autonome agent in een door Google gehoste, geïsoleerde Linux-sandbox. De Antigravity Agent (`antigravity-preview-05-2026`) kan zelfstandig plannen, redeneren, code schrijven en uitvoeren, bestanden beheren en het web browsen binnen zijn container. Gemini 3.5 Flash is gelijktijdig GA gegaan als het meest capabele model voor agentic en coding-taken.",
+      "technical_depth": "Sandbox = geïsoleerde Linux-container zonder externe netwerktoegang by default. Config-gedreven REST API: max 1000 managed agents per project. Alleen `antigravity-preview-05-2026` als base_agent. Geen agent versioning/rollback of subagent delegation in preview. SDK namespace: `client.interactions`. File Search ondersteunt nu multimodale zoekopdrachten via `gemini-embedding-2`. Breaking change: Interactions API `outputs` -> `steps` (legacy verwijderd per 8 juni 2026).",
+      "toepassing": "Direct vergelijkbaar met Anthropic's Claude Agent SDK: Google biedt nu een managed execution-omgeving voor agents zonder eigen infrastructure. Interessant als alternatief voor Claude Code workflows die externe sandboxing vereisen. Let op de breaking change in de Interactions API als je de Gemini API al gebruikt – migreer van `outputs` naar `steps`.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "hermes-agent-v016-surface-release-desktop",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent v0.16.0 'The Surface Release': native desktop app, remote gateway en MCP-catalogus",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5",
+        "https://www.marktechpost.com/2026/06/03/nous-research-releases-hermes-desktop-a-native-cross-platform-front-end-for-hermes-agent-v0-15-2-with-streaming-tool-output/"
+      ],
+      "bron_namen": [
+        "GitHub – NousResearch/hermes-agent",
+        "MarkTechPost"
+      ],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "NousResearch publiceerde op 5 juni 2026 Hermes Agent v0.16.0 'The Surface Release', de grootste release in het projecthistorie (874 commits, 542 merged PRs, 399 closed issues). Het grootste nieuws: een native Electron-desktopapp voor macOS/Linux/Windows met één-klik installatie, in-app updates, drag-and-drop bestanden en concurrent multi-profiel sessies. Remote gateway-connectiviteit via WebSocket met OAuth/OIDC maakt gedistribueerde architecturen mogelijk.",
+      "technical_depth": "Electron-based native client met Command Palette (Cmd+K), inline model picker in status bar en volledige Simplified Chinese vertaling. Nieuwe model-ondersteuning: `deepseek-v4-flash`, `MiniMax-M3` (1M context), `qwen3.7-plus`, `gemini-3.5-flash`. Core agent loop: `/undo [N]` om N turns terug te gaan, progressive tool disclosure voor MCP en plugin tools. MCP-catalogus in web dashboard met enable/disable toggles. CVE-2026-48710 gepatcht via Starlette >=1.0.1 pinning. Beveiliging: URL SSRF-checks async-safe, Bedrock inference tokens gestript uit subprocess environments.",
+      "toepassing": "Hermes Agent is nu de meest complete open-source alternatieven voor Claude Code: native desktop, MCP-integratie, remote gateway, en ondersteuning voor alle grote providers inclusief Gemini 3.5 Flash en DeepSeek V4. Voor Pepijn en Duncan interessant als zelf-hostbaar alternatief met volledige controle over model-selectie en data-residency.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-2026-release-candidate-stateless-tasks",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026-07-28 Release Candidate: stateless core, Tasks-extensie en MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/",
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/"
+      ],
+      "bron_namen": [
+        "MCP Official Blog – Release Candidate",
+        "Medium – Balaji Bal",
+        "The New Stack",
+        "MCP Official Blog – Roadmap"
+      ],
+      "datum_artikel": "2026-06-14",
+      "samenvatting": "De release candidate voor de MCP-specificatie van 28 juli 2026 is beschikbaar. De grootste herziening sinds de lancering maakt het protocol stateless op de transportlaag: MCP-servers kunnen nu achter een gewone round-robin load balancer draaien in plaats van sticky sessions te vereisen. Nieuwe uitbreidingen zijn de Tasks-extensie (langlopende, asynchrone werkzaamheden met retry semantics), MCP Apps (server-rendered UIs), en verbeterde autorisatie die aansluit bij OAuth 2.0 en OpenID Connect.",
+      "technical_depth": "Stateless core: clients cachen `tools/list`-responses en routeren op een `Mcp-Method`-header. Nieuwe velden `ttlMs` en `cacheScope` in list/resource-read responses voor voorspelbaar cachegedrag. Tasks-extensie (SEP-1686): retry semantics, expiry policies voor resultaatretentie. MCP Apps: server-rendered UIs via het protocol. Auth: dichter bij standaard OAuth/OIDC deployments. Governance: contributor ladder en delegation model voor Working Groups. MCP is nu een directed fund onder de Linux Foundation (AAIF), co-gesticht door Anthropic, Block en OpenAI.",
+      "toepassing": "De stateless kern lost het grootste schaalbaarheids-bottleneck op voor Pepijn en Duncan's eigen MCP-server deployments op standaard Kubernetes/cloud infra zonder sticky sessions. Tasks-extensie maakt asynchroon beheer van langlopende agent-taken mogelijk via het protocol. Plan nu migratie van bestaande MCP-servers naar stateless architectuur voor de finale release op 28 juli 2026.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "simonwillison-wwdc-apple-gemini-fable5-suspension",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Apple licentieert Gemini-afgeleid model voor Siri (WWDC) en analyseert Fable 5-suspensie",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/8/wwdc/",
+        "https://simonwillison.net/2026/Jun/13/us-government-directive-to-suspend-access/"
+      ],
+      "bron_namen": [
+        "Simon Willison – WWDC 2026",
+        "Simon Willison – Fable 5 Suspension"
+      ],
+      "datum_artikel": "2026-06-13",
+      "samenvatting": "Simon Willison publiceerde op 8 juni een analyse van Apple's WWDC-aankondigingen: Apple licentieert een custom Gemini-afgeleid model voor de nieuwe Siri AI-features, wat impliceert dat Apple bewust kiest voor een externe model-provider boven eigen on-device modellen voor complexere taken. Op 13 juni publiceerde Willison commentaar op de US government directive die Anthropic dwong Fable 5 en Mythos 5 per direct offline te halen, inclusief voor Anthropic's eigen buitenlandse medewerkers.",
+      "technical_depth": "Apple's keuze voor een Gemini-afgeleid model signaleert een verschuiving: zelfs Apple ziet geen businesscase om frontier reasoning zelf te trainen voor Siri. Willison's Fable 5-analyse benadrukt de export-control implicaties voor multinationale AI-bedrijven en de cascade-effecten op productie-API's. Beide stukken zijn korte linkposts met scherpe technische inkaddering in bredere trends.",
+      "toepassing": "Voor Pepijn en Duncan relevant als strategische radar: (1) Apple als Gemini-afnemer verhoogt het belang van Gemini API-kennis naast Claude; (2) export-control risico's zijn nu realiteit ook voor tier-1 modellen – bouw resilientie in via multi-provider strategie en `fallbackModel` config. Volg simonwillison.net als primaire bron voor snelle duiding van breaking AI-nieuws.",
+      "relevantie_score": 7
+    }
+  ]
+}
