@@ -1,0 +1,150 @@
+{
+  "datum": "2026-06-20",
+  "gegenereerd_op": "00:09 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-artifacts-juni-2026",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Artifacts: Live gedeelde dashboards voor Team & Enterprise",
+      "bron_urls": [
+        "https://venturebeat.com/data/anthropics-claude-code-artifacts-update-brings-live-shared-dashboards-and-interactive-workspaces-to-enterprises",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "VentureBeat",
+        "Releasebot"
+      ],
+      "datum_artikel": "2026-06",
+      "samenvatting": "Anthropic lanceerde Claude Code Artifacts voor Team- en Enterprise-abonnementen: een Claude Code sessie kan worden omgezet in een live, interactieve en deelbare HTML-webpagina op een eigen URL. Meerdere live databronnen en code kunnen worden gekoppeld, zodat teams agent-output direct kunnen delen via een browser-link.",
+      "technical_depth": "Artifacts genereert custom HTML-pagina's die live code en meerdere databronnen embedden. De output URL is deelbaar en interactief, waardoor agent-output direct in de browser zichtbaar is zonder exportstap of aparte frontend.",
+      "toepassing": "Pepijn en Duncan kunnen Orion-outputs en agent-runs direct publiceren als deelbare dashboards voor stakeholders. Ideaal voor rapportage vanuit agentic workflows zonder aparte React/Next.js frontend te bouwen.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-subagents-cd-safemode-juni-2026",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code: /cd command, nested sub-agents en safe mode — rate limits verdubbeld",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://www.mindstudio.ai/blog/code-with-claude-2026-new-agent-features"
+      ],
+      "bron_namen": [
+        "Releasebot",
+        "MindStudio"
+      ],
+      "datum_artikel": "2026-06",
+      "samenvatting": "Claude Code voegt drie technische features toe: /cd verplaatst de actieve sessie naar een andere directory zonder de prompt-cache te herbouwen; nested sub-agents laten een agent zelf nieuwe agents spawnen; safe mode isoleert kapotte configuraties zodat de CLI altijd opstart. Tegelijkertijd zijn rate limits verdubbeld en API-limieten voor Opus verhoogd.",
+      "technical_depth": "/cd behoudt prompt-cache context across directory-changes. Nested sub-agents maken echte hiërarchische multi-agent orchestratie mogelijk vanuit Claude Code zelf zonder externe orchestrator. Safe mode start Claude Code in fallback-modus als plugins of hooks crashen.",
+      "toepassing": "Nested sub-agents zijn direct bruikbaar in Orion-achtige workflows waarbij één orchestrator agent meerdere specialisten spawnt vanuit dezelfde Claude Code sessie. /cd maakt mono-repo navigatie efficiënter. Rate limit verdubbeling betekent minder throttling bij parallelle agent-runs.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "mcp-enterprise-auth-juni-2026",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP Enterprise-Managed Authorization (EMA) stabiel — zero-touch OAuth voor teams",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/",
+        "https://releasebot.io/updates/anthropic"
+      ],
+      "bron_namen": [
+        "MCP Official Blog",
+        "Releasebot"
+      ],
+      "datum_artikel": "2026-06-18",
+      "samenvatting": "De EMA-extensie voor MCP is op 18 juni 2026 stabiel verklaard. Organisaties kunnen OAuth-autorisatie voor alle MCP-servers centraal beheren via hun IdP, waarna gebruikers zero-touch toegang krijgen bij eerste login. Anthropic, Microsoft en Okta zijn early adopters van de centrale provisioning.",
+      "technical_depth": "EMA maakt centrale provisioning van MCP-connector-autorisatie mogelijk: admins configureren OAuth-scopes en credential-stores eenmalig in de IdP, gebruikers authenticeren niet per server opnieuw. Dit lost het grootste enterprise pain point op: herhaalde consent-prompts bij elke MCP-verbinding.",
+      "toepassing": "Voor enterprise Claude Code deployments betekent dit dat MCP-servers voor GitHub, Jira, Slack etc. eenmalig geconfigureerd worden door de admin en frictionloos beschikbaar zijn voor alle teamleden. Directe toepassing bij Orion-MCP-integraties in team-omgevingen.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "mcp-rc-2026-stateless-core",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026-07-28 Release Candidate: Stateless core, Tasks extensie en MCP Apps",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": [
+        "MCP Official Blog",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-05-21",
+      "samenvatting": "De grootste MCP-protocolupdate ooit is als Release Candidate gepubliceerd (final: 28 juli 2026). De stateless core verwijdert de initialize/initialized handshake en Mcp-Session-Id header zodat elke server-instantie requests kan afhandelen zonder sticky routing. Nieuwe extensies: Tasks voor long-running operaties en MCP Apps voor server-rendered UIs in sandboxed iframes.",
+      "technical_depth": "Client-metadata reist nu in _meta op elk request. Mcp-Method en Mcp-Name headers enablen load-balancer routing. Tools ondersteunen JSON Schema 2020-12 (oneOf/anyOf/allOf). InputRequiredResult en requestState maken stateless multi-round-trip interacties mogelijk. Roots, Sampling en Logging deprecated (12-maands window). W3C Trace Context in _meta voor distributed tracing.",
+      "toepassing": "De stateless core maakt MCP-servers horizontaal schaalbaar achter gewone load balancers — kritiek voor productie-grade Orion-deployments. Tasks-extensie is essentieel voor lange agent-runs. JSON Schema 2020-12 verbetert type-safe tool definitions. Tier 1 SDKs verwacht te supporten binnen 10 weken.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "openai-gpt55-update-juni-2026",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant bijgewerkt, GPT-5.2 volledig deprecated per 12 juni 2026",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://help.openai.com/en/articles/9624314-model-release-notes"
+      ],
+      "bron_namen": [
+        "OpenAI",
+        "OpenAI Help Center"
+      ],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "OpenAI heeft GPT-5.5 Instant bijgewerkt met coding en writing blocks als first-class chat-elementen en verbeterde personalisatie. Per 12 juni 2026 zijn GPT-5.2 Instant, Thinking en Pro volledig verwijderd — bestaande conversaties migreren automatisch naar GPT-5.5. GPT-4.5 wordt op 27 juni 2026 gepensioneerd.",
+      "technical_depth": "GPT-5.5 Instant introduceert structured output blocks in chat (coding/writing) als apart UI-element naast plain text. De volledige deprecatie van GPT-5.2 consolideert de OpenAI product-lijn rond de 5.5-familie. API-gebruikers moeten model-ID's bijwerken van gpt-5.2-* naar gpt-5.5-*.",
+      "toepassing": "Als Pepijn of Duncan OpenAI API's gebruiken voor benchmarks of hybride agent-setups, moeten model-ID's voor 27 juni gemigreerd zijn. GPT-4.5 integrations moeten voor 27 juni op gpt-5.5-* staan om service-onderbrekingen te vermijden.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-cli-mcp-open-source-2026",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Gemini CLI: Google's open-source terminal agent met MCP support (96K+ stars)",
+      "bron_urls": [
+        "https://github.com/google-gemini/gemini-cli",
+        "https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/"
+      ],
+      "bron_namen": [
+        "GitHub (google-gemini/gemini-cli)",
+        "Google Blog"
+      ],
+      "datum_artikel": "2026-04",
+      "samenvatting": "Google lanceerde Gemini CLI als open-source terminal agent (Apache 2.0) met een ReAct loop, 1M token context, ingebouwde MCP server support en een officiële GitHub Action voor PR-review en issue triage. Met 96.600+ GitHub-stars is het snel de meest gedownloade terminal agent na Claude Code geworden.",
+      "technical_depth": "Gemini CLI implementeert een volledige ReAct loop, leest GEMINI.md als context file (analoog aan CLAUDE.md), ondersteunt conversation checkpointing, token caching en non-interactieve JSON output voor scripting. MCP-servers worden geconfigureerd via ~/.gemini/ settings. Gratis toegang tot Gemini 2.5 Pro via Google-account.",
+      "toepassing": "Directe open-source concurrent voor Claude Code als terminal agent. MCP-compatibiliteit maakt hybride setups mogelijk. Het GEMINI.md patroon toont industrie-convergentie in agent context-management. Bruikbaar als benchmark voor Claude Code UX en als fallback in multi-agent Orion architecturen.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "glm52-hermes-agent-integration-juni-2026",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "GLM-5.2 (Z.ai): 1M context open-weights model direct geïntegreerd in Hermes Agent",
+      "bron_urls": [
+        "https://www.marktechpost.com/2026/06/14/z-ai-launches-glm-5-2-with-a-usable-1m-token-context-two-thinking-effort-levels-and-no-benchmarks-at-launch/",
+        "https://github.com/NousResearch/hermes-agent/releases"
+      ],
+      "bron_namen": [
+        "MarkTechPost",
+        "NousResearch/hermes-agent (GitHub)"
+      ],
+      "datum_artikel": "2026-06-14",
+      "samenvatting": "Z.ai lanceerde GLM-5.2 op 13-14 juni 2026: een open-weights model met 1M token context, 131.072 output tokens, twee selecteerbare thinking-effort niveaus en sterke focus op coding en agentic taken. Nous Research integreerde GLM-5.2 binnen dagen als backend in Hermes Agent, compatibel met Claude Code, Cline, OpenCode en OpenClaw.",
+      "technical_depth": "GLM-5.2 biedt twee inference-modi (lichte en diepe redenering) selecteerbaar per request voor kosten/kwaliteit-optimalisatie. De 1M context is 'usable' (niet nominaal), met 131K output tokens voor grote code-generatietaken. Hermes Agent integreert via standaard LLM provider API. Geen benchmark-releases bij launch — Z.ai positioneert op practical use.",
+      "toepassing": "Hermes Agent met GLM-5.2 als backend is een gratis/goedkoop alternatief voor Claude Opus bij grote codebase-taken. Twee thinking-effort levels zijn ideaal voor Orion-orchestratie: goedkope modus voor routing en planning, diepe modus voor complexe code-subtaken.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simonwillison-fable5-agentsview-juni-2026",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison test Claude Fable 5 en ontdekt AgentsView voor cross-agent token-analyse",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/9/",
+        "https://simonwillison.net/2026/Jun/9/agentsview-custom-model-price/"
+      ],
+      "bron_namen": [
+        "Simon Willison's Weblog"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Simon Willison besteedde 5,5 uur aan het testen van Claude Fable 5 (beschrijving: 'a beast' — traag maar exceptioneel capabel) en schreef over AgentsView van Wes McKinney als lokale desktop tool voor het vergelijken van token-gebruik en kosten over meerdere coding agents. AgentsView ondersteunt custom model pricing.",
+      "technical_depth": "AgentsView aggregeert sessie-metrics (tokens, kosten, duur) van meerdere agent-tools (Claude Code, Gemini CLI, Cursor etc.) lokaal en rendert vergelijkingsdashboards. Claude Fable 5 is Anthropic's Mythos-class model — diepste redenering maar laagste throughput van de Claude-familie.",
+      "toepassing": "AgentsView is direct bruikbaar als Pepijn en Duncan meerdere agents parallel runnen en ROI willen vergelijken. Claude Fable 5 is de aangewezen keuze voor Orion-taken waarbij diepte en redenering belangrijker zijn dan snelheid — beschouw het als de 'slow thinking' optie in een multi-model architectuur.",
+      "relevantie_score": 7
+    }
+  ]
+}
