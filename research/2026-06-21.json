@@ -1,0 +1,127 @@
+{
+  "datum": "2026-06-21",
+  "gegenereerd_op": "09:00 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-fable-5-release",
+      "ecosysteem": "Claude Code",
+      "titel": "Anthropic lanceert Claude Fable 5 & Mythos 5: Mythos-klasse model nu publiek beschikbaar",
+      "bron_urls": [
+        "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/"
+      ],
+      "bron_namen": ["Anthropic", "TechCrunch"],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic heeft Claude Fable 5 gelanceerd, een Mythos-klasse model (boven Opus in de hiërarchie) dat nu publiek beschikbaar is. Het model presteert state-of-the-art op vrijwel alle benchmarks inclusief software engineering, vision en wetenschappelijk onderzoek. Gevoelige vragen (cybersecurity, biologie, chemie, model-distillation) leiden automatisch naar Claude Opus 4.8 als fallback, wat bij minder dan 5% van de sessies optreedt.",
+      "technical_depth": "Mythos-klasse architectuur boven de Opus-hiërarchie; $10/$50 per MTok input/output. Safeguard-layer met automatische fallback naar Opus 4.8 bij <5% van sessies. Claude Mythos 5 is hetzelfde onderliggende model maar met lifted safeguards voor cyberdefenders via Project Glasswing (US government samenwerking). Tot 22 juni 2026 gratis op Pro/Max/Team/Enterprise, daarna usage credits vereist.",
+      "toepassing": "Pepijn en Duncan kunnen Fable 5 vóór 22 juni inzetten in Claude Code voor de zwaarste coding en research taken zonder extra kosten. Na 22 juni vereist het usage credits — overweeg zware Orion-workflows selectief door te schakelen naar Fable 5 voor maximale codeer- en redeneernauwkeurigheid versus Opus 4.8 voor regulier werk.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-w24-subagent-nesting",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Week 24: /cd command, recursieve sub-agents tot 5 levels diep, --safe-mode en fallbackModel chains",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new/2026-w24",
+        "https://code.claude.com/docs/en/whats-new"
+      ],
+      "bron_namen": ["Claude Code Docs - Week 24 Digest", "Claude Code Docs - What's New"],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "Claude Code v2.1.172 introduceert recursieve sub-agent spawning: sub-agents kunnen nu hun eigen sub-agents spawnen tot maximaal 5 niveaus diep, zichtbaar als boomstructuur via /agents. De nieuwe /cd command verplaatst een actieve sessie naar een andere directory zonder de prompt-cache te herbouwen (CLAUDE.md wordt als bericht toegevoegd in plaats van systeemprompt te vervangen). --safe-mode start Claude Code met alle customisaties uitgeschakeld voor isolatie-debugging.",
+      "technical_depth": "Sub-agent recursie (v2.1.172): max 5 levels, /agents panel toont descendant-aantallen en pad terug naar main. /cd (v2.1.169): appended nieuwe CLAUDE.md als conversatiebericht, sessie verplaatst naar project storage van nieuwe directory. --safe-mode / CLAUDE_CODE_SAFE_MODE: disablet CLAUDE.md, skills, plugins, hooks, MCP servers en custom commands. fallbackModel: configureert tot 3 fallback-modellen in volgorde bij overload. Cross-session SendMessage draagt geen user authority meer en wordt geblokkeerd door auto mode. Bedrock leest AWS regio automatisch uit ~/.aws config.",
+      "toepassing": "De recursieve sub-agent nesting is direct inzetbaar voor complexe Orion-workflows: een orchestrator-agent kan specialist-agents aansturen die zelf parallelle sub-agents spawnen voor fan-out tasks. /cd is essentieel voor monorepo-workflows waarbij Claude van project naar project switcht mid-sessie. --safe-mode is de go-to tool voor het debuggen van gebroken CLAUDE.md of plugin configuraties.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "hermes-agent-v017-reach-release",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "NousResearch Hermes Agent v0.17.0 'The Reach Release': iMessage via Photon, Raft agent network, background sub-agents",
+      "bron_urls": [
+        "https://github.com/NousResearch/hermes-agent/releases",
+        "https://hermes-agent.org/"
+      ],
+      "bron_namen": ["GitHub - NousResearch/hermes-agent Releases", "Hermes Agent"],
+      "datum_artikel": "2026-06-19",
+      "samenvatting": "Nous Research heeft Hermes Agent v0.17.0 uitgebracht (2 dagen geleden), met directe iMessage-integratie via Photon zonder Mac relay, aansluiting op het Raft gedistribueerd agent-netwerk voor multi-agent samenwerking, en background sub-agent delegation via background=true parameter. De release telt 1.475 commits van 245 community contributors en voegt Automation Blueprints toe voor scheduling via natural language in plaats van cron syntax.",
+      "technical_depth": "Background sub-agents: `background=true` parameter voor asynchrone task delegation. Raft agent network: gateway-connectie voor multi-agent samenwerking over netwerken. iMessage via Photon: directe integratie zonder Mac relay. image_generate tool ondersteunt nu ook in-place editing van bestaande afbeeldingen. Atomic batch operations in Memory tool voor efficiënte geheugenoperaties. Cursor Composer Model access via xAI Grok subscription. Skills Hub vernieuwd met security scanning en featured sections. Desktop app (v0.16.0, 5 juni): macOS/Linux/Windows, one-click install, auto-updates.",
+      "toepassing": "Hermes Agent is de open-source tegenhanger van Claude Code als zelf-lerend agent met persistent memory. De Raft network integratie maakt multi-agent orchestratie mogelijk over machines — interessant als open alternatief voor Claude's cloud multi-agent setup. Background sub-agents zijn direct vergelijkbaar met Claude Code's Week 24 feature. Voor experimenten met lokale/private agentic stacks.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "openai-gpt55-instant-default",
+      "ecosysteem": "OpenAI",
+      "titel": "OpenAI: GPT-5.5 Instant nieuw standaardmodel met 52,5% minder hallucinaties; GPT-4.5 en o3 met pensioen",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+      ],
+      "bron_namen": ["OpenAI", "TechCrunch"],
+      "datum_artikel": "2026-05-05",
+      "samenvatting": "GPT-5.5 Instant vervangt GPT-5.3 Instant als het standaardmodel voor ChatGPT en reduceert gehallucineerde claims met 52,5% op high-stakes prompts. Tegelijkertijd kondigt OpenAI de sunset aan van GPT-5.2 (12 juni, al voltooid), GPT-4.5 (27 juni aanstaande) en o3 (26 augustus). GPT-5.5 Instant scoort 81,2 op AIME 2025 (vs 65,4 GPT-5.3) en 76 op MMMU-Pro (vs 69,2).",
+      "technical_depth": "Hallucination reductie: 52,5% minder op high-stakes prompts, 37,3% minder op eerder gemarkeerde problematische gesprekken. Memory sources feature: toont welke persoonlijke context (gesprekken, bestanden, Gmail) een antwoord informeerde. Container billing wijziging: per minuut gefactureerd met 5 minuten minimum (was 20-minuut rate). Modeldeprecatie timeline: GPT-5.2 (12 jun), GPT-4.5 (27 jun), o3 (26 aug).",
+      "toepassing": "De hallucination-reductie maakt GPT-5.5 Instant relevant voor code-review en documentatie-taken waarbij factual accuracy kritiek is. De sunset-kalender is actie-item: API-code die o3 of GPT-4.5 gebruikt moet vóór eind augustus worden gemigreerd. Als benchmark voor Claude Code workflows: GPT-5.5 Instant is OpenAI's snel/goedkoop model, vergelijkbaar met Claude Sonnet 4.6 in positionering.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-managed-agents-ga",
+      "ecosysteem": "Gemini",
+      "titel": "Google lanceert Gemini 3.5 Flash als GA en Managed Agents in public preview op Google Cloud",
+      "bron_urls": [
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud",
+        "https://docs.cloud.google.com/gemini/enterprise/docs/release-notes"
+      ],
+      "bron_namen": ["Google Cloud Blog", "Google Cloud - Gemini Enterprise Release Notes"],
+      "datum_artikel": "2026-06-01",
+      "samenvatting": "Gemini 3.5 Flash is now generally available op Google Cloud (Global, US en EU regio's) als het snelste frontier-model voor agentic en coding taken. Google lanceerde ook Managed Agents in public preview: developers bouwen autonome, stateful agents in beveiligde geïsoleerde Linux sandbox omgevingen op Google-hosted infrastructure. Gemini Omni is een nieuw multimodaal model dat dynamische video content genereert via tekst/audio/image/video blending.",
+      "technical_depth": "Gemini 3.5 Flash: gepositioneerd voor sustained frontier performance op agentic en coding; GA in Global/US/EU via Gemini Enterprise. Managed Agents: stateful agents in Google-hosted, geïsoleerde Linux sandboxes — vergelijkbaar met Claude Code cloud execution environments. Gemini 3.1 Pro en 3.1 Flash-Lite ook in ecosysteem. Gemini 3 Deep Think voor reasoning, Deep Research voor automatisering, Gemini Live voor real-time interactie.",
+      "toepassing": "Gemini Managed Agents zijn Google's directe concurrentie voor Claude Code's cloud execution. Voor teams met GCP-infra: interessant om te evalueren naast Claude Code. Gemini 3.5 Flash's lage latency is geschikt voor real-time agent orchestratie en snelle tool-call chains. Claude Code Week 23 heeft auto mode op Vertex uitgebracht — dit maakt een hybride setup mogelijk.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "mcp-10k-servers-production-roadmap",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP-ecosysteem: 10.000+ publieke servers, 97M SDK-downloads/maand; productie-roadmap richt zich op stateless scaling en enterprise auth",
+      "bron_urls": [
+        "https://modelcontextprotocol.io/development/roadmap",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": ["Model Context Protocol - Development Roadmap", "The New Stack"],
+      "datum_artikel": "2026-03-01",
+      "samenvatting": "Het MCP-ecosysteem heeft 10.000+ actieve publieke servers bereikt en 97 miljoen maandelijkse SDK-downloads (Python + TypeScript). De 2026 productie-roadmap prioriteert enterprise readiness: stateless Streamable HTTP voor horizontale scaling achter load balancers, audit trails en observability, SSO-geïntegreerde auth (weg van static client secrets), en gateway/proxy patronen. Anthropic heeft tevens Tool Search en Programmatic Tool Calling aan de API toegevoegd.",
+      "technical_depth": "Next-gen transport: Streamable HTTP evolueert naar stateless operatie over meerdere server-instances, correct achter load balancers/proxies. Enterprise gaps worden aangepakt: audit observability, managed auth via SSO in plaats van static secrets, gateway patterns. Anthropic Tool Search: dynamische tool-selectie zonder volledige tool-lijst aan model mee te geven. AAIF MCP Dev Summit Noord-Amerika: april 2026, ~1.200 aanwezigen. Claude heeft 75+ connectors in de directory (MCP-powered).",
+      "toepassing": "De stateless Streamable HTTP roadmap is cruciaal voor productie-MCP deployments door Pepijn en Duncan. Anthropic's Tool Search API stelt agents in staat tools dynamisch te selecteren — dit is fundamenteel voor schaalbare MCP orchestratie waarbij je niet alle 10.000 servers aan het model kunt geven. SSO-integratie maakt enterprise Orion-deployments zonder static secrets mogelijk.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "simon-willison-uber-ai-cost-caps",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison analyseert: Uber overschrijdt AI-budget in 4 maanden, $1.500/maand cap; SpaceX betaalt Anthropic $1,25B/maand",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/3/uber-caps-usage/",
+        "https://simonwillison.net/2026/May/27/product-market-fit/"
+      ],
+      "bron_namen": ["Simon Willison's Blog - Uber AI caps", "Simon Willison's Blog - Product Market Fit"],
+      "datum_artikel": "2026-06-03",
+      "samenvatting": "Uber heeft zijn volledige AI-budget voor 2026 al in 4 maanden uitgeput en beperkt medewerkers nu tot $1.500/maand per AI coding tool inclusief Claude Code. Simon Willison verbindt dit met de bewezen product-market fit van Anthropic en OpenAI: Mercado Libre (23.000 engineers) streeft naar 90% autonome coding met Claude Code voor Q3 2026. SpaceX heeft Cloud Services Agreements met Anthropic afgesloten voor $1,25 miljard per maand t/m mei 2029, wat Anthropic in staat stelt rate limits te verdubbelen.",
+      "technical_depth": "Anthropic verdubbelde Claude Code rate limits (inclusief 5-uurs sessielimiet voor Pro/Max/Enterprise) na SpaceX compute deal. Shopify en Mercado Libre zijn bevestigde enterprise klanten die Claude Code op schaal inzetten. Uber's $1.500/maand cap geldt per medewerker per tool, wat bij $10/MTok output neerkomt op ca. 30M output tokens per maand per developer — indicatief voor intensief gebruik.",
+      "toepassing": "Directe les voor Pepijn en Duncan: monitor je token spend actief als je Claude Code intensief inzet, want budgetoverschrijding gaat snel bij agentic multi-agent runs. De verdubbelde rate limits zijn goed nieuws voor langlopende Orion-sessies. De Mercado Libre 90%-target is een concrete benchmark voor wat agentic coding op schaal kan bereiken.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "claude-code-auto-mode-bedrock-vertex",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Auto Mode nu op AWS Bedrock, Google Vertex en Azure Foundry voor Opus 4.7/4.8 (Week 23)",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": ["Claude Code Docs - What's New", "Releasebot - Anthropic Claude Code"],
+      "datum_artikel": "2026-06-05",
+      "samenvatting": "Claude Code's auto mode — een classifier die permission prompts vervangt door background safety checks zodat veilige acties zonder onderbreking doorlopen en risicovolle acties worden geblokkeerd — is nu beschikbaar op AWS Bedrock, Google Vertex AI en Azure Foundry voor Opus 4.7 en Opus 4.8 (Week 23, v2.1.158-165). Version requirements stellen managed deployments in staat een goedgekeurde Claude Code versierange af te dwingen.",
+      "technical_depth": "Auto mode op Bedrock/Vertex/Foundry: Opus 4.7 en 4.8, vervangt permission prompts door background safety classifier. Safer automatic edits: prompt verschijnt vóór schrijven van uitvoerbare bestanden in acceptEdits mode. /plugin list toont geïnstalleerde plugins inline in de sessie. Version requirements: managed deployments kunnen een approved versierange afdwingen (enterprise governance). Cross-session messaging hardening: SendMessage-berichten van andere sessies dragen geen user authority meer.",
+      "toepassing": "Voor enterprise Claude Code deployments via bestaande AWS of GCP infra: auto mode op Bedrock/Vertex maakt production-grade agentic workflows mogelijk zonder handmatige permission-goedkeuringen. Version requirements zijn essentieel voor team- of bedrijfsdeployments waarbij je een specifieke Claude Code versie wil fixeren. Combineer met Gemini Managed Agents voor hybride multi-cloud agentic architecturen.",
+      "relevantie_score": 8
+    }
+  ]
+}
