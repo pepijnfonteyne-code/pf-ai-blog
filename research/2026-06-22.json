@@ -1,0 +1,163 @@
+{
+  "datum": "2026-06-22",
+  "gegenereerd_op": "00:08 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-nested-subagents-v2-1-172",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code v2.1.172: Sub-agents kunnen eigen sub-agents spawnen (5 lagen diep)",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://code.claude.com/docs/en/sub-agents",
+        "https://newsletter.owainlewis.com/p/i-tested-nested-subagents-in-claude"
+      ],
+      "bron_namen": [
+        "Releasebot – Claude Code Updates June 2026",
+        "Claude Code Docs – Sub-agents",
+        "Owain Lewis Newsletter – I tested nested subagents"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Claude Code v2.1.172 (uitgebracht 10 juni) heft de harde beperking op dat sub-agents geen eigen sub-agents konden spawnen. Nu is nesting tot 5 lagen diep toegestaan. Een reviewer-subagent kan bijvoorbeeld per bevinding een eigen verifier-subagent starten, waarbij alleen de top-level samenvatting terugkomt naar de hoofdconversatie.",
+      "technical_depth": "Depth wordt geteld als aantal subagent-lagen onder de hoofdconversatie, ongeacht foreground/background. Een agent op depth 5 ontvangt de Agent-tool niet meer en kan niet verder delegeren. Elke laag draagt zijn eigen system prompt en model. De 5-frame cap voorkomt infinite recursion maar niet de tokenbill – elke laag multipliceert context.",
+      "toepassing": "Pepijn en Duncan kunnen nu complexe review-pipelines bouwen waarbij een orchestrator-agent meerdere domein-specifieke verifier-agents spawnt die zelf paralleliseren. Ideaal voor code review, multi-step research en Orion-workflows met hiërarchische taakverdeling. Let op de token-kosten bij diepe nesting.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-artifacts-rate-limit-safe-mode",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code: Artifacts (live webpages), verdubbelde rate limits en Safe Mode",
+      "bron_urls": [
+        "https://releasebot.io/updates/anthropic/claude-code",
+        "https://code.claude.com/docs/en/whats-new",
+        "https://claudefa.st/blog/guide/changelog"
+      ],
+      "bron_namen": [
+        "Releasebot – Claude Code Updates June 2026",
+        "Claude Code Docs – What's New",
+        "ClaudeFast – Changelog 2026"
+      ],
+      "datum_artikel": "2026-06-15",
+      "samenvatting": "Drie significante toevoegingen in de juni-releases: (1) Artifacts maakt van sessiewerk live, deelbare webpagina's die in-place updaten (geschikt voor PR walkthroughs, dashboards en checklists met private org-only sharing). (2) Anthropic verdubbelde de rate limits op Claude Code. (3) Safe Mode (--safe-mode) start Claude Code zonder alle customisaties voor troubleshooting.",
+      "technical_depth": "Artifacts zijn in beta voor Team en Enterprise met versiebeheer. De /cd command laat mid-sessie van working directory wisselen zonder de prompt-cache te verbreken. Fallback Model configuratie ondersteunt nu tot 3 fallback-modellen in volgorde. Destructive git-commando's (reset --hard, checkout --, clean -fd, stash drop) worden geblokkeerd in auto-mode tenzij expliciet gevraagd.",
+      "toepassing": "De verdubbelde rate limits zijn direct relevant voor intensief gebruik in agentic workflows en Orion. Artifacts biedt een slimme manier om sessie-output te delen met stakeholders zonder screenshots. Safe Mode helpt bij het debuggen van hook- en MCP-conflicten. /cd is handig voor mono-repo-navigatie.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "claude-fable-5-release-simon-willison",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Fable 5 gelanceerd: beschikbaar via Claude Code CLI, web en Cowork",
+      "bron_urls": [
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/",
+        "https://releasebot.io/updates/anthropic"
+      ],
+      "bron_namen": [
+        "Simon Willison – Initial impressions of Claude Fable 5",
+        "Releasebot – Anthropic Release Notes June 2026"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "Anthropic lanceerde Claude Fable 5 en maakte het direct beschikbaar in Claude.ai, Claude Code web, Claude Code CLI en Claude Cowork. Simon Willison testte het model 5,5 uur lang en beschreef het als 'something of a beast' – traag en duur maar indrukwekkend capabel op alles wat hij erin gooide.",
+      "technical_depth": "Fable 5 is Anthropic's meest capabele model (opvolger van Opus-lijn). Op basis van de model-ID 'claude-fable-5' in de Claude Code /model picker. Het model is beschikbaar op Max/Team Premium/Enterprise plannen. De snelheidstradeoff is significant – voor lange, complexe taken de beste keuze, voor snelle iteraties blijft Sonnet de werkpaard.",
+      "toepassing": "Voor Pepijn en Duncan betekent dit een nieuw flagship-model beschikbaar in Claude Code CLI. Interessant voor de zwaarste agentic taken in Orion waar maximale redenering telt. Beoordeel per taaktype of Fable 5's extra capability de hogere kosten rechtvaardigt t.o.v. Sonnet 4.6.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-release",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: 52,5% minder hallucinaties dan GPT-5.3, nu standaardmodel in ChatGPT",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://releasebot.io/updates/openai/chatgpt"
+      ],
+      "bron_namen": [
+        "OpenAI – GPT-5.5 Instant announcement",
+        "Releasebot – ChatGPT Updates June 2026"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "OpenAI rolde GPT-5.5 Instant uit als nieuw standaardmodel in ChatGPT (Free en Go-tier, 9 juni). Het model claimt 52,5% minder gehallucineerde claims dan GPT-5.3 Instant op high-stakes prompts, met betere feitelijkheid, helderheid en een meer natuurlijke gesprektoon.",
+      "technical_depth": "GPT-5.2 modellen (Instant, Thinking, Pro) zijn per 12 juni retired uit ChatGPT. OpenAI o3 wordt retired op 26 augustus 2026, GPT-4.5 op 27 juni 2026. Container sessions worden nu per-minuut gefactureerd (5-minuten minimum) in plaats van vast 20-minuten tarief – relevante kostenverlaging voor korte API-sessies.",
+      "toepassing": "Als benchmark-referentie bij het evalueren van Claude-modellen voor Orion. De hallucinatie-reductie-claims zijn interessant voor fact-checking-pipelines. De per-minuut billing voor containers is een relevant kostenmodel om te vergelijken met Anthropic's eigen agentic pricing.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "gemini-35-flash-ga-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA + Managed Agents API: autonome agents in Google-hosted sandboxes",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud",
+        "https://wavespeed.ai/blog/posts/gemini-3-5-flash-shipped-leads-agent-benchmarks/"
+      ],
+      "bron_namen": [
+        "Gemini API Changelog",
+        "Google Cloud Blog – I/O 26 innovations",
+        "WaveSpeed Blog – Gemini 3.5 Flash benchmarks"
+      ],
+      "datum_artikel": "2026-06-08",
+      "samenvatting": "Gemini 3.5 Flash is algemeen beschikbaar (GA) en leidt nu de pro-tier op agent-benchmarks terwijl het een flash-tier prijsmodel behoudt. Tegelijk lanceerde Google de Managed Agents API in public preview: autonome, stateful agents die draaien in geïsoleerde Google-hosted Linux sandboxen. De Antigravity Agent (antigravity-preview-05-2026) kan autonoom plannen, redeneren, code schrijven, bestanden beheren en het web browsen.",
+      "technical_depth": "Managed Agents draaien in secure, isolated Google-hosted containers met persistent state. File Search is uitgebreid met multimodale search via gemini-embedding-2 model (zoeken door afbeeldingen). gemini-3.1-flash-image-preview en gemini-3-pro-image-preview worden deprecated op 25 juni 2026. Gemini 3.5 Flash is default ingeschakeld en niet uit te zetten voor Enterprise gebruikers.",
+      "toepassing": "Google's Managed Agents zijn een directe concurrent van Claude's agentic SDK. De stateful sandbox-aanpak verschilt architectureel van Claude Code's model – interessant om te vergelijken voor use cases waarbij persistent agent-state cruciaal is. Gemini 3.5 Flash is relevant als goedkoper alternatief voor bepaalde Orion-subtaken.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "open-source-llm-wave-juni-2026",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Open-source LLM golf juni 2026: GLM-5.2 in Hermes Agent, VibeThinker-3B, Nemotron 3 Ultra",
+      "bron_urls": [
+        "https://llm-stats.com/llm-updates",
+        "https://featherless.ai/blog/best-open-source-llms-2026",
+        "https://codersera.com/blog/open-source-llms-landscape-2026/"
+      ],
+      "bron_namen": [
+        "LLM Stats – AI Updates Today June 2026",
+        "Featherless – Best Open-Source LLMs 2026",
+        "CoderSera – Open-Source LLMs Landscape May 2026"
+      ],
+      "datum_artikel": "2026-06-17",
+      "samenvatting": "Juni 2026 bracht een nieuwe open-weights golf: GLM-5.2 (Z.ai) met significante coding/agentic verbeteringen werd binnen dagen geïntegreerd in Nous Research's Hermes Agent. VibeThinker-3B (WeiboAI, MIT-licentie, Qwen2.5-Coder fine-tune) claimt parity met frontier reasoners op math/code benchmarks bij slechts 3B parameters. Nemotron 3 Ultra (Nvidia) scoort hoog op capability:efficiency ratio.",
+      "technical_depth": "VibeThinker-3B is een Qwen2.5-Coder-3B fine-tune met MIT-licentie – volledig open voor commercieel gebruik. Kimi K2.7 Code HighSpeed claimt 6× snellere multimodale coding-inferentie. GLM-5.2's integratie in Hermes Agent toont hoe snel de open-source community nieuwe modellen adopteert in productie-frameworks. Mistral Large 3 is een full MoE model (675B total, 41B active parameters) onder Apache 2.0.",
+      "toepassing": "VibeThinker-3B is interessant voor zelf-hosted, kostenefficiënte reasoning-taken in Orion. GLM-5.2 via Hermes Agent is relevant als je open-source agentic workflows wil testen zonder API-kosten. Nemotron 3 Ultra is een kandidaat voor lokale deployment bij hoge throughput-vereisten.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "mcp-2026-07-28-stateless-rc",
+      "ecosysteem": "Open Source Tools",
+      "titel": "MCP 2026-07-28 Release Candidate: stateless core verwijdert sessies en schrapt Mcp-Session-Id",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://medium.com/@balajibal/mcps-upcoming-2026-release-is-a-big-deal-1d15990f121f",
+        "https://dev.to/rabinarayanpatra/why-mcp-2026-07-28-spec-drops-sessions-and-goes-stateless-1gd"
+      ],
+      "bron_namen": [
+        "MCP Blog – 2026-07-28 Release Candidate",
+        "Balaji Bal (Medium) – MCP's Upcoming 2026 Release Is a Big Deal",
+        "DEV.to – Why MCP 2026-07-28 Spec Drops Sessions"
+      ],
+      "datum_artikel": "2026-06-19",
+      "samenvatting": "De release candidate voor MCP 2026-07-28 is beschikbaar – de grootste revisie van het protocol sinds de lancering. De headline-wijziging: MCP wordt stateless op protocol-niveau. De initialize/initialized handshake en de Mcp-Session-Id header worden verwijderd, waardoor elk MCP-verzoek op elke server-instance kan landen. Sticky routing en shared session stores zijn niet langer nodig op protocol-niveau.",
+      "technical_depth": "Zes Specification Enhancement Proposals (SEPs) werken samen voor de stateless-transitie. Streamable HTTP transport vereist nu Mcp-Method en Mcp-Name headers zodat load balancers op operatie kunnen routeren zonder de body te inspecteren. List- en resource-read-results krijgen ttlMs en cacheScope (modeled on HTTP Cache-Control). W3C Trace Context propagatie in _meta is gedocumenteerd (traceparent, tracestate, baggage). MCP Apps voegt server-rendered UIs toe; Tasks-extensie voor long-running werk. Tier 1 SDKs moeten support shippen binnen het 10-weken validatievenster.",
+      "toepassing": "Dit is een fundamentele shift voor iedereen die MCP-servers bouwt of host. Pepijn en Duncan moeten hun MCP-server implementaties reviewen op gebruik van Mcp-Session-Id en initialize-handshakes. De stateless aanpak maakt horizontaal schalen van MCP-servers veel eenvoudiger – geen sticky sessions meer in load balancers. Ideaal voor Orion als je MCP-servers op meerdere instances wil draaien.",
+      "relevantie_score": 10
+    },
+    {
+      "id": "simon-willison-playwright-cloudflare-mcp",
+      "ecosysteem": "AI Builders",
+      "titel": "Simon Willison: Playwright MCP + Cloudflare MCP in Claude Code – praktische workflow analyses",
+      "bron_urls": [
+        "https://til.simonwillison.net/claude-code/playwright-mcp-claude-code",
+        "https://simonwillison.net/2026/Jun/9/claude-fable-5/",
+        "https://simonwillison.net/entries/"
+      ],
+      "bron_namen": [
+        "Simon Willison TIL – Using Playwright MCP with Claude Code",
+        "Simon Willison – Initial impressions of Claude Fable 5",
+        "Simon Willison – Blog Entries June 2026"
+      ],
+      "datum_artikel": "2026-06-16",
+      "samenvatting": "Simon Willison publiceert twee relevante analyses in juni: (1) Een hands-on TIL over het gebruik van microsoft/playwright-mcp met Claude Code – je kunt Claude Code letterlijk een zichtbaar Chrome-venster laten openen en besturen via tekst-commando's. (2) Een kritische workflow-analyse waarbij hij Cloudflare MCP probeerde voor regel-editing maar overschakelde naar directe Cloudflare API calls via Claude Code toen de MCP niet de juiste capabilities had.",
+      "technical_depth": "Voor Playwright MCP: officieel microsoft/playwright-mcp package integreerbaar als MCP-server in Claude Code. Trigger via 'Use playwright mcp to open a browser to [url]'. De Chrome-instantie is volledig zichtbaar tijdens de sessie. De Cloudflare MCP-workflow illustreert een veelvoorkomend patroon: MCP biedt abstractie maar heeft soms lagere coverage dan directe API-aanroepen – een trade-off die afhangt van de specifieke taak.",
+      "toepassing": "Playwright MCP opent browser-automatisering rechtstreeks in Claude Code zonder externe orchestratie – interessant voor UI-testing workflows en web scraping in Orion. De Cloudflare MCP case studie is een bruikbare les: altijd verifiëren of een MCP-server de benodigde operations dekt, anders is directe API-integratie sneller. Willison's blog is een continue bron van praktische Claude Code + MCP patronen.",
+      "relevantie_score": 8
+    }
+  ]
+}
