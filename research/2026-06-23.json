@@ -1,0 +1,163 @@
+{
+  "datum": "2026-06-23",
+  "gegenereerd_op": "00:07 UTC",
+  "run_nummer": 1,
+  "bevindingen": [
+    {
+      "id": "claude-code-artifacts-beta",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code Artifacts: AI-sessies als live, deelbare HTML-pagina's",
+      "bron_urls": [
+        "https://claude.com/blog/artifacts-in-claude-code",
+        "https://venturebeat.com/data/anthropics-claude-code-artifacts-update-brings-live-shared-dashboards-and-interactive-workspaces-to-enterprises",
+        "https://dev.to/max_quimby/artifacts-in-claude-code-the-operators-guide-4fb0"
+      ],
+      "bron_namen": [
+        "Anthropic Blog",
+        "VentureBeat",
+        "DEV Community"
+      ],
+      "datum_artikel": "2026-06-18",
+      "samenvatting": "Anthropic lanceerde Claude Code Artifacts in bèta op 18 juni 2026 voor Team- en Enterprise-abonnees. De feature converteert een Claude Code-sessie naar een live, interactieve HTML-pagina op een vaste URL die real-time updatet terwijl de agent werkt. Elke update publiceert een versiegeschiedenisentry die teamleden kunnen terugrollen.",
+      "technical_depth": "Elke Artifact is een zelf-bevattende HTML-pagina (max 16 MiB rendered). Een strikte Content Security Policy (CSP) blokkeert alle externe netwerkverzoeken: geen externe scripts, fonts of stylesheets; fetch, XHR en WebSocket zijn geblokkeerd. CSS en JS moeten inlined zijn, afbeeldingen als data-URIs. Privé org-only sharing met versie-rollback is in bèta.",
+      "toepassing": "Directe toepassing voor Pepijn en Duncan: gebruik Artifacts om een Claude Code-sessie voor een klant of collega te externaliseren als een live PR-walkthrough, incident-dashboard of interactieve checklist. Ideaal voor Orion-rapportages of agentic-workflow-demos zonder extra deployment.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "claude-code-sub-agents-safety-ratelimits",
+      "ecosysteem": "Claude Code",
+      "titel": "Claude Code week 24: sub-agent chains, safe-mode, destructive-command-blocks en 2× rate limits",
+      "bron_urls": [
+        "https://code.claude.com/docs/en/whats-new",
+        "https://claudefa.st/blog/guide/changelog",
+        "https://releasebot.io/updates/anthropic/claude-code"
+      ],
+      "bron_namen": [
+        "Claude Code Docs – What's New",
+        "ClaudeFast Changelog",
+        "Releasebot Anthropic"
+      ],
+      "datum_artikel": "2026-06-12",
+      "samenvatting": "In week 24 (8–12 juni 2026) rolde Anthropic meerdere veiligheids- en infrastructuurupdates uit voor Claude Code. Sub-agents kunnen nu zelf sub-agents spawnen (max 5 niveaus diep). Auto-mode blokkeert nu destructieve git-commando's (`reset --hard`, `checkout -- .`, `clean -fd`, `stash drop`, `commit --amend` op sessie-externe commits) en IaC-destroy commando's tenzij expliciet gevraagd. Rate limits zijn verdubbeld.",
+      "technical_depth": "`--safe-mode` start Claude Code zonder customizations voor troubleshooting. `fallbackModel` accepteert nu tot drie modellen in volgorde. `/cd`-commando wisselt werkdirectory mid-sessie zonder prompt-cache te verbreken. Sub-agent chain-cap van 5 voorkomt runaway recursie.",
+      "toepassing": "De 2× rate limit is direct bruikbaar voor zwaardere agentic builds. De destructive-command-blocks verlagen het risico bij autonome git-workflows — relevant voor Orion en CI-gebaseerde agent-pipelines. `fallbackModel` met drie opties maakt multi-model orchestration robuuster.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "mcp-release-candidate-stateless",
+      "ecosysteem": "Claude Code",
+      "titel": "MCP 2026 Release Candidate: stateless core, Tasks, MCP Apps en OAuth-hardening",
+      "bron_urls": [
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+        "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/",
+        "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+      ],
+      "bron_namen": [
+        "MCP Blog – Release Candidate",
+        "MCP Blog – 2026 Roadmap",
+        "The New Stack"
+      ],
+      "datum_artikel": "2026-06-17",
+      "samenvatting": "De release candidate voor de volgende MCP-specificatie is beschikbaar met als grootste wijziging een stateless protocol-kern die draait op standaard HTTP-infrastructuur zonder sticky sessions. De RC introduceert ook de Extensions-laag (met Tasks voor long-running work en MCP Apps voor server-rendered UI's), OAuth/OIDC-gebaseerde autorisatie-hardening, en een formeel deprecatiebeleid. Finale spec gepland op 28 juli 2026.",
+      "technical_depth": "De overstap naar stateless HTTP maakt horizontale scaling mogelijk zonder load-balancer session-affinity. Tasks-extensie voegt retry-semantics en expiry-policies toe voor asynchrone agent-jobs. MCP Apps stellen servers in staat server-rendered UI's te pushen naar clients. Tier 1 SDKs (Python, TypeScript) zijn verplicht compatibel te zijn binnen het 10-weekse validatievenster. Breaking changes vereisen migratie van bestaande server-implementaties.",
+      "toepassing": "Pepijn en Duncan moeten hun bestaande MCP-servers screenen op stateful-aannames (sessiebeheer, in-memory state). De Tasks-extensie is direct relevant voor langlopende Orion-jobs via MCP. MCP Apps opent de weg naar embedded UIs in agent-tools.",
+      "relevantie_score": 9
+    },
+    {
+      "id": "openai-gpt55-instant-canvas-deprecation",
+      "ecosysteem": "OpenAI",
+      "titel": "GPT-5.5 Instant: verbeterde stijl, interactieve charts en Canvas-vervanging door code blocks",
+      "bron_urls": [
+        "https://openai.com/index/gpt-5-5-instant/",
+        "https://releasebot.io/updates/openai/chatgpt",
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      ],
+      "bron_namen": [
+        "OpenAI Blog",
+        "Releasebot OpenAI",
+        "OpenAI Help Center"
+      ],
+      "datum_artikel": "2026-06-09",
+      "samenvatting": "OpenAI updatte GPT-5.5 Instant met verbeterde responsstijl en personalisatie (uitgerold voor Free/Go op 9 juni). Canvas is vervangen door native writing blocks en code blocks rechtstreeks in de chat. GPT-5.5 Instant kan antwoorden nu omzetten naar interactieve bar-, lijn-, taart- en scattercharts.",
+      "technical_depth": "GPT-5.2 (Instant, Thinking, Pro) is per 12 juni 2026 niet meer beschikbaar; bestaande conversations zijn gemigreerd naar GPT-5.5. GPT-4.5 retirement is 27 juni 2026. ChatGPT for Excel en Google Sheets is globaal beschikbaar voor Business met een spreadsheet-native sidebar die Skills en apps ondersteunt. Active Sessions security-feature toont devices, locatie, sign-in tijd en trusted-device-status per sessie.",
+      "toepassing": "Voor teams die via de OpenAI API werken: GPT-5.2 endpoints zijn verdwenen — tijdige migratie naar GPT-5.5 endpoints noodzakelijk. De spreadsheet-integratie is interessant voor data-extractie workflows als alternatief voor custom tool-building.",
+      "relevantie_score": 6
+    },
+    {
+      "id": "gemini-35-flash-managed-agents",
+      "ecosysteem": "Gemini",
+      "titel": "Gemini 3.5 Flash GA: 4× sneller, nieuw thinking_level API en Managed Agents in preview",
+      "bron_urls": [
+        "https://ai.google.dev/gemini-api/docs/changelog",
+        "https://www.nxcode.io/resources/news/gemini-3-5-flash-developer-guide-agentic-coding-2026",
+        "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud"
+      ],
+      "bron_namen": [
+        "Google AI for Developers – Changelog",
+        "NxCode Developer Guide",
+        "Google Cloud Blog I/O 26"
+      ],
+      "datum_artikel": "2026-06-10",
+      "samenvatting": "Gemini 3.5 Flash is GA als het snelste frontier-model voor agentic en coding tasks, 4× sneller dan andere frontier-modellen. Managed Agents in de Gemini API zijn in public preview: stateful agents draaien in geïsoleerde, Google-hosted Linux sandbox-omgevingen. Breaking API-wijziging: `thinking_level` vervangt `thinking_budget` als parameter, met `low` specifiek afgestemd op code en tool-calling.",
+      "technical_depth": "Migratie-valkuilen: default `thinking_level` is nu `medium` (was `high`), stille kwaliteitsverslechtering bij directe port. `thinking_level: low` is geoptimaliseerd voor code/tool-calling en is sneller/goedkoper met vergelijkbare coding benchmark-scores. Function calling vereist nu een uniek `id` per call die in de `functionResponse` terug moet komen. Prijzen: $1,50/1M input tokens, $9/1M output tokens.",
+      "toepassing": "Gemini 3.5 Flash als backbone voor high-throughput agentic loops is nu levensvatbaar door de snelheids- en kostenverhouding. Managed Agents biedt een alternatief voor zelf-gehoste sandboxes in Orion-achtige systemen. Let op de `thinking_level`-migratie bij bestaande Gemini 3 Flash Preview integraties.",
+      "relevantie_score": 7
+    },
+    {
+      "id": "hermes-agent-v017-nous-research",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "Hermes Agent v0.17.0: zelf-verbeterende MIT-agent met skill-leerloop en subagent-parallelisatie",
+      "bron_urls": [
+        "https://github.com/nousresearch/hermes-agent",
+        "https://github.com/ARUNAGIRINATHAN-K/awesome-ai-agents-2026"
+      ],
+      "bron_namen": [
+        "GitHub – NousResearch/hermes-agent",
+        "GitHub – awesome-ai-agents-2026"
+      ],
+      "datum_artikel": "2026-06-19",
+      "samenvatting": "Nous Research lanceerde Hermes Agent v0.17.0 op 19 juni 2026 (MIT-licentie, 200k GitHub-stars). Het project is een zelf-verbeterende agent met een ingebouwde leerlus: de agent creëert skills uit ervaring, verbetert ze tijdens gebruik, en doorzoekt eerdere sessies met LLM-summarisatie. Het ondersteunt 300+ modellen via OpenRouter, Nous Portal, OpenAI en Anthropic.",
+      "technical_depth": "Architectuur: Python (82,6%) + TypeScript (13,4%). Persistente user modeling via het Honcho-standaard. Ingebouwde cron-scheduling en subagent-parallelisatie. Draait op local, Docker, SSH, Singularity, Modal en Daytona (serverless hibernation voor kostenbeheer). Messaging-gateway ondersteunt Telegram, Discord, Slack, WhatsApp en Signal via één unified process. Trajectory-generatie voor het trainen van tool-calling modellen.",
+      "toepassing": "Hermes Agent is direct inzetbaar als model-agnostisch fundament voor een zelf-verbeterende workflow-assistent. De skill-leerloop en subagent-parallelisatie zijn architectuurpatronen die direct toepasbaar zijn in Orion. De Honcho-gebaseerde user modeling is interessant voor gepersonaliseerde agent-sessies.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "glm-52-zai-coding-mit",
+      "ecosysteem": "Hermes/Open Source Models",
+      "titel": "GLM-5.2 van Z.ai: 753B MoE coding-model met 1M context, MIT-licentie en OpenAI-compatibele API",
+      "bron_urls": [
+        "https://nerova.ai/local-ai-services/z-ai-glm-5-2-coding-plan-openai-compatible-endpoint-june-2026",
+        "https://www.latent.space/p/ainews-glm-gpt-glm-52-passes-vibe",
+        "https://www.datacamp.com/blog/glm-5-2"
+      ],
+      "bron_namen": [
+        "Nerova AI",
+        "Latent Space – AINews",
+        "DataCamp"
+      ],
+      "datum_artikel": "2026-06-13",
+      "samenvatting": "Z.ai (internationaal merk van Zhipu AI, gespun uit Tsinghua University) lanceerde GLM-5.2 op 13 juni 2026 als een Mixture-of-Experts coding-model met ~753B totale parameters (40B actief per token), 1M-token context, en MIT-licentie. Het model is geoptimaliseerd voor long-horizon agentic software engineering, niet voor chat.",
+      "technical_depth": "Dual thinking-effort systeem: High en Max modi. IndexShare-optimalisatie reduceert per-token compute bij extreme contextlengten. Output tot 128K-131K tokens per response. Ondersteunt tool use, function calling en multi-file editing out of the box. OpenAI-compatibele chat-completions API maakt het een drop-in vervanging in bestaande agent-frameworks (Claude Code, Cline, Roo Code). Initieel alleen via Coding Plan; standalone API en open weights volgen.",
+      "toepassing": "GLM-5.2 is de sterkste open-source concurrent voor coding-zware agent-loops. Via de OpenAI-compatibele endpoint te integreren als alternatief backend in bestaande Cline/Roo-setups. De 1M-token context maakt het bruikbaar voor grote codebases zonder chunking. MIT-licentie maakt commercieel gebruik zonder restricties mogelijk.",
+      "relevantie_score": 8
+    },
+    {
+      "id": "agent-reach-browser-agents-github",
+      "ecosysteem": "Open Source Tools",
+      "titel": "Agent-Reach: AI-agents browsen Twitter, Reddit, YouTube en GitHub zonder API-kosten via CLI",
+      "bron_urls": [
+        "https://github.com/Panniantong/agent-reach",
+        "https://github.com/trending?l=python&since=weekly"
+      ],
+      "bron_namen": [
+        "GitHub – Panniantong/agent-reach",
+        "GitHub Trending – Python weekly"
+      ],
+      "datum_artikel": "2026-06-16",
+      "samenvatting": "Agent-Reach is trending op GitHub deze week met 37.788 stars (+8.108 in zeven dagen). Het framework stelt AI-agents in staat het internet te browsen via Twitter, Reddit, YouTube, GitHub en andere platforms via de CLI zonder API-fees. De benadering omzeilt platform-APIs door headless browser-automatisering.",
+      "technical_depth": "Architectuur gebaseerd op CLI-gedreven headless browser-sessies zonder platform-API authenticatie. Het verlaagt de drempel voor web-sourced data-collectie in agent-loops dramatisch door API-kosten en rate-limit-complexiteit te elimineren. Primair Python. Exacte licentie onbevestigd maar MIT-compatibel op basis van trending-metadata.",
+      "toepassing": "Directe toepassing voor research-agents of monitoring-workflows die sociale media of open platforms als databron gebruiken. Pepijn en Duncan kunnen dit inzetten voor competitor-monitoring, technisch nieuws-aggregatie, of het bouwen van eigen research-pipelines zonder API-budget. Combineerbaar met MCP-servers als datasource-laag.",
+      "relevantie_score": 7
+    }
+  ]
+}
